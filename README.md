@@ -39,6 +39,20 @@ template unique.
 13. **CTA final** : bannière bleue, bouton d'appel géant + formulaire court
 14. Maillage interne + footer + barre d'appel fixe mobile
 
+## Logo
+
+| Fichier | Usage |
+| --- | --- |
+| `assets/img/logo-mark.svg` | Emblème seul (disque) — en-tête, pied de page |
+| `assets/img/logo.svg` | Logo complet : emblème + bandeau ETS-BZH + baseline — partage social |
+| `assets/img/favicon.svg` | Favicon (copie de l'emblème) |
+
+> Ces fichiers sont une **reconstruction vectorielle** du logo fourni : le fichier
+> source n'était pas disponible sur le dépôt. Pour utiliser l'original, déposez-le
+> dans `assets/img/` et remplacez les références dans `tools/build.py`
+> (fonctions `header()` et `footer()`), puis relancez `python3 tools/build.py`.
+> Un SVG est préférable (net à toutes les tailles) ; un PNG détouré convient aussi.
+
 ## Charte graphique
 
 | Élément | Valeur |
@@ -99,3 +113,5 @@ Un champ piège (`_gotcha`) bloque les robots de formulaire.
 - [ ] **Endpoint de formulaire** (voir ci-dessus)
 - [ ] **Domaine** — `SITE["url"]` dans `tools/data.py` alimente les URLs
       canoniques et le sitemap
+- [ ] **Logo** — remplacer la reconstruction vectorielle par le fichier source
+      officiel si vous le possédez (voir section « Logo »)

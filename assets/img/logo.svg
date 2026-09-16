@@ -1,6 +1,70 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="ETS-BZH">
-  <rect width="64" height="64" fill="#005580"/>
-  <rect x="5" y="5" width="54" height="54" fill="none" stroke="#ffffff" stroke-width="2"/>
-  <path d="M14 20h16v5H20v5h9v5h-9v5h10v5H14z" fill="#ffffff"/>
-  <path d="M33 20h18v5h-6.5v20H39V25h-6z" fill="#ffffff"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 430" role="img"
+     aria-label="ETS-BZH — Plomberie, Dégorgement, Électricité &amp; Canalisations">
+  <title>ETS-BZH</title>
+  <defs>
+    <clipPath id="disqueLogo"><circle cx="100" cy="100" r="99"/></clipPath>
+  </defs>
+
+  <!-- emblème -->
+  <g transform="translate(215 2) scale(1.05)">
+    <circle cx="100" cy="100" r="99" fill="#1B5D8E"/>
+
+  <g clip-path="url(#disqueLogo)">
+
+    <!-- tuyau horizontal haut gauche, avec brides -->
+    <g fill="#FFFFFF" stroke="#1B5D8E" stroke-width="3" paint-order="stroke fill">
+      <rect x="56" y="22" width="10" height="28"/>
+      <rect x="66" y="29" width="28" height="14"/>
+      <rect x="92" y="22" width="10" height="28"/>
+    </g>
+
+    <!-- goutte d'eau -->
+    <path d="M78 48c0 0-28 38-28 55a28 28 0 0 0 56 0c0-17-28-55-28-55z" fill="#3E92CE"/>
+    <path d="M64 110a15 15 0 0 0 11 14" stroke="#FFFFFF" stroke-width="6"
+          fill="none" stroke-linecap="round"/>
+
+    <!-- grande flèche dynamique -->
+    <path d="M20 120C20 82 42 56 74 54c14-1 26 3 34 10" stroke="#FFFFFF"
+          stroke-width="11" fill="none" stroke-linecap="round"/>
+    <path d="M100 50l22 20-24 16z" fill="#FFFFFF"/>
+
+    <!-- trident -->
+    <g fill="#FFFFFF" stroke="#1B5D8E" stroke-width="5" paint-order="stroke fill"
+       transform="rotate(5 140 92)">
+      <path d="M140 22l7 40h-14z"/>
+      <path d="M124 28l6 34h-12z"/>
+      <path d="M156 28l6 34h-12z"/>
+      <rect x="118" y="61" width="44" height="12"/>
+      <rect x="134" y="73" width="12" height="80"/>
+      <rect x="127" y="90" width="26" height="9"/>
+    </g>
+
+    <!-- coude de canalisation -->
+    <g stroke="#1B5D8E" stroke-width="3" paint-order="stroke fill">
+      <path d="M178 124c0 32-26 58-58 58" stroke="#DCEBF5" stroke-width="14" fill="none"/>
+      <rect x="165" y="114" width="26" height="11" fill="#FFFFFF"/>
+      <rect x="114" y="176" width="11" height="26" fill="#FFFFFF"/>
+    </g>
+
+    <!-- vague -->
+    <path d="M28 158c14-26 44-32 66-18 16 10 32 8 42-6 6 28-16 46-42 40-18-4-34 0-44 14-10 14-28 0-22-30z"
+          fill="#2E80BE"/>
+    <path d="M46 156c12-18 36-22 52-11 12 8 24 6 32-4 4 20-12 34-31 29-13-3-25 0-32 10-8 11-25 0-21-24z"
+          fill="#6FB6E3"/>
+    <path d="M68 154c8-10 22-12 31-6" stroke="#FFFFFF" stroke-width="6"
+          fill="none" stroke-linecap="round"/>
+  </g>
+  </g>
+
+  <!-- bandeau ETS-BZH -->
+  <rect x="58" y="238" width="524" height="92" fill="#1B5D8E"/>
+  <text x="320" y="304" text-anchor="middle" textLength="384" lengthAdjust="spacingAndGlyphs"
+        font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="74"
+        fill="#FFFFFF">ETS-BZH</text>
+
+  <!-- baseline -->
+  <text x="320" y="370" text-anchor="middle" textLength="516" lengthAdjust="spacingAndGlyphs"
+        font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="27"
+        fill="#1B5D8E">PLOMBERIE, DÉGORGEMENT, ÉLECTRICITÉ &amp; CANALISATIONS</text>
+  <rect x="58" y="388" width="524" height="4" fill="#1B5D8E"/>
 </svg>

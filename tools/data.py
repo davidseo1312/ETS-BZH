@@ -3,7 +3,9 @@
 
 SITE = {
     "nom": "ETS-BZH",
-    "baseline": "Plomberie · Dégorgement · Électricité",
+    "baseline": "Plomberie · Dégorgement · Électricité · Canalisations",
+    # version courte : l'en-tête sticky ne doit jamais repousser le bouton d'appel
+    "baseline_courte": "Plomberie · Dégorgement · Électricité",
     "tel": "02 20 06 00 75",
     "tel_lien": "+33220060075",
     "email": "contact@ets-bzh.fr",

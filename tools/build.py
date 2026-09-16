@@ -104,6 +104,7 @@ def head(titre, description, canonical, extra_json=None, mots_cles=""):
   <meta property="og:description" content="{description}">
   <meta property="og:url" content="{BASE}/{canonical}">
   <meta property="og:image" content="{BASE}/assets/img/logo.svg">
+  <meta property="og:image:alt" content="Logo ETS-BZH">
   <meta name="twitter:card" content="summary">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/css/style.css">
@@ -150,11 +151,11 @@ def header(courant=""):
 <header class="header">
   <div class="container header__inner">
     <a class="logo" href="index.html">
-      <img class="logo__mark" src="assets/img/logo.svg" width="46" height="46"
-           alt="Logo ETS-BZH, plomberie dégorgement électricité en Bretagne">
+      <img class="logo__mark" src="assets/img/logo-mark.svg" width="52" height="52"
+           alt="Logo ETS-BZH, plomberie, dégorgement, électricité et canalisations en Bretagne">
       <span class="logo__txt">
         <span class="logo__name">ETS-BZH</span>
-        <span class="logo__tag">{SITE['baseline']}</span>
+        <span class="logo__tag">{SITE['baseline_courte']}</span>
       </span>
     </a>
 
@@ -354,7 +355,7 @@ def footer():
     <div class="footer__grid">
       <div>
         <div class="footer__logo">
-          <img class="logo__mark" src="assets/img/logo.svg" width="46" height="46" alt="">
+          <img class="logo__mark" src="assets/img/logo-mark.svg" width="52" height="52" alt="">
           <span class="logo__txt">
             <span class="logo__name">ETS-BZH</span>
             <span class="logo__tag">{SITE['baseline']}</span>
