@@ -1,0 +1,7 @@
+# Systèmes
+.DS_Store
+Thumbs.db
+
+# Python (générateur)
+__pycache__/
+*.pyc

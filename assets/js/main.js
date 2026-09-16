@@ -1,0 +1,109 @@
+/* ETS-BZH — interactions légères (vanilla, sans dépendance) */
+(function () {
+  "use strict";
+
+  /* ------------------------------------------------------------------
+   * Endpoint de réception des formulaires.
+   * Laisser vide ("") => bascule automatique sur un envoi par e-mail
+   * (ouverture du client mail du visiteur, pré-rempli).
+   * Renseigner une URL (Formspree, API interne, Netlify Forms…) pour
+   * un envoi direct en POST JSON.
+   * ---------------------------------------------------------------- */
+  var FORM_ENDPOINT = "";
+  var EMAIL = "contact@ets-bzh.fr";
+
+  /* ---------- Menu mobile ---------- */
+  var burger = document.querySelector(".burger");
+  var nav = document.getElementById("nav-principal");
+  if (burger && nav) {
+    burger.addEventListener("click", function () {
+      var open = nav.classList.toggle("is-open");
+      burger.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    nav.addEventListener("click", function (e) {
+      if (e.target.tagName === "A") {
+        nav.classList.remove("is-open");
+        burger.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
+  /* ---------- Formulaires de devis ---------- */
+  var LABELS = {
+    nom: "Nom", telephone: "Téléphone", email: "E-mail", ville: "Ville",
+    departement: "Département", prestation: "Type d'intervention",
+    urgence: "Urgence", message: "Message"
+  };
+
+  function champs(form) {
+    var data = {};
+    new FormData(form).forEach(function (v, k) {
+      if (k === "_gotcha" || k === "consentement") return;
+      if (typeof v === "string" && v.trim() !== "") data[k] = v.trim();
+    });
+    return data;
+  }
+
+  function afficherMessage(form, type, texte) {
+    var box = form.querySelector(".form-msg");
+    if (!box) return;
+    box.className = "form-msg form-msg--" + type;
+    box.textContent = texte;
+    box.setAttribute("role", "status");
+    box.scrollIntoView({ block: "nearest" });
+  }
+
+  function envoyerParMail(form, data) {
+    var corps = Object.keys(data).map(function (k) {
+      return (LABELS[k] || k) + " : " + data[k];
+    }).join("\n");
+    var sujet = "Demande de devis ETS-BZH" + (data.departement ? " — " + data.departement : "");
+    window.location.href = "mailto:" + EMAIL +
+      "?subject=" + encodeURIComponent(sujet) +
+      "&body=" + encodeURIComponent(corps + "\n\n— Envoyé depuis ets-bzh.fr");
+    afficherMessage(form, "ok",
+      "Votre messagerie s'ouvre avec la demande pré-remplie. Pour une urgence, appelez directement le 02 20 06 00 75.");
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll("form[data-devis]"), function (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      // Anti-spam : champ piège masqué
+      var piege = form.querySelector('input[name="_gotcha"]');
+      if (piege && piege.value !== "") return;
+
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+
+      var data = champs(form);
+      data.page = document.title;
+
+      var btn = form.querySelector('button[type="submit"]');
+      var libelle = btn ? btn.textContent : "";
+
+      if (!FORM_ENDPOINT) { envoyerParMail(form, data); return; }
+
+      if (btn) { btn.disabled = true; btn.textContent = "Envoi en cours…"; }
+      fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(data)
+      }).then(function (r) {
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        form.reset();
+        afficherMessage(form, "ok",
+          "Demande envoyée. Un technicien ETS-BZH vous rappelle sous 30 minutes ouvrées.");
+      }).catch(function () {
+        afficherMessage(form, "err",
+          "L'envoi a échoué. Appelez-nous au 02 20 06 00 75 ou écrivez à " + EMAIL + ".");
+      }).finally(function () {
+        if (btn) { btn.disabled = false; btn.textContent = libelle; }
+      });
+    });
+  });
+
+  /* ---------- Année automatique ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll("[data-annee]"), function (el) {
+    el.textContent = new Date().getFullYear();
+  });
+})();
