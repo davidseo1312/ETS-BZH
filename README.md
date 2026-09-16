@@ -247,6 +247,28 @@ Les deux fontes du premier rendu sont préchargées (`rel="preload"`), ce qui
 > navigateurs bloquent les polices en origine locale. Prévisualisez avec
 > `python3 -m http.server`, comme indiqué plus bas.
 
+## Leviers de conversion
+
+Au-delà du contenu, quelques éléments d'interface travaillent la conversion :
+
+- **Barre d'action collante** (`.barre-fixe`, ordinateur uniquement) : elle
+  apparaît une fois le formulaire du haut dépassé, et se masque au pied de page
+  où les mêmes appels figurent déjà — elle ne recouvre donc jamais le contenu.
+  Sur mobile, c'est la barre `.mobile-bar` qui joue ce rôle en permanence.
+- **Rappels de confiance sous le bouton d'envoi** : sans engagement, rappel sous
+  30 min, données non revendues. Ils répondent aux trois freins habituels au
+  moment précis de la décision.
+- **Chronologie en quatre étapes** avec pastilles numérotées reliées, dégradées
+  du bleu foncé au bleu ciel : le parcours se lit d'un coup d'œil.
+- **Tuiles d'icônes** sur les atouts et numérotation appuyée sur les
+  prestations, avec un état de survol marqué (relèvement, ombre portée,
+  inversion de la tuile).
+- **Bandeau de chiffres** en dégradé avec icônes, placé juste sous le premier
+  écran.
+
+Les icônes sont des tracés SVG intégrés au HTML (`PICTOS` dans `tools/build.py`),
+sans fichier ni requête supplémentaire.
+
 ## Charte graphique
 
 | Élément | Valeur | Usage |

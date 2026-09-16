@@ -102,6 +102,29 @@
     });
   });
 
+  /* ---------- Barre d'action collante (ordinateur) ----------
+     Elle n'apparaît qu'une fois le formulaire du haut passé : tant qu'il est
+     visible, elle ferait doublon. */
+  var barre = document.getElementById("barre-fixe");
+  var hero = document.querySelector(".hero");
+  var basDePage = document.querySelector(".confiance") || document.querySelector(".footer");
+  if (barre && hero && "IntersectionObserver" in window) {
+    var heroVisible = true, finVisible = false;
+    function majBarre() { barre.hidden = heroVisible || finVisible; }
+
+    new IntersectionObserver(function (e) {
+      heroVisible = e[0].isIntersecting; majBarre();
+    }, { rootMargin: "-120px 0px 0px 0px" }).observe(hero);
+
+    // masquée au pied de page : les mêmes appels s'y trouvent déjà, et la
+    // barre viendrait recouvrir le contenu de fin de page
+    if (basDePage) {
+      new IntersectionObserver(function (e) {
+        finVisible = e[0].isIntersecting; majBarre();
+      }, { rootMargin: "0px 0px -40px 0px" }).observe(basDePage);
+    }
+  }
+
   /* ---------- Emplacements photo ----------
      Si le fichier n'existe pas encore dans assets/img/photos/, on affiche le
      cadre d'attente à la place de l'image cassée. Deux mécanismes, car ce

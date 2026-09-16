@@ -112,6 +112,21 @@ SVG = {
     "form": '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 3h16v18H4z" opacity=".2"/><path d="M5 2h14v20H5V2zm2 2v16h10V4H7zm2 3h6v2H9V7zm0 4h6v2H9v-2zm0 4h4v2H9v-2z"/></svg>',
 }
 
+PICTOS = {
+    "horloge": '<path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 2a8 8 0 1 1 0 16 8 8 0 0 1 0-16zm1 3h-2v6l5 3 1-1.7-4-2.3z"/>',
+    "devis": '<path d="M5 2h10l4 4v16H5zm9 1.5V7h3.5zM8 11h8v2H8zm0 4h8v2H8zm0-8h4v2H8z"/>',
+    "medaille": '<path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4L4.2 7.7l5.4-.8z"/><path d="M8 16l-2 6 6-2.6L18 22l-2-6-4 2z"/>',
+    "bouclier": '<path d="M12 2l8 3v7c0 5-3.4 8.9-8 10-4.6-1.1-8-5-8-10V5zm-1 13l6-6-1.4-1.4L11 12.2 9.4 10.6 8 12z"/>',
+    "carte": '<path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/>',
+    "eclair": '<path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/>',
+}
+
+
+def picto(nom, taille=26):
+    return ('<svg viewBox="0 0 24 24" width="%d" height="%d" fill="currentColor" '
+            'aria-hidden="true">%s</svg>' % (taille, taille, PICTOS[nom]))
+
+
 ICONES = {
     "degorgement": '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11zm0 3.6C10.4 7.8 8 11.3 8 13a4 4 0 0 0 8 0c0-1.7-2.4-5.2-4-7.4z"/></svg>',
     "plomberie": '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 4h7v4H6v3h7v-3h-1V4h9v4h-3v3a2 2 0 0 1-2 2h-5v7H6v-7a2 2 0 0 1-2-2V8H3V4z"/></svg>',
@@ -322,7 +337,12 @@ def formulaire(idp, titre, soustitre, bouton, dept=None, act=None, court=False,
           (<a href="/politique-de-confidentialite/">politique de confidentialité</a>).</span>
       </label>
       <button class="btn btn--primary btn--bloc" type="submit">{bouton}</button>
-      <p class="form-note">Réponse sous 30 minutes ouvrées · Urgence&nbsp;? Appelez le
+      <ul class="form-atouts">
+        <li>{picto("devis", 16)} Sans engagement</li>
+        <li>{picto("horloge", 16)} Rappel sous 30 min</li>
+        <li>{picto("bouclier", 16)} Données non revendues</li>
+      </ul>
+      <p class="form-note">Urgence&nbsp;? Appelez directement le
         <a href="tel:{TEL_LIEN}">{TEL}</a></p>
     </form>
   </div>
@@ -331,15 +351,17 @@ def formulaire(idp, titre, soustitre, bouton, dept=None, act=None, court=False,
 
 def bandeau_stats():
     cases = "".join(
-        '<div class="stat"><div class="stat__num">%s</div><div class="stat__lbl">%s</div></div>'
-        % (n, l) for n, l in STATS)
+        '<div class="stat"><span class="stat__ico">%s</span>'
+        '<div class="stat__num">%s</div><div class="stat__lbl">%s</div></div>'
+        % (picto(i, 24), n, l) for n, l, i in STATS)
     return ('\n<section class="stats" aria-label="ETS-BZH en chiffres">'
             '<div class="stats__grid">%s</div></section>' % cases)
 
 
 def bloc_etapes(titre="Comment ça se passe&nbsp;?", intro=""):
     steps = "".join(
-        '<div class="step"><div class="step__n">Étape %d</div><h3>%s</h3><p>%s</p></div>'
+        '<div class="step"><span class="step__pastille">%d</span>'
+        '<h3>%s</h3><p>%s</p></div>'
         % (i + 1, t, d) for i, (t, d) in enumerate(ETAPES))
     return f"""
 <section class="section section--fond">
@@ -357,8 +379,9 @@ def bloc_etapes(titre="Comment ça se passe&nbsp;?", intro=""):
 def bloc_reassurance(dept=None):
     lieu = (" %s %s" % (dept["article"], dept["nom"])) if dept else " en Bretagne"
     cards = "".join(
-        '<div class="card"><div class="card__num">%02d</div><h3>%s</h3><p>%s</p></div>'
-        % (i + 1, t, d) for i, (t, d) in enumerate(REASSURANCE))
+        '<article class="card card--atout"><span class="card__ico">%s</span>'
+        '<h3>%s</h3><p>%s</p></article>'
+        % (picto(ico, 30), t, d) for t, d, ico in REASSURANCE)
     return f"""
 <section class="section">
   <div class="container">
@@ -483,6 +506,18 @@ def footer():
     </div>
   </div>
 </footer>
+
+<div class="barre-fixe" id="barre-fixe" hidden>
+  <div class="container barre-fixe__inner">
+    <span class="barre-fixe__txt"><span class="dot dot--live"></span>
+      Un technicien vous répond maintenant</span>
+    <span class="barre-fixe__actions">
+      <a class="btn btn--urgence" href="tel:{TEL_LIEN}" data-cta="barre-fixe">
+        {SVG['tel']} {TEL}</a>
+      <a class="btn btn--ghost" href="#devis">Devis gratuit</a>
+    </span>
+  </div>
+</div>
 
 <div class="mobile-bar">
   <a class="mobile-bar__tel" href="tel:{TEL_LIEN}" data-cta="mobile">{SVG['tel']} Appeler</a>

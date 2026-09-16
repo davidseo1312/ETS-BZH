@@ -539,19 +539,20 @@ ACTIVITES = [
 # --------------------------------------------------------------------------
 # Éléments transverses
 # --------------------------------------------------------------------------
+# (titre, texte, icône)
 REASSURANCE = [
     ("Intervention 24/7 en urgence",
      "Astreinte réelle nuits, week-ends et jours fériés. Un interlocuteur au bout du fil, "
-     "pas un répondeur, et un délai annoncé dès l'appel."),
+     "pas un répondeur, et un délai annoncé dès l'appel.", "horloge"),
     ("Devis gratuit sans engagement",
      "Diagnostic et chiffrage offerts. Le prix est validé avec vous avant de commencer&nbsp;: "
-     "la facture ne dépasse jamais le devis accepté."),
+     "la facture ne dépasse jamais le devis accepté.", "devis"),
     ("Artisans qualifiés & expérimentés",
      "Des professionnels du métier, formés et équipés, qui interviennent en Bretagne toute "
-     "l'année. Pas de sous-traitance improvisée."),
+     "l'année. Pas de sous-traitance improvisée.", "medaille"),
     ("Garantie décennale",
      "Responsabilité civile professionnelle et garantie décennale sur les travaux concernés. "
-     "Vous êtes couvert, et nous assumons nos interventions."),
+     "Vous êtes couvert, et nous assumons nos interventions.", "bouclier"),
 ]
 
 ETAPES = [
@@ -597,9 +598,10 @@ LOGOS = [
 ]
 
 
+# (chiffre, libellé, icône)
 STATS = [
-    ("24/7", "Astreinte urgence"),
-    ("4", "Départements couverts"),
-    ("&lt; 1 h", "Délai visé en urgence"),
-    ("100 %", "Devis gratuits"),
+    ("24/7", "Astreinte urgence", "horloge"),
+    ("4", "Départements couverts", "carte"),
+    ("&lt; 1 h", "Délai visé en urgence", "eclair"),
+    ("100 %", "Devis gratuits", "devis"),
 ]
