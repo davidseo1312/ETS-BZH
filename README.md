@@ -67,6 +67,24 @@ deviendrait illisible. Le pied de page ne reprend pas le logo.
 
 ### Arrière-plan des en-têtes
 
+Le bandeau haut de chaque page utilise, de bas en haut :
+
+1. `assets/img/fond-equipe.webp` (repli `.jpg`) — photo d'un technicien devant un
+   véhicule ETS-BZH, servie en `image-set()` ; une version `-mobile` allégée
+   prend le relais sous 720 px
+2. un dégradé bleu très couvrant (0,80 à 0,93 d'opacité) qui rend la photo
+   discrète tout en gardant les textes lisibles
+3. `motif-plomberie.svg` à 6 % d'opacité, pour la texture
+4. un voile latéral côté texte
+
+Contraste mesuré sur le rendu réel, 13 zones de texte réparties sur desktop et
+mobile : **5,21:1 au pire cas** (seuil WCAG AA : 4,5:1). Pour rendre la photo
+plus ou moins visible, ajustez les opacités du dégradé de `.hero` — les baisser
+révèle la photo, les augmenter l'efface.
+
+Poids : 89 Ko en WebP desktop (151 Ko en repli JPEG), 33 Ko en WebP mobile.
+
+
 Le bandeau haut de chaque page (`.hero`) affiche un réseau de plomberie vectoriel
 (tuyaux, brides, vanne à volant, manomètre, siphon). Le motif est **raccordable à
 l'infini** : les tuyaux traversent les bords du carreau aux mêmes coordonnées, il se
@@ -151,8 +169,8 @@ python3 -m http.server 8000   # puis http://localhost:8000
 ## Performance
 
 Aucune requête tierce (pas de Google Fonts, pas de framework, pas de tracker) :
-une feuille CSS (~27 Ko), un script JS (~8 Ko), le logo et le motif (43 Ko au
-total), polices système.
+une feuille CSS (~28 Ko), un script JS (~9 Ko), le logo et le motif (~45 Ko), et
+la photo de fond (89 Ko en WebP, 33 Ko sur mobile). Polices système.
 Pages HTML de ~36 Ko.
 
 ## Réception des formulaires

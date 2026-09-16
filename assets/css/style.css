@@ -227,7 +227,25 @@ h3 { font-size: 1.2rem; }
 
 /* ---------- Hero ---------- */
 .hero {
-  background: linear-gradient(135deg, var(--bleu) 0%, var(--bleu-clair) 55%, #00405f 100%);
+  /* Photo d'équipe en fond, fortement voilée : elle reste perceptible sans
+     jamais concurrencer le texte. Le dégradé est la couche du dessus. */
+  background-color: var(--bleu);
+  background-image:
+    linear-gradient(112deg,
+      rgba(0,36,57,.93) 0%, rgba(0,52,80,.89) 38%,
+      rgba(0,70,108,.84) 68%, rgba(0,88,132,.80) 100%),
+    url("../img/fond-equipe.jpg");
+  /* WebP (-41 %) pour les navigateurs qui le gèrent ; les autres gardent
+     la déclaration JPEG ci-dessus. */
+  background-image:
+    linear-gradient(112deg,
+      rgba(0,36,57,.93) 0%, rgba(0,52,80,.89) 38%,
+      rgba(0,70,108,.84) 68%, rgba(0,88,132,.80) 100%),
+    image-set(url("../img/fond-equipe.webp") type("image/webp"),
+              url("../img/fond-equipe.jpg") type("image/jpeg"));
+  background-size: auto, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
   color: #fff;
   padding: 64px 0 72px;
   position: relative;
@@ -241,7 +259,7 @@ h3 { font-size: 1.2rem; }
   background-size: 420px 420px;
   background-repeat: repeat;
   background-position: center;
-  opacity: .11;
+  opacity: .06;
   pointer-events: none;
 }
 /* voile dégradé : garantit la lisibilité du titre et des textes */
@@ -249,7 +267,7 @@ h3 { font-size: 1.2rem; }
   content: "";
   position: absolute; inset: 0;
   background: linear-gradient(100deg,
-              rgba(0,34,54,.60) 0%, rgba(0,34,54,.34) 44%, rgba(0,34,54,0) 74%);
+              rgba(0,28,46,.55) 0%, rgba(0,28,46,.30) 46%, rgba(0,28,46,0) 76%);
   pointer-events: none;
 }
 
@@ -708,9 +726,20 @@ h3 { font-size: 1.2rem; }
   .topbar__list { justify-content: center; }
   .topbar__list:first-child li:not(:first-child),
   .topbar__list:last-child li:first-child { display: none; }
-  .hero { padding: 44px 0 52px; }
+  .hero {
+    padding: 44px 0 52px;
+    background-image:
+      linear-gradient(160deg,
+        rgba(0,36,57,.90) 0%, rgba(0,56,86,.855) 55%, rgba(0,80,122,.81) 100%),
+      url("../img/fond-equipe-mobile.jpg");
+    background-image:
+      linear-gradient(160deg,
+        rgba(0,36,57,.90) 0%, rgba(0,56,86,.855) 55%, rgba(0,80,122,.81) 100%),
+      image-set(url("../img/fond-equipe-mobile.webp") type("image/webp"),
+                url("../img/fond-equipe-mobile.jpg") type("image/jpeg"));
+  }
   .hero::before { background-size: 300px 300px; }
-  .hero::after { background: linear-gradient(180deg, rgba(0,34,54,.52) 0%, rgba(0,34,54,.34) 100%); }
+  .hero::after { background: linear-gradient(180deg, rgba(0,28,46,.46) 0%, rgba(0,28,46,.26) 100%); }
   .hero--compact { padding: 34px 0 38px; }
   .form-card { box-shadow: 6px 6px 0 rgba(0,0,0,.18); }
   .footer { padding-bottom: 58px; }
