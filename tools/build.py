@@ -103,10 +103,13 @@ def head(titre, description, canonical, extra_json=None, mots_cles=""):
   <meta property="og:title" content="{titre}">
   <meta property="og:description" content="{description}">
   <meta property="og:url" content="{BASE}/{canonical}">
-  <meta property="og:image" content="{BASE}/assets/img/logo.svg">
+  <meta property="og:image" content="{BASE}/assets/img/logo.jpg">
+  <meta property="og:image:width" content="560">
+  <meta property="og:image:height" content="333">
   <meta property="og:image:alt" content="Logo ETS-BZH">
   <meta name="twitter:card" content="summary">
-  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/logo-emblem.png">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="preconnect" href="{BASE}">{jsonld}
 </head>
@@ -151,7 +154,7 @@ def header(courant=""):
 <header class="header">
   <div class="container header__inner">
     <a class="logo" href="index.html">
-      <img class="logo__mark" src="assets/img/logo-mark.svg" width="52" height="52"
+      <img class="logo__mark" src="assets/img/logo-emblem.png" width="52" height="52"
            alt="Logo ETS-BZH, plomberie, dégorgement, électricité et canalisations en Bretagne">
       <span class="logo__txt">
         <span class="logo__name">ETS-BZH</span>
@@ -354,12 +357,9 @@ def footer():
   <div class="container">
     <div class="footer__grid">
       <div>
-        <div class="footer__logo">
-          <img class="logo__mark" src="assets/img/logo-mark.svg" width="52" height="52" alt="">
-          <span class="logo__txt">
-            <span class="logo__name">ETS-BZH</span>
-            <span class="logo__tag">{SITE['baseline']}</span>
-          </span>
+        <div class="footer__plaque">
+          <img src="assets/img/logo.jpg" width="560" height="333" loading="lazy"
+               alt="ETS-BZH — Plomberie, Dégorgement, Électricité &amp; Canalisations">
         </div>
         <p>Dépannage et travaux en plomberie, dégorgement de canalisations et électricité
            sur les Côtes-d'Armor, le Finistère, l'Ille-et-Vilaine et le Morbihan.</p>
@@ -432,7 +432,7 @@ def ld_business(act=None, dept=None):
         "telephone": TEL_LIEN,
         "email": EMAIL,
         "url": BASE + "/" + (url_landing(act, dept) if (act and dept) else "index.html"),
-        "image": BASE + "/assets/img/logo.svg",
+        "image": BASE + "/assets/img/logo.jpg",
         "priceRange": "€€",
         "address": {"@type": "PostalAddress", "addressRegion": "Bretagne",
                     "addressCountry": "FR"},
