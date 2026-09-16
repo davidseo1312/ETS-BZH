@@ -319,7 +319,7 @@ def formulaire(idp, titre, soustitre, bouton, dept=None, act=None, court=False,
         <input type="checkbox" name="consentement" required>
         <span>J'accepte d'être recontacté par ETS-BZH au sujet de ma demande.
           Mes données ne sont utilisées que pour ce rappel
-          (<a href="/mentions-legales/">mentions légales</a>).</span>
+          (<a href="/politique-de-confidentialite/">politique de confidentialité</a>).</span>
       </label>
       <button class="btn btn--primary btn--bloc" type="submit">{bouton}</button>
       <p class="form-note">Réponse sous 30 minutes ouvrées · Urgence&nbsp;? Appelez le
@@ -477,6 +477,7 @@ def footer():
         <a href="/">Accueil</a>
         <a href="/contact/">Contact</a>
         <a href="/mentions-legales/">Mentions légales</a>
+        <a href="/politique-de-confidentialite/">Confidentialité</a>
         <a href="/cgu/">CGU</a>
       </nav>
     </div>
@@ -1197,8 +1198,8 @@ def page_contact():
 # ============================================================ PAGES LÉGALES
 def page_mentions():
     titre = "Mentions légales — ETS-BZH"
-    desc = ("Mentions légales du site ETS-BZH : éditeur, hébergeur, propriété "
-            "intellectuelle et traitement des données personnelles (RGPD).")
+    desc = ("Mentions légales du site ETS-BZH : éditeur, hébergeur, identité de "
+            "l'entreprise, assurances et propriété intellectuelle.")
     fil = [("Accueil", "/"), ("Mentions légales", "/mentions-legales/")]
     return (
         head(titre, desc, "/mentions-legales/", [ld_ariane(fil)])
@@ -1210,101 +1211,92 @@ def page_mentions():
   <div class="container">
     <span class="eyebrow">Informations légales</span>
     <h1>Mentions légales</h1>
-    <p class="hero__sub">Éditeur, hébergeur, assurances, propriété intellectuelle et
-      traitement de vos données personnelles.</p>
+    <p class="hero__sub">Éditeur du site, hébergeur, identité de l'entreprise,
+      assurances et propriété intellectuelle.</p>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
     <div class="prose">
-      <div class="encadre" style="margin-bottom:28px">
-        <p style="margin:0"><strong>À compléter avant mise en ligne&nbsp;:</strong> les champs
-          signalés par <em>[à compléter]</em> doivent être renseignés avec les informations
-          officielles de la société (forme juridique, capital, SIRET, RCS, TVA, assurances,
-          hébergeur). Ces mentions sont obligatoires au titre de l'article 6-III de la
-          loi n°&nbsp;2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique.</p>
-      </div>
-
       <h2>1. Éditeur du site</h2>
       <ul>
-        <li><strong>Dénomination sociale&nbsp;:</strong> ETS-BZH</li>
-        <li><strong>Forme juridique&nbsp;:</strong> <em>[à compléter]</em></li>
-        <li><strong>Capital social&nbsp;:</strong> <em>[à compléter]</em></li>
-        <li><strong>Siège social&nbsp;:</strong> <em>[à compléter]</em></li>
-        <li><strong>SIRET&nbsp;:</strong> <em>[à compléter]</em> — <strong>RCS&nbsp;:</strong> <em>[à compléter]</em></li>
-        <li><strong>N° TVA intracommunautaire&nbsp;:</strong> <em>[à compléter]</em></li>
+        <li><strong>Dénomination sociale&nbsp;:</strong> {SITE['denomination']}</li>
+        <li><strong>Nom commercial&nbsp;:</strong> {SITE['nom_commercial']}</li>
+        <li><strong>Forme juridique&nbsp;:</strong> {SITE['forme']}</li>
+        <li><strong>Siège social&nbsp;:</strong> {SITE['siege']}</li>
+        <li><strong>SIREN&nbsp;:</strong> {SITE['siren']}</li>
+        <li><strong>SIRET (siège)&nbsp;:</strong> {SITE['siret']}</li>
+        <li><strong>Numéro RCS&nbsp;:</strong> {SITE['rcs']}
+          (immatriculée au greffe de {SITE['greffe']} le {SITE['rcs_date']})</li>
+        <li><strong>Inscription au RNE&nbsp;:</strong> le {SITE['rne_date']}</li>
+        <li><strong>Numéro de TVA intracommunautaire&nbsp;:</strong> {SITE['tva']}</li>
+        <li><strong>Code NAF / APE&nbsp;:</strong> {SITE['naf']} — {SITE['naf_libelle']}</li>
+        <li><strong>Date de création&nbsp;:</strong> {SITE['creation']}</li>
         <li><strong>Téléphone&nbsp;:</strong> <a href="tel:{TEL_LIEN}">{TEL}</a></li>
         <li><strong>E-mail&nbsp;:</strong> <a href="mailto:{EMAIL}">{EMAIL}</a></li>
-        <li><strong>Directeur de la publication&nbsp;:</strong> <em>[à compléter]</em></li>
+        <li><strong>Directeur de la publication&nbsp;:</strong> {SITE['dirigeant']}</li>
+      </ul>
+      <p>L'entreprise est exploitée sous le statut d'entrepreneur individuel&nbsp;: son
+        dirigeant, {SITE['dirigeant']}, en est l'unique responsable. À ce titre, elle ne
+        dispose ni de capital social, ni d'associés.</p>
+
+      <h2>2. Hébergement</h2>
+      <ul>
+        <li><strong>Hébergeur&nbsp;:</strong> {SITE['hebergeur']}</li>
+        <li><strong>Adresse&nbsp;:</strong> {SITE['hebergeur_adresse']}</li>
+        <li><strong>Site web&nbsp;:</strong>
+          <a href="{SITE['hebergeur_site']}" rel="noopener" target="_blank">hostinger.fr</a></li>
       </ul>
 
-      <h2>2. Assurances professionnelles</h2>
-      <p>ETS-BZH est couverte par une assurance de responsabilité civile professionnelle et
-        par une garantie décennale pour les travaux qui l'exigent.</p>
+      <h2>3. Zone d'intervention</h2>
+      <p>Le siège social est situé à Courbevoie&nbsp;(92). Les interventions présentées sur
+        ce site sont réalisées sur les départements des Côtes-d'Armor&nbsp;(22), du
+        Finistère&nbsp;(29), de l'Ille-et-Vilaine&nbsp;(35) et du Morbihan&nbsp;(56).</p>
+
+      <h2>4. Assurances professionnelles</h2>
+      <p>{SITE['denomination']} est assurée auprès de <strong>MIC Insurance</strong> en
+        responsabilité civile professionnelle et en garantie décennale pour les travaux qui
+        l'exigent.</p>
       <ul>
-        <li><strong>Assureur&nbsp;:</strong> <em>[à compléter]</em></li>
+        <li><strong>Assureur&nbsp;:</strong> MIC Insurance</li>
         <li><strong>N° de contrat&nbsp;:</strong> <em>[à compléter]</em></li>
+        <li><strong>Activités déclarées au contrat&nbsp;:</strong> <em>[à compléter]</em></li>
         <li><strong>Couverture géographique&nbsp;:</strong> France métropolitaine</li>
       </ul>
+      <p>L'attestation d'assurance est remise sur simple demande, et avant le démarrage de
+        tout chantier qui le justifie.</p>
 
-      <h2>3. Hébergement</h2>
-      <ul>
-        <li><strong>Hébergeur&nbsp;:</strong> <em>[à compléter]</em></li>
-        <li><strong>Adresse&nbsp;:</strong> <em>[à compléter]</em></li>
-        <li><strong>Téléphone&nbsp;:</strong> <em>[à compléter]</em></li>
-      </ul>
+      <h2>5. Propriété intellectuelle</h2>
+      <p>L'ensemble des éléments du site (structure, textes, photographies, logo, identité
+        visuelle, code source) est la propriété de {SITE['denomination']} ou fait l'objet d'une
+        autorisation d'usage. Toute reproduction, représentation ou adaptation, totale ou
+        partielle, sans autorisation écrite préalable est interdite et constituerait une
+        contrefaçon au sens des articles L.335-2 et suivants du Code de la propriété
+        intellectuelle.</p>
+      <p>Les logos de tiers reproduits sur ce site (labels professionnels, assureur, Google)
+        demeurent la propriété de leurs titulaires respectifs.</p>
 
-      <h2>4. Propriété intellectuelle</h2>
-      <p>L'ensemble des éléments du site (structure, textes, logo, identité visuelle, code
-        source) est la propriété d'ETS-BZH ou fait l'objet d'une autorisation d'usage. Toute
-        reproduction, représentation ou adaptation, totale ou partielle, sans autorisation
-        écrite préalable est interdite et constituerait une contrefaçon au sens des articles
-        L.335-2 et suivants du Code de la propriété intellectuelle.</p>
-
-      <h2>5. Données personnelles (RGPD)</h2>
-      <p>Les formulaires du site collectent les données strictement nécessaires au traitement
-        de votre demande&nbsp;:</p>
-      <ul>
-        <li><strong>Données collectées&nbsp;:</strong> nom, téléphone, ville, département,
-          type d'intervention, degré d'urgence et, le cas échéant, votre message.</li>
-        <li><strong>Finalité&nbsp;:</strong> vous recontacter, établir un devis et organiser
-          l'intervention demandée.</li>
-        <li><strong>Base légale&nbsp;:</strong> votre consentement et l'exécution de mesures
-          précontractuelles prises à votre demande.</li>
-        <li><strong>Durée de conservation&nbsp;:</strong> 3 ans à compter du dernier contact
-          pour les prospects&nbsp;; durée légale de conservation comptable pour les clients.</li>
-        <li><strong>Destinataires&nbsp;:</strong> les services internes d'ETS-BZH et, le cas
-          échéant, le technicien chargé de l'intervention. Aucune donnée n'est vendue ni cédée
-          à des tiers à des fins commerciales.</li>
-      </ul>
-      <p>Conformément au Règlement (UE) 2016/679 et à la loi Informatique et Libertés, vous
-        disposez d'un droit d'accès, de rectification, d'effacement, de limitation, d'opposition
-        et de portabilité de vos données. Pour l'exercer, écrivez à
-        <a href="mailto:{EMAIL}">{EMAIL}</a>. Vous pouvez également introduire une réclamation
-        auprès de la CNIL (<a href="https://www.cnil.fr" rel="noopener">www.cnil.fr</a>).</p>
-
-      <h2>6. Cookies</h2>
-      <p>Ce site ne dépose aucun cookie publicitaire ni traceur tiers. Aucun outil de mesure
-        d'audience n'est actif à ce jour. Si un outil de statistiques était ajouté
-        ultérieurement, un bandeau de consentement conforme aux recommandations de la CNIL
-        serait mis en place.</p>
+      <h2>6. Données personnelles</h2>
+      <p>Le traitement des données collectées par les formulaires est détaillé dans notre
+        <a href="/politique-de-confidentialite/">politique de confidentialité</a>, qui précise
+        les finalités, les bases légales, les durées de conservation et vos droits.</p>
 
       <h2>7. Liens hypertextes</h2>
-      <p>Le site peut contenir des liens vers des sites tiers. ETS-BZH n'exerce aucun contrôle
-        sur leur contenu et décline toute responsabilité à leur égard.</p>
+      <p>Le site peut contenir des liens vers des sites tiers. {SITE['denomination']} n'exerce
+        aucun contrôle sur leur contenu et décline toute responsabilité à leur égard.</p>
 
       <h2>8. Médiation de la consommation</h2>
       <p>Conformément à l'article L.612-1 du Code de la consommation, tout consommateur a le
-        droit de recourir gratuitement à un médiateur de la consommation en vue de la résolution
-        amiable d'un litige. Médiateur compétent&nbsp;: <em>[à compléter]</em>.</p>
+        droit de recourir gratuitement à un médiateur de la consommation en vue de la
+        résolution amiable d'un litige. Médiateur compétent&nbsp;: <em>[à compléter]</em>.</p>
 
       <h2>9. Tarifs affichés</h2>
       <p>Les tarifs indiqués sur ce site sont des <strong>montants indicatifs TTC</strong>,
         donnés à titre d'information et susceptibles de varier selon la nature exacte de
         l'intervention, l'accessibilité, les pièces nécessaires et les éventuelles majorations
-        (nuit, dimanche, jours fériés). Seul le devis gratuit établi après diagnostic et accepté
-        par le client a valeur contractuelle.</p>
+        (nuit, dimanche, jours fériés). Seul le devis gratuit établi après diagnostic et
+        accepté par le client a valeur contractuelle.</p>
     </div>
   </div>
 </section>
@@ -1396,9 +1388,10 @@ def page_cgu():
         dommages résultant d'une manipulation effectuée par l'utilisateur.</p>
 
       <h2>Article 9 — Données personnelles</h2>
-      <p>Le traitement des données collectées via les formulaires est détaillé dans les
-        <a href="/mentions-legales/">mentions légales</a>, section «&nbsp;Données personnelles
-        (RGPD)&nbsp;».</p>
+      <p>Le traitement des données collectées via les formulaires est détaillé dans notre
+        <a href="/politique-de-confidentialite/">politique de confidentialité</a>&nbsp;:
+        finalités, bases légales, durées de conservation, destinataires et exercice de vos
+        droits.</p>
 
       <h2>Article 10 — Modification des CGU</h2>
       <p>ETS-BZH se réserve le droit de modifier les présentes CGU à tout moment. La version
@@ -1415,6 +1408,165 @@ def page_cgu():
 {cta_final("Une intervention à planifier&nbsp;?",
            "Devis gratuit et sans engagement sur les quatre départements bretons.",
            "cta-cgu")}
+</main>
+""" + footer())
+
+
+def page_politique():
+    titre = "Politique de confidentialité — ETS-BZH"
+    desc = ("Comment ETS-BZH collecte et traite vos données personnelles : finalités, "
+            "bases légales, durées de conservation, destinataires et vos droits (RGPD).")
+    fil = [("Accueil", "/"), ("Politique de confidentialité", "/politique-de-confidentialite/")]
+
+    faq = [
+        ("Qui est responsable du traitement&nbsp;?",
+         "%s (%s), dont le siège est situé %s, immatriculée sous le numéro SIREN %s. "
+         "Contact&nbsp;: <a href=\"mailto:%s\">%s</a>."
+         % (SITE["denomination"], SITE["forme"], SITE["siege"], SITE["siren"], EMAIL, EMAIL)),
+        ("Déposez-vous des cookies&nbsp;?",
+         "Non. Ce site ne dépose <strong>aucun cookie</strong>, ni traceur publicitaire, ni "
+         "outil de mesure d'audience. Aucun bandeau de consentement n'est donc nécessaire. "
+         "Si un outil de statistiques était ajouté plus tard, un bandeau conforme aux "
+         "recommandations de la CNIL serait mis en place au préalable."),
+        ("Mes données sortent-elles de l'Union européenne&nbsp;?",
+         "Non. Les données des formulaires sont transmises par messagerie à "
+         "<a href=\"mailto:%s\">%s</a> et traitées en France. L'hébergement du site est "
+         "assuré par %s, dont les serveurs utilisés sont situés dans l'Union européenne."
+         % (EMAIL, EMAIL, SITE["hebergeur"])),
+        ("Comment exercer mes droits&nbsp;?",
+         "Écrivez à <a href=\"mailto:%s\">%s</a> en précisant votre demande. Nous répondons "
+         "sous un mois. En cas de désaccord, vous pouvez saisir la CNIL "
+         "(<a href=\"https://www.cnil.fr\" rel=\"noopener\" target=\"_blank\">cnil.fr</a>)."
+         % (EMAIL, EMAIL)),
+    ]
+    faq_html = "".join(
+        '<details%s><summary>%s</summary><div class="faq__body">%s</div></details>'
+        % (" open" if i == 0 else "", q, r) for i, (q, r) in enumerate(faq))
+
+    lignes = [
+        ("Nom", "Vous identifier et vous appeler correctement",
+         "Consentement et mesures précontractuelles", "3 ans après le dernier contact"),
+        ("Téléphone", "Vous rappeler au sujet de votre demande",
+         "Consentement et mesures précontractuelles", "3 ans après le dernier contact"),
+        ("Ville et département", "Déterminer si l'intervention est dans notre zone et "
+         "estimer le délai", "Mesures précontractuelles", "3 ans après le dernier contact"),
+        ("Type d'intervention et degré d'urgence", "Orienter la demande vers le bon "
+         "technicien et prioriser les urgences", "Mesures précontractuelles",
+         "3 ans après le dernier contact"),
+        ("Message libre (facultatif)", "Comprendre le besoin avant le déplacement",
+         "Consentement", "3 ans après le dernier contact"),
+    ]
+    tableau = "".join('<tr><th scope="row">%s</th><td>%s</td><td>%s</td><td>%s</td></tr>' % l
+                      for l in lignes)
+
+    return (
+        head(titre, desc, "/politique-de-confidentialite/", [ld_ariane(fil)])
+        + topbar() + header() + ariane(fil) + f"""
+
+<main id="contenu">
+
+<section class="hero hero--compact">
+  <div class="container">
+    <span class="eyebrow">Données personnelles</span>
+    <h1>Politique de confidentialité</h1>
+    <p class="hero__sub">Ce que nous collectons, pourquoi, pendant combien de temps, et
+      comment reprendre la main dessus.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="prose">
+      <p><strong>Dernière mise à jour&nbsp;: {TODAY}</strong></p>
+      <p>Nous ne collectons que ce qui est nécessaire pour vous rappeler et organiser une
+        intervention. Aucune donnée n'est vendue, louée ou cédée à des tiers à des fins
+        commerciales.</p>
+
+      <h2>1. Responsable du traitement</h2>
+      <ul>
+        <li><strong>{SITE['denomination']}</strong> ({SITE['forme']}), exerçant sous le nom
+          commercial {SITE['nom_commercial']}</li>
+        <li><strong>Siège&nbsp;:</strong> {SITE['siege']}</li>
+        <li><strong>SIREN&nbsp;:</strong> {SITE['siren']} — <strong>RCS&nbsp;:</strong> {SITE['rcs']}</li>
+        <li><strong>Contact&nbsp;:</strong> <a href="mailto:{EMAIL}">{EMAIL}</a> ou
+          <a href="tel:{TEL_LIEN}">{TEL}</a></li>
+      </ul>
+      <p>Compte tenu de sa taille et de la nature de ses traitements, l'entreprise n'est pas
+        tenue de désigner un délégué à la protection des données.</p>
+
+      <h2>2. Données collectées et finalités</h2>
+      <p>Seuls les formulaires du site collectent des données. Aucune inscription, aucun
+        compte, aucun paiement en ligne.</p>
+    </div>
+
+    <div class="table-scroll" style="margin:26px 0 34px">
+    <table class="tarifs">
+      <caption>Les champs marqués d'un astérisque sur les formulaires sont les seuls
+        obligatoires&nbsp;: sans eux, nous ne pouvons pas vous rappeler.</caption>
+      <thead><tr><th scope="col">Donnée</th><th scope="col">Pourquoi</th>
+        <th scope="col">Base légale</th><th scope="col">Conservation</th></tr></thead>
+      <tbody>{tableau}</tbody>
+    </table>
+    </div>
+
+    <div class="prose">
+      <h2>3. Bases légales</h2>
+      <p>Les traitements reposent sur l'<strong>exécution de mesures précontractuelles</strong>
+        prises à votre demande (article 6.1.b du RGPD) et sur votre <strong>consentement</strong>
+        (article 6.1.a), recueilli par la case à cocher présente sur chaque formulaire. Une fois
+        l'intervention réalisée, la conservation des documents comptables repose sur nos
+        <strong>obligations légales</strong> (article 6.1.c).</p>
+
+      <h2>4. Durées de conservation</h2>
+      <ul>
+        <li><strong>Demande sans suite&nbsp;:</strong> 3 ans à compter du dernier contact.</li>
+        <li><strong>Client&nbsp;:</strong> durée de la relation, puis 10 ans pour les pièces
+          comptables (article L.123-22 du Code de commerce).</li>
+        <li><strong>Dossier lié à une garantie décennale&nbsp;:</strong> 10 ans à compter de la
+          réception des travaux, le temps que la garantie court.</li>
+      </ul>
+
+      <h2>5. Destinataires</h2>
+      <p>Les données sont accessibles au dirigeant et, le cas échéant, au technicien chargé de
+        l'intervention. Elles transitent par notre messagerie professionnelle et par
+        l'hébergement du site, assuré par {SITE['hebergeur']}
+        ({SITE['hebergeur_adresse']}), qui agit en qualité de sous-traitant au sens du RGPD.
+        Aucun autre destinataire.</p>
+
+      <h2>6. Cookies et mesure d'audience</h2>
+      <p>Ce site ne dépose <strong>aucun cookie</strong>&nbsp;: ni cookie publicitaire, ni
+        traceur tiers, ni outil de mesure d'audience. Les polices de caractères sont hébergées
+        sur notre propre domaine, et non appelées chez Google&nbsp;: aucune donnée de connexion
+        n'est donc transmise à un tiers lors de votre visite.</p>
+
+      <h2>7. Vos droits</h2>
+      <p>Conformément au Règlement (UE) 2016/679 et à la loi Informatique et Libertés, vous
+        disposez des droits d'accès, de rectification, d'effacement, de limitation,
+        d'opposition et de portabilité, ainsi que du droit de retirer votre consentement à tout
+        moment.</p>
+      <p>Pour les exercer, écrivez à <a href="mailto:{EMAIL}">{EMAIL}</a>. Nous répondons dans
+        un délai d'un mois. Si la réponse ne vous satisfait pas, vous pouvez introduire une
+        réclamation auprès de la CNIL, 3 place de Fontenoy, 75007 Paris —
+        <a href="https://www.cnil.fr" rel="noopener" target="_blank">cnil.fr</a>.</p>
+
+      <h2>8. Sécurité</h2>
+      <p>Le site est servi en HTTPS. Les demandes sont transmises à notre messagerie
+        professionnelle et ne sont pas stockées dans une base de données publique. Un champ
+        piège invisible protège les formulaires contre les envois automatisés.</p>
+
+      <h2>9. Modification de cette politique</h2>
+      <p>Cette politique peut être mise à jour, notamment si un nouvel outil est ajouté au
+        site. La date de dernière mise à jour figure en tête de page.</p>
+    </div>
+
+    <div class="faq" style="margin-top:44px">{faq_html}</div>
+  </div>
+</section>
+
+{cta_final("Une question sur vos données&nbsp;?",
+           "Écrivez-nous&nbsp;: nous répondons à toute demande d'accès, de rectification "
+           "ou d'effacement dans un délai d'un mois.",
+           "cta-politique")}
 </main>
 """ + footer())
 
@@ -1482,9 +1634,11 @@ def main():
     ecrire("contact/index.html", page_contact())
     ecrire("mentions-legales/index.html", page_mentions())
     ecrire("cgu/index.html", page_cgu())
+    ecrire("politique-de-confidentialite/index.html", page_politique())
     ecrire("404.html", page_404())          # servi tel quel par les hébergeurs
     pages += [("/contact/", "0.8", "monthly"),
               ("/mentions-legales/", "0.3", "yearly"),
+              ("/politique-de-confidentialite/", "0.3", "yearly"),
               ("/cgu/", "0.3", "yearly")]
 
     ecrire("sitemap.xml", sitemap(pages))
@@ -1492,7 +1646,8 @@ def main():
            "User-agent: *\nAllow: /\n\nSitemap: %s/sitemap.xml\n" % BASE)
 
     print("-" * 62)
-    print("%d pages HTML générées (12 landing pages + 5 pages annexes).\n" % (len(pages) + 1))
+    print("%d pages HTML générées (12 landing pages + %d pages annexes).\n"
+          % (len(pages) + 1, len(pages) + 1 - 13))
 
 
 if __name__ == "__main__":

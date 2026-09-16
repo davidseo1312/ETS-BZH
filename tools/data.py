@@ -10,8 +10,27 @@ SITE = {
     "tel_lien": "+33220060075",
     "email": "contact@etablissement-breizh.fr",
     "url": "https://www.ets-bzh.fr",
-    "siret": "000 000 000 00000",
+    # --- Identité légale (source : registres RCS / RNE / INSEE) ---
+    "denomination": "ASSOUL BILAL",
+    "nom_commercial": "ETS-BZH",
+    "forme": "Entrepreneur individuel",
+    "siren": "901 133 041",
+    "siret": "901 133 041 00011",
+    "tva": "FR17901133041",
+    "rcs": "901 133 041 R.C.S. Nanterre",
+    "greffe": "Nanterre",
+    "rcs_date": "07/07/2021",
+    "rne_date": "06/07/2021",
+    "creation": "06/07/2021",
+    "naf": "81.29A",
+    "naf_libelle": "Désinfection, désinsectisation, dératisation",
+    "dirigeant": "Bilal ASSOUL",
+    "siege": "1 rue Albert Simonin, 92400 Courbevoie",
     "adresse": "Bretagne — interventions sur les départements 22, 29, 35 et 56",
+    # --- Hébergeur ---
+    "hebergeur": "Hostinger International Ltd",
+    "hebergeur_adresse": "61 Lordou Vironos Street, 6023 Larnaca, Chypre",
+    "hebergeur_site": "https://www.hostinger.fr",
     # Lien vers la fiche d'établissement Google. Renseignez-le pour que le
     # bandeau d'avis renvoie vers vos avis réels ; laissé vide, il reste un
     # simple visuel non cliquable.

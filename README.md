@@ -21,7 +21,9 @@ sans configuration.
 | `/plomberie-depannage-{dept}/` | `…/index.html` | 4 landing pages Plomberie |
 | `/electricite-urgence-{dept}/` | `…/index.html` | 4 landing pages Électricité |
 | `/contact/` | `contact/index.html` | Formulaire de devis express |
-| `/mentions-legales/` · `/cgu/` | `…/index.html` | Pages légales |
+| `/mentions-legales/` | `mentions-legales/index.html` | Éditeur, hébergeur, identité, assurances |
+| `/politique-de-confidentialite/` | `…/index.html` | RGPD : finalités, bases légales, droits |
+| `/cgu/` | `cgu/index.html` | Conditions générales d'utilisation |
 | `/404.html` | racine | Page d'erreur (servie automatiquement) |
 | `/sitemap.xml` · `/robots.txt` | racine | Annexes SEO |
 
@@ -308,9 +310,16 @@ Un champ piège (`_gotcha`) bloque les robots de formulaire.
 
 ## À compléter avant mise en ligne
 
-- [ ] **Mentions légales** — forme juridique, capital, siège, SIRET, RCS, TVA,
-      directeur de publication, assureur et n° de contrat, hébergeur, médiateur
-      de la consommation (champs marqués *[à compléter]*)
+- [ ] **Mentions légales** — l'identité de l'entreprise et l'hébergeur sont
+      renseignés. Restent trois champs *[à compléter]* : le **numéro de contrat
+      d'assurance**, les **activités déclarées au contrat**, et le **médiateur de
+      la consommation** (obligatoire pour toute activité avec des particuliers,
+      article L.612-1 du Code de la consommation)
+- [ ] **Code NAF** — l'entreprise est immatriculée en `81.29A` (désinfection,
+      désinsectisation, dératisation). Le site présente des prestations de
+      plomberie, d'électricité et d'assainissement, qui relèvent d'autres codes
+      (43.22A, 43.21A, 37.00Z). Vérifiez que les activités déclarées et le
+      contrat d'assurance couvrent bien ce qui est vendu sur le site
 - [ ] **Avis clients** — les témoignages et la note « 4,8/5 » sont des contenus
       d'exemple : remplacez-les par de vrais avis vérifiés avant publication
       (l'affichage d'avis fictifs est une pratique commerciale trompeuse)
