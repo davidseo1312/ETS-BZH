@@ -102,6 +102,38 @@
     });
   });
 
+  /* ---------- Emplacements photo ----------
+     Si le fichier n'existe pas encore dans assets/img/photos/, on affiche le
+     cadre d'attente à la place de l'image cassée. Deux mécanismes, car ce
+     script est différé et certaines erreurs surviennent avant son exécution :
+       1. on inspecte l'état des images déjà traitées ;
+       2. on écoute les erreurs suivantes (l'événement « error » ne remontant
+          pas, l'écoute se fait en phase de capture). */
+  function marquerVide(img) {
+    var fig = img.closest ? img.closest(".photo") : null;
+    if (fig) fig.classList.add("photo--vide");
+  }
+
+  function verifierPhotos() {
+    Array.prototype.forEach.call(document.querySelectorAll(".photo__img"), function (img) {
+      if (img.complete) {
+        if (img.naturalWidth === 0) marquerVide(img);
+      } else {
+        img.addEventListener("error", function () { marquerVide(img); });
+      }
+    });
+  }
+
+  document.addEventListener("error", function (e) {
+    var img = e.target;
+    if (!img || img.tagName !== "IMG") return;
+    if ((" " + img.className + " ").indexOf(" photo__img ") === -1) return;
+    marquerVide(img);
+  }, true);
+
+  verifierPhotos();
+  window.addEventListener("load", verifierPhotos);
+
   /* ---------- Année automatique ---------- */
   Array.prototype.forEach.call(document.querySelectorAll("[data-annee]"), function (el) {
     el.textContent = new Date().getFullYear();

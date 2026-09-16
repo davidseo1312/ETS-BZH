@@ -201,6 +201,18 @@ ACTIVITES = [
             "nécessite une inspection caméra et un chiffrage de réparation. Vous repartez "
             "toujours avec un diagnostic clair, pas seulement avec un écoulement rétabli.",
         ],
+        "photos": [
+            ("degorgement-1.jpg", "Camion hydrocureur ETS-BZH en intervention",
+             "Camion hydrocureur en intervention"),
+            ("degorgement-2.jpg", "Inspection vidéo d'une canalisation par caméra",
+             "Inspection vidéo du réseau"),
+            ("degorgement-3.jpg", "Débouchage d'une colonne d'eaux usées en immeuble",
+             "Débouchage de colonne d'immeuble"),
+            ("degorgement-4.jpg", "Curage haute pression d'un réseau extérieur",
+             "Curage haute pression"),
+        ],
+        "photo_equipe": ("degorgement-equipe.jpg",
+                         "Technicien assainissement ETS-BZH et son matériel"),
         "prose_h3": [
             ("Les bouchons les plus fréquents {art} {dept}",
              ["Lingettes et produits d'hygiène dans les WC — première cause d'urgence",
@@ -321,6 +333,18 @@ ACTIVITES = [
             "sanitaire. Dans les deux cas, même exigence de propreté du chantier et de clarté "
             "sur le prix.",
         ],
+        "photos": [
+            ("plomberie-1.jpg", "Recherche de fuite par caméra thermique",
+             "Recherche de fuite non destructive"),
+            ("plomberie-2.jpg", "Remplacement d'un chauffe-eau électrique",
+             "Remplacement de chauffe-eau"),
+            ("plomberie-3.jpg", "Réfection d'un réseau d'alimentation en cuivre",
+             "Réfection de réseau d'alimentation"),
+            ("plomberie-4.jpg", "Installation complète d'une salle de bain",
+             "Installation de salle de bain"),
+        ],
+        "photo_equipe": ("plomberie-equipe.jpg",
+                         "Plombier ETS-BZH équipé sur une intervention"),
         "prose_h3": [
             ("Les dépannages les plus demandés {art} {dept}",
              ["Fuite sur flexible, siphon ou raccord sous évier",
@@ -442,6 +466,18 @@ ACTIVITES = [
             "la réparation durable. Vous savez exactement ce qui a été fait, ce qui reste à "
             "faire, et à quel prix.",
         ],
+        "photos": [
+            ("electricite-1.jpg", "Remplacement d'un tableau électrique",
+             "Remplacement de tableau électrique"),
+            ("electricite-2.jpg", "Mise aux normes d'une installation NF C 15-100",
+             "Mise aux normes NF C 15-100"),
+            ("electricite-3.jpg", "Recherche de panne sur un circuit électrique",
+             "Recherche de panne"),
+            ("electricite-4.jpg", "Pose d'une borne de recharge pour véhicule électrique",
+             "Pose de borne de recharge"),
+        ],
+        "photo_equipe": ("electricite-equipe.jpg",
+                         "Électricien ETS-BZH en intervention"),
         "prose_h3": [
             ("Les signaux qui doivent vous alerter",
              ["Une odeur de brûlé ou une prise qui noircit — coupez et appelez immédiatement",
@@ -486,6 +522,24 @@ ETAPES = [
     ("Nous intervenons", "Réparation réalisée, chantier nettoyé, fonctionnement vérifié devant "
      "vous, facture détaillée remise avec la garantie."),
 ]
+
+PHOTOS_ACCUEIL = [
+    ("realisation-1.jpg", "Intervention de dégorgement par ETS-BZH",
+     "Dégorgement de canalisation"),
+    ("realisation-2.jpg", "Recherche et réparation de fuite d'eau",
+     "Réparation de fuite"),
+    ("realisation-3.jpg", "Remplacement d'un tableau électrique",
+     "Mise aux normes électrique"),
+    ("realisation-4.jpg", "Curage d'un réseau d'assainissement",
+     "Curage de réseau"),
+    ("realisation-5.jpg", "Installation d'un chauffe-eau",
+     "Pose de chauffe-eau"),
+    ("realisation-6.jpg", "Véhicule d'intervention ETS-BZH en Bretagne",
+     "Nos véhicules en Bretagne"),
+]
+
+PHOTO_EQUIPE = ("equipe.jpg", "L'équipe ETS-BZH et ses véhicules d'intervention")
+PHOTO_CONTACT = ("atelier.jpg", "Atelier et matériel professionnel ETS-BZH")
 
 STATS = [
     ("24/7", "Astreinte urgence"),

@@ -385,6 +385,71 @@ h3 { font-size: 1.2rem; }
   display: flex; align-items: center; justify-content: center; font-size: .75rem; font-weight: 900; margin-top: 3px;
 }
 
+/* ---------- Emplacements photo ---------- */
+.photo { margin: 0; }
+
+.photo__cadre {
+  position: relative;
+  overflow: hidden;
+  background: var(--bleu-pale);
+  border: 2px solid var(--bordure);
+}
+.photo__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* cadre d'attente : visible tant que le fichier photo n'existe pas.
+   Pour masquer complètement les emplacements vides en production,
+   décommentez la règle « .photo--vide { display: none } » plus bas. */
+.photo__attente {
+  position: absolute;
+  inset: 0;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px;
+  text-align: center;
+  color: var(--bleu);
+  background:
+    linear-gradient(rgba(232,241,246,.88), rgba(232,241,246,.88)),
+    url("../img/motif-plomberie.svg") center / 260px 260px repeat;
+}
+.photo--vide .photo__attente { display: flex; }
+.photo--vide .photo__img { visibility: hidden; }
+.photo--vide .photo__cadre { border-style: dashed; border-color: var(--bleu-clair); }
+
+.photo__aide {
+  font-size: .82rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.photo__nom {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: .76rem;
+  background: #fff;
+  border: 1px solid var(--bordure-forte);
+  padding: 4px 9px;
+  color: var(--gris);
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+.photo__legende {
+  font-size: .89rem;
+  color: var(--gris);
+  padding: 11px 2px 0;
+  font-weight: 600;
+}
+
+/* Décommentez pour masquer les emplacements non remplis :
+.photo--vide { display: none; }
+*/
+
 /* ---------- Avis clients ---------- */
 .avis { background: #fff; border: 2px solid var(--bordure); border-top: 5px solid var(--or); padding: 28px; display: flex; flex-direction: column; }
 .avis__stars { color: var(--or); font-size: 1.05rem; letter-spacing: 3px; margin-bottom: 12px; }
@@ -528,19 +593,17 @@ h3 { font-size: 1.2rem; }
 /* ---- Bloc de marque centré ---- */
 .footer__marque { text-align: center; padding-bottom: 42px; }
 
-.footer__plaque {
-  display: inline-block;
-  background: #fff;
-  padding: 22px 30px;
-  box-shadow: 0 6px 26px rgba(0,0,0,.28);
-  transition: transform .15s ease, box-shadow .15s ease;
+.footer__nom {
+  font-size: 1.9rem;
+  font-weight: 900;
+  letter-spacing: -.02em;
+  color: #fff;
+  margin: 0 0 6px;
 }
-.footer__plaque:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(0,0,0,.36); }
-.footer__plaque img { width: 340px; max-width: 100%; height: auto; display: block; }
 
 .footer__accroche {
   max-width: 620px;
-  margin: 26px auto 22px;
+  margin: 14px auto 22px;
   font-size: 1rem;
   line-height: 1.7;
   color: #b9d2e0;
@@ -602,7 +665,6 @@ h3 { font-size: 1.2rem; }
   .grid--3 { grid-template-columns: repeat(2, 1fr); }
   .villes-grid { grid-template-columns: repeat(2, 1fr); }
   .footer__grid { grid-template-columns: 1fr 1fr; gap: 34px; }
-  .footer__plaque img { width: 300px; }
   .cta__grid { grid-template-columns: 1fr; gap: 34px; }
 }
 
@@ -637,8 +699,6 @@ h3 { font-size: 1.2rem; }
   .stats__grid { grid-template-columns: 1fr; }
   .stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,.14); }
   .footer__grid { grid-template-columns: 1fr; gap: 30px; }
-  .footer__plaque { padding: 16px 20px; }
-  .footer__plaque img { width: 250px; }
   .footer__accroche { font-size: .95rem; margin: 22px auto 20px; }
   .footer__contacts { flex-direction: column; align-items: center; gap: 10px; }
   .mobile-bar { display: flex; }

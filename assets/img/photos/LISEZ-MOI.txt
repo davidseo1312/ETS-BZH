@@ -1,0 +1,68 @@
+EMPLACEMENTS PHOTO DU SITE ETS-BZH
+==================================
+
+Déposez vos photos dans CE dossier, en respectant EXACTEMENT les noms de
+fichiers ci-dessous. Aucune modification de code n'est nécessaire : dès que le
+fichier existe, la photo remplace le cadre d'attente affiché sur le site.
+
+Format conseillé : JPEG, 1200 x 900 px (galeries) ou 1200 x 800 px (photos
+larges), poids < 250 Ko. Le cadrage est automatique (recadrage centré).
+
+
+PAGE D'ACCUEIL
+--------------
+  realisation-1.jpg .... Dégorgement de canalisation
+  realisation-2.jpg .... Réparation de fuite
+  realisation-3.jpg .... Mise aux normes électrique
+  realisation-4.jpg .... Curage de réseau
+  realisation-5.jpg .... Pose de chauffe-eau
+  realisation-6.jpg .... Vos véhicules en Bretagne
+  equipe.jpg ........... L'équipe et les véhicules (section « À propos »)
+
+
+PAGES DÉGORGEMENT (les 4 départements partagent ces photos)
+-----------------------------------------------------------
+  degorgement-1.jpg ......... Camion hydrocureur en intervention
+  degorgement-2.jpg ......... Inspection vidéo du réseau
+  degorgement-3.jpg ......... Débouchage de colonne d'immeuble
+  degorgement-4.jpg ......... Curage haute pression
+  degorgement-equipe.jpg .... Technicien et matériel (section urgences)
+
+
+PAGES PLOMBERIE
+---------------
+  plomberie-1.jpg ......... Recherche de fuite non destructive
+  plomberie-2.jpg ......... Remplacement de chauffe-eau
+  plomberie-3.jpg ......... Réfection de réseau d'alimentation
+  plomberie-4.jpg ......... Installation de salle de bain
+  plomberie-equipe.jpg .... Plombier en intervention
+
+
+PAGES ÉLECTRICITÉ
+-----------------
+  electricite-1.jpg ......... Remplacement de tableau électrique
+  electricite-2.jpg ......... Mise aux normes NF C 15-100
+  electricite-3.jpg ......... Recherche de panne
+  electricite-4.jpg ......... Pose de borne de recharge
+
+
+PAGE CONTACT
+------------
+  atelier.jpg .......... Atelier et matériel professionnel
+
+
+CHANGER UNE LÉGENDE OU UN TEXTE ALTERNATIF
+------------------------------------------
+Les légendes et descriptions se modifient dans tools/data.py (clés « photos »,
+« photo_equipe », PHOTOS_ACCUEIL, PHOTO_EQUIPE, PHOTO_CONTACT), puis relancez :
+    python3 tools/build.py
+
+MASQUER LES EMPLACEMENTS NON REMPLIS
+------------------------------------
+Dans assets/css/style.css, décommentez la règle :
+    .photo--vide { display: none; }
+
+IMPORTANT : n'utilisez que des photos dont vous détenez les droits (vos propres
+chantiers de préférence). Évitez les banques d'images génériques : elles nuisent
+à la crédibilité et peuvent poser un problème juridique si elles sont présentées
+comme vos réalisations.

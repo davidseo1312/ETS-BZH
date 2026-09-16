@@ -15,7 +15,8 @@ import sys
 from datetime import date
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from data import SITE, DEPARTEMENTS, ACTIVITES, REASSURANCE, ETAPES, STATS  # noqa: E402
+from data import (SITE, DEPARTEMENTS, ACTIVITES, REASSURANCE, ETAPES, STATS,  # noqa: E402
+                  PHOTOS_ACCUEIL, PHOTO_EQUIPE, PHOTO_CONTACT)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEL = SITE["tel"]
@@ -356,10 +357,7 @@ def footer():
 <footer class="footer">
   <div class="container">
     <div class="footer__marque">
-      <a class="footer__plaque" href="index.html" aria-label="ETS-BZH — retour à l'accueil">
-        <img src="assets/img/logo.jpg" width="680" height="460" loading="lazy"
-             alt="ETS-BZH — Plomberie, Dégorgement, Électricité &amp; Canalisations">
-      </a>
+      <p class="footer__nom">ETS-BZH</p>
       <p class="footer__accroche">Dépannage et travaux en plomberie, dégorgement de
         canalisations et électricité sur les Côtes-d'Armor, le Finistère,
         l'Ille-et-Vilaine et le Morbihan.</p>
@@ -417,6 +415,50 @@ def footer():
 <script src="assets/js/main.js" defer></script>
 </body>
 </html>"""
+
+
+# ---------------------------------------------------------------- photos
+# Chaque emplacement pointe vers assets/img/photos/<fichier>.
+# Tant que le fichier n'existe pas, un cadre d'attente s'affiche à sa place
+# (voir assets/js/main.js). Déposez la photo sous ce nom exact : elle apparaît.
+
+SVG_APPAREIL = ('<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" '
+                'width="30" height="30"><path d="M9 3h6l1.5 2H21v14H3V5h4.5L9 3zm3 5a5 5 0 1 0 '
+                '0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/></svg>')
+
+
+def photo(fichier, alt, legende="", large=False):
+    """Emplacement photo remplaçable. `large` = format 3/2 au lieu de 4/3."""
+    cap = ('<figcaption class="photo__legende">%s</figcaption>' % legende) if legende else ""
+    ratio = "3 / 2" if large else "4 / 3"
+    return f"""
+<figure class="photo">
+  <div class="photo__cadre" style="aspect-ratio:{ratio}">
+    <img class="photo__img" src="assets/img/photos/{fichier}" alt="{alt}"
+         loading="lazy" decoding="async">
+    <div class="photo__attente">
+      {SVG_APPAREIL}
+      <span class="photo__aide">Emplacement photo</span>
+      <code class="photo__nom">photos/{fichier}</code>
+    </div>
+  </div>
+  {cap}
+</figure>"""
+
+
+def galerie(photos, eyebrow, titre, intro, colonnes=3):
+    items = "".join(photo(f, a, l) for f, a, l in photos)
+    return f"""
+<section class="section">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">{eyebrow}</span>
+      <h2>{titre}</h2>
+      <p class="lead">{intro}</p>
+    </div>
+    <div class="grid grid--{colonnes}">{items}</div>
+  </div>
+</section>"""
 
 
 # ------------------------------------------------------------------- JSON-LD
@@ -633,7 +675,9 @@ def page_landing(act, dept):
         </a>
       </p>
     </div>
-    <div class="encadre">
+    <div>
+    {photo(act["photo_equipe"][0], act["photo_equipe"][1], large=True)}
+    <div class="encadre" style="margin-top:22px">
       <h3>Zone d'intervention {du}</h3>
       <p>Nos équipes sont basées en Bretagne et circulent quotidiennement sur
          {dept['axes']}. Cela nous permet d'annoncer un délai réaliste dès votre appel —
@@ -644,6 +688,7 @@ def page_landing(act, dept):
         <li><span class="tick">✓</span><span>Le coût du déplacement et du diagnostic</span></li>
         <li><span class="tick">✓</span><span>Une fourchette de prix pour la réparation</span></li>
       </ul>
+    </div>
     </div>
   </div>
 </section>
@@ -691,6 +736,12 @@ def page_landing(act, dept):
     </div>
   </div>
 </section>
+
+{galerie(act["photos"],
+         "En images",
+         "Nos interventions %s %s en images" % (activite, d_nom),
+         "Quelques chantiers réalisés par nos équipes. Photos de nos propres "
+         "interventions — pas de banque d'images.", 4)}
 
 <!-- =========================== VILLES =========================== -->
 <section class="section section--pale">
@@ -902,6 +953,12 @@ def page_index():
   </div>
 </section>
 
+{galerie(PHOTOS_ACCUEIL,
+         "Nos réalisations",
+         "ETS-BZH en images",
+         "Chantiers, matériel et équipes&nbsp;: découvrez notre travail sur le terrain "
+         "dans les quatre départements bretons.", 3)}
+
 {cta_final("Une urgence en Bretagne&nbsp;? Nos techniciens interviennent dans l'heure.",
            "Fuite d'eau, canalisation bouchée, panne électrique&nbsp;: un professionnel "
            "qualifié vous répond immédiatement et se déplace avec le matériel adapté. "
@@ -929,7 +986,8 @@ def page_index():
             sans votre accord. La facture correspond au devis accepté.</p>
         </div>
         <div>
-          <h3 style="margin-top:0">Nos engagements</h3>
+          {photo(PHOTO_EQUIPE[0], PHOTO_EQUIPE[1], "Nos équipes en Bretagne", large=True)}
+          <h3 style="margin-top:28px">Nos engagements</h3>
           <ul class="checks">
             <li><span class="tick">✓</span><span><strong>Intervention 24/7</strong> — astreinte nuits, week-ends et jours fériés</span></li>
             <li><span class="tick">✓</span><span><strong>Devis gratuit</strong> — sans engagement, validé avant travaux</span></li>
@@ -1035,6 +1093,8 @@ def page_contact():
           Appelez-nous&nbsp;: nous couvrons l'intégralité des quatre départements bretons,
           y compris les communes rurales.</p>
       </div>
+      <div style="height:22px"></div>
+      {photo(PHOTO_CONTACT[0], PHOTO_CONTACT[1], large=True)}
       <div class="encadre" style="margin-top:22px;background:var(--bleu-pale-2)">
         <h3>Professionnels, syndics et bailleurs</h3>
         <p>Nous proposons des contrats d'entretien et des interventions récurrentes&nbsp;:

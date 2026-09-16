@@ -47,7 +47,7 @@ reconstruction.
 | Fichier | Provenance | Usage |
 | --- | --- | --- |
 | `assets/img/logo-original.jpg` | Fichier source intact (1407 × 768) | Archive de référence, non chargé par les pages |
-| `assets/img/logo.jpg` | Source rognée de ses marges blanches et redimensionnée en 680 px | Pied de page (sur plaque blanche) et `og:image` |
+| `assets/img/logo.jpg` | Source rognée de ses marges blanches et redimensionnée en 680 px | Image de partage (`og:image`) et `LocalBusiness` |
 | `assets/img/logo-emblem.png` | Disque découpé dans la source, fond rendu transparent | En-tête (haut à gauche) et icône Apple |
 | `assets/img/favicon.png` | Même emblème en 96 px | Favicon |
 
@@ -60,11 +60,10 @@ fichier source (dernière colonne de pixels), qui décentrait le logo. Le conten
 est désormais centré à 0,5 px près, et la plaque du pied de page est centrée
 exactement dans sa colonne à toutes les largeurs.
 
-Dans l'en-tête, l'emblème est associé au nom « ETS-BZH » en texte HTML plutôt
-qu'à l'image complète : à 78 px de hauteur de barre, le bandeau du logo
-descendrait sous 10 px et deviendrait illisible. Le logo complet est affiché en
-taille lisible dans le pied de page de chaque page, centré sur une plaque
-blanche (340 px en desktop, 300 px en tablette, 250 px en mobile).
+Le logo apparaît dans l'en-tête de chaque page, en haut à gauche : l'emblème
+est associé au nom « ETS-BZH » en texte HTML plutôt qu'à l'image complète, car à
+78 px de hauteur de barre le bandeau du logo descendrait sous 10 px et
+deviendrait illisible. Le pied de page ne reprend pas le logo.
 
 ### Arrière-plan des en-têtes
 
@@ -81,6 +80,43 @@ Deux couches le rendent lisible, dans `assets/css/style.css` :
 Contraste vérifié sur les 17 pages : **5,8:1 au pire cas** (seuil WCAG AA : 4,5:1).
 Pour renforcer ou atténuer le motif, ajustez la seule valeur `opacity` de
 `.hero::before`.
+
+## Emplacements photo
+
+Le site prévoit **23 emplacements photo** répartis sur toutes les pages :
+
+| Page | Emplacements |
+| --- | --- |
+| Accueil | Galerie « ETS-BZH en images » (6 photos) + photo d'équipe dans « À propos » |
+| Chaque landing page | Galerie « Nos interventions en images » (4 photos) + photo d'équipe dans la section urgences |
+| Contact | 1 photo (atelier / matériel) |
+
+Les galeries sont **partagées par activité** : les 4 pages Dégorgement affichent
+les mêmes 4 photos, idem pour Plomberie et Électricité. Cela fait 23 fichiers à
+fournir, pas 68.
+
+### Comment ajouter une photo
+
+Déposez le fichier dans `assets/img/photos/` **sous le nom exact attendu** — la
+photo remplace aussitôt le cadre d'attente, sans toucher au code ni relancer le
+générateur. La liste complète des noms de fichiers est dans
+`assets/img/photos/LISEZ-MOI.txt`, et chaque cadre d'attente affiche lui-même le
+nom qu'il attend.
+
+Format conseillé : JPEG 1200 × 900 px (galeries) ou 1200 × 800 px (photos
+larges), moins de 250 Ko. Le recadrage est automatique et centré
+(`object-fit: cover`).
+
+Pour masquer les emplacements non encore remplis, décommentez dans
+`assets/css/style.css` :
+
+```css
+.photo--vide { display: none; }
+```
+
+Les légendes et textes alternatifs se modifient dans `tools/data.py`
+(clés `photos`, `photo_equipe`, `PHOTOS_ACCUEIL`, `PHOTO_EQUIPE`,
+`PHOTO_CONTACT`), puis `python3 tools/build.py`.
 
 ## Charte graphique
 
@@ -140,6 +176,10 @@ Un champ piège (`_gotcha`) bloque les robots de formulaire.
       d'exemple : remplacez-les par de vrais avis vérifiés avant publication
       (l'affichage d'avis fictifs est une pratique commerciale trompeuse)
 - [ ] **Tarifs** — vérifier les montants indicatifs de `tools/data.py`
+- [ ] **Photos** — remplir les 23 emplacements avec vos propres chantiers
+      (voir « Emplacements photo »). N'utilisez que des visuels dont vous
+      détenez les droits : présenter des images de banque comme vos
+      réalisations est trompeur et juridiquement risqué
 - [ ] **Endpoint de formulaire** (voir ci-dessus)
 - [ ] **Domaine** — `SITE["url"]` dans `tools/data.py` alimente les URLs
       canoniques et le sitemap
