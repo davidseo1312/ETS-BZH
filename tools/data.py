@@ -227,22 +227,47 @@ ACTIVITES = [
         "photos": [
             ("degorgement-1.jpg",
              "Technicien ETS-BZH débouchant des WC à la ventouse",
-             "Débouchage de WC"),
+             "Débouchage de WC",
+             "Un WC qui refoule est l'urgence la plus fréquente. Nous commençons "
+             "toujours par la ventouse&nbsp;: elle suffit dans la majorité des cas et "
+             "n'abîme ni la céramique ni les joints. Si le bouchon résiste, le furet "
+             "électrique prend le relais dans la foulée. L'évacuation est testée devant "
+             "vous avant notre départ."),
             ("degorgement-2.jpg",
              "Débouchage d'un lavabo au furet électrique par un technicien ETS-BZH",
-             "Débouchage de lavabo au furet"),
+             "Débouchage de lavabo au furet",
+             "Sur un lavabo ou un évier, le bouchon se forme au siphon ou juste après, "
+             "là où graisses et cheveux s'accumulent. Le furet électrique traverse le "
+             "coude et racle la paroi sur plusieurs mètres, sans démonter le meuble. "
+             "Un rinçage final vérifie que l'écoulement est bien rétabli."),
             ("degorgement-3.jpg",
              "Débouchage d'un receveur de douche au furet électrique",
-             "Débouchage de receveur de douche"),
+             "Débouchage de receveur de douche",
+             "Une douche qui se vide lentement annonce un bouchon de cheveux et de savon "
+             "dans la bonde. Le furet est introduit par la grille d'évacuation, sans "
+             "casser ni déposer le receveur. L'intervention prend généralement moins "
+             "d'une heure."),
             ("degorgement-4.jpg",
              "Inspection vidéo d'une canalisation par caméra endoscopique ETS-BZH",
-             "Inspection vidéo par caméra"),
+             "Inspection vidéo par caméra",
+             "Quand le bouchon revient sans cesse, la caméra dit pourquoi. Elle descend "
+             "dans la canalisation et montre en direct l'état de la paroi&nbsp;: dépôt de "
+             "graisse, racine infiltrée, tuyau affaissé ou fissuré. Vous repartez avec un "
+             "diagnostic précis et la localisation exacte du défaut."),
             ("degorgement-5.jpg",
              "Hydrocurage haute pression d'un regard d'assainissement par ETS-BZH",
-             "Hydrocurage haute pression"),
+             "Hydrocurage haute pression",
+             "L'hydrocurage nettoie toute la paroi de la canalisation, pas seulement le "
+             "bouchon. Un jet pouvant atteindre 200&nbsp;bars décolle graisses, tartre et "
+             "racines sur toute la longueur du réseau. C'est la solution durable lorsque "
+             "les débouchages se répètent."),
             ("degorgement-6.jpg",
              "Camion hydrocureur ETS-BZH et son équipe lors d'un pompage sur regard",
-             "Pompage et vidange sur regard"),
+             "Pompage et vidange sur regard",
+             "Regard qui déborde, fosse pleine, cave inondée&nbsp;: le camion pompe et "
+             "évacue, puis nous contrôlons le bon écoulement du réseau. Les matières sont "
+             "acheminées vers un centre agréé et un bordereau d'élimination vous est "
+             "remis."),
         ],
         "photo_equipe": None,
         "prose_h3": [
@@ -368,21 +393,40 @@ ACTIVITES = [
         "photos": [
             ("plomberie-1.jpg",
              "Plombier ETS-BZH inspectant le siphon et les arrivées d'eau sous un lavabo",
-             "Diagnostic sous lavabo et recherche de fuite"),
+             "Diagnostic sous lavabo et recherche de fuite",
+             "Une trace d'humidité sous un meuble peut venir du siphon, d'un flexible ou "
+             "d'un raccord mural. Nous inspectons chaque point avant de toucher quoi que "
+             "ce soit, pour réparer ce qui fuit réellement. Le diagnostic vous est "
+             "expliqué et chiffré avant toute intervention."),
             ("plomberie-2.jpg",
              "Plombier ETS-BZH intervenant sur le groupe de sécurité d'un chauffe-eau",
-             "Intervention sur chauffe-eau"),
+             "Intervention sur chauffe-eau",
+             "L'absence d'eau chaude vient le plus souvent de la résistance, du thermostat "
+             "ou du groupe de sécurité. Nous testons ces trois points avant d'envisager un "
+             "remplacement&nbsp;: dans bien des cas, une pièce suffit. Le ballon est remis "
+             "en service et sa température contrôlée."),
             ("plomberie-3.jpg",
              "Remplacement d'une canalisation enterrée par un plombier ETS-BZH",
-             "Remplacement de canalisation enterrée"),
+             "Remplacement de canalisation enterrée",
+             "Quand une canalisation extérieure est percée ou affaissée, la réparation "
+             "passe par la reprise du tronçon. Nous ouvrons au plus juste, remplaçons la "
+             "section défectueuse avec des raccords adaptés, puis testons l'étanchéité "
+             "avant de refermer la tranchée."),
             ("plomberie-4.jpg",
              "Plombier ETS-BZH raccordant les alimentations sous un meuble vasque "
              "lors d'une installation de salle de bain",
-             "Installation de salle de bain"),
+             "Installation de salle de bain",
+             "Sur une salle de bain neuve ou rénovée, nous reprenons les alimentations et "
+             "les évacuations avant la pose des sanitaires. Chaque raccord est mis en "
+             "pression et vérifié avant d'être encastré&nbsp;: c'est à ce moment précis "
+             "que se jouent les fuites futures."),
         ],
         "photo_equipe": ("plomberie-equipe.jpg",
-                         "Plombier ETS-BZH remplaçant le flexible d'alimentation "
-                         "d'un WC"),
+                         "Plombier ETS-BZH remplaçant le flexible d'alimentation d'un WC",
+                         "Remplacement de flexible de WC",
+                         "Un flexible d'alimentation qui suinte finit toujours par lâcher. "
+                         "Le remplacement prend quelques minutes, coupure comprise, et "
+                         "évite un dégât des eaux qui coûterait cent fois plus cher."),
         "prose_h3": [
             ("Les dépannages les plus demandés {art} {dept}",
              ["Fuite sur flexible, siphon ou raccord sous évier",
@@ -507,19 +551,37 @@ ACTIVITES = [
         "photos": [
             ("electricite-1.jpg",
              "Électricien ETS-BZH intervenant sur un tableau électrique",
-             "Remplacement de tableau électrique"),
+             "Remplacement de tableau électrique",
+             "Un tableau vétuste, saturé ou dépourvu de protection différentielle est un "
+             "risque d'incendie. Nous le remplaçons par un tableau aux normes, avec "
+             "repérage et étiquetage de chaque circuit&nbsp;: vous savez enfin ce que "
+             "coupe chaque disjoncteur."),
             ("electricite-2.jpg",
              "Électricien ETS-BZH remettant aux normes un tableau électrique",
-             "Mise aux normes NF C 15-100"),
+             "Mise aux normes NF C 15-100",
+             "La mise en conformité porte sur la protection différentielle 30&nbsp;mA, la "
+             "prise de terre et la protection des circuits spécialisés. Nous établissons "
+             "d'abord un état des lieux, puis nous reprenons les points dangereux&nbsp;— "
+             "rarement l'installation entière."),
             ("electricite-3.jpg",
              "Électricien ETS-BZH contrôlant une prise au multimètre",
-             "Recherche de panne et contrôle de circuit"),
+             "Recherche de panne et contrôle de circuit",
+             "Un disjoncteur qui saute a toujours une cause précise. Le multimètre permet "
+             "d'isoler le circuit fautif, prise par prise s'il le faut, plutôt que de "
+             "réarmer en espérant. Le défaut est traité à la source, pas contourné."),
             ("electricite-4.jpg",
              "Électricien ETS-BZH posant une borne de recharge pour véhicule électrique",
-             "Pose de borne de recharge"),
+             "Pose de borne de recharge",
+             "La pose d'une borne suppose un circuit dédié, une protection adaptée et une "
+             "étude de la puissance disponible. Nous installons, raccordons et mettons en "
+             "service, puis remettons les documents nécessaires aux aides éventuelles."),
         ],
         "photo_equipe": ("electricite-equipe.jpg",
-                         "Électricien ETS-BZH installant un luminaire sur escabeau"),
+                         "Électricien ETS-BZH installant un luminaire sur escabeau",
+                         "Installation de luminaire",
+                         "Ajout d'un point lumineux, remplacement d'un luminaire, création "
+                         "d'un va-et-vient&nbsp;: ces interventions courantes se règlent "
+                         "dans la journée, en laissant la pièce propre."),
         "prose_h3": [
             ("Les signaux qui doivent vous alerter",
              ["Une odeur de brûlé ou une prise qui noircit — coupez et appelez immédiatement",
@@ -568,21 +630,41 @@ ETAPES = [
 
 PHOTOS_ACCUEIL = [
     ("degorgement-1.jpg", "Technicien ETS-BZH débouchant des WC",
-     "Débouchage de WC"),
-    ("degorgement-2.jpg", "Débouchage d'un lavabo au furet électrique",
-     "Débouchage de lavabo"),
-    ("degorgement-3.jpg", "Débouchage d'un receveur de douche",
-     "Débouchage de douche"),
+     "Débouchage de WC",
+     "L'urgence la plus fréquente. Ventouse d'abord, furet électrique ensuite si le "
+     "bouchon résiste, et test de l'évacuation devant vous avant notre départ."),
+    ("degorgement-5.jpg", "Hydrocurage haute pression d'un regard par ETS-BZH",
+     "Hydrocurage haute pression",
+     "Un jet pouvant atteindre 200&nbsp;bars décolle graisses, tartre et racines sur "
+     "toute la longueur du réseau. La solution quand les débouchages se répètent."),
+    ("degorgement-4.jpg", "Inspection vidéo d'une canalisation par caméra",
+     "Inspection vidéo par caméra",
+     "La caméra montre en direct l'état de la paroi et localise le défaut au mètre "
+     "près&nbsp;: racine, affaissement, fissure. Diagnostic remis par écrit."),
     ("plomberie-1.jpg", "Recherche de fuite sous un lavabo par un plombier ETS-BZH",
-     "Recherche de fuite"),
+     "Recherche de fuite",
+     "Siphon, flexible ou raccord mural&nbsp;: nous identifions le point de fuite avant "
+     "de démonter quoi que ce soit, et nous chiffrons la réparation avant d'agir."),
     ("plomberie-2.jpg", "Intervention sur un chauffe-eau par un plombier ETS-BZH",
-     "Intervention sur chauffe-eau"),
-    ("equipe.jpg", "Technicien ETS-BZH devant son véhicule d'intervention",
-     "Nos équipes et nos véhicules"),
+     "Intervention sur chauffe-eau",
+     "Résistance, thermostat, groupe de sécurité&nbsp;: ces trois points sont testés "
+     "avant d'envisager un remplacement. Souvent, une pièce suffit."),
+    ("electricite-1.jpg", "Électricien ETS-BZH sur un tableau électrique",
+     "Remplacement de tableau électrique",
+     "Tableau aux normes, protection différentielle 30&nbsp;mA, circuits repérés et "
+     "étiquetés. Vous savez enfin ce que coupe chaque disjoncteur."),
 ]
 
-PHOTO_EQUIPE = ("equipe.jpg", "L'équipe ETS-BZH et ses véhicules d'intervention")
-PHOTO_CONTACT = ("atelier.jpg", "Atelier et matériel professionnel ETS-BZH")
+PHOTO_EQUIPE = ("equipe.jpg", "L'équipe ETS-BZH et ses véhicules d'intervention",
+                "Nos équipes et nos véhicules",
+                "Nos véhicules embarquent le matériel des trois métiers&nbsp;: furet et "
+                "caméra pour l'assainissement, détection de fuite pour la plomberie, "
+                "appareillage de mesure pour l'électricité. C'est ce qui permet de "
+                "résoudre la majorité des pannes dès le premier passage.")
+PHOTO_CONTACT = ("atelier.jpg", "Atelier et matériel professionnel ETS-BZH",
+                 "Notre atelier",
+                 "Le matériel est préparé et contrôlé avant chaque tournée&nbsp;: c'est ce "
+                 "qui évite les allers-retours et les interventions reportées.")
 
 
 # (fichier, texte alternatif, hauteur en px, correction verticale en fraction de

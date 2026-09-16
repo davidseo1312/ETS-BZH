@@ -288,6 +288,13 @@ h3 { font-size: 1.16rem; }
 
 /* ---------- Dropdown zones ---------- */
 .has-sub { position: relative; }
+.has-sub > a { display: inline-flex; align-items: center; gap: 7px; }
+.has-sub > a::after {
+  content: ""; flex: none;
+  width: 0; height: 0;
+  border-left: 4px solid transparent; border-right: 4px solid transparent;
+  border-top: 5px solid currentColor;
+}
 .sub {
   position: absolute; top: 100%; left: 0; min-width: 270px;
   background: #fff; border: 2px solid var(--bleu); box-shadow: var(--ombre-forte);
@@ -366,7 +373,7 @@ h3 { font-size: 1.16rem; }
 .hero__points li { display: flex; gap: 12px; align-items: flex-start; font-size: 1.02rem; color: #eaf5fb; }
 .hero__points .tick {
   flex: none; width: 24px; height: 24px; background: #fff; color: var(--bleu);
-  display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: .85rem; margin-top: 2px;
+  display: flex; align-items: center; justify-content: center; margin-top: 2px;
 }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 14px; }
 
@@ -488,7 +495,8 @@ h3 { font-size: 1.16rem; }
 .svc { display: flex; flex-direction: column; height: 100%; }
 .svc__list { margin: 14px 0 20px; display: grid; gap: 8px; }
 .svc__list li { font-size: .94rem; color: var(--gris); padding-left: 20px; position: relative; }
-.svc__list li::before { content: "▪"; position: absolute; left: 0; color: var(--bleu); font-size: 1rem; line-height: 1.3; }
+.svc__list li::before { content: ""; position: absolute; left: 0; top: .55em;
+  width: 7px; height: 7px; background: var(--bleu-ciel); }
 .svc__foot { margin-top: auto; padding-top: 6px; }
 
 /* Liste prestations landing */
@@ -519,8 +527,13 @@ h3 { font-size: 1.16rem; }
 .checks { display: grid; gap: 12px; }
 .checks li { display: flex; gap: 12px; align-items: flex-start; font-size: 1rem; color: var(--nuit-2); }
 .checks .tick {
-  flex: none; width: 22px; height: 22px; background: var(--bleu); color: #fff;
-  display: flex; align-items: center; justify-content: center; font-size: .75rem; font-weight: 800; margin-top: 3px;
+  flex: none; width: 24px; height: 24px; background: var(--bleu); color: #fff;
+  display: flex; align-items: center; justify-content: center; margin-top: 2px;
+}
+.checks .tick--alerte { background: var(--urgence); }
+.checks .tick--plein { position: relative; background: var(--bleu-pale); }
+.checks .tick--plein::after {
+  content: ""; position: absolute; inset: 8px; background: var(--bleu);
 }
 
 /* ---------- Emplacements photo ---------- */
@@ -577,11 +590,16 @@ h3 { font-size: 1.16rem; }
   max-width: 100%;
   overflow-wrap: anywhere;
 }
-.photo__legende {
-  font-size: .89rem;
-  color: var(--gris);
-  padding: 11px 2px 0;
-  font-weight: 600;
+.photo__legende { padding: 14px 2px 0; }
+.photo__titre {
+  display: block;
+  font-family: "Barlow Condensed", "Barlow", sans-serif;
+  font-size: 1.24rem; font-weight: 700; line-height: 1.15;
+  color: var(--nuit); margin-bottom: 7px;
+}
+.photo__texte {
+  display: block;
+  font-size: .92rem; line-height: 1.55; color: var(--gris);
 }
 
 /* Décommentez pour masquer les emplacements non remplis :
@@ -603,7 +621,7 @@ h3 { font-size: 1.16rem; }
   color: var(--bleu-pale); pointer-events: none;
 }
 .avis > * { position: relative; }
-.avis__stars { color: var(--or); font-size: 1.05rem; letter-spacing: 3px; margin-bottom: 12px; }
+.avis__stars { color: var(--or); display: flex; gap: 3px; margin-bottom: 14px; }
 .avis__txt { font-size: .99rem; color: var(--nuit-2); font-style: italic; margin-bottom: 20px; }
 .avis__auteur { margin-top: auto; display: flex; align-items: center; gap: 12px; padding-top: 16px; border-top: 1px solid var(--bordure); }
 .avis__ini { width: 42px; height: 42px; background: var(--bleu); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; flex: none; }
@@ -632,7 +650,7 @@ a.note-globale:hover { border-color: var(--bleu); text-decoration: none; }
 .avis-note__chiffre { font-size: 1.05rem; color: var(--gris); line-height: 1; }
 .avis-note__chiffre strong { font-family: "Barlow Condensed", "Barlow", sans-serif;
   font-size: 2.2rem; font-weight: 700; color: var(--nuit); }
-.avis-note__etoiles { color: var(--or); letter-spacing: 2px; font-size: .95rem; }
+.avis-note__etoiles { color: var(--or); display: flex; gap: 2px; }
 .avis-note__txt { font-size: .87rem; color: var(--gris); line-height: 1.5; }
 
 /* ---------- Bandeau CTA ---------- */
@@ -680,7 +698,12 @@ a.note-globale:hover { border-color: var(--bleu); text-decoration: none; }
   font-size: .9rem; font-weight: 700; color: var(--nuit-2);
 }
 .dept__links a:hover { background: var(--bleu); color: #fff; text-decoration: none; }
-.dept__links a::after { content: "→"; font-weight: 800; }
+.dept__links a::after {
+  content: ""; flex: none;
+  width: 8px; height: 8px;
+  border-top: 2px solid currentColor; border-right: 2px solid currentColor;
+  transform: rotate(45deg);
+}
 
 /* Maillage interne */
 .liens-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px 26px; }
@@ -758,7 +781,8 @@ a.note-globale:hover { border-color: var(--bleu); text-decoration: none; }
 .prose p, .prose li { color: var(--gris); }
 .prose ul { display: grid; gap: 9px; margin: 0 0 1.2em; }
 .prose ul li { padding-left: 20px; position: relative; }
-.prose ul li::before { content: "▪"; position: absolute; left: 0; color: var(--bleu); }
+.prose ul li::before { content: ""; position: absolute; left: 0; top: .6em;
+  width: 7px; height: 7px; background: var(--bleu-ciel); }
 .prose strong { color: var(--nuit-2); }
 
 /* ---------- Fil d'ariane ---------- */
@@ -767,6 +791,61 @@ a.note-globale:hover { border-color: var(--bleu); text-decoration: none; }
 .ariane li::after { content: "/"; margin-left: 8px; color: var(--bordure-forte); }
 .ariane li:last-child::after { content: ""; }
 .ariane a { color: var(--gris); }
+
+/* ---------- Carte des zones ---------- */
+.zone-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 40px; align-items: center; }
+/* sans cela, le SVG impose sa largeur intrinsèque et déborde sur petit écran */
+.zone-grid > * { min-width: 0; }
+.zone-titre { margin-bottom: 18px; }
+
+.carte { background: #fff; border: 1px solid var(--bordure); padding: 22px; }
+.carte__svg { width: 100%; height: auto; display: block; }
+
+.carte__zone path {
+  fill: var(--bleu-pale);
+  stroke: #fff;
+  stroke-width: 3;
+  transition: fill .18s ease;
+}
+.carte__zone text {
+  fill: var(--bleu);
+  text-anchor: middle;
+  pointer-events: none;
+  transition: fill .18s ease;
+}
+.carte__num {
+  font-family: "Barlow Condensed", "Barlow", sans-serif;
+  font-size: 48px; font-weight: 700;
+}
+.carte__nom { font-size: 21px; font-weight: 600; }
+/* liseré pour que les libellés restent lisibles sur toutes les teintes */
+.carte__zone text { paint-order: stroke fill; stroke: rgba(255,255,255,.5); stroke-width: 3; }
+.carte__zone.est-courant text, .carte__zone:hover text { stroke: rgba(10,48,63,.35); }
+
+.carte__zone:hover path, .carte__zone:focus-visible path { fill: var(--bleu-ciel); }
+.carte__zone:hover text, .carte__zone:focus-visible text { fill: #fff; }
+.carte__zone.est-courant path { fill: var(--bleu); }
+.carte__zone.est-courant text { fill: #fff; }
+.carte__zone:focus-visible { outline: none; }
+.carte__zone:focus-visible path { stroke: var(--nuit); stroke-width: 5; }
+
+.carte__legende {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 16px;
+  margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--bordure);
+}
+.carte__legende a {
+  display: block; padding: 7px 10px; font-size: .92rem; font-weight: 600;
+  color: var(--nuit-2); background: var(--bleu-pale-2);
+  border-left: 3px solid var(--bordure-forte);
+}
+.carte__legende a:hover { background: var(--bleu-pale); border-left-color: var(--bleu-ciel); text-decoration: none; }
+.carte__legende a strong { color: var(--bleu); margin-right: 6px; }
+.carte__legende .est-courant a { border-left-color: var(--bleu); background: var(--bleu-pale); }
+
+.dept-grid--compact { grid-template-columns: 1fr 1fr; gap: 16px; }
+.dept-grid--compact .dept { min-width: 0; }
+.dept-grid--compact .dept { padding: 20px 18px; }
+.dept-grid--compact .dept__num { font-size: 2.2rem; }
 
 /* ---------- Bandeau de logos (avant le pied de page) ---------- */
 /* Fond clair obligatoire : les logos comportent du texte noir. */
@@ -906,6 +985,7 @@ a.note-globale:hover { border-color: var(--bleu); text-decoration: none; }
 @media (max-width: 1080px) {
   .hero__grid { grid-template-columns: 1fr; gap: 40px; }
   .dept-grid, .grid--4, .liens-grid, .steps { grid-template-columns: repeat(2, 1fr); }
+  .zone-grid { grid-template-columns: 1fr; gap: 32px; }
   .stats__grid { grid-template-columns: repeat(2, 1fr); }
   .stat:nth-child(2) { border-right: none; }
   .stat:nth-child(1), .stat:nth-child(2) { border-bottom: 1px solid rgba(255,255,255,.14); }
@@ -945,6 +1025,14 @@ a.note-globale:hover { border-color: var(--bleu); text-decoration: none; }
   body { font-size: 16px; padding-bottom: 58px; }
   .section { padding: 52px 0; }
   .grid--2, .grid--3, .grid--4, .dept-grid, .liens-grid, .steps, .field-row { grid-template-columns: 1fr; }
+  .dept-grid--compact { grid-template-columns: 1fr 1fr; }
+  .carte { padding: 14px; }
+}
+
+/* sous 420 px, les noms de département ne tiennent plus à deux colonnes */
+@media (max-width: 420px) {
+  .dept-grid--compact { grid-template-columns: 1fr; }
+  .carte__legende { grid-template-columns: 1fr; }
   .steps { grid-template-columns: 1fr; gap: 30px; }
   .step { display: grid; grid-template-columns: 56px 1fr; gap: 0 18px; text-align: left; }
   .step__pastille { margin-bottom: 0; grid-row: span 2; box-shadow: none; }

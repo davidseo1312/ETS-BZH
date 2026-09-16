@@ -19,6 +19,7 @@ from datetime import date
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from data import (SITE, DEPARTEMENTS, ACTIVITES, REASSURANCE, ETAPES, STATS,  # noqa: E402
                   PHOTOS_ACCUEIL, PHOTO_EQUIPE, PHOTO_CONTACT, LOGOS)
+from carte import CARTE_LARGEUR, CARTE_HAUTEUR, TRACES, CENTRES  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEL = SITE["tel"]
@@ -118,6 +119,12 @@ PICTOS = {
     "medaille": '<path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4L4.2 7.7l5.4-.8z"/><path d="M8 16l-2 6 6-2.6L18 22l-2-6-4 2z"/>',
     "bouclier": '<path d="M12 2l8 3v7c0 5-3.4 8.9-8 10-4.6-1.1-8-5-8-10V5zm-1 13l6-6-1.4-1.4L11 12.2 9.4 10.6 8 12z"/>',
     "carte": '<path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/>',
+    "check": '<path d="M9.6 16.6L5 12l-1.4 1.4 6 6 12-12L20.2 6z"/>',
+    "alerte": '<path d="M12 2L1 21h22zm1 15h-2v2h2zm0-7h-2v5h2z"/>',
+    "etoile": '<path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21l1.2-6.9-5-4.9 6.9-1z"/>',
+    "mail": '<path d="M2 5h20v14H2zm2 2v.5l8 5 8-5V7zm16 10V9.9l-8 5-8-5V17z"/>',
+    "chrono": '<path d="M9 1h6v2H9zm2 6h2v7h-2zm1-4a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm0 2a7 7 0 1 1 0 14 7 7 0 0 1 0-14z"/>',
+    "zone": '<path d="M3 3h8v8H3zm10 0h8v8h-8zM3 13h8v8H3zm10 0h8v8h-8z"/>',
     "eclair": '<path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/>',
 }
 
@@ -201,7 +208,7 @@ def nav_zones():
         liens = "".join(
             '<a href="%s">%s (%s)</a>' % (url_landing(act, d), d["nom"], d["num"])
             for d in DEPARTEMENTS)
-        out.append('<li class="has-sub"><a href="#">%s ▾</a>'
+        out.append('<li class="has-sub"><a href="#">%s</a>'
                    '<div class="sub"><strong>%s par département</strong>%s</div></li>'
                    % (act["nom_court"], act["nom_court"], liens))
     return "".join(out)
@@ -422,13 +429,55 @@ def bandeau_avis(legende):
     <span class="avis-note__sep" aria-hidden="true"></span>
     <span class="avis-note__bloc">
       <span class="avis-note__chiffre"><strong>4,8</strong>/5</span>
-      <span class="avis-note__etoiles" aria-hidden="true">★★★★★</span>
+      <span class="avis-note__etoiles" aria-hidden="true">{picto("etoile", 15) * 5}</span>
     </span>
     <span class="avis-note__txt">{legende}<br>sur les 12 derniers mois</span>"""
     if SITE.get("google_avis"):
         return ('<a class="note-globale" href="%s" target="_blank" rel="noopener">%s</a>'
                 % (SITE["google_avis"], contenu))
     return '<div class="note-globale">%s</div>' % contenu
+
+
+def carte(act=None, dept_actuel=None):
+    """Carte cliquable des quatre départements bretons.
+
+    Les contours proviennent des données officielles (france-geojson, ODbL) et
+    sont intégrés en SVG : la carte est interactive sans aucun script ni service
+    tiers, contrairement à une carte Leaflet ou Google Maps qui exposerait les
+    visiteurs à un traçage externe.
+    """
+    # Le barycentre du Finistère tombe sur une presqu'île étroite : on recale
+    # son libellé sur la partie large du département.
+    ancres = dict(CENTRES, **{"29": (283.0, 318.0)})
+    cible = act if act else ACT["degorgement"]
+    zones = ""
+    for d in DEPARTEMENTS:
+        courant = dept_actuel and d["num"] == dept_actuel["num"]
+        cx, cy = ancres[d["num"]]
+        zones += (
+            '<a class="carte__zone%s" href="%s" aria-label="%s %s (%s)"%s>'
+            '<path d="%s"/>'
+            '<text class="carte__num" x="%s" y="%s">%s</text>'
+            '<text class="carte__nom" x="%s" y="%s">%s</text></a>'
+            % (" est-courant" if courant else "",
+               url_landing(cible, d), cible["nom_court"], d["nom"], d["num"],
+               ' aria-current="page"' if courant else "",
+               TRACES[d["num"]], cx, cy, d["num"], cx, cy + 34, d["nom"]))
+
+    legende = "".join(
+        '<li%s><a href="%s"><strong>%s</strong> %s</a></li>'
+        % (' class="est-courant"' if (dept_actuel and d["num"] == dept_actuel["num"]) else "",
+           url_landing(cible, d), d["num"], d["nom"])
+        for d in DEPARTEMENTS)
+
+    return f"""
+<div class="carte">
+  <svg class="carte__svg" viewBox="0 0 {CARTE_LARGEUR} {CARTE_HAUTEUR}"
+       role="img" aria-label="Carte des quatre départements bretons couverts par ETS-BZH">
+    {zones}
+  </svg>
+  <ul class="carte__legende">{legende}</ul>
+</div>"""
 
 
 def bandeau_confiance():
@@ -539,9 +588,14 @@ SVG_APPAREIL = ('<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
                 '0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/></svg>')
 
 
-def photo(fichier, alt, legende="", large=False):
+def photo(fichier, alt, legende="", large=False, description=""):
     """Emplacement photo remplaçable. `large` = format 3/2 au lieu de 4/3."""
-    cap = ('<figcaption class="photo__legende">%s</figcaption>' % legende) if legende else ""
+    cap = ""
+    if legende or description:
+        cap = ('<figcaption class="photo__legende">'
+               + ('<strong class="photo__titre">%s</strong>' % legende if legende else "")
+               + ('<span class="photo__texte">%s</span>' % description if description else "")
+               + "</figcaption>")
     ratio = "3 / 2" if large else "4 / 3"
     return f"""
 <figure class="photo">
@@ -563,7 +617,7 @@ def galerie(photos, eyebrow, titre, intro, colonnes=None):
     nombre de photos est un multiple de 3, 4 sinon — jamais de ligne bancale."""
     if colonnes is None:
         colonnes = 3 if len(photos) % 3 == 0 else 4
-    items = "".join(photo(f, a, l) for f, a, l in photos)
+    items = "".join(photo(f, a, l, description=t) for f, a, l, t in photos)
     return f"""
 <section class="section section--pale">
   <div class="container">
@@ -688,7 +742,7 @@ def page_landing(act, dept):
         for i, (t, d) in enumerate(act["prestations"]))
 
     # --- Urgences ----------------------------------------------------------
-    urgences = "".join('<li><span class="tick">!</span><span>%s</span></li>' % u
+    urgences = "".join('<li><span class="tick tick--alerte">{picto("alerte", 13)}</span><span>%s</span></li>' % u
                        for u in act["urgences"])
 
     # --- Tarifs ------------------------------------------------------------
@@ -703,10 +757,10 @@ def page_landing(act, dept):
                  '<span class="avis__ini" aria-hidden="true">%s</span><span>'
                  '<span class="avis__nom">%s</span><br><span class="avis__ville">%s (%s)</span>'
                  '</span></div></article>'
-                 % (note, "★" * note, txt, nom[0], nom, ville, d_num))
+                 % (note, picto("etoile", 15) * note, txt, nom[0], nom, ville, d_num))
 
     # --- Villes ------------------------------------------------------------
-    villes = "".join('<li><span class="tick">▪</span><span>%s %s</span></li>'
+    villes = "".join('<li><span class="tick tick--plein"></span><span>%s %s</span></li>'
                      % (act["nom_court"], v) for v in dept["villes"])
 
     # --- FAQ ---------------------------------------------------------------
@@ -729,7 +783,7 @@ def page_landing(act, dept):
         '<a href="%s">%s %s (%s)</a>' % (url_landing(act, d), act["nom_court"], d["nom"], d["num"])
         for d in DEPARTEMENTS if d["num"] != d_num)
 
-    hero_points = "".join('<li><span class="tick">✓</span><span>%s</span></li>' % p
+    hero_points = "".join('<li><span class="tick">{picto("check", 13)}</span><span>%s</span></li>' % p
                           for p in act["hero_points"])
 
     return (
@@ -778,6 +832,12 @@ def page_landing(act, dept):
   </div>
 </section>
 
+{galerie(act["photos"],
+         "En images",
+         "Nos interventions %s %s en images" % (activite, d_nom),
+         "Quelques chantiers réalisés par nos équipes. Photos de nos propres "
+         "interventions — pas de banque d'images.")}
+
 <!-- ========================== URGENCES ========================== -->
 <section class="section section--pale">
   <div class="container grid grid--2" style="align-items:center">
@@ -802,11 +862,31 @@ def page_landing(act, dept):
          et de le tenir.</p>
       <h3 style="margin-top:22px">Ce que vous savez avant notre arrivée</h3>
       <ul class="checks" style="margin-top:12px">
-        <li><span class="tick">✓</span><span>Le créneau d'intervention et le nom du technicien</span></li>
-        <li><span class="tick">✓</span><span>Le coût du déplacement et du diagnostic</span></li>
-        <li><span class="tick">✓</span><span>Une fourchette de prix pour la réparation</span></li>
+        <li><span class="tick">{picto("check", 13)}</span><span>Le créneau d'intervention et le nom du technicien</span></li>
+        <li><span class="tick">{picto("check", 13)}</span><span>Le coût du déplacement et du diagnostic</span></li>
+        <li><span class="tick">{picto("check", 13)}</span><span>Une fourchette de prix pour la réparation</span></li>
       </ul>
     </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================== VILLES =========================== -->
+<section class="section section--fond">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Proximité</span>
+      <h2>{act['nom_court']} {art} {d_nom}&nbsp;: les communes desservies</h2>
+      <p class="lead">Nous couvrons l'ensemble du département {d_num}, des grandes villes
+        aux communes rurales. Votre commune n'est pas listée&nbsp;? Appelez-nous, nous
+        intervenons très probablement chez vous.</p>
+    </div>
+    <div class="zone-grid">
+      {carte(act, dept)}
+      <div>
+        <h3 class="zone-titre">Communes couvertes {du}</h3>
+        <ul class="checks villes-grid">{villes}</ul>
+      </div>
     </div>
   </div>
 </section>
@@ -849,26 +929,6 @@ def page_landing(act, dept):
     <div class="center">
       {bandeau_avis("Note moyenne des interventions ETS-BZH en Bretagne")}
     </div>
-  </div>
-</section>
-
-{galerie(act["photos"],
-         "En images",
-         "Nos interventions %s %s en images" % (activite, d_nom),
-         "Quelques chantiers réalisés par nos équipes. Photos de nos propres "
-         "interventions — pas de banque d'images.")}
-
-<!-- =========================== VILLES =========================== -->
-<section class="section section--fond">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Proximité</span>
-      <h2>{act['nom_court']} {art} {d_nom}&nbsp;: les communes desservies</h2>
-      <p class="lead">Nous couvrons l'ensemble du département {d_num}, des grandes villes
-        aux communes rurales. Votre commune n'est pas listée&nbsp;? Appelez-nous, nous
-        intervenons très probablement chez vous.</p>
-    </div>
-    <ul class="checks villes-grid">{villes}</ul>
   </div>
 </section>
 
@@ -977,7 +1037,7 @@ def page_index():
                  '<span class="avis__ini" aria-hidden="true">%s</span><span>'
                  '<span class="avis__nom">%s</span><br><span class="avis__ville">%s (%s) — %s'
                  '</span></span></div></article>'
-                 % (note, "★" * note, txt, nom[0], nom, dep["villes"][0], dep["num"],
+                 % (note, picto("etoile", 15) * note, txt, nom[0], nom, dep["villes"][0], dep["num"],
                     act["nom_court"]))
 
     # Maillage complet 12 pages
@@ -1004,9 +1064,9 @@ def page_index():
         Finistère&nbsp;(29), l'Ille-et-Vilaine&nbsp;(35) et le Morbihan&nbsp;(56).
         Des artisans qualifiés, un tarif annoncé avant intervention, une garantie décennale.</p>
       <ul class="hero__points">
-        <li><span class="tick">✓</span><span>Un technicien au téléphone, pas un répondeur&nbsp;: délai annoncé dès l'appel</span></li>
-        <li><span class="tick">✓</span><span>Devis gratuit sans engagement, validé avant tout démarrage</span></li>
-        <li><span class="tick">✓</span><span>Véhicules équipés&nbsp;: réparation dès le premier passage dans la majorité des cas</span></li>
+        <li><span class="tick">{picto("check", 13)}</span><span>Un technicien au téléphone, pas un répondeur&nbsp;: délai annoncé dès l'appel</span></li>
+        <li><span class="tick">{picto("check", 13)}</span><span>Devis gratuit sans engagement, validé avant tout démarrage</span></li>
+        <li><span class="tick">{picto("check", 13)}</span><span>Véhicules équipés&nbsp;: réparation dès le premier passage dans la majorité des cas</span></li>
       </ul>
       <div class="hero__actions">
         <a class="btn btn--blanc btn--xl" href="tel:{TEL_LIEN}" data-cta="hero">
@@ -1036,6 +1096,12 @@ def page_index():
   </div>
 </section>
 
+{galerie(PHOTOS_ACCUEIL,
+         "Nos réalisations",
+         "ETS-BZH en images",
+         "Chantiers, matériel et équipes&nbsp;: découvrez notre travail sur le terrain "
+         "dans les quatre départements bretons.", 3)}
+
 <section class="section section--pale" id="zones">
   <div class="container">
     <div class="section-head center">
@@ -1044,7 +1110,10 @@ def page_index():
       <p class="lead">Chaque département dispose de sa page dédiée&nbsp;: prestations, tarifs
         indicatifs, délais et équipes locales.</p>
     </div>
-    <div class="dept-grid">{depts}</div>
+    <div class="zone-grid">
+      {carte()}
+      <div class="dept-grid dept-grid--compact">{depts}</div>
+    </div>
   </div>
 </section>
 
@@ -1064,12 +1133,6 @@ def page_index():
     </div>
   </div>
 </section>
-
-{galerie(PHOTOS_ACCUEIL,
-         "Nos réalisations",
-         "ETS-BZH en images",
-         "Chantiers, matériel et équipes&nbsp;: découvrez notre travail sur le terrain "
-         "dans les quatre départements bretons.", 3)}
 
 {cta_final("Une urgence en Bretagne&nbsp;? Nos techniciens interviennent dans l'heure.",
            "Fuite d'eau, canalisation bouchée, panne électrique&nbsp;: un professionnel "
@@ -1098,15 +1161,15 @@ def page_index():
             sans votre accord. La facture correspond au devis accepté.</p>
         </div>
         <div>
-          {photo(PHOTO_EQUIPE[0], PHOTO_EQUIPE[1], "Nos équipes en Bretagne", large=True)}
+          {photo(PHOTO_EQUIPE[0], PHOTO_EQUIPE[1], PHOTO_EQUIPE[2], large=True, description=PHOTO_EQUIPE[3])}
           <h3 style="margin-top:28px">Nos engagements</h3>
           <ul class="checks">
-            <li><span class="tick">✓</span><span><strong>Intervention 24/7</strong> — astreinte nuits, week-ends et jours fériés</span></li>
-            <li><span class="tick">✓</span><span><strong>Devis gratuit</strong> — sans engagement, validé avant travaux</span></li>
-            <li><span class="tick">✓</span><span><strong>Artisans qualifiés</strong> — formés, équipés et assurés</span></li>
-            <li><span class="tick">✓</span><span><strong>Garantie décennale</strong> — sur les travaux qui l'exigent</span></li>
-            <li><span class="tick">✓</span><span><strong>Chantier propre</strong> — protection et nettoyage systématiques</span></li>
-            <li><span class="tick">✓</span><span><strong>Particuliers &amp; pros</strong> — contrats d'entretien possibles</span></li>
+            <li><span class="tick">{picto("check", 13)}</span><span><strong>Intervention 24/7</strong> — astreinte nuits, week-ends et jours fériés</span></li>
+            <li><span class="tick">{picto("check", 13)}</span><span><strong>Devis gratuit</strong> — sans engagement, validé avant travaux</span></li>
+            <li><span class="tick">{picto("check", 13)}</span><span><strong>Artisans qualifiés</strong> — formés, équipés et assurés</span></li>
+            <li><span class="tick">{picto("check", 13)}</span><span><strong>Garantie décennale</strong> — sur les travaux qui l'exigent</span></li>
+            <li><span class="tick">{picto("check", 13)}</span><span><strong>Chantier propre</strong> — protection et nettoyage systématiques</span></li>
+            <li><span class="tick">{picto("check", 13)}</span><span><strong>Particuliers &amp; pros</strong> — contrats d'entretien possibles</span></li>
           </ul>
         </div>
       </div>
@@ -1136,7 +1199,7 @@ def page_contact():
     fil = [("Accueil", "/"), ("Contact", "/contact/")]
 
     zones = "".join(
-        '<li><span class="tick">▪</span><span><strong>%s (%s)</strong> — %s…</span></li>'
+        '<li><span class="tick tick--plein"></span><span><strong>%s (%s)</strong> — %s…</span></li>'
         % (d["nom"], d["num"], ", ".join(d["villes"][:6])) for d in DEPARTEMENTS)
 
     return (
@@ -1158,9 +1221,9 @@ def page_contact():
         <a class="cta__tel" href="tel:{TEL_LIEN}" data-cta="contact">{SVG['tel']} {TEL}</a>
       </p>
       <ul class="hero__points" style="margin-top:28px">
-        <li><span class="tick">✉</span><span>{EMAIL}</span></li>
-        <li><span class="tick">⏱</span><span>Astreinte urgence 24h/24 et 7j/7, jours fériés inclus</span></li>
-        <li><span class="tick">▣</span><span>Interventions&nbsp;: Côtes-d'Armor (22), Finistère (29), Ille-et-Vilaine (35), Morbihan (56)</span></li>
+        <li><span class="tick">{picto("mail", 13)}</span><span>{EMAIL}</span></li>
+        <li><span class="tick">{picto("chrono", 13)}</span><span>Astreinte urgence 24h/24 et 7j/7, jours fériés inclus</span></li>
+        <li><span class="tick">{picto("zone", 13)}</span><span>Interventions&nbsp;: Côtes-d'Armor (22), Finistère (29), Ille-et-Vilaine (35), Morbihan (56)</span></li>
       </ul>
     </div>
     {formulaire("contact-principal", "Formulaire de devis express",
@@ -1198,7 +1261,8 @@ def page_contact():
       </div>
     </div>
     <div>
-      <div class="encadre">
+      {carte()}
+      <div class="encadre" style="margin-top:22px">
         <h3>Zones d'intervention</h3>
         <ul class="checks" style="margin-top:14px">{zones}</ul>
         <p style="margin-top:18px;font-size:.92rem">Votre commune n'apparaît pas&nbsp;?
@@ -1206,7 +1270,7 @@ def page_contact():
           y compris les communes rurales.</p>
       </div>
       <div style="height:22px"></div>
-      {photo(PHOTO_CONTACT[0], PHOTO_CONTACT[1], large=True)}
+      {photo(PHOTO_CONTACT[0], PHOTO_CONTACT[1], PHOTO_CONTACT[2], large=True, description=PHOTO_CONTACT[3])}
       <div class="encadre" style="margin-top:22px;background:var(--bleu-pale-2)">
         <h3>Professionnels, syndics et bailleurs</h3>
         <p>Nous proposons des contrats d'entretien et des interventions récurrentes&nbsp;:
@@ -1336,6 +1400,19 @@ def page_mentions():
   </div>
 </section>
 
+
+<section class="section section--pale">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Zones d'intervention</span>
+      <h2>Où nous intervenons</h2>
+      <p class="lead">Quatre départements bretons couverts 7j/7. Cliquez sur le vôtre
+        pour accéder à la page correspondante.</p>
+    </div>
+    <div style="max-width:660px;margin:0 auto">{carte()}</div>
+  </div>
+</section>
+
 {cta_final("Une question sur nos prestations&nbsp;?",
            "Notre équipe vous répond directement par téléphone ou par e-mail.",
            "cta-mentions")}
@@ -1437,6 +1514,19 @@ def page_cgu():
         d'une résolution amiable ou d'une médiation de la consommation, les tribunaux français
         sont seuls compétents.</p>
     </div>
+  </div>
+</section>
+
+
+<section class="section section--pale">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Zones d'intervention</span>
+      <h2>Où nous intervenons</h2>
+      <p class="lead">Quatre départements bretons couverts 7j/7. Cliquez sur le vôtre
+        pour accéder à la page correspondante.</p>
+    </div>
+    <div style="max-width:660px;margin:0 auto">{carte()}</div>
   </div>
 </section>
 
@@ -1598,6 +1688,19 @@ def page_politique():
   </div>
 </section>
 
+
+<section class="section section--pale">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Zones d'intervention</span>
+      <h2>Où nous intervenons</h2>
+      <p class="lead">Quatre départements bretons couverts 7j/7. Cliquez sur le vôtre
+        pour accéder à la page correspondante.</p>
+    </div>
+    <div style="max-width:660px;margin:0 auto">{carte()}</div>
+  </div>
+</section>
+
 {cta_final("Une question sur vos données&nbsp;?",
            "Écrivez-nous&nbsp;: nous répondons à toute demande d'accès, de rectification "
            "ou d'effacement dans un délai d'un mois.",
@@ -1637,6 +1740,7 @@ def page_404():
 <section class="section">
   <div class="container">
     <h2>Nos interventions en Bretagne</h2>
+    <div style="max-width:620px;margin:0 auto 38px">{carte()}</div>
     <div class="liens-grid">{liens}</div>
   </div>
 </section>

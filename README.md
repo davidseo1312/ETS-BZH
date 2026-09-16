@@ -247,6 +247,24 @@ Les deux fontes du premier rendu sont préchargées (`rel="preload"`), ce qui
 > navigateurs bloquent les polices en origine locale. Prévisualisez avec
 > `python3 -m http.server`, comme indiqué plus bas.
 
+## Carte des zones
+
+Chaque page affiche une **carte cliquable des quatre départements bretons**, avec
+celui de la page en cours mis en avant. Un clic mène à la page du même métier dans
+le département choisi.
+
+Les contours sont les **vrais tracés administratifs** (source : france-geojson,
+licence ODbL), simplifiés par Douglas-Peucker et intégrés en SVG dans la page :
+la carte est interactive **sans aucun script ni service tiers**, là où une carte
+Leaflet ou Google Maps exposerait vos visiteurs à un traçage externe et à des
+requêtes vers des serveurs étrangers.
+
+- `tools/carte.py` — tracés et centres, **fichier généré, ne pas éditer**
+- `tools/generer_carte.py` — le régénère depuis les GeoJSON, si vous souhaitez
+  changer la précision (constantes `EPS` et `AIRE_MIN`)
+
+Poids : 8,9 Ko de tracés par page, qui se compressent fortement.
+
 ## Leviers de conversion
 
 Au-delà du contenu, quelques éléments d'interface travaillent la conversion :
@@ -265,6 +283,16 @@ Au-delà du contenu, quelques éléments d'interface travaillent la conversion :
   inversion de la tuile).
 - **Bandeau de chiffres** en dégradé avec icônes, placé juste sous le premier
   écran.
+- **Galeries remontées en troisième section**, juste après les prestations : la
+  preuve visuelle arrive avant que le visiteur ne décroche, et non en bas de page.
+- **Chaque photo est décrite en trois ou quatre phrases** : ce que nous faisons,
+  avec quel outil, et ce que le client constate. Cela rassure et alimente le
+  référencement sur des requêtes précises.
+
+Aucun caractère décoratif (coches, étoiles, puces, flèches, chevrons) n'est laissé
+au texte : tous sont des tracés SVG ou des formes CSS. Ils restent nets à toute
+taille, se colorent avec la charte, et ne dépendent pas des polices d'emoji du
+système, dont le rendu varie d'un appareil à l'autre.
 
 Les icônes sont des tracés SVG intégrés au HTML (`PICTOS` dans `tools/build.py`),
 sans fichier ni requête supplémentaire.
