@@ -1,27 +1,70 @@
 /* =========================================================
+   Fontes — Barlow (SIL Open Font License 1.1), hébergées
+   localement : aucune requête vers un service tiers, donc
+   aucune donnée visiteur transmise (conformité RGPD).
+   Sous-ensemble latin uniquement, suffisant pour le français.
+   ========================================================= */
+@font-face {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/barlow-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/barlow-600.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/barlow-700.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("../fonts/barlow-800.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Barlow Condensed";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/barlow-condensed-700.woff2") format("woff2");
+}
+
+/* =========================================================
    ETS-BZH — Design System
    Bleu Marseille · Angles stricts (border-radius: 0)
    ========================================================= */
 
 :root {
   /* Couleurs principales */
-  --bleu: #005580;
-  --bleu-clair: #006699;
-  --bleu-hover: #00436a;
-  --bleu-pale: #e8f1f6;
-  --bleu-pale-2: #f4f8fb;
+  --bleu: #0a5f8c;          /* bleu Marseille, éclairci depuis #005580 */
+  --bleu-clair: #0e86be;    /* intermédiaire : sûr sous du texte blanc */
+  --bleu-ciel: #33a9dc;     /* bleu ciel marseillais — accents et dégradés */
+  --bleu-hover: #084d72;
+  --bleu-pale: #e6f3fa;
+  --bleu-pale-2: #f3f9fc;
 
-  /* Textes */
-  --nuit: #0a1a26;
-  --nuit-2: #13293a;
-  --gris: #4a5c68;
-  --gris-clair: #7a8a95;
+  /* Textes — bleu nuit éclairci */
+  --nuit: #16303f;
+  --nuit-2: #1f4157;
+  --gris: #4d6272;
+  --gris-clair: #627585;   /* assombri : 4,6:1 sur blanc, conforme AA */
 
   /* Fonds & bordures */
   --blanc: #ffffff;
   --fond: #f6f8fa;
-  --bordure: #d8e0e6;
-  --bordure-forte: #b9c7d1;
+  --bordure: #d7e3ea;
+  --bordure-forte: #b4c7d4;
 
   /* Accents */
   --urgence: #d43f1a;
@@ -47,9 +90,11 @@ html {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-size: 17px;
-  line-height: 1.65;
+  font-family: "Barlow", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 17.5px;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   color: var(--nuit-2);
   background: var(--blanc);
   overflow-x: hidden;
@@ -63,16 +108,23 @@ p { margin: 0 0 1em; }
 
 h1, h2, h3, h4 {
   color: var(--nuit);
-  line-height: 1.18;
-  margin: 0 0 .55em;
-  font-weight: 800;
-  letter-spacing: -.015em;
+  margin: 0 0 .5em;
 }
-h1 { font-size: clamp(1.9rem, 4.2vw, 3rem); }
-h2 { font-size: clamp(1.55rem, 3vw, 2.25rem); }
-h3 { font-size: 1.2rem; }
+/* Les deux premiers niveaux passent en Barlow Condensed : plus de présence,
+   un rythme de signalétique de chantier, et des titres longs qui tiennent
+   sur moins de lignes. */
+h1, h2 {
+  font-family: "Barlow Condensed", "Barlow", sans-serif;
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -.005em;
+}
+h3, h4 { font-weight: 700; line-height: 1.25; letter-spacing: -.01em; }
+h1 { font-size: clamp(2.3rem, 5.2vw, 3.7rem); }
+h2 { font-size: clamp(1.85rem, 3.7vw, 2.75rem); }
+h3 { font-size: 1.16rem; }
 
-:focus-visible { outline: 3px solid var(--bleu-clair); outline-offset: 2px; }
+:focus-visible { outline: 3px solid var(--bleu-ciel); outline-offset: 2px; }
 
 /* ---------- Utilitaires ---------- */
 .container { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 20px; }
@@ -91,8 +143,8 @@ h3 { font-size: 1.2rem; }
   font-weight: 800;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: var(--bleu-clair);
-  border-left: 4px solid var(--bleu);
+  color: var(--bleu);
+  border-left: 4px solid var(--bleu-ciel);
   padding-left: 10px;
   margin-bottom: 14px;
 }
@@ -102,6 +154,7 @@ h3 { font-size: 1.2rem; }
 
 /* ---------- Boutons ---------- */
 .btn {
+  letter-spacing: .005em;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -173,7 +226,8 @@ h3 { font-size: 1.2rem; }
 .logo:hover { text-decoration: none; }
 .logo__mark { width: 52px; height: 52px; flex: none; }
 .logo__txt { display: flex; flex-direction: column; line-height: 1.1; }
-.logo__name { font-size: 1.32rem; font-weight: 900; color: var(--bleu); letter-spacing: -.02em; }
+.logo__name { font-family: "Barlow Condensed", "Barlow", sans-serif; font-size: 1.62rem;
+  font-weight: 700; color: var(--bleu); letter-spacing: .01em; line-height: 1; }
 .logo__tag { font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gris-clair); white-space: nowrap; }
 
 .nav { display: flex; align-items: center; gap: 6px; }
@@ -290,7 +344,7 @@ h3 { font-size: 1.2rem; }
 .hero__points li { display: flex; gap: 12px; align-items: flex-start; font-size: 1.02rem; color: #eaf5fb; }
 .hero__points .tick {
   flex: none; width: 24px; height: 24px; background: #fff; color: var(--bleu);
-  display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: .85rem; margin-top: 2px;
+  display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: .85rem; margin-top: 2px;
 }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 14px; }
 
@@ -348,7 +402,8 @@ h3 { font-size: 1.2rem; }
 .stats__grid { display: grid; grid-template-columns: repeat(4, 1fr); }
 .stat { padding: 34px 22px; text-align: center; border-right: 1px solid rgba(255,255,255,.14); }
 .stat:last-child { border-right: none; }
-.stat__num { font-size: 2.15rem; font-weight: 900; color: #fff; line-height: 1; margin-bottom: 8px; }
+.stat__num { font-family: "Barlow Condensed", "Barlow", sans-serif; font-size: 2.6rem;
+  font-weight: 700; color: #fff; line-height: 1; margin-bottom: 8px; }
 .stat__lbl { font-size: .84rem; color: #a9c6d6; text-transform: uppercase; letter-spacing: .08em; font-weight: 700; }
 
 /* ---------- Grilles / cartes ---------- */
@@ -370,7 +425,7 @@ h3 { font-size: 1.2rem; }
   display: inline-flex; align-items: center; justify-content: center;
   min-width: 44px; height: 44px; padding: 0 12px;
   background: var(--bleu); color: #fff;
-  font-weight: 900; font-size: 1.05rem; margin-bottom: 16px;
+  font-weight: 800; font-size: 1.05rem; margin-bottom: 16px;
 }
 .icon-box {
   width: 54px; height: 54px; background: var(--bleu-pale); color: var(--bleu);
@@ -391,8 +446,8 @@ h3 { font-size: 1.2rem; }
   background: #fff; border: 2px solid var(--bordure); border-left: 5px solid var(--bleu);
   padding: 22px 24px; transition: border-color .15s ease, box-shadow .15s ease;
 }
-.presta:hover { box-shadow: var(--ombre); border-color: var(--bordure-forte); border-left-color: var(--bleu-clair); }
-.presta__ico { flex: none; width: 40px; height: 40px; background: var(--bleu-pale); color: var(--bleu); display: flex; align-items: center; justify-content: center; font-weight: 900; }
+.presta:hover { box-shadow: var(--ombre); border-color: var(--bordure-forte); border-left-color: var(--bleu-ciel); }
+.presta__ico { flex: none; width: 40px; height: 40px; background: var(--bleu-pale); color: var(--bleu); display: flex; align-items: center; justify-content: center; font-weight: 800; }
 .presta h3 { font-size: 1.04rem; margin-bottom: 6px; }
 .presta p { font-size: .93rem; color: var(--gris); margin: 0; }
 
@@ -401,7 +456,7 @@ h3 { font-size: 1.2rem; }
 .checks li { display: flex; gap: 12px; align-items: flex-start; font-size: 1rem; color: var(--nuit-2); }
 .checks .tick {
   flex: none; width: 22px; height: 22px; background: var(--bleu); color: #fff;
-  display: flex; align-items: center; justify-content: center; font-size: .75rem; font-weight: 900; margin-top: 3px;
+  display: flex; align-items: center; justify-content: center; font-size: .75rem; font-weight: 800; margin-top: 3px;
 }
 
 /* ---------- Emplacements photo ---------- */
@@ -440,7 +495,7 @@ h3 { font-size: 1.2rem; }
 }
 .photo--vide .photo__attente { display: flex; }
 .photo--vide .photo__img { visibility: hidden; }
-.photo--vide .photo__cadre { border-style: dashed; border-color: var(--bleu-clair); }
+.photo--vide .photo__cadre { border-style: dashed; border-color: var(--bleu-ciel); }
 
 .photo__aide {
   font-size: .82rem;
@@ -474,7 +529,7 @@ h3 { font-size: 1.2rem; }
 .avis__stars { color: var(--or); font-size: 1.05rem; letter-spacing: 3px; margin-bottom: 12px; }
 .avis__txt { font-size: .99rem; color: var(--nuit-2); font-style: italic; margin-bottom: 20px; }
 .avis__auteur { margin-top: auto; display: flex; align-items: center; gap: 12px; padding-top: 16px; border-top: 1px solid var(--bordure); }
-.avis__ini { width: 42px; height: 42px; background: var(--bleu); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 900; flex: none; }
+.avis__ini { width: 42px; height: 42px; background: var(--bleu); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; flex: none; }
 .avis__nom { font-weight: 800; font-size: .95rem; color: var(--nuit); }
 .avis__ville { font-size: .82rem; color: var(--gris-clair); }
 
@@ -498,7 +553,8 @@ a.note-globale:hover { border-color: var(--bleu); text-decoration: none; }
 .avis-note__sep { width: 1px; height: 40px; background: var(--bordure); }
 .avis-note__bloc { display: flex; flex-direction: column; align-items: center; gap: 2px; }
 .avis-note__chiffre { font-size: 1.05rem; color: var(--gris); line-height: 1; }
-.avis-note__chiffre strong { font-size: 1.85rem; color: var(--nuit); }
+.avis-note__chiffre strong { font-family: "Barlow Condensed", "Barlow", sans-serif;
+  font-size: 2.2rem; font-weight: 700; color: var(--nuit); }
 .avis-note__etoiles { color: var(--or); letter-spacing: 2px; font-size: .95rem; }
 .avis-note__txt { font-size: .87rem; color: var(--gris); line-height: 1.5; }
 
@@ -520,7 +576,8 @@ a.note-globale:hover { border-color: var(--bleu); text-decoration: none; }
 .cta__tel {
   display: inline-flex; align-items: center; gap: 14px;
   background: #fff; color: var(--bleu); padding: 20px 34px;
-  font-size: clamp(1.25rem, 2.6vw, 1.75rem); font-weight: 900; letter-spacing: -.01em;
+  font-family: "Barlow Condensed", "Barlow", sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 700; letter-spacing: .01em;
   border: 3px solid #fff; margin-top: 8px;
 }
 .cta__tel:hover { background: var(--nuit); color: #fff; border-color: var(--nuit); text-decoration: none; }
@@ -534,7 +591,8 @@ a.note-globale:hover { border-color: var(--bleu); text-decoration: none; }
 }
 .dept:hover { border-color: var(--bleu); box-shadow: var(--ombre); transform: translateY(-3px); }
 .dept__num {
-  font-size: 2.3rem; font-weight: 900; color: var(--bleu); line-height: 1; margin-bottom: 6px;
+  font-family: "Barlow Condensed", "Barlow", sans-serif;
+  font-size: 2.9rem; font-weight: 700; color: var(--bleu); line-height: 1; margin-bottom: 4px;
 }
 .dept__nom { font-size: 1.12rem; font-weight: 800; color: var(--nuit); margin-bottom: 10px; }
 .dept__villes { font-size: .85rem; color: var(--gris-clair); margin-bottom: 18px; }
@@ -545,7 +603,7 @@ a.note-globale:hover { border-color: var(--bleu); text-decoration: none; }
   font-size: .9rem; font-weight: 700; color: var(--nuit-2);
 }
 .dept__links a:hover { background: var(--bleu); color: #fff; text-decoration: none; }
-.dept__links a::after { content: "→"; font-weight: 900; }
+.dept__links a::after { content: "→"; font-weight: 800; }
 
 /* Maillage interne */
 .liens-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px 26px; }
@@ -556,7 +614,7 @@ a.note-globale:hover { border-color: var(--bleu); text-decoration: none; }
 .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 2px solid var(--bordure); background: #fff; }
 .step { padding: 30px 26px; border-right: 2px solid var(--bordure); }
 .step:last-child { border-right: none; }
-.step__n { font-size: .78rem; font-weight: 900; letter-spacing: .12em; color: var(--bleu-clair); margin-bottom: 10px; text-transform: uppercase; }
+.step__n { font-size: .78rem; font-weight: 800; letter-spacing: .1em; color: var(--bleu); margin-bottom: 10px; text-transform: uppercase; }
 .step h3 { font-size: 1.05rem; margin-bottom: 8px; }
 .step p { font-size: .92rem; color: var(--gris); margin: 0; }
 
@@ -642,7 +700,7 @@ a.note-globale:hover { border-color: var(--bleu); text-decoration: none; }
 .footer { background: var(--nuit); color: #a9c6d6; padding: 62px 0 0; font-size: .93rem; }
 .footer h3 {
   color: #fff; font-size: .82rem; letter-spacing: .13em; text-transform: uppercase;
-  margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--bleu-clair); display: inline-block;
+  margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--bleu-ciel); display: inline-block;
 }
 .footer__grid {
   display: grid;
@@ -656,8 +714,9 @@ a.note-globale:hover { border-color: var(--bleu); text-decoration: none; }
 .footer__marque { text-align: center; padding-bottom: 42px; }
 
 .footer__nom {
-  font-size: 1.9rem;
-  font-weight: 900;
+  font-family: "Barlow Condensed", "Barlow", sans-serif;
+  font-size: 2.3rem;
+  font-weight: 800;
   letter-spacing: -.02em;
   color: #fff;
   margin: 0 0 6px;

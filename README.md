@@ -211,16 +211,50 @@ modifiez la liste, puis relancez `python3 tools/build.py`.
 > effectivement immatriculée auprès de sa Chambre de Métiers et de l'Artisanat et
 > assurée auprès de MIC Insurance.
 
+## Typographie
+
+Le site utilise **Barlow** et **Barlow Condensed** (SIL Open Font License 1.1),
+**hébergées localement** dans `assets/fonts/` :
+
+- **Barlow Condensed 700** pour les `h1`/`h2`, le sigle ETS-BZH, les grands
+  chiffres et le numéro de téléphone du bandeau d'appel — un grotesque étroit
+  de signalétique, qui donne de la présence aux titres et fait tenir les
+  intitulés longs sur moins de lignes ;
+- **Barlow 400/600/700/800** pour tout le reste.
+
+Aucune requête vers Google Fonts : les fichiers sont servis par votre propre
+domaine, donc aucune donnée visiteur n'est transmise à un tiers (le recours au
+CDN de Google Fonts a été jugé non conforme au RGPD par plusieurs autorités
+européennes). Seul le sous-ensemble latin est embarqué, suffisant pour le
+français — 5 fichiers woff2, 111 Ko au total, mis en cache définitivement.
+
+Les deux fontes du premier rendu sont préchargées (`rel="preload"`), ce qui
+évite le clignotement au chargement.
+
+> Les fontes ne se chargent pas si vous ouvrez les fichiers en `file://` : les
+> navigateurs bloquent les polices en origine locale. Prévisualisez avec
+> `python3 -m http.server`, comme indiqué plus bas.
+
 ## Charte graphique
 
-| Élément | Valeur |
-| --- | --- |
-| Bleu Marseille (principal) | `#005580` |
-| Bleu clair (dégradés) | `#006699` |
-| Blanc | `#FFFFFF` |
-| Bleu nuit (textes) | `#0A1A26` / `#13293A` |
-| Rouge urgence (CTA secondaire) | `#D43F1A` |
-| Angles | `border-radius: 0` appliqué globalement |
+| Élément | Valeur | Usage |
+| --- | --- | --- |
+| Bleu Marseille | `#0A5F8C` | Boutons, liens, libellés, aplats |
+| Bleu intermédiaire | `#0E86BE` | Dégradés, survols — sûr sous du texte blanc |
+| Bleu ciel marseillais | `#33A9DC` | Accents : filets, focus, bordures |
+| Bleu nuit | `#16303F` | Pied de page, bandeaux sombres, titres |
+| Bleu nuit clair | `#1F4157` | Texte courant |
+| Gris | `#4D6272` / `#627585` | Textes secondaires et légendes |
+| Blanc | `#FFFFFF` | Fonds |
+| Rouge urgence | `#D43F1A` | Bouton d'urgence uniquement |
+| Angles | `border-radius: 0` | Appliqué globalement |
+
+Le bleu nuit a été éclairci (depuis `#0A1A26`) et le bleu clair remplacé par le
+bleu ciel marseillais. Tous les couples texte/fond ont été revérifiés après le
+changement : le plus faible est à **4,77:1** sur les petites légendes et
+**5,22:1** sur le rendu réel des bandeaux photo, au-dessus du seuil WCAG AA de
+4,5:1. Le gris des légendes a dû être assombri à cette occasion — il était à
+3,3:1, donc non conforme, depuis le début.
 
 ## Régénérer le site
 

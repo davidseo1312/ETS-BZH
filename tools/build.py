@@ -138,6 +138,8 @@ def head(titre, description, canonical, extra_json=None, mots_cles=""):
   <meta name="twitter:card" content="summary">
   <link rel="icon" href="assets/img/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/img/logo-emblem.png">
+  <link rel="preload" href="assets/fonts/barlow-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="{CSS}">
   <link rel="preconnect" href="{BASE}">{jsonld}
 </head>
