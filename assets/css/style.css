@@ -595,48 +595,17 @@ h3 { font-size: 1.2rem; }
 .ariane li:last-child::after { content: ""; }
 .ariane a { color: var(--gris); }
 
-/* ---------- Bandeau de confiance (avant le pied de page) ---------- */
-/* Fond clair obligatoire : les logos des labels comportent du texte noir. */
-.confiance { background: #fff; border-top: 3px solid var(--bleu); padding: 34px 0; }
-.confiance__inner {
+/* ---------- Bandeau de logos (avant le pied de page) ---------- */
+/* Fond clair obligatoire : les logos comportent du texte noir. */
+.confiance { background: #fff; border-top: 3px solid var(--bleu); padding: 30px 0; }
+.confiance__logos {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  gap: 26px 40px;
+  justify-content: center;
+  gap: 26px 56px;
 }
-.confiance__titre {
-  font-size: 1.16rem; font-weight: 900; color: var(--nuit); margin: 0 0 6px;
-}
-.confiance__txt { font-size: .95rem; color: var(--gris); margin: 0 0 8px; max-width: 560px; }
-.confiance__lien { font-weight: 800; font-size: .95rem; }
-.confiance__logos { display: flex; align-items: center; gap: 34px; flex-wrap: wrap; }
-.confiance__logos img { height: 62px; width: auto; }
-
-/* ---------- Assureur (page assurances) ---------- */
-.assureur {
-  display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
-  background: #fff; border: 2px solid var(--bordure); border-left: 5px solid var(--bleu);
-  padding: 20px 24px; margin: 0 0 26px;
-}
-.assureur img { width: 190px; height: auto; }
-.assureur p { margin: 0; font-size: .95rem; color: var(--gris); line-height: 1.5; }
-.assureur strong { font-size: 1.16rem; color: var(--nuit); }
-
-/* ---------- Labels (page assurances) ---------- */
-.labels .label {
-  background: #fff; border: 2px solid var(--bordure); padding: 30px;
-  display: flex; flex-direction: column; align-items: center; text-align: center;
-}
-.labels .label img { height: 92px; width: auto; margin-bottom: 20px; }
-.labels .label h3 { margin-bottom: 8px; }
-.labels .label p { color: var(--gris); font-size: .95rem; margin: 0; }
-
-.garantie__ref {
-  margin-top: 14px !important; padding-top: 12px; border-top: 1px solid var(--bordure);
-  font-size: .82rem !important; color: var(--gris-clair) !important; font-style: italic;
-}
-.card__num { white-space: nowrap; }
+.confiance__logos img { height: 58px; width: auto; }
 
 /* ---------- Footer ---------- */
 .footer { background: var(--nuit); color: #a9c6d6; padding: 62px 0 0; font-size: .93rem; }
@@ -734,8 +703,6 @@ h3 { font-size: 1.2rem; }
   .grid--3 { grid-template-columns: repeat(2, 1fr); }
   .villes-grid { grid-template-columns: repeat(2, 1fr); }
   .footer__grid { grid-template-columns: 1fr 1fr; gap: 34px; }
-  .confiance__inner { justify-content: center; text-align: center; }
-  .confiance__txt { margin-left: auto; margin-right: auto; }
   .cta__grid { grid-template-columns: 1fr; gap: 34px; }
 }
 
@@ -770,10 +737,9 @@ h3 { font-size: 1.2rem; }
   .stats__grid { grid-template-columns: 1fr; }
   .stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,.14); }
   .footer__grid { grid-template-columns: 1fr; gap: 30px; }
-  .confiance { padding: 28px 0; }
-  .confiance__logos { justify-content: center; gap: 26px; }
-  .confiance__logos img { height: 52px; }
-  .labels .label img { height: 78px; }
+  .confiance { padding: 24px 0; }
+  .confiance__logos { gap: 22px 34px; }
+  .confiance__logos img { height: 46px; }
   .footer__accroche { font-size: .95rem; margin: 22px auto 20px; }
   .footer__contacts { flex-direction: column; align-items: center; gap: 10px; }
   .mobile-bar { display: flex; }

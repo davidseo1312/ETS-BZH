@@ -556,39 +556,11 @@ PHOTOS_ACCUEIL = [
 PHOTO_EQUIPE = ("equipe.jpg", "L'équipe ETS-BZH et ses véhicules d'intervention")
 PHOTO_CONTACT = ("atelier.jpg", "Atelier et matériel professionnel ETS-BZH")
 
-ASSUREUR = {
-    "nom": "MIC Insurance",
-    "logo": "logo-assureur.png",
-    "alt": "MIC Insurance, assureur d'ETS-BZH",
-}
 
-LABELS = [
-    ("label-artisan.png", "Label Artisan de France",
-     "Artisan de France",
-     "Savoir-faire artisanal reconnu et travail réalisé par des professionnels du métier."),
-    ("label-cma.png", "Chambres de Métiers et de l'Artisanat",
-     "Chambres de Métiers et de l'Artisanat",
-     "Entreprise artisanale inscrite au Répertoire des Métiers."),
-]
-
-GARANTIES = [
-    ("Garantie de parfait achèvement", "1 an", "à compter de la réception des travaux",
-     "Tous les désordres signalés lors de la réception ou apparus dans l'année qui suit, "
-     "quelle que soit leur importance. Nous revenons les reprendre à nos frais.",
-     "Article 1792-6 du Code civil"),
-    ("Garantie de bon fonctionnement", "2 ans", "à compter de la réception des travaux",
-     "Les éléments d'équipement dissociables de l'ouvrage&nbsp;: chauffe-eau, robinetterie, "
-     "radiateurs, VMC, interphone, volets roulants, appareillage électrique.",
-     "Article 1792-3 du Code civil"),
-    ("Garantie décennale", "10 ans", "à compter de la réception des travaux",
-     "Les dommages qui compromettent la solidité de l'ouvrage ou le rendent impropre à sa "
-     "destination&nbsp;: infiltration, rupture de canalisation encastrée, défaut "
-     "d'étanchéité, installation électrique dangereuse.",
-     "Articles 1792 et suivants du Code civil"),
-    ("Responsabilité civile professionnelle", "Permanente", "pendant toute l'intervention",
-     "Les dommages que nous pourrions causer à vos biens ou à des tiers pendant le "
-     "chantier&nbsp;: dégât des eaux provoqué, matériel abîmé, préjudice au voisinage.",
-     "Obligation d'assurance — article L.241-1 du Code des assurances"),
+LOGOS = [
+    ("label-artisan.png", "Artisan de France"),
+    ("label-cma.png", "Chambres de Métiers et de l'Artisanat"),
+    ("logo-assureur.png", "MIC Insurance"),
 ]
 
 STATS = [

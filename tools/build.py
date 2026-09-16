@@ -17,8 +17,7 @@ from datetime import date
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from data import (SITE, DEPARTEMENTS, ACTIVITES, REASSURANCE, ETAPES, STATS,  # noqa: E402
-                  PHOTOS_ACCUEIL, PHOTO_EQUIPE, PHOTO_CONTACT, LABELS, GARANTIES,
-                  ASSUREUR)
+                  PHOTOS_ACCUEIL, PHOTO_EQUIPE, PHOTO_CONTACT, LOGOS)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEL = SITE["tel"]
@@ -169,7 +168,6 @@ def header(courant=""):
       <ul style="display:contents">
         <li><a href="index.html"{cur('accueil')}>Accueil</a></li>
         {nav_zones()}
-        <li><a href="assurances.html"{cur('assurances')}>Assurances</a></li>
         <li><a href="contact.html"{cur('contact')}>Contact</a></li>
       </ul>
     </nav>
@@ -351,20 +349,14 @@ def cta_final(titre, texte, idp, dept=None, act=None):
 
 
 def bandeau_confiance():
+    """Bandeau de logos affiché sur toutes les pages, juste avant le pied de page.
+    Fond clair obligatoire : les logos comportent du texte noir."""
     logos = "".join(
-        '<img src="assets/img/%s" alt="%s" width="260" height="150" loading="lazy">'
-        % (f, alt) for f, alt, _, _ in LABELS)
+        '<img src="assets/img/%s" alt="%s" loading="lazy">' % (f, alt)
+        for f, alt in LOGOS)
     return f"""
-<section class="confiance" aria-label="Assurances et qualifications">
-  <div class="container confiance__inner">
-    <div>
-      <p class="confiance__titre">Artisan qualifié, assuré et garanti</p>
-      <p class="confiance__txt">Garantie décennale, garantie de parfait achèvement et
-        responsabilité civile professionnelle sur chacune de nos interventions.</p>
-      <a class="confiance__lien" href="assurances.html">Nos assurances &amp; garanties →</a>
-    </div>
-    <div class="confiance__logos">{logos}</div>
-  </div>
+<section class="confiance" aria-label="Qualifications et assurance">
+  <div class="container confiance__logos">{logos}</div>
 </section>
 """
 
@@ -421,7 +413,6 @@ def footer():
       <span>© <span data-annee>2026</span> ETS-BZH — Tous droits réservés.</span>
       <nav class="footer__legal" aria-label="Liens légaux">
         <a href="index.html">Accueil</a>
-        <a href="assurances.html">Assurances &amp; garanties</a>
         <a href="contact.html">Contact</a>
         <a href="mentions-legales.html">Mentions légales</a>
         <a href="cgu.html">CGU</a>
@@ -1370,203 +1361,6 @@ def page_cgu():
 """ + footer())
 
 
-def page_assurances():
-    titre = "Assurances & Garanties — Garantie décennale | ETS-BZH"
-    desc = ("Garantie décennale, parfait achèvement, bon fonctionnement et responsabilité "
-            "civile professionnelle : les assurances et garanties d'ETS-BZH en Bretagne. "
-            "Attestation sur simple demande.")
-    fil = [("Accueil", "index.html"), ("Assurances & garanties", "assurances.html")]
-
-    cartes = ""
-    for i, (nom, duree, depart, contenu, texte) in enumerate(GARANTIES):
-        cartes += (f'<article class="card"><div class="card__num">{duree}</div>'
-                   f'<h3>{nom}</h3><p>{contenu}</p>'
-                   f'<p class="garantie__ref">{texte}</p></article>')
-
-    lignes = "".join(
-        '<tr><th scope="row">%s</th><td>%s</td><td>%s</td><td>%s</td></tr>'
-        % (nom, duree, depart, texte)
-        for nom, duree, depart, _, texte in GARANTIES)
-
-    labels = "".join(
-        f'<article class="label"><img src="assets/img/{f}" alt="{alt}" width="260" '
-        f'height="150" loading="lazy"><h3>{nom}</h3><p>{txt}</p></article>'
-        for f, alt, nom, txt in LABELS)
-
-    faq = [
-        ("Qu'est-ce que la garantie décennale, concrètement&nbsp;?",
-         "C'est une assurance obligatoire pour tout professionnel du bâtiment. Elle couvre "
-         "pendant <strong>dix ans</strong> les dommages qui compromettent la solidité de "
-         "l'ouvrage ou le rendent impropre à son usage. Exemple concret&nbsp;: une "
-         "canalisation encastrée que nous avons posée se rompt trois ans après et inonde une "
-         "cloison — la réparation est prise en charge."),
-        ("Comment obtenir votre attestation d'assurance&nbsp;?",
-         "Sur simple demande, par téléphone au <strong>" + TEL + "</strong> ou par e-mail à "
-         "<a href=\"mailto:" + EMAIL + "\">" + EMAIL + "</a>. Nous la transmettons avant le "
-         "démarrage des travaux, et elle figure systématiquement en annexe des devis portant "
-         "sur des travaux couverts par la décennale."),
-        ("Toutes les interventions sont-elles couvertes par la décennale&nbsp;?",
-         "Non, et il est important de le dire clairement. La garantie décennale concerne les "
-         "<strong>travaux de construction et de rénovation</strong>&nbsp;: remplacement de "
-         "réseau, réfection de salle de bain, création ou reprise d'installation électrique. "
-         "Un simple débouchage de WC ou le remplacement d'un joint relèvent du dépannage&nbsp;: "
-         "ils sont couverts par notre responsabilité civile professionnelle et par la garantie "
-         "sur les pièces et la main-d'œuvre, pas par la décennale."),
-        ("Qu'est-ce que l'assurance dommages-ouvrage&nbsp;?",
-         "C'est une assurance que souscrit le <strong>maître d'ouvrage</strong> (vous), et non "
-         "l'entreprise. Elle permet d'être indemnisé rapidement en cas de sinistre décennal, "
-         "sans attendre qu'un tribunal désigne un responsable. Elle est obligatoire pour les "
-         "travaux importants, notamment si vous revendez le bien dans les dix ans."),
-        ("À partir de quand courent les garanties&nbsp;?",
-         "À compter de la <strong>réception des travaux</strong>, c'est-à-dire le moment où "
-         "vous acceptez l'ouvrage. Pour cette raison, nous établissons un procès-verbal de "
-         "réception sur les chantiers qui le justifient&nbsp;: c'est ce document qui fait "
-         "courir les délais et qui vous protège."),
-        ("Que faire si un désordre apparaît après notre passage&nbsp;?",
-         "Appelez-nous immédiatement au <strong>" + TEL + "</strong>. Nous nous déplaçons pour "
-         "constater. Si le désordre relève de notre intervention, la reprise est à notre "
-         "charge au titre de la garantie applicable. Nous vous remettons un constat écrit dans "
-         "tous les cas — y compris lorsque la cause est étrangère à nos travaux."),
-    ]
-    faq_html = "".join(
-        '<details%s><summary>%s</summary><div class="faq__body">%s</div></details>'
-        % (" open" if i == 0 else "", q, r) for i, (q, r) in enumerate(faq))
-
-    ld_faq_page = {
-        "@context": "https://schema.org", "@type": "FAQPage",
-        "mainEntity": [{"@type": "Question", "name": clean(re.sub(r"<[^>]+>", "", q)),
-                        "acceptedAnswer": {"@type": "Answer",
-                                           "text": clean(re.sub(r"<[^>]+>", "", r))}}
-                       for q, r in faq]}
-
-    return (
-        head(titre, desc, "assurances.html",
-             [ld_business(), ld_faq_page, ld_ariane(fil)],
-             "garantie décennale plombier Bretagne, assurance électricien, responsabilité "
-             "civile professionnelle, attestation d'assurance ETS-BZH")
-        + topbar() + header("assurances") + ariane(fil) + f"""
-
-<main id="contenu">
-
-<section class="hero hero--compact">
-  <div class="container">
-    <span class="eyebrow">Assurances &amp; garanties</span>
-    <h1>Nos assurances et vos garanties</h1>
-    <p class="hero__sub">Chaque intervention d'ETS-BZH est couverte. Voici précisément par
-      quoi, pendant combien de temps, et ce que cela change pour vous en cas de problème.</p>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Vos protections</span>
-      <h2>Quatre garanties, quatre durées</h2>
-      <p class="lead">Elles ne se substituent pas les unes aux autres&nbsp;: elles se cumulent
-        et couvrent des risques différents.</p>
-    </div>
-    <div class="grid grid--4">{cartes}</div>
-  </div>
-</section>
-
-<section class="section section--pale">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Récapitulatif</span>
-      <h2>Ce qui est couvert, et à partir de quand</h2>
-    </div>
-    <div class="table-scroll">
-    <table class="tarifs">
-      <caption>Les délais courent à compter de la réception des travaux. Le détail des
-        exclusions figure au contrat d'assurance, communiqué sur demande.</caption>
-      <thead><tr><th scope="col">Garantie</th><th scope="col">Durée</th>
-        <th scope="col">Point de départ</th><th scope="col">Référence légale</th></tr></thead>
-      <tbody>{lignes}</tbody>
-    </table>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container grid grid--2" style="align-items:start">
-    <div class="prose" style="max-width:100%">
-      <span class="eyebrow">Notre contrat</span>
-      <h2>Notre couverture d'assurance</h2>
-      <p>ETS-BZH est assurée en <strong>responsabilité civile professionnelle</strong> et en
-        <strong>garantie décennale</strong> pour l'ensemble de ses activités&nbsp;: plomberie,
-        dégorgement et assainissement, électricité et canalisations, sur les quatre
-        départements bretons.</p>
-      <div class="assureur">
-        <img src="assets/img/{ASSUREUR['logo']}" alt="{ASSUREUR['alt']}"
-             width="300" height="107" loading="lazy">
-        <p>Assurée auprès de<br><strong>{ASSUREUR['nom']}</strong></p>
-      </div>
-      <ul>
-        <li><strong>Compagnie d'assurance&nbsp;:</strong> {ASSUREUR['nom']}</li>
-        <li><strong>Numéro de contrat&nbsp;:</strong> <em>[à compléter]</em></li>
-        <li><strong>Période de validité&nbsp;:</strong> <em>[à compléter]</em></li>
-        <li><strong>Activités déclarées&nbsp;:</strong> <em>[à compléter]</em></li>
-        <li><strong>Étendue géographique&nbsp;:</strong> France métropolitaine</li>
-      </ul>
-      <p>L'attestation d'assurance conforme au modèle réglementaire (arrêté du 5 janvier 2016)
-        vous est remise <strong>avant le démarrage des travaux</strong>, et à tout moment sur
-        simple demande.</p>
-
-      <h3>Garantie sur les pièces et la main-d'œuvre</h3>
-      <p>Indépendamment des garanties légales ci-dessus, les pièces que nous posons bénéficient
-        de la <strong>garantie du fabricant</strong>, et notre main-d'œuvre est garantie. Un
-        dépannage qui ne tient pas est repris sans facturation nouvelle&nbsp;: c'est la
-        contrepartie normale d'un diagnostic correctement posé.</p>
-
-      <h3>Ce qui n'est pas couvert</h3>
-      <p>Par honnêteté, autant l'écrire&nbsp;: aucune garantie ne couvre l'usure normale, un
-        défaut d'entretien, une intervention réalisée par un tiers après notre passage, ni un
-        désordre dont la cause est antérieure et étrangère à nos travaux. Dans ce dernier cas,
-        nous vous remettons un constat écrit qui vous servira auprès de votre assurance.</p>
-    </div>
-    <div>
-      {photo("plomberie-3.jpg", "Remplacement d'une canalisation enterrée par ETS-BZH", "Travaux couverts par la garantie décennale", large=True)}
-      <div class="encadre" style="margin-top:24px">
-        <h3>Demander notre attestation</h3>
-        <p>Par téléphone au <a href="tel:{TEL_LIEN}"><strong>{TEL}</strong></a> ou par e-mail à
-          <a href="mailto:{EMAIL}">{EMAIL}</a>. Réponse sous 24&nbsp;h ouvrées.</p>
-        <p style="margin-bottom:0"><a class="btn btn--primary" href="contact.html">Nous contacter</a></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section section--fond">
-  <div class="container">
-    <div class="section-head center">
-      <span class="eyebrow">Qualifications</span>
-      <h2>Une entreprise artisanale déclarée</h2>
-      <p class="lead">Le titre d'artisan est protégé en France&nbsp;: il suppose une
-        qualification professionnelle et une inscription au Répertoire des Métiers.</p>
-    </div>
-    <div class="grid grid--2 labels">{labels}</div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="section-head center">
-      <span class="eyebrow">Questions fréquentes</span>
-      <h2>Assurances et garanties&nbsp;: vos questions</h2>
-    </div>
-    <div class="faq">{faq_html}</div>
-  </div>
-</section>
-
-{cta_final("Une intervention à faire réaliser par une entreprise assurée&nbsp;?",
-           "Devis gratuit, tarif validé avant travaux, attestation d'assurance fournie "
-           "avant le démarrage du chantier.",
-           "cta-assurances")}
-
-</main>
-""" + footer())
-
-
 def page_404():
     liens = "".join('<a href="%s">%s %s (%s)</a>' % (url_landing(a, d), a["nom_court"],
                                                      d["nom"], d["num"])
@@ -1629,12 +1423,10 @@ def main():
             pages.append((nom, "0.9", "monthly"))
 
     ecrire("contact.html", page_contact())
-    ecrire("assurances.html", page_assurances())
     ecrire("mentions-legales.html", page_mentions())
     ecrire("cgu.html", page_cgu())
     ecrire("404.html", page_404())
     pages += [("contact.html", "0.8", "monthly"),
-              ("assurances.html", "0.7", "yearly"),
               ("mentions-legales.html", "0.3", "yearly"),
               ("cgu.html", "0.3", "yearly")]
 

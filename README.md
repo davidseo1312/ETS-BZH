@@ -16,7 +16,6 @@ template unique.
 | `plomberie-depannage-{22,29,35,56}.html` | 4 landing pages Plomberie |
 | `electricite-urgence-{22,29,35,56}.html` | 4 landing pages Électricité |
 | `contact.html` | Formulaire de devis express (département + type de panne) |
-| `assurances.html` | Assurances & garanties : décennale, parfait achèvement, biennale, RC pro |
 | `mentions-legales.html` · `cgu.html` | Pages légales |
 | `404.html` · `sitemap.xml` · `robots.txt` | Annexes SEO |
 
@@ -157,29 +156,22 @@ Les légendes et textes alternatifs se modifient dans `tools/data.py`
 (clés `photos`, `photo_equipe`, `PHOTOS_ACCUEIL`, `PHOTO_EQUIPE`,
 `PHOTO_CONTACT`), puis `python3 tools/build.py`.
 
-## Assurances, garanties et labels
+## Bandeau de logos
 
-La page `assurances.html` détaille les quatre protections (parfait achèvement 1 an,
-bon fonctionnement 2 ans, décennale 10 ans, responsabilité civile professionnelle),
-avec leurs références légales, un tableau récapitulatif, ce qui n'est pas couvert,
-et une FAQ.
+Un bandeau apparaît sur les 17 pages, juste avant le pied de page. Il ne contient
+que trois logos, sans texte : `label-artisan.png`, `label-cma.png` et
+`logo-assureur.png` (tous dans `assets/img/`). Ces images comportent du texte noir,
+le bandeau est donc sur fond blanc — elles seraient illisibles sur le pied de page
+marine.
 
-Un **bandeau de confiance** apparaît sur les 18 pages, juste avant le pied de page :
-titre, rappel des garanties, lien vers la page, et les deux logos
-(`assets/img/label-artisan.png`, `assets/img/label-cma.png`). Ces logos portent du
-texte noir : le bandeau est donc sur fond blanc, ils ne peuvent pas être posés sur
-le pied de page marine.
+Pour en ajouter, en retirer ou en réordonner, modifiez la liste `LOGOS` dans
+`tools/data.py`, puis relancez `python3 tools/build.py`.
 
 > **À vérifier avant mise en ligne.** Le titre d'artisan est protégé en France
 > (loi n° 96-603, art. 16) : il suppose une qualification professionnelle et une
-> inscription au Répertoire des Métiers. N'affichez ces deux logos que si ETS-BZH
-> est effectivement immatriculée auprès de sa Chambre de Métiers et de l'Artisanat
-> et habilitée à utiliser le label. Les champs *[à compléter]* de la page
-> assurances (compagnie, n° de contrat, validité, activités déclarées) doivent être
-> renseignés à partir de l'attestation d'assurance réelle. La compagnie est
-> renseignée (MIC Insurance, logo dans `assets/img/logo-assureur.png`) mais le
-> numéro de contrat, la période de validité et les activités déclarées restent à
-> compléter.
+> inscription au Répertoire des Métiers. N'affichez ces logos que si ETS-BZH est
+> effectivement immatriculée auprès de sa Chambre de Métiers et de l'Artisanat et
+> assurée auprès de MIC Insurance.
 
 ## Charte graphique
 
