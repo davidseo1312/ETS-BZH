@@ -479,11 +479,28 @@ h3 { font-size: 1.2rem; }
 .avis__ville { font-size: .82rem; color: var(--gris-clair); }
 
 .note-globale {
-  display: inline-flex; align-items: center; gap: 14px;
-  background: var(--nuit); color: #fff; padding: 14px 24px; margin-top: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px 22px;
+  background: #fff;
+  border: 2px solid var(--bordure);
+  border-top: 4px solid var(--bleu);
+  padding: 18px 28px;
+  margin-top: 34px;
+  text-align: left;
+  color: var(--nuit-2);
+  box-shadow: var(--ombre);
 }
-.note-globale strong { font-size: 1.5rem; }
-.note-globale span { font-size: .88rem; color: #b9d2e0; }
+a.note-globale:hover { border-color: var(--bleu); text-decoration: none; }
+.avis-note__logo { height: 38px; width: auto; }
+.avis-note__sep { width: 1px; height: 40px; background: var(--bordure); }
+.avis-note__bloc { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.avis-note__chiffre { font-size: 1.05rem; color: var(--gris); line-height: 1; }
+.avis-note__chiffre strong { font-size: 1.85rem; color: var(--nuit); }
+.avis-note__etoiles { color: var(--or); letter-spacing: 2px; font-size: .95rem; }
+.avis-note__txt { font-size: .87rem; color: var(--gris); line-height: 1.5; }
 
 /* ---------- Bandeau CTA ---------- */
 .cta {
@@ -780,6 +797,8 @@ h3 { font-size: 1.2rem; }
   .hero--compact { padding: 34px 0 38px; }
   .form-card { box-shadow: 6px 6px 0 rgba(0,0,0,.18); }
   .footer { padding-bottom: 58px; }
+  .note-globale { flex-direction: column; text-align: center; padding: 18px 22px; gap: 12px; }
+  .avis-note__sep { display: none; }
   .btn--xl { padding: 18px 26px; font-size: 1.05rem; width: 100%; }
   .cta__tel { width: 100%; justify-content: center; padding: 18px 20px; }
   .tarifs { min-width: 420px; }

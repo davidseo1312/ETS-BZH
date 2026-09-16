@@ -101,7 +101,7 @@ Pour renforcer ou atténuer le motif, ajustez la seule valeur `opacity` de
 
 ## Emplacements photo
 
-**16 photos sont en place** (6 dégorgement, 4 plomberie, 5 électricité, 1 équipe/véhicule). Il ne reste que deux emplacements à remplir.
+**17 photos sont en place** (6 dégorgement, 5 plomberie, 5 électricité, 1 équipe/véhicule). Il ne reste qu'un emplacement à remplir : `atelier.jpg` sur la page Contact.
 Les emplacements restants attendent vos fichiers.
 
 La galerie s'adapte au nombre de photos fournies : **3 colonnes** si ce nombre est
@@ -127,7 +127,7 @@ elle n'a donc pas ses propres images à fournir.
 | Page | Fournies | À fournir |
 | --- | --- | --- |
 | Dégorgement | WC, lavabo, douche, inspection caméra, hydrocurage, pompage | — (galerie complète, 6 photos) |
-| Plomberie | diagnostic sous lavabo, chauffe-eau, canalisation enterrée, salle de bain | photo d'équipe |
+| Plomberie | diagnostic sous lavabo, chauffe-eau, canalisation enterrée, salle de bain, flexible de WC | — (complet) |
 | Électricité | tableau, mise aux normes, contrôle de prise, borne de recharge, luminaire | — (complet) |
 | Accueil | 6 photos | — |
 | Assurances | canalisation enterrée (réutilisée) | — |
@@ -155,6 +155,21 @@ Pour masquer les emplacements non encore remplis, décommentez dans
 Les légendes et textes alternatifs se modifient dans `tools/data.py`
 (clés `photos`, `photo_equipe`, `PHOTOS_ACCUEIL`, `PHOTO_EQUIPE`,
 `PHOTO_CONTACT`), puis `python3 tools/build.py`.
+
+## Bandeau d'avis Google
+
+La section « Avis clients » se termine par un bandeau estampillé Google Reviews
+(`assets/img/logo-google-reviews.png`) affichant la note moyenne. Renseignez
+`SITE["google_avis"]` dans `tools/data.py` avec l'URL de votre fiche
+d'établissement Google : le bandeau devient alors cliquable et renvoie vers vos
+avis. Laissé vide, il reste un simple visuel.
+
+> **À traiter avant mise en ligne.** Les témoignages et la note de 4,8/5 sont
+> toujours des contenus d'exemple. Les présenter sous un logo Google Reviews
+> revient à faire passer des avis fictifs pour des avis Google vérifiés, ce qui
+> constitue une pratique commerciale trompeuse (art. L.121-2 du Code de la
+> consommation) et contrevient aux conditions d'utilisation de la marque Google.
+> Remplacez les témoignages et la note par vos avis réels, ou retirez le logo.
 
 ## Bandeau de logos
 

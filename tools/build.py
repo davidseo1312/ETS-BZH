@@ -374,6 +374,23 @@ def cta_final(titre, texte, idp, dept=None, act=None):
 </section>"""
 
 
+def bandeau_avis(legende):
+    """Bandeau de note moyenne, estampillé Google Reviews."""
+    contenu = f"""
+    <img class="avis-note__logo" src="assets/img/logo-google-reviews.png"
+         alt="Google Reviews" width="300" height="121" loading="lazy">
+    <span class="avis-note__sep" aria-hidden="true"></span>
+    <span class="avis-note__bloc">
+      <span class="avis-note__chiffre"><strong>4,8</strong>/5</span>
+      <span class="avis-note__etoiles" aria-hidden="true">★★★★★</span>
+    </span>
+    <span class="avis-note__txt">{legende}<br>sur les 12 derniers mois</span>"""
+    if SITE.get("google_avis"):
+        return ('<a class="note-globale" href="%s" target="_blank" rel="noopener">%s</a>'
+                % (SITE["google_avis"], contenu))
+    return '<div class="note-globale">%s</div>' % contenu
+
+
 def bandeau_confiance():
     """Bandeau de logos affiché sur toutes les pages, juste avant le pied de page.
     Fond clair obligatoire : les logos comportent du texte noir."""
@@ -775,10 +792,7 @@ def page_landing(act, dept):
     </div>
     <div class="grid grid--3">{avis}</div>
     <div class="center">
-      <div class="note-globale">
-        <strong>4,8/5</strong>
-        <span>Note moyenne des interventions ETS-BZH en Bretagne<br>sur les 12 derniers mois</span>
-      </div>
+      {bandeau_avis("Note moyenne des interventions ETS-BZH en Bretagne")}
     </div>
   </div>
 </section>
@@ -991,10 +1005,7 @@ def page_index():
     </div>
     <div class="grid grid--3">{avis}</div>
     <div class="center">
-      <div class="note-globale">
-        <strong>4,8/5</strong>
-        <span>Note moyenne des interventions ETS-BZH<br>sur les 12 derniers mois</span>
-      </div>
+      {bandeau_avis("Note moyenne des interventions ETS-BZH")}
     </div>
   </div>
 </section>

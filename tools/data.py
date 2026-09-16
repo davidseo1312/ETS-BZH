@@ -12,6 +12,10 @@ SITE = {
     "url": "https://www.ets-bzh.fr",
     "siret": "000 000 000 00000",
     "adresse": "Bretagne — interventions sur les départements 22, 29, 35 et 56",
+    # Lien vers la fiche d'établissement Google. Renseignez-le pour que le
+    # bandeau d'avis renvoie vers vos avis réels ; laissé vide, il reste un
+    # simple visuel non cliquable.
+    "google_avis": "",
 }
 
 # --------------------------------------------------------------------------
@@ -358,7 +362,8 @@ ACTIVITES = [
              "Installation de salle de bain"),
         ],
         "photo_equipe": ("plomberie-equipe.jpg",
-                         "Plombier ETS-BZH équipé sur une intervention"),
+                         "Plombier ETS-BZH remplaçant le flexible d'alimentation "
+                         "d'un WC"),
         "prose_h3": [
             ("Les dépannages les plus demandés {art} {dept}",
              ["Fuite sur flexible, siphon ou raccord sous évier",

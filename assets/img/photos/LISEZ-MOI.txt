@@ -33,7 +33,8 @@ PAGES PLOMBERIE
   plomberie-2.jpg ......... [FOURNIE] Intervention sur chauffe-eau
   plomberie-3.jpg ......... [FOURNIE] Remplacement de canalisation enterrée
   plomberie-4.jpg ......... [FOURNIE] Installation de salle de bain
-  plomberie-equipe.jpg .... à fournir — Plombier en intervention
+  plomberie-equipe.jpg .... [FOURNIE] Remplacement de flexible de WC
+  (les pages Plomberie sont complètes)
 
 
 PAGES ÉLECTRICITÉ
