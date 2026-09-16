@@ -598,30 +598,25 @@ h3 { font-size: 1.2rem; }
 /* ---------- Bandeau de logos (avant le pied de page) ---------- */
 /* Fond clair obligatoire : les logos comportent du texte noir. */
 .confiance { background: #fff; border-top: 3px solid var(--bleu); padding: 30px 0; }
+
 .confiance__logos {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: clamp(20px, 5vw, 64px);
-  flex-wrap: nowrap;
+  gap: 18px clamp(20px, 5vw, 64px);
 }
-/* chaque logo est centré dans sa propre cellule : l'espacement reste régulier
-   quelles que soient les largeurs, et la rangée reste centrée */
-.confiance__cell {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 0 1 auto;
-  min-width: 0;
-}
-/* Hauteur propre à chaque logo (--h), réduite proportionnellement par --scale.
+
+/* Hauteur propre à chaque logo (--h), mise à l'échelle par --scale.
    --dy aligne les centres optiques : un logo dont l'encre se concentre en haut
-   est descendu, et inversement. */
-.confiance__logos img {
+   est descendu, et inversement.
+   La hauteur de repli (48px) s'applique si les variables ne sont pas lues. */
+.confiance__logo {
   --scale: 1;
+  height: 48px;
   height: calc(var(--h, 48px) * var(--scale));
   width: auto;
-  max-width: 100%;
+  max-width: 44vw;
   object-fit: contain;
   transform: translateY(calc(var(--h, 48px) * var(--scale) * var(--dy, 0)));
 }
@@ -726,7 +721,7 @@ h3 { font-size: 1.2rem; }
 }
 
 @media (max-width: 900px) {
-  .confiance__logos img { --scale: .88; }
+  .confiance__logo { --scale: .88; }
   .nav { display: none; }
   .nav.is-open {
     display: flex; flex-direction: column; align-items: stretch;
@@ -758,7 +753,7 @@ h3 { font-size: 1.2rem; }
   .stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,.14); }
   .footer__grid { grid-template-columns: 1fr; gap: 30px; }
   .confiance { padding: 22px 0; }
-  .confiance__logos img { --scale: .74; }
+  .confiance__logo { --scale: .74; }
   .footer__accroche { font-size: .95rem; margin: 22px auto 20px; }
   .footer__contacts { flex-direction: column; align-items: center; gap: 10px; }
   .mobile-bar { display: flex; }

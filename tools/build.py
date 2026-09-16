@@ -9,6 +9,7 @@ Produit à la racine du dépôt :
   · index.html, contact.html, mentions-legales.html, cgu.html, 404.html
   · sitemap.xml, robots.txt
 """
+import hashlib
 import json
 import os
 import re
@@ -25,6 +26,31 @@ TEL_LIEN = SITE["tel_lien"]
 EMAIL = SITE["email"]
 BASE = SITE["url"]
 TODAY = date.today().isoformat()
+
+
+def empreinte(chemin):
+    """Empreinte courte d'un fichier statique, ajoutée à son URL.
+
+    Sans cela, un navigateur peut continuer à servir l'ancienne feuille de style
+    après une mise en ligne : le HTML est à jour, le CSS non, et la page casse.
+    """
+    with open(os.path.join(ROOT, chemin), "rb") as f:
+        return hashlib.md5(f.read()).hexdigest()[:8]
+
+
+def taille_png(chemin):
+    """Dimensions natives d'un PNG, lues dans son en-tête IHDR (sans dépendance).
+
+    Elles servent d'attributs width/height : le navigateur connaît le rapport
+    d'aspect avant le chargement et ne décale pas la mise en page.
+    """
+    with open(os.path.join(ROOT, chemin), "rb") as f:
+        entete = f.read(24)
+    return int.from_bytes(entete[16:20], "big"), int.from_bytes(entete[20:24], "big")
+
+
+CSS = "assets/css/style.css?v=" + empreinte("assets/css/style.css")
+JS = "assets/js/main.js?v=" + empreinte("assets/js/main.js")
 
 # « des Côtes-d'Armor », « du Finistère », …
 DE = {"22": "des Côtes-d'Armor", "29": "du Finistère",
@@ -112,7 +138,7 @@ def head(titre, description, canonical, extra_json=None, mots_cles=""):
   <meta name="twitter:card" content="summary">
   <link rel="icon" href="assets/img/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/img/logo-emblem.png">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="{CSS}">
   <link rel="preconnect" href="{BASE}">{jsonld}
 </head>
 <body>
@@ -352,9 +378,10 @@ def bandeau_confiance():
     """Bandeau de logos affiché sur toutes les pages, juste avant le pied de page.
     Fond clair obligatoire : les logos comportent du texte noir."""
     logos = "".join(
-        '<span class="confiance__cell">'
-        '<img src="assets/img/%s" alt="%s" style="--h:%dpx;--dy:%s" loading="lazy"></span>'
-        % (f, alt, h, dy) for f, alt, h, dy in LOGOS)
+        '<img class="confiance__logo" src="assets/img/%s" alt="%s" '
+        'style="--h:%dpx;--dy:%s" width="%d" height="%d" loading="lazy">'
+        % ((f, alt, h, dy) + taille_png("assets/img/" + f))
+        for f, alt, h, dy in LOGOS)
     return f"""
 <section class="confiance" aria-label="Qualifications et assurance">
   <div class="container confiance__logos">{logos}</div>
@@ -427,7 +454,7 @@ def footer():
   <a class="mobile-bar__devis" href="#devis">{SVG['form']} Devis gratuit</a>
 </div>
 
-<script src="assets/js/main.js" defer></script>
+<script src="{JS}" defer></script>
 </body>
 </html>"""
 
