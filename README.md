@@ -16,6 +16,7 @@ template unique.
 | `plomberie-depannage-{22,29,35,56}.html` | 4 landing pages Plomberie |
 | `electricite-urgence-{22,29,35,56}.html` | 4 landing pages Électricité |
 | `contact.html` | Formulaire de devis express (département + type de panne) |
+| `assurances.html` | Assurances & garanties : décennale, parfait achèvement, biennale, RC pro |
 | `mentions-legales.html` · `cgu.html` | Pages légales |
 | `404.html` · `sitemap.xml` · `robots.txt` | Annexes SEO |
 
@@ -101,7 +102,7 @@ Pour renforcer ou atténuer le motif, ajustez la seule valeur `opacity` de
 
 ## Emplacements photo
 
-**6 photos sont déjà en place** (3 dégorgement, 2 plomberie, 1 équipe/véhicule).
+**9 photos sont déjà en place** (5 dégorgement, 3 plomberie, 1 équipe/véhicule).
 Les emplacements restants attendent vos fichiers.
 
 Le site prévoit **23 emplacements photo** répartis sur toutes les pages :
@@ -121,10 +122,11 @@ elle n'a donc pas ses propres images à fournir.
 
 | Page | Fournies | À fournir |
 | --- | --- | --- |
-| Dégorgement | WC, lavabo, douche | curage haute pression, photo d'équipe |
-| Plomberie | diagnostic sous lavabo, chauffe-eau | réseau d'alimentation, salle de bain, photo d'équipe |
+| Dégorgement | WC, lavabo, douche, inspection caméra, camion hydrocureur | — |
+| Plomberie | diagnostic sous lavabo, chauffe-eau, canalisation enterrée | salle de bain, photo d'équipe |
 | Électricité | — | 4 photos de galerie + photo d'équipe |
-| Accueil | les 5 ci-dessus + équipe/véhicule | — |
+| Accueil | 6 photos | — |
+| Assurances | canalisation enterrée (réutilisée) | — |
 | Contact | — | atelier |
 
 ### Comment ajouter une photo
@@ -149,6 +151,27 @@ Pour masquer les emplacements non encore remplis, décommentez dans
 Les légendes et textes alternatifs se modifient dans `tools/data.py`
 (clés `photos`, `photo_equipe`, `PHOTOS_ACCUEIL`, `PHOTO_EQUIPE`,
 `PHOTO_CONTACT`), puis `python3 tools/build.py`.
+
+## Assurances, garanties et labels
+
+La page `assurances.html` détaille les quatre protections (parfait achèvement 1 an,
+bon fonctionnement 2 ans, décennale 10 ans, responsabilité civile professionnelle),
+avec leurs références légales, un tableau récapitulatif, ce qui n'est pas couvert,
+et une FAQ.
+
+Un **bandeau de confiance** apparaît sur les 18 pages, juste avant le pied de page :
+titre, rappel des garanties, lien vers la page, et les deux logos
+(`assets/img/label-artisan.png`, `assets/img/label-cma.png`). Ces logos portent du
+texte noir : le bandeau est donc sur fond blanc, ils ne peuvent pas être posés sur
+le pied de page marine.
+
+> **À vérifier avant mise en ligne.** Le titre d'artisan est protégé en France
+> (loi n° 96-603, art. 16) : il suppose une qualification professionnelle et une
+> inscription au Répertoire des Métiers. N'affichez ces deux logos que si ETS-BZH
+> est effectivement immatriculée auprès de sa Chambre de Métiers et de l'Artisanat
+> et habilitée à utiliser le label. Les champs *[à compléter]* de la page
+> assurances (compagnie, n° de contrat, validité, activités déclarées) doivent être
+> renseignés à partir de l'attestation d'assurance réelle.
 
 ## Charte graphique
 

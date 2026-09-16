@@ -211,11 +211,13 @@ ACTIVITES = [
             ("degorgement-3.jpg",
              "Débouchage d'un receveur de douche au furet électrique",
              "Débouchage de receveur de douche"),
-            ("degorgement-4.jpg", "Curage haute pression d'un réseau extérieur",
-             "Curage haute pression"),
+            ("degorgement-4.jpg",
+             "Inspection vidéo d'une canalisation par caméra endoscopique ETS-BZH",
+             "Inspection vidéo par caméra"),
         ],
         "photo_equipe": ("degorgement-equipe.jpg",
-                         "Technicien assainissement ETS-BZH et son matériel"),
+                         "Camion hydrocureur ETS-BZH et son équipe lors d'un pompage "
+                         "sur regard d'assainissement"),
         "prose_h3": [
             ("Les bouchons les plus fréquents {art} {dept}",
              ["Lingettes et produits d'hygiène dans les WC — première cause d'urgence",
@@ -343,8 +345,9 @@ ACTIVITES = [
             ("plomberie-2.jpg",
              "Plombier ETS-BZH intervenant sur le groupe de sécurité d'un chauffe-eau",
              "Intervention sur chauffe-eau"),
-            ("plomberie-3.jpg", "Réfection d'un réseau d'alimentation en cuivre",
-             "Réfection de réseau d'alimentation"),
+            ("plomberie-3.jpg",
+             "Remplacement d'une canalisation enterrée par un plombier ETS-BZH",
+             "Remplacement de canalisation enterrée"),
             ("plomberie-4.jpg", "Installation complète d'une salle de bain",
              "Installation de salle de bain"),
         ],
@@ -545,6 +548,35 @@ PHOTOS_ACCUEIL = [
 
 PHOTO_EQUIPE = ("equipe.jpg", "L'équipe ETS-BZH et ses véhicules d'intervention")
 PHOTO_CONTACT = ("atelier.jpg", "Atelier et matériel professionnel ETS-BZH")
+
+LABELS = [
+    ("label-artisan.png", "Label Artisan de France",
+     "Artisan de France",
+     "Savoir-faire artisanal reconnu et travail réalisé par des professionnels du métier."),
+    ("label-cma.png", "Chambres de Métiers et de l'Artisanat",
+     "Chambres de Métiers et de l'Artisanat",
+     "Entreprise artisanale inscrite au Répertoire des Métiers."),
+]
+
+GARANTIES = [
+    ("Garantie de parfait achèvement", "1 an", "à compter de la réception des travaux",
+     "Tous les désordres signalés lors de la réception ou apparus dans l'année qui suit, "
+     "quelle que soit leur importance. Nous revenons les reprendre à nos frais.",
+     "Article 1792-6 du Code civil"),
+    ("Garantie de bon fonctionnement", "2 ans", "à compter de la réception des travaux",
+     "Les éléments d'équipement dissociables de l'ouvrage&nbsp;: chauffe-eau, robinetterie, "
+     "radiateurs, VMC, interphone, volets roulants, appareillage électrique.",
+     "Article 1792-3 du Code civil"),
+    ("Garantie décennale", "10 ans", "à compter de la réception des travaux",
+     "Les dommages qui compromettent la solidité de l'ouvrage ou le rendent impropre à sa "
+     "destination&nbsp;: infiltration, rupture de canalisation encastrée, défaut "
+     "d'étanchéité, installation électrique dangereuse.",
+     "Articles 1792 et suivants du Code civil"),
+    ("Responsabilité civile professionnelle", "Permanente", "pendant toute l'intervention",
+     "Les dommages que nous pourrions causer à vos biens ou à des tiers pendant le "
+     "chantier&nbsp;: dégât des eaux provoqué, matériel abîmé, préjudice au voisinage.",
+     "Obligation d'assurance — article L.241-1 du Code des assurances"),
+]
 
 STATS = [
     ("24/7", "Astreinte urgence"),

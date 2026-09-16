@@ -21,15 +21,15 @@ PAGES DÉGORGEMENT (les 4 départements partagent ces photos)
   degorgement-1.jpg ......... [FOURNIE] Débouchage de WC
   degorgement-2.jpg ......... [FOURNIE] Débouchage de lavabo au furet
   degorgement-3.jpg ......... [FOURNIE] Débouchage de receveur de douche
-  degorgement-4.jpg ......... à fournir — Curage haute pression
-  degorgement-equipe.jpg .... à fournir — Technicien et matériel (section urgences)
+  degorgement-4.jpg ......... [FOURNIE] Inspection vidéo par caméra
+  degorgement-equipe.jpg .... [FOURNIE] Camion hydrocureur (section urgences)
 
 
 PAGES PLOMBERIE
 ---------------
   plomberie-1.jpg ......... [FOURNIE] Diagnostic sous lavabo / recherche de fuite
   plomberie-2.jpg ......... [FOURNIE] Intervention sur chauffe-eau
-  plomberie-3.jpg ......... à fournir — Réfection de réseau d'alimentation
+  plomberie-3.jpg ......... [FOURNIE] Remplacement de canalisation enterrée
   plomberie-4.jpg ......... à fournir — Installation de salle de bain
   plomberie-equipe.jpg .... à fournir — Plombier en intervention
 
@@ -41,6 +41,11 @@ PAGES ÉLECTRICITÉ
   electricite-3.jpg ......... à fournir — Recherche de panne
   electricite-4.jpg ......... à fournir — Pose de borne de recharge
   electricite-equipe.jpg .... à fournir — Électricien en intervention
+
+
+PAGE ASSURANCES
+---------------
+  plomberie-3.jpg ...... [FOURNIE] réutilisée (travaux couverts par la décennale)
 
 
 PAGE CONTACT
