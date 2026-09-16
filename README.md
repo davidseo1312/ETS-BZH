@@ -47,18 +47,24 @@ reconstruction.
 | Fichier | Provenance | Usage |
 | --- | --- | --- |
 | `assets/img/logo-original.jpg` | Fichier source intact (1407 × 768) | Archive de référence, non chargé par les pages |
-| `assets/img/logo.jpg` | Source rognée de ses marges blanches et redimensionnée en 560 px | Pied de page (sur plaque blanche) et `og:image` |
+| `assets/img/logo.jpg` | Source rognée de ses marges blanches et redimensionnée en 680 px | Pied de page (sur plaque blanche) et `og:image` |
 | `assets/img/logo-emblem.png` | Disque découpé dans la source, fond rendu transparent | En-tête (haut à gauche) et icône Apple |
 | `assets/img/favicon.png` | Même emblème en 96 px | Favicon |
 
 Les déclinaisons sont produites par découpe, détourage circulaire et
 redimensionnement du fichier source : les pixels proviennent tous de l'original.
-Total servi aux visiteurs : 43 Ko.
+Total servi aux visiteurs : 59 Ko.
+
+Le rognage ignore un liseré d'artefacts d'export présent sur le bord droit du
+fichier source (dernière colonne de pixels), qui décentrait le logo. Le contenu
+est désormais centré à 0,5 px près, et la plaque du pied de page est centrée
+exactement dans sa colonne à toutes les largeurs.
 
 Dans l'en-tête, l'emblème est associé au nom « ETS-BZH » en texte HTML plutôt
 qu'à l'image complète : à 78 px de hauteur de barre, le bandeau du logo
 descendrait sous 10 px et deviendrait illisible. Le logo complet est affiché en
-taille lisible dans le pied de page de chaque page.
+taille lisible dans le pied de page de chaque page, centré sur une plaque
+blanche (340 px en desktop, 300 px en tablette, 250 px en mobile).
 
 ### Arrière-plan des en-têtes
 

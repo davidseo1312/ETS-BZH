@@ -104,8 +104,8 @@ def head(titre, description, canonical, extra_json=None, mots_cles=""):
   <meta property="og:description" content="{description}">
   <meta property="og:url" content="{BASE}/{canonical}">
   <meta property="og:image" content="{BASE}/assets/img/logo.jpg">
-  <meta property="og:image:width" content="560">
-  <meta property="og:image:height" content="333">
+  <meta property="og:image:width" content="680">
+  <meta property="og:image:height" content="460">
   <meta property="og:image:alt" content="Logo ETS-BZH">
   <meta name="twitter:card" content="summary">
   <link rel="icon" href="assets/img/favicon.png" type="image/png">
@@ -355,19 +355,22 @@ def footer():
     return f"""
 <footer class="footer">
   <div class="container">
-    <div class="footer__grid">
-      <div>
-        <div class="footer__plaque">
-          <img src="assets/img/logo.jpg" width="560" height="333" loading="lazy"
-               alt="ETS-BZH — Plomberie, Dégorgement, Électricité &amp; Canalisations">
-        </div>
-        <p>Dépannage et travaux en plomberie, dégorgement de canalisations et électricité
-           sur les Côtes-d'Armor, le Finistère, l'Ille-et-Vilaine et le Morbihan.</p>
-        <a class="footer__tel" href="tel:{TEL_LIEN}">{SVG['tel']} {TEL}</a>
-        <p>{SVG['mail']} <a href="mailto:{EMAIL}">{EMAIL}</a></p>
-        <p>{SVG['pin']} Intervention 24h/24 et 7j/7 en Bretagne</p>
-      </div>
+    <div class="footer__marque">
+      <a class="footer__plaque" href="index.html" aria-label="ETS-BZH — retour à l'accueil">
+        <img src="assets/img/logo.jpg" width="680" height="460" loading="lazy"
+             alt="ETS-BZH — Plomberie, Dégorgement, Électricité &amp; Canalisations">
+      </a>
+      <p class="footer__accroche">Dépannage et travaux en plomberie, dégorgement de
+        canalisations et électricité sur les Côtes-d'Armor, le Finistère,
+        l'Ille-et-Vilaine et le Morbihan.</p>
+      <a class="footer__tel" href="tel:{TEL_LIEN}">{SVG['tel']} {TEL}</a>
+      <ul class="footer__contacts">
+        <li>{SVG['mail']} <a href="mailto:{EMAIL}">{EMAIL}</a></li>
+        <li>{SVG['pin']} Intervention 24h/24 et 7j/7 en Bretagne</li>
+      </ul>
+    </div>
 
+    <div class="footer__grid">
       <div>
         <h3>{ACT['degorgement']['nom_court']}</h3>
         <ul>{colonne(ACT['degorgement'])}</ul>
@@ -381,7 +384,10 @@ def footer():
       <div>
         <h3>{ACT['electricite']['nom_court']}</h3>
         <ul>{colonne(ACT['electricite'])}</ul>
-        <h3 style="margin-top:28px">Zones d'intervention</h3>
+      </div>
+
+      <div>
+        <h3>Zones d'intervention</h3>
         <ul>
           <li>Côtes-d'Armor (22) — Saint-Brieuc, Lannion, Dinan</li>
           <li>Finistère (29) — Brest, Quimper, Morlaix</li>

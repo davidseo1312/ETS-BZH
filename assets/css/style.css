@@ -517,23 +517,54 @@ h3 { font-size: 1.2rem; }
   color: #fff; font-size: .82rem; letter-spacing: .13em; text-transform: uppercase;
   margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--bleu-clair); display: inline-block;
 }
-.footer__grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: 42px; padding-bottom: 46px; }
-.footer a { color: #a9c6d6; }
-.footer a:hover { color: #fff; }
-.footer ul { display: grid; gap: 9px; }
+.footer__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 42px;
+  padding: 44px 0 46px;
+  border-top: 1px solid rgba(255,255,255,.13);
+}
+
+/* ---- Bloc de marque centré ---- */
+.footer__marque { text-align: center; padding-bottom: 42px; }
+
 .footer__plaque {
   display: inline-block;
   background: #fff;
-  padding: 14px 18px;
-  margin-bottom: 18px;
-  max-width: 100%;
+  padding: 22px 30px;
+  box-shadow: 0 6px 26px rgba(0,0,0,.28);
+  transition: transform .15s ease, box-shadow .15s ease;
 }
-.footer__plaque img { width: 250px; height: auto; display: block; }
+.footer__plaque:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(0,0,0,.36); }
+.footer__plaque img { width: 340px; max-width: 100%; height: auto; display: block; }
+
+.footer__accroche {
+  max-width: 620px;
+  margin: 26px auto 22px;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #b9d2e0;
+}
+
+.footer__marque .footer__tel { margin: 0 0 20px; font-size: 1.16rem; padding: 15px 26px; }
+
+.footer__contacts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 32px;
+  font-size: .93rem;
+}
+.footer__contacts li { display: flex; align-items: center; gap: 9px; }
+.footer a { color: #a9c6d6; }
+.footer a:hover { color: #fff; }
+.footer ul { display: grid; gap: 9px; }
 .footer__tel {
   display: inline-flex; align-items: center; gap: 10px; background: var(--bleu);
   color: #fff !important; padding: 13px 20px; font-weight: 800; font-size: 1.06rem; margin: 8px 0 14px;
+  border: 2px solid var(--bleu);
 }
-.footer__tel:hover { background: var(--bleu-clair); text-decoration: none; }
+.footer__tel:hover { background: var(--bleu-clair); border-color: var(--bleu-clair); text-decoration: none; }
 .footer__bas {
   border-top: 1px solid rgba(255,255,255,.13); padding: 22px 0; font-size: .84rem;
   display: flex; flex-wrap: wrap; gap: 10px 26px; justify-content: space-between; align-items: center;
@@ -571,6 +602,7 @@ h3 { font-size: 1.2rem; }
   .grid--3 { grid-template-columns: repeat(2, 1fr); }
   .villes-grid { grid-template-columns: repeat(2, 1fr); }
   .footer__grid { grid-template-columns: 1fr 1fr; gap: 34px; }
+  .footer__plaque img { width: 300px; }
   .cta__grid { grid-template-columns: 1fr; gap: 34px; }
 }
 
@@ -604,7 +636,11 @@ h3 { font-size: 1.2rem; }
   .step:last-child { border-bottom: none; }
   .stats__grid { grid-template-columns: 1fr; }
   .stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,.14); }
-  .footer__grid { grid-template-columns: 1fr; }
+  .footer__grid { grid-template-columns: 1fr; gap: 30px; }
+  .footer__plaque { padding: 16px 20px; }
+  .footer__plaque img { width: 250px; }
+  .footer__accroche { font-size: .95rem; margin: 22px auto 20px; }
+  .footer__contacts { flex-direction: column; align-items: center; gap: 10px; }
   .mobile-bar { display: flex; }
   /* barre d'infos compacte : on garde l'urgence et l'e-mail */
   .topbar { font-size: .8rem; }
