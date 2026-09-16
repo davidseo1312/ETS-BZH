@@ -4,7 +4,7 @@ Site vitrine statique orienté conversion pour **ETS-BZH**, avec 12 landing page
 ultra-ciblées (3 activités × 4 départements bretons) générées à partir d'un
 template unique.
 
-- **Téléphone :** 02 20 06 00 75 · **E-mail :** contact@ets-bzh.fr
+- **Téléphone :** 02 20 06 00 75 · **E-mail :** contact@etablissement-breizh.fr
 - **Zones :** Côtes-d'Armor (22), Finistère (29), Ille-et-Vilaine (35), Morbihan (56)
 
 ## Arborescence
@@ -101,6 +101,9 @@ Pour renforcer ou atténuer le motif, ajustez la seule valeur `opacity` de
 
 ## Emplacements photo
 
+**6 photos sont déjà en place** (3 dégorgement, 2 plomberie, 1 équipe/véhicule).
+Les emplacements restants attendent vos fichiers.
+
 Le site prévoit **23 emplacements photo** répartis sur toutes les pages :
 
 | Page | Emplacements |
@@ -111,7 +114,18 @@ Le site prévoit **23 emplacements photo** répartis sur toutes les pages :
 
 Les galeries sont **partagées par activité** : les 4 pages Dégorgement affichent
 les mêmes 4 photos, idem pour Plomberie et Électricité. Cela fait 23 fichiers à
-fournir, pas 68.
+fournir, pas 68. La galerie de l'accueil réutilise les fichiers des pages métier —
+elle n'a donc pas ses propres images à fournir.
+
+État actuel :
+
+| Page | Fournies | À fournir |
+| --- | --- | --- |
+| Dégorgement | WC, lavabo, douche | curage haute pression, photo d'équipe |
+| Plomberie | diagnostic sous lavabo, chauffe-eau | réseau d'alimentation, salle de bain, photo d'équipe |
+| Électricité | — | 4 photos de galerie + photo d'équipe |
+| Accueil | les 5 ci-dessus + équipe/véhicule | — |
+| Contact | — | atelier |
 
 ### Comment ajouter une photo
 
@@ -176,7 +190,7 @@ Pages HTML de ~36 Ko.
 ## Réception des formulaires
 
 Par défaut, l'envoi ouvre la messagerie du visiteur avec une demande pré-remplie
-vers `contact@ets-bzh.fr`. Pour recevoir les demandes directement en base ou par
+vers `contact@etablissement-breizh.fr`. Pour recevoir les demandes directement en base ou par
 webhook, renseignez `FORM_ENDPOINT` en haut de `assets/js/main.js` :
 
 ```js
@@ -199,5 +213,8 @@ Un champ piège (`_gotcha`) bloque les robots de formulaire.
       détenez les droits : présenter des images de banque comme vos
       réalisations est trompeur et juridiquement risqué
 - [ ] **Endpoint de formulaire** (voir ci-dessus)
-- [ ] **Domaine** — `SITE["url"]` dans `tools/data.py` alimente les URLs
-      canoniques et le sitemap
+- [ ] **Domaine** — `SITE["url"]` vaut encore `https://www.ets-bzh.fr` alors que
+      l'e-mail est passé à `@etablissement-breizh.fr`. Si le site doit être publié
+      sur `etablissement-breizh.fr`, changez aussi cette valeur dans
+      `tools/data.py` : elle alimente les URLs canoniques, le sitemap et le
+      JSON-LD

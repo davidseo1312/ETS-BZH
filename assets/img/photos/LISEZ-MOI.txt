@@ -1,7 +1,8 @@
 EMPLACEMENTS PHOTO DU SITE ETS-BZH
 ==================================
 
-Déposez vos photos dans CE dossier, en respectant EXACTEMENT les noms de
+Les photos marquées [FOURNIE] sont déjà en place. Pour les autres, déposez vos
+fichiers dans CE dossier, en respectant EXACTEMENT les noms de
 fichiers ci-dessous. Aucune modification de code n'est nécessaire : dès que le
 fichier existe, la photo remplace le cadre d'attente affiché sur le site.
 
@@ -11,44 +12,40 @@ larges), poids < 250 Ko. Le cadrage est automatique (recadrage centré).
 
 PAGE D'ACCUEIL
 --------------
-  realisation-1.jpg .... Dégorgement de canalisation
-  realisation-2.jpg .... Réparation de fuite
-  realisation-3.jpg .... Mise aux normes électrique
-  realisation-4.jpg .... Curage de réseau
-  realisation-5.jpg .... Pose de chauffe-eau
-  realisation-6.jpg .... Vos véhicules en Bretagne
-  equipe.jpg ........... L'équipe et les véhicules (section « À propos »)
+La galerie de l'accueil réutilise les photos des pages métier ci-dessous, plus :
+  equipe.jpg ........... [FOURNIE] Technicien devant le véhicule
 
 
 PAGES DÉGORGEMENT (les 4 départements partagent ces photos)
 -----------------------------------------------------------
-  degorgement-1.jpg ......... Camion hydrocureur en intervention
-  degorgement-2.jpg ......... Inspection vidéo du réseau
-  degorgement-3.jpg ......... Débouchage de colonne d'immeuble
-  degorgement-4.jpg ......... Curage haute pression
-  degorgement-equipe.jpg .... Technicien et matériel (section urgences)
+  degorgement-1.jpg ......... [FOURNIE] Débouchage de WC
+  degorgement-2.jpg ......... [FOURNIE] Débouchage de lavabo au furet
+  degorgement-3.jpg ......... [FOURNIE] Débouchage de receveur de douche
+  degorgement-4.jpg ......... à fournir — Curage haute pression
+  degorgement-equipe.jpg .... à fournir — Technicien et matériel (section urgences)
 
 
 PAGES PLOMBERIE
 ---------------
-  plomberie-1.jpg ......... Recherche de fuite non destructive
-  plomberie-2.jpg ......... Remplacement de chauffe-eau
-  plomberie-3.jpg ......... Réfection de réseau d'alimentation
-  plomberie-4.jpg ......... Installation de salle de bain
-  plomberie-equipe.jpg .... Plombier en intervention
+  plomberie-1.jpg ......... [FOURNIE] Diagnostic sous lavabo / recherche de fuite
+  plomberie-2.jpg ......... [FOURNIE] Intervention sur chauffe-eau
+  plomberie-3.jpg ......... à fournir — Réfection de réseau d'alimentation
+  plomberie-4.jpg ......... à fournir — Installation de salle de bain
+  plomberie-equipe.jpg .... à fournir — Plombier en intervention
 
 
 PAGES ÉLECTRICITÉ
 -----------------
-  electricite-1.jpg ......... Remplacement de tableau électrique
-  electricite-2.jpg ......... Mise aux normes NF C 15-100
-  electricite-3.jpg ......... Recherche de panne
-  electricite-4.jpg ......... Pose de borne de recharge
+  electricite-1.jpg ......... à fournir — Remplacement de tableau électrique
+  electricite-2.jpg ......... à fournir — Mise aux normes NF C 15-100
+  electricite-3.jpg ......... à fournir — Recherche de panne
+  electricite-4.jpg ......... à fournir — Pose de borne de recharge
+  electricite-equipe.jpg .... à fournir — Électricien en intervention
 
 
 PAGE CONTACT
 ------------
-  atelier.jpg .......... Atelier et matériel professionnel
+  atelier.jpg .......... à fournir — Atelier et matériel professionnel
 
 
 CHANGER UNE LÉGENDE OU UN TEXTE ALTERNATIF

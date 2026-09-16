@@ -449,7 +449,7 @@ def photo(fichier, alt, legende="", large=False):
 def galerie(photos, eyebrow, titre, intro, colonnes=3):
     items = "".join(photo(f, a, l) for f, a, l in photos)
     return f"""
-<section class="section">
+<section class="section section--pale">
   <div class="container">
     <div class="section-head center">
       <span class="eyebrow">{eyebrow}</span>
@@ -696,7 +696,7 @@ def page_landing(act, dept):
 {bloc_reassurance(dept)}
 
 <!-- =========================== TARIFS ========================== -->
-<section class="section section--fond">
+<section class="section section--pale">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Transparence des tarifs</span>
@@ -744,7 +744,7 @@ def page_landing(act, dept):
          "interventions — pas de banque d'images.", 4)}
 
 <!-- =========================== VILLES =========================== -->
-<section class="section section--pale">
+<section class="section section--fond">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Proximité</span>

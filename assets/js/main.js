@@ -10,7 +10,7 @@
    * un envoi direct en POST JSON.
    * ---------------------------------------------------------------- */
   var FORM_ENDPOINT = "";
-  var EMAIL = "contact@ets-bzh.fr";
+  var EMAIL = "contact@etablissement-breizh.fr";
 
   /* ---------- Menu mobile ---------- */
   var burger = document.querySelector(".burger");
