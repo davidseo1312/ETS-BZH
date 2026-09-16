@@ -233,15 +233,31 @@ h3 { font-size: 1.2rem; }
   position: relative;
   overflow: hidden;
 }
+/* arrière-plan : réseau de plomberie */
+.hero::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image: url("../img/motif-plomberie.svg");
+  background-size: 420px 420px;
+  background-repeat: repeat;
+  background-position: center;
+  opacity: .11;
+  pointer-events: none;
+}
+/* voile dégradé : garantit la lisibilité du titre et des textes */
 .hero::after {
   content: "";
   position: absolute; inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.055) 1px, transparent 1px);
-  background-size: 56px 56px;
+  background: linear-gradient(100deg,
+              rgba(0,34,54,.60) 0%, rgba(0,34,54,.34) 44%, rgba(0,34,54,0) 74%);
   pointer-events: none;
 }
+
+/* bandeau d'en-tête compact (pages légales, 404) */
+.hero--compact { padding: 46px 0 52px; }
+.hero--compact .hero__sub { margin-bottom: 0; }
+.hero .eyebrow { color: #bcdcec; border-left-color: #fff; }
+.hero--compact .hero__actions { margin-top: 26px; }
 .hero > .container { position: relative; z-index: 1; }
 .hero__grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 54px; align-items: start; }
 .hero h1 { color: #fff; margin-bottom: 18px; }
@@ -592,6 +608,9 @@ h3 { font-size: 1.2rem; }
   .topbar__list:first-child li:not(:first-child),
   .topbar__list:last-child li:first-child { display: none; }
   .hero { padding: 44px 0 52px; }
+  .hero::before { background-size: 300px 300px; }
+  .hero::after { background: linear-gradient(180deg, rgba(0,34,54,.52) 0%, rgba(0,34,54,.34) 100%); }
+  .hero--compact { padding: 34px 0 38px; }
   .form-card { box-shadow: 6px 6px 0 rgba(0,0,0,.18); }
   .footer { padding-bottom: 58px; }
   .btn--xl { padding: 18px 26px; font-size: 1.05rem; width: 100%; }

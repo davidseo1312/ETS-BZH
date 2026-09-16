@@ -46,12 +46,29 @@ template unique.
 | `assets/img/logo-mark.svg` | Emblème seul (disque) — en-tête, pied de page |
 | `assets/img/logo.svg` | Logo complet : emblème + bandeau ETS-BZH + baseline — partage social |
 | `assets/img/favicon.svg` | Favicon (copie de l'emblème) |
+| `assets/img/motif-plomberie.svg` | Motif de réseau de plomberie en arrière-plan des bandeaux d'en-tête |
 
 > Ces fichiers sont une **reconstruction vectorielle** du logo fourni : le fichier
 > source n'était pas disponible sur le dépôt. Pour utiliser l'original, déposez-le
 > dans `assets/img/` et remplacez les références dans `tools/build.py`
 > (fonctions `header()` et `footer()`), puis relancez `python3 tools/build.py`.
 > Un SVG est préférable (net à toutes les tailles) ; un PNG détouré convient aussi.
+
+### Arrière-plan des en-têtes
+
+Le bandeau haut de chaque page (`.hero`) affiche un réseau de plomberie vectoriel
+(tuyaux, brides, vanne à volant, manomètre, siphon). Le motif est **raccordable à
+l'infini** : les tuyaux traversent les bords du carreau aux mêmes coordonnées, il se
+répète donc sans coupure quelle que soit la largeur d'écran.
+
+Deux couches le rendent lisible, dans `assets/css/style.css` :
+
+- `.hero::before` — le motif, `opacity: .11`
+- `.hero::after` — un voile dégradé foncé côté texte
+
+Contraste vérifié sur les 17 pages : **5,8:1 au pire cas** (seuil WCAG AA : 4,5:1).
+Pour renforcer ou atténuer le motif, ajustez la seule valeur `opacity` de
+`.hero::before`.
 
 ## Charte graphique
 
@@ -86,7 +103,8 @@ python3 -m http.server 8000   # puis http://localhost:8000
 ## Performance
 
 Aucune requête tierce (pas de Google Fonts, pas de framework, pas de tracker) :
-une feuille CSS (~28 Ko), un script JS (~8 Ko), un logo SVG, polices système.
+une feuille CSS (~27 Ko), un script JS (~8 Ko), des SVG (logo 2 Ko, motif 1,7 Ko),
+polices système.
 Pages HTML de ~36 Ko.
 
 ## Réception des formulaires

@@ -1063,10 +1063,18 @@ def page_mentions():
         + topbar() + header() + ariane(fil) + f"""
 
 <main id="contenu">
-<section class="section">
+
+<section class="hero hero--compact">
   <div class="container">
     <span class="eyebrow">Informations légales</span>
     <h1>Mentions légales</h1>
+    <p class="hero__sub">Éditeur, hébergeur, assurances, propriété intellectuelle et
+      traitement de vos données personnelles.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
     <div class="prose">
       <div class="encadre" style="margin-bottom:28px">
         <p style="margin:0"><strong>À compléter avant mise en ligne&nbsp;:</strong> les champs
@@ -1176,10 +1184,18 @@ def page_cgu():
         + topbar() + header() + ariane(fil) + f"""
 
 <main id="contenu">
-<section class="section">
+
+<section class="hero hero--compact">
   <div class="container">
     <span class="eyebrow">Conditions d'utilisation</span>
     <h1>Conditions Générales d'Utilisation</h1>
+    <p class="hero__sub">Objet, accès au site, demandes de devis, tarifs, responsabilité
+      et droit applicable.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
     <div class="prose">
       <p><strong>Dernière mise à jour&nbsp;: {TODAY}</strong></p>
 
@@ -1274,19 +1290,25 @@ def page_404():
         + topbar() + header() + f"""
 
 <main id="contenu">
-<section class="section center">
+
+<section class="hero hero--compact">
   <div class="container">
     <span class="eyebrow">Erreur 404</span>
     <h1>Cette page n'existe pas (ou plus)</h1>
-    <p class="lead" style="max-width:640px;margin:0 auto 30px">
-      Le lien est peut-être erroné. Choisissez votre intervention et votre département
-      ci-dessous, ou appelez-nous directement&nbsp;: c'est encore plus rapide.</p>
-    <p style="margin-bottom:38px">
-      <a class="btn btn--primary btn--xl" href="tel:{TEL_LIEN}">{SVG['tel']} Appeler le {TEL}</a>
-      <a class="btn btn--ghost btn--xl" href="index.html">Retour à l'accueil</a>
-    </p>
-    <h2 style="margin-top:44px">Nos interventions en Bretagne</h2>
-    <div class="liens-grid" style="text-align:left">{liens}</div>
+    <p class="hero__sub">Le lien est peut-être erroné. Choisissez votre intervention et
+      votre département ci-dessous, ou appelez-nous directement&nbsp;: c'est encore
+      plus rapide.</p>
+    <div class="hero__actions">
+      <a class="btn btn--blanc btn--xl" href="tel:{TEL_LIEN}">{SVG['tel']} Appeler le {TEL}</a>
+      <a class="btn btn--outline-blanc btn--xl" href="index.html">Retour à l'accueil</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Nos interventions en Bretagne</h2>
+    <div class="liens-grid">{liens}</div>
   </div>
 </section>
 </main>
