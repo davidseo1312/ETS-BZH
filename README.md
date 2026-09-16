@@ -9,18 +9,28 @@ template unique.
 
 ## Arborescence
 
-| Fichier | Rôle |
-| --- | --- |
-| `index.html` | Accueil / hub — sélecteur d'activité et de département |
-| `degorgement-canalisation-{22,29,35,56}.html` | 4 landing pages Dégorgement |
-| `plomberie-depannage-{22,29,35,56}.html` | 4 landing pages Plomberie |
-| `electricite-urgence-{22,29,35,56}.html` | 4 landing pages Électricité |
-| `contact.html` | Formulaire de devis express (département + type de panne) |
-| `mentions-legales.html` · `cgu.html` | Pages légales |
-| `404.html` · `sitemap.xml` · `robots.txt` | Annexes SEO |
+Les URL sont **sans extension** : chaque page est écrite dans son propre dossier,
+sous le nom `index.html`. Un serveur sert alors `/contact/` sans aucune règle de
+réécriture — cela fonctionne sur GitHub Pages, Netlify, OVH, Apache ou nginx,
+sans configuration.
 
-*(les noms de fichiers réels portent le slug du département, ex.
-`plomberie-depannage-cotes-d-armor-22.html`)*
+| URL publique | Fichier | Rôle |
+| --- | --- | --- |
+| `/` | `index.html` | Accueil / hub |
+| `/degorgement-canalisation-{dept}/` | `…/index.html` | 4 landing pages Dégorgement |
+| `/plomberie-depannage-{dept}/` | `…/index.html` | 4 landing pages Plomberie |
+| `/electricite-urgence-{dept}/` | `…/index.html` | 4 landing pages Électricité |
+| `/contact/` | `contact/index.html` | Formulaire de devis express |
+| `/mentions-legales/` · `/cgu/` | `…/index.html` | Pages légales |
+| `/404.html` | racine | Page d'erreur (servie automatiquement) |
+| `/sitemap.xml` · `/robots.txt` | racine | Annexes SEO |
+
+*(`{dept}` vaut `cotes-d-armor-22`, `finistere-29`, `ille-et-vilaine-35` ou
+`morbihan-56`)*
+
+Les chemins des ressources sont **absolus** (`/assets/…`) puisque les pages
+vivent dans des sous-dossiers. Le site doit donc être servi à la racine d'un
+domaine, pas dans un sous-répertoire.
 
 ## Structure d'une landing page
 
@@ -269,7 +279,9 @@ python3 tools/build.py
   avis, départements et communes)
 - `tools/build.py` — templates, rendu HTML, JSON-LD, sitemap
 
-Aucune dépendance : Python 3 seul suffit. Prévisualisation locale :
+Aucune dépendance : Python 3 seul suffit. Prévisualisation locale **via un
+serveur** (obligatoire : les URL sans extension et les fontes ne fonctionnent
+pas en `file://`) :
 
 ```bash
 python3 -m http.server 8000   # puis http://localhost:8000

@@ -49,8 +49,8 @@ def taille_png(chemin):
     return int.from_bytes(entete[16:20], "big"), int.from_bytes(entete[20:24], "big")
 
 
-CSS = "assets/css/style.css?v=" + empreinte("assets/css/style.css")
-JS = "assets/js/main.js?v=" + empreinte("assets/js/main.js")
+CSS = "/assets/css/style.css?v=" + empreinte("assets/css/style.css")
+JS = "/assets/js/main.js?v=" + empreinte("assets/js/main.js")
 
 # « des Côtes-d'Armor », « du Finistère », …
 DE = {"22": "des Côtes-d'Armor", "29": "du Finistère",
@@ -61,8 +61,20 @@ DEPT = {d["num"]: d for d in DEPARTEMENTS}
 
 
 # ---------------------------------------------------------------- utilitaires
+def slug_landing(act, dept):
+    """Identifiant d'une landing page, sans extension."""
+    return "%s-%s-%s" % (act["slug"], dept["slug"], dept["num"])
+
+
 def url_landing(act, dept):
-    return "%s-%s-%s.html" % (act["slug"], dept["slug"], dept["num"])
+    """URL publique d'une landing page, sans .html."""
+    return "/%s/" % slug_landing(act, dept)
+
+
+def fichier_landing(act, dept):
+    """Fichier à écrire : <slug>/index.html, servi tel quel par n'importe
+    quel hébergeur en /<slug>/ — aucune règle de réécriture nécessaire."""
+    return "%s/index.html" % slug_landing(act, dept)
 
 
 def fmt(txt, act=None, dept=None):
@@ -109,11 +121,14 @@ ICONES = {
 
 # ------------------------------------------------------------------ fragments
 def head(titre, description, canonical, extra_json=None, mots_cles=""):
+    """canonical=None : aucune balise canonique (page 404, en noindex)."""
     jsonld = ""
     for bloc in (extra_json or []):
         jsonld += ('\n  <script type="application/ld+json">%s</script>'
                    % json.dumps(bloc, ensure_ascii=False, separators=(",", ":")))
     kw = ('\n  <meta name="keywords" content="%s">' % mots_cles) if mots_cles else ""
+    lien_canonique = ('  <link rel="canonical" href="%s%s">\n' % (BASE, canonical)) if canonical else ""
+    og_url = ('\n  <meta property="og:url" content="%s%s">' % (BASE, canonical)) if canonical else ""
     return f"""<!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -121,25 +136,25 @@ def head(titre, description, canonical, extra_json=None, mots_cles=""):
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{titre}</title>
   <meta name="description" content="{description}">{kw}
-  <link rel="canonical" href="{BASE}/{canonical}">
+{lien_canonique}
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="author" content="{SITE['nom']}">
-  <meta name="theme-color" content="#005580">
+  <meta name="theme-color" content="#0a5f8c">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="{SITE['nom']}">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:title" content="{titre}">
   <meta property="og:description" content="{description}">
-  <meta property="og:url" content="{BASE}/{canonical}">
+{og_url}
   <meta property="og:image" content="{BASE}/assets/img/logo.jpg">
   <meta property="og:image:width" content="680">
   <meta property="og:image:height" content="460">
   <meta property="og:image:alt" content="Logo ETS-BZH">
   <meta name="twitter:card" content="summary">
-  <link rel="icon" href="assets/img/favicon.png" type="image/png">
-  <link rel="apple-touch-icon" href="assets/img/logo-emblem.png">
-  <link rel="preload" href="assets/fonts/barlow-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" href="/assets/img/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/img/logo-emblem.png">
+  <link rel="preload" href="/assets/fonts/barlow-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="{CSS}">
   <link rel="preconnect" href="{BASE}">{jsonld}
 </head>
@@ -183,8 +198,8 @@ def header(courant=""):
     return f"""
 <header class="header">
   <div class="container header__inner">
-    <a class="logo" href="index.html">
-      <img class="logo__mark" src="assets/img/logo-emblem.png" width="52" height="52"
+    <a class="logo" href="/">
+      <img class="logo__mark" src="/assets/img/logo-emblem.png" width="52" height="52"
            alt="Logo ETS-BZH, plomberie, dégorgement, électricité et canalisations en Bretagne">
       <span class="logo__txt">
         <span class="logo__name">ETS-BZH</span>
@@ -194,9 +209,9 @@ def header(courant=""):
 
     <nav class="nav" id="nav-principal" aria-label="Navigation principale">
       <ul style="display:contents">
-        <li><a href="index.html"{cur('accueil')}>Accueil</a></li>
+        <li><a href="/"{cur('accueil')}>Accueil</a></li>
         {nav_zones()}
-        <li><a href="contact.html"{cur('contact')}>Contact</a></li>
+        <li><a href="/contact/"{cur('contact')}>Contact</a></li>
       </ul>
     </nav>
 
@@ -304,7 +319,7 @@ def formulaire(idp, titre, soustitre, bouton, dept=None, act=None, court=False,
         <input type="checkbox" name="consentement" required>
         <span>J'accepte d'être recontacté par ETS-BZH au sujet de ma demande.
           Mes données ne sont utilisées que pour ce rappel
-          (<a href="mentions-legales.html">mentions légales</a>).</span>
+          (<a href="/mentions-legales/">mentions légales</a>).</span>
       </label>
       <button class="btn btn--primary btn--bloc" type="submit">{bouton}</button>
       <p class="form-note">Réponse sous 30 minutes ouvrées · Urgence&nbsp;? Appelez le
@@ -379,7 +394,7 @@ def cta_final(titre, texte, idp, dept=None, act=None):
 def bandeau_avis(legende):
     """Bandeau de note moyenne, estampillé Google Reviews."""
     contenu = f"""
-    <img class="avis-note__logo" src="assets/img/logo-google-reviews.png"
+    <img class="avis-note__logo" src="/assets/img/logo-google-reviews.png"
          alt="Google Reviews" width="300" height="121" loading="lazy">
     <span class="avis-note__sep" aria-hidden="true"></span>
     <span class="avis-note__bloc">
@@ -397,7 +412,7 @@ def bandeau_confiance():
     """Bandeau de logos affiché sur toutes les pages, juste avant le pied de page.
     Fond clair obligatoire : les logos comportent du texte noir."""
     logos = "".join(
-        '<img class="confiance__logo" src="assets/img/%s" alt="%s" '
+        '<img class="confiance__logo" src="/assets/img/%s" alt="%s" '
         'style="--h:%dpx;--dy:%s" width="%d" height="%d" loading="lazy">'
         % ((f, alt, h, dy) + taille_png("assets/img/" + f))
         for f, alt, h, dy in LOGOS)
@@ -459,10 +474,10 @@ def footer():
     <div class="footer__bas">
       <span>© <span data-annee>2026</span> ETS-BZH — Tous droits réservés.</span>
       <nav class="footer__legal" aria-label="Liens légaux">
-        <a href="index.html">Accueil</a>
-        <a href="contact.html">Contact</a>
-        <a href="mentions-legales.html">Mentions légales</a>
-        <a href="cgu.html">CGU</a>
+        <a href="/">Accueil</a>
+        <a href="/contact/">Contact</a>
+        <a href="/mentions-legales/">Mentions légales</a>
+        <a href="/cgu/">CGU</a>
       </nav>
     </div>
   </div>
@@ -495,7 +510,7 @@ def photo(fichier, alt, legende="", large=False):
     return f"""
 <figure class="photo">
   <div class="photo__cadre" style="aspect-ratio:{ratio}">
-    <img class="photo__img" src="assets/img/photos/{fichier}" alt="{alt}"
+    <img class="photo__img" src="/assets/img/photos/{fichier}" alt="{alt}"
          loading="lazy" decoding="async">
     <div class="photo__attente">
       {SVG_APPAREIL}
@@ -544,7 +559,7 @@ def ld_business(act=None, dept=None):
                        "Plomberie, dégorgement de canalisations et électricité en Bretagne.",
         "telephone": TEL_LIEN,
         "email": EMAIL,
-        "url": BASE + "/" + (url_landing(act, dept) if (act and dept) else "index.html"),
+        "url": BASE + (url_landing(act, dept) if (act and dept) else "/"),
         "image": BASE + "/assets/img/logo.jpg",
         "priceRange": "€€",
         "address": {"@type": "PostalAddress", "addressRegion": "Bretagne",
@@ -581,7 +596,7 @@ def ld_ariane(items):
         "@type": "BreadcrumbList",
         "itemListElement": [
             {"@type": "ListItem", "position": i + 1, "name": clean(label),
-             "item": BASE + "/" + (href or "")}
+             "item": BASE + (href or "/")}
             for i, (label, href) in enumerate(items)],
     }
 
@@ -603,7 +618,9 @@ def echapper_amp(html):
 def ecrire(nom, contenu):
     if nom.endswith(".html"):
         contenu = echapper_amp(contenu)
-    with open(os.path.join(ROOT, nom), "w", encoding="utf-8") as f:
+    chemin = os.path.join(ROOT, nom)
+    os.makedirs(os.path.dirname(chemin), exist_ok=True)
+    with open(chemin, "w", encoding="utf-8") as f:
         f.write(contenu.strip() + "\n")
     print("  ✓ %-46s %6d o" % (nom, len(contenu)))
 
@@ -625,7 +642,7 @@ def page_landing(act, dept):
                  % (act["nom_court"], d_nom, act["pro"], d_nom, act["nom_court"], d_num,
                     dept["prefecture"])) + ", " + clean(act["mots_cles"])
 
-    fil = [("Accueil", "index.html"),
+    fil = [("Accueil", "/"),
            ("%s %s" % (act["nom_court"], d_nom), url)]
 
     # --- Prestations -------------------------------------------------------
@@ -877,7 +894,7 @@ def page_index():
     desc = ("Dépannage d'urgence 24/7 en plomberie, dégorgement de canalisations et "
             "électricité sur les Côtes-d'Armor, le Finistère, l'Ille-et-Vilaine et le "
             "Morbihan. Devis gratuit — %s." % TEL)
-    fil = [("Accueil", "index.html")]
+    fil = [("Accueil", "/")]
 
     # Cartes services
     svc = ""
@@ -935,7 +952,7 @@ def page_index():
         table += '<tr><th scope="row">%s (%s)</th>%s</tr>' % (d["nom"], d["num"], cellules)
 
     return (
-        head(titre, desc, "index.html", [ld_business(), ld_ariane(fil)],
+        head(titre, desc, "/", [ld_business(), ld_ariane(fil)],
              "plombier Bretagne, dégorgement Bretagne, électricien Bretagne, dépannage "
              "urgence 22 29 35 56, ETS-BZH")
         + topbar() + header("accueil") + f"""
@@ -1080,14 +1097,14 @@ def page_contact():
     titre = "Contact & Devis Gratuit — ETS-BZH | Plomberie, Dégorgement, Électricité"
     desc = ("Contactez ETS-BZH pour un devis gratuit ou une intervention d'urgence en "
             "Bretagne (22, 29, 35, 56). Téléphone %s — %s." % (TEL, EMAIL))
-    fil = [("Accueil", "index.html"), ("Contact", "contact.html")]
+    fil = [("Accueil", "/"), ("Contact", "/contact/")]
 
     zones = "".join(
         '<li><span class="tick">▪</span><span><strong>%s (%s)</strong> — %s…</span></li>'
         % (d["nom"], d["num"], ", ".join(d["villes"][:6])) for d in DEPARTEMENTS)
 
     return (
-        head(titre, desc, "contact.html", [ld_business(), ld_ariane(fil)],
+        head(titre, desc, "/contact/", [ld_business(), ld_ariane(fil)],
              "contact ETS-BZH, devis gratuit plomberie Bretagne, urgence dépannage 22 29 35 56")
         + topbar() + header("contact") + ariane(fil) + f"""
 
@@ -1182,9 +1199,9 @@ def page_mentions():
     titre = "Mentions légales — ETS-BZH"
     desc = ("Mentions légales du site ETS-BZH : éditeur, hébergeur, propriété "
             "intellectuelle et traitement des données personnelles (RGPD).")
-    fil = [("Accueil", "index.html"), ("Mentions légales", "mentions-legales.html")]
+    fil = [("Accueil", "/"), ("Mentions légales", "/mentions-legales/")]
     return (
-        head(titre, desc, "mentions-legales.html", [ld_ariane(fil)])
+        head(titre, desc, "/mentions-legales/", [ld_ariane(fil)])
         + topbar() + header() + ariane(fil) + f"""
 
 <main id="contenu">
@@ -1303,9 +1320,9 @@ def page_cgu():
     titre = "Conditions Générales d'Utilisation — ETS-BZH"
     desc = ("Conditions générales d'utilisation du site ETS-BZH : objet, accès, devis, "
             "responsabilité et droit applicable.")
-    fil = [("Accueil", "index.html"), ("CGU", "cgu.html")]
+    fil = [("Accueil", "/"), ("CGU", "/cgu/")]
     return (
-        head(titre, desc, "cgu.html", [ld_ariane(fil)])
+        head(titre, desc, "/cgu/", [ld_ariane(fil)])
         + topbar() + header() + ariane(fil) + f"""
 
 <main id="contenu">
@@ -1369,7 +1386,7 @@ def page_cgu():
       <h2>Article 7 — Propriété intellectuelle</h2>
       <p>Tous les contenus du site sont protégés par le droit de la propriété intellectuelle.
         Toute reproduction ou exploitation non autorisée est interdite. Voir les
-        <a href="mentions-legales.html">mentions légales</a>.</p>
+        <a href="/mentions-legales/">mentions légales</a>.</p>
 
       <h2>Article 8 — Responsabilité</h2>
       <p>ETS-BZH met tout en œuvre pour fournir des informations exactes et actualisées, sans
@@ -1380,7 +1397,7 @@ def page_cgu():
 
       <h2>Article 9 — Données personnelles</h2>
       <p>Le traitement des données collectées via les formulaires est détaillé dans les
-        <a href="mentions-legales.html">mentions légales</a>, section «&nbsp;Données personnelles
+        <a href="/mentions-legales/">mentions légales</a>, section «&nbsp;Données personnelles
         (RGPD)&nbsp;».</p>
 
       <h2>Article 10 — Modification des CGU</h2>
@@ -1409,7 +1426,7 @@ def page_404():
     return (
         head("Page introuvable (404) — ETS-BZH",
              "La page demandée n'existe pas. Retrouvez nos interventions en plomberie, "
-             "dégorgement et électricité en Bretagne.", "404.html")
+             "dégorgement et électricité en Bretagne.", None)
         .replace('<meta name="robots" content="index, follow, max-snippet:-1, '
                  'max-image-preview:large">', '<meta name="robots" content="noindex, follow">')
         + topbar() + header() + f"""
@@ -1425,7 +1442,7 @@ def page_404():
       plus rapide.</p>
     <div class="hero__actions">
       <a class="btn btn--blanc btn--xl" href="tel:{TEL_LIEN}">{SVG['tel']} Appeler le {TEL}</a>
-      <a class="btn btn--outline-blanc btn--xl" href="index.html">Retour à l'accueil</a>
+      <a class="btn btn--outline-blanc btn--xl" href="/">Retour à l'accueil</a>
     </div>
   </div>
 </section>
@@ -1444,7 +1461,7 @@ def page_404():
 def sitemap(pages):
     urls = ""
     for nom, prio, freq in pages:
-        urls += ("\n  <url><loc>%s/%s</loc><lastmod>%s</lastmod>"
+        urls += ("\n  <url><loc>%s%s</loc><lastmod>%s</lastmod>"
                  "<changefreq>%s</changefreq><priority>%s</priority></url>"
                  % (BASE, nom, TODAY, freq, prio))
     return ('<?xml version="1.0" encoding="UTF-8"?>\n'
@@ -1454,22 +1471,21 @@ def sitemap(pages):
 # ================================================================= BUILD
 def main():
     print("\nETS-BZH — génération du site\n" + "-" * 62)
-    pages = [("index.html", "1.0", "weekly")]
+    pages = [("/", "1.0", "weekly")]
 
     ecrire("index.html", page_index())
     for act in ACTIVITES:
         for dept in DEPARTEMENTS:
-            nom = url_landing(act, dept)
-            ecrire(nom, page_landing(act, dept))
-            pages.append((nom, "0.9", "monthly"))
+            ecrire(fichier_landing(act, dept), page_landing(act, dept))
+            pages.append((url_landing(act, dept), "0.9", "monthly"))
 
-    ecrire("contact.html", page_contact())
-    ecrire("mentions-legales.html", page_mentions())
-    ecrire("cgu.html", page_cgu())
-    ecrire("404.html", page_404())
-    pages += [("contact.html", "0.8", "monthly"),
-              ("mentions-legales.html", "0.3", "yearly"),
-              ("cgu.html", "0.3", "yearly")]
+    ecrire("contact/index.html", page_contact())
+    ecrire("mentions-legales/index.html", page_mentions())
+    ecrire("cgu/index.html", page_cgu())
+    ecrire("404.html", page_404())          # servi tel quel par les hébergeurs
+    pages += [("/contact/", "0.8", "monthly"),
+              ("/mentions-legales/", "0.3", "yearly"),
+              ("/cgu/", "0.3", "yearly")]
 
     ecrire("sitemap.xml", sitemap(pages))
     ecrire("robots.txt",
