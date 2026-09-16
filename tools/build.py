@@ -705,9 +705,27 @@ def echapper_amp(html):
         for part in _SCRIPT.split(html))
 
 
+# Un gabarit non évalué ressemble à {picto("check", 13)} : il survient quand une
+# accolade se glisse dans une chaîne assemblée par %, où elle n'est pas
+# interprétée. Le texte apparaît alors tel quel sur la page.
+_GABARIT = _re.compile(r"\{[A-Za-z_][^{}\n]{0,80}\}")
+_JSONLD = _re.compile(r'<script type="application/ld\+json">.*?</script>', _re.S)
+
+
+def verifier_gabarits(nom, html):
+    reste = _GABARIT.findall(_JSONLD.sub("", html))
+    if reste:
+        raise SystemExit(
+            "%s : gabarit non évalué -> %s\n"
+            "Une accolade figure dans une chaîne formatée avec %%, où elle n'est "
+            "pas interprétée. Appelez la fonction en Python plutôt que de "
+            "l'écrire entre accolades." % (nom, ", ".join(sorted(set(reste))[:5])))
+
+
 def ecrire(nom, contenu):
     if nom.endswith(".html"):
         contenu = echapper_amp(contenu)
+        verifier_gabarits(nom, contenu)
     chemin = os.path.join(ROOT, nom)
     os.makedirs(os.path.dirname(chemin), exist_ok=True)
     with open(chemin, "w", encoding="utf-8") as f:
@@ -742,7 +760,8 @@ def page_landing(act, dept):
         for i, (t, d) in enumerate(act["prestations"]))
 
     # --- Urgences ----------------------------------------------------------
-    urgences = "".join('<li><span class="tick tick--alerte">{picto("alerte", 13)}</span><span>%s</span></li>' % u
+    urgences = "".join('<li><span class="tick tick--alerte">%s</span><span>%s</span></li>'
+                       % (picto("alerte", 13), u)
                        for u in act["urgences"])
 
     # --- Tarifs ------------------------------------------------------------
@@ -783,7 +802,8 @@ def page_landing(act, dept):
         '<a href="%s">%s %s (%s)</a>' % (url_landing(act, d), act["nom_court"], d["nom"], d["num"])
         for d in DEPARTEMENTS if d["num"] != d_num)
 
-    hero_points = "".join('<li><span class="tick">{picto("check", 13)}</span><span>%s</span></li>' % p
+    hero_points = "".join('<li><span class="tick">%s</span><span>%s</span></li>'
+                          % (picto("check", 13), p)
                           for p in act["hero_points"])
 
     return (
