@@ -352,8 +352,9 @@ def bandeau_confiance():
     """Bandeau de logos affiché sur toutes les pages, juste avant le pied de page.
     Fond clair obligatoire : les logos comportent du texte noir."""
     logos = "".join(
-        '<img src="assets/img/%s" alt="%s" loading="lazy">' % (f, alt)
-        for f, alt in LOGOS)
+        '<span class="confiance__cell">'
+        '<img src="assets/img/%s" alt="%s" style="--h:%dpx" loading="lazy"></span>'
+        % (f, alt, h) for f, alt, h in LOGOS)
     return f"""
 <section class="confiance" aria-label="Qualifications et assurance">
   <div class="container confiance__logos">{logos}</div>

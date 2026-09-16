@@ -557,10 +557,14 @@ PHOTO_EQUIPE = ("equipe.jpg", "L'équipe ETS-BZH et ses véhicules d'interventio
 PHOTO_CONTACT = ("atelier.jpg", "Atelier et matériel professionnel ETS-BZH")
 
 
+# (fichier, texte alternatif, hauteur d'affichage en px)
+# Les trois logos ont des proportions très différentes (1,25 à 2,80) : à hauteur
+# identique, MIC paraîtrait deux fois plus large que CMA. Les hauteurs ci-dessous
+# les équilibrent optiquement, à surface visuelle comparable.
 LOGOS = [
-    ("label-artisan.png", "Artisan de France"),
-    ("label-cma.png", "Chambres de Métiers et de l'Artisanat"),
-    ("logo-assureur.png", "MIC Insurance"),
+    ("label-artisan.png", "Artisan de France", 58),
+    ("label-cma.png", "Chambres de Métiers et de l'Artisanat", 64),
+    ("logo-assureur.png", "MIC Insurance", 43),
 ]
 
 STATS = [

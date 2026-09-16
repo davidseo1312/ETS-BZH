@@ -164,8 +164,23 @@ que trois logos, sans texte : `label-artisan.png`, `label-cma.png` et
 le bandeau est donc sur fond blanc — elles seraient illisibles sur le pied de page
 marine.
 
-Pour en ajouter, en retirer ou en réordonner, modifiez la liste `LOGOS` dans
-`tools/data.py`, puis relancez `python3 tools/build.py`.
+Les trois logos ont des proportions très différentes (de 1,25 à 2,80) : à hauteur
+identique, MIC paraîtrait deux fois plus large que CMA. Chaque logo porte donc sa
+propre hauteur d'affichage, définie dans la liste `LOGOS` de `tools/data.py`, pour
+une surface visuelle comparable (58 / 64 / 43 px) :
+
+```python
+LOGOS = [
+    ("label-artisan.png", "Artisan de France", 58),
+    ("label-cma.png", "Chambres de Métiers et de l'Artisanat", 64),
+    ("logo-assureur.png", "MIC Insurance", 43),
+]
+```
+
+Le CSS réduit ensuite ces hauteurs proportionnellement (×0,88 sous 900 px, ×0,74
+sous 720 px), si bien que la rangée tient **sur une seule ligne de 320 à 1920 px**
+et reste centrée au pixel près. Pour en ajouter, en retirer ou en réordonner,
+modifiez la liste, puis relancez `python3 tools/build.py`.
 
 > **À vérifier avant mise en ligne.** Le titre d'artisan est protégé en France
 > (loi n° 96-603, art. 16) : il suppose une qualification professionnelle et une
