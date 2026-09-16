@@ -102,10 +102,15 @@ Pour renforcer ou atténuer le motif, ajustez la seule valeur `opacity` de
 
 ## Emplacements photo
 
-**9 photos sont déjà en place** (5 dégorgement, 3 plomberie, 1 équipe/véhicule).
+**12 photos sont déjà en place** (6 dégorgement, 4 plomberie, 1 électricité, 1 équipe/véhicule).
 Les emplacements restants attendent vos fichiers.
 
-Le site prévoit **23 emplacements photo** répartis sur toutes les pages :
+La galerie s'adapte au nombre de photos fournies : **3 colonnes** si ce nombre est
+un multiple de 3, **4 colonnes** sinon — jamais de dernière ligne bancale. La photo
+d'équipe de la section urgences est facultative&nbsp;: sans fichier déclaré, la
+colonne n'affiche que l'encadré.
+
+Le site prévoit ces emplacements photo, répartis sur toutes les pages :
 
 | Page | Emplacements |
 | --- | --- |
@@ -122,9 +127,9 @@ elle n'a donc pas ses propres images à fournir.
 
 | Page | Fournies | À fournir |
 | --- | --- | --- |
-| Dégorgement | WC, lavabo, douche, inspection caméra, camion hydrocureur | — |
-| Plomberie | diagnostic sous lavabo, chauffe-eau, canalisation enterrée | salle de bain, photo d'équipe |
-| Électricité | — | 4 photos de galerie + photo d'équipe |
+| Dégorgement | WC, lavabo, douche, inspection caméra, hydrocurage, pompage | — (galerie complète, 6 photos) |
+| Plomberie | diagnostic sous lavabo, chauffe-eau, canalisation enterrée, salle de bain | photo d'équipe |
+| Électricité | tableau électrique | 3 photos de galerie + photo d'équipe |
 | Accueil | 6 photos | — |
 | Assurances | canalisation enterrée (réutilisée) | — |
 | Contact | — | atelier |
@@ -171,7 +176,10 @@ le pied de page marine.
 > est effectivement immatriculée auprès de sa Chambre de Métiers et de l'Artisanat
 > et habilitée à utiliser le label. Les champs *[à compléter]* de la page
 > assurances (compagnie, n° de contrat, validité, activités déclarées) doivent être
-> renseignés à partir de l'attestation d'assurance réelle.
+> renseignés à partir de l'attestation d'assurance réelle. La compagnie est
+> renseignée (MIC Insurance, logo dans `assets/img/logo-assureur.png`) mais le
+> numéro de contrat, la période de validité et les activités déclarées restent à
+> compléter.
 
 ## Charte graphique
 

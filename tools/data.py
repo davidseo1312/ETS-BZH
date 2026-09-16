@@ -214,10 +214,14 @@ ACTIVITES = [
             ("degorgement-4.jpg",
              "Inspection vidéo d'une canalisation par caméra endoscopique ETS-BZH",
              "Inspection vidéo par caméra"),
+            ("degorgement-5.jpg",
+             "Hydrocurage haute pression d'un regard d'assainissement par ETS-BZH",
+             "Hydrocurage haute pression"),
+            ("degorgement-6.jpg",
+             "Camion hydrocureur ETS-BZH et son équipe lors d'un pompage sur regard",
+             "Pompage et vidange sur regard"),
         ],
-        "photo_equipe": ("degorgement-equipe.jpg",
-                         "Camion hydrocureur ETS-BZH et son équipe lors d'un pompage "
-                         "sur regard d'assainissement"),
+        "photo_equipe": None,
         "prose_h3": [
             ("Les bouchons les plus fréquents {art} {dept}",
              ["Lingettes et produits d'hygiène dans les WC — première cause d'urgence",
@@ -348,7 +352,9 @@ ACTIVITES = [
             ("plomberie-3.jpg",
              "Remplacement d'une canalisation enterrée par un plombier ETS-BZH",
              "Remplacement de canalisation enterrée"),
-            ("plomberie-4.jpg", "Installation complète d'une salle de bain",
+            ("plomberie-4.jpg",
+             "Plombier ETS-BZH raccordant les alimentations sous un meuble vasque "
+             "lors d'une installation de salle de bain",
              "Installation de salle de bain"),
         ],
         "photo_equipe": ("plomberie-equipe.jpg",
@@ -475,7 +481,8 @@ ACTIVITES = [
             "faire, et à quel prix.",
         ],
         "photos": [
-            ("electricite-1.jpg", "Remplacement d'un tableau électrique",
+            ("electricite-1.jpg",
+             "Électricien ETS-BZH intervenant sur un tableau électrique",
              "Remplacement de tableau électrique"),
             ("electricite-2.jpg", "Mise aux normes d'une installation NF C 15-100",
              "Mise aux normes NF C 15-100"),
@@ -548,6 +555,12 @@ PHOTOS_ACCUEIL = [
 
 PHOTO_EQUIPE = ("equipe.jpg", "L'équipe ETS-BZH et ses véhicules d'intervention")
 PHOTO_CONTACT = ("atelier.jpg", "Atelier et matériel professionnel ETS-BZH")
+
+ASSUREUR = {
+    "nom": "MIC Insurance",
+    "logo": "logo-assureur.png",
+    "alt": "MIC Insurance, assureur d'ETS-BZH",
+}
 
 LABELS = [
     ("label-artisan.png", "Label Artisan de France",

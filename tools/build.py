@@ -17,7 +17,8 @@ from datetime import date
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from data import (SITE, DEPARTEMENTS, ACTIVITES, REASSURANCE, ETAPES, STATS,  # noqa: E402
-                  PHOTOS_ACCUEIL, PHOTO_EQUIPE, PHOTO_CONTACT, LABELS, GARANTIES)
+                  PHOTOS_ACCUEIL, PHOTO_EQUIPE, PHOTO_CONTACT, LABELS, GARANTIES,
+                  ASSUREUR)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEL = SITE["tel"]
@@ -468,7 +469,11 @@ def photo(fichier, alt, legende="", large=False):
 </figure>"""
 
 
-def galerie(photos, eyebrow, titre, intro, colonnes=3):
+def galerie(photos, eyebrow, titre, intro, colonnes=None):
+    """Galerie photo. Sans `colonnes`, la grille s'adapte : 3 colonnes si le
+    nombre de photos est un multiple de 3, 4 sinon — jamais de ligne bancale."""
+    if colonnes is None:
+        colonnes = 3 if len(photos) % 3 == 0 else 4
     items = "".join(photo(f, a, l) for f, a, l in photos)
     return f"""
 <section class="section section--pale">
@@ -698,8 +703,8 @@ def page_landing(act, dept):
       </p>
     </div>
     <div>
-    {photo(act["photo_equipe"][0], act["photo_equipe"][1], large=True)}
-    <div class="encadre" style="margin-top:22px">
+    {photo(act["photo_equipe"][0], act["photo_equipe"][1], large=True) + '<div style="height:22px"></div>' if act["photo_equipe"] else ""}
+    <div class="encadre">
       <h3>Zone d'intervention {du}</h3>
       <p>Nos équipes sont basées en Bretagne et circulent quotidiennement sur
          {dept['axes']}. Cela nous permet d'annoncer un délai réaliste dès votre appel —
@@ -763,7 +768,7 @@ def page_landing(act, dept):
          "En images",
          "Nos interventions %s %s en images" % (activite, d_nom),
          "Quelques chantiers réalisés par nos équipes. Photos de nos propres "
-         "interventions — pas de banque d'images.", 4)}
+         "interventions — pas de banque d'images.")}
 
 <!-- =========================== VILLES =========================== -->
 <section class="section section--fond">
@@ -1491,8 +1496,13 @@ def page_assurances():
         <strong>garantie décennale</strong> pour l'ensemble de ses activités&nbsp;: plomberie,
         dégorgement et assainissement, électricité et canalisations, sur les quatre
         départements bretons.</p>
+      <div class="assureur">
+        <img src="assets/img/{ASSUREUR['logo']}" alt="{ASSUREUR['alt']}"
+             width="300" height="107" loading="lazy">
+        <p>Assurée auprès de<br><strong>{ASSUREUR['nom']}</strong></p>
+      </div>
       <ul>
-        <li><strong>Compagnie d'assurance&nbsp;:</strong> <em>[à compléter]</em></li>
+        <li><strong>Compagnie d'assurance&nbsp;:</strong> {ASSUREUR['nom']}</li>
         <li><strong>Numéro de contrat&nbsp;:</strong> <em>[à compléter]</em></li>
         <li><strong>Période de validité&nbsp;:</strong> <em>[à compléter]</em></li>
         <li><strong>Activités déclarées&nbsp;:</strong> <em>[à compléter]</em></li>

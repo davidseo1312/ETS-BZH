@@ -613,6 +613,16 @@ h3 { font-size: 1.2rem; }
 .confiance__logos { display: flex; align-items: center; gap: 34px; flex-wrap: wrap; }
 .confiance__logos img { height: 62px; width: auto; }
 
+/* ---------- Assureur (page assurances) ---------- */
+.assureur {
+  display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+  background: #fff; border: 2px solid var(--bordure); border-left: 5px solid var(--bleu);
+  padding: 20px 24px; margin: 0 0 26px;
+}
+.assureur img { width: 190px; height: auto; }
+.assureur p { margin: 0; font-size: .95rem; color: var(--gris); line-height: 1.5; }
+.assureur strong { font-size: 1.16rem; color: var(--nuit); }
+
 /* ---------- Labels (page assurances) ---------- */
 .labels .label {
   background: #fff; border: 2px solid var(--bordure); padding: 30px;
