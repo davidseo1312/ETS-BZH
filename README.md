@@ -101,7 +101,7 @@ Pour renforcer ou atténuer le motif, ajustez la seule valeur `opacity` de
 
 ## Emplacements photo
 
-**12 photos sont déjà en place** (6 dégorgement, 4 plomberie, 1 électricité, 1 équipe/véhicule).
+**16 photos sont en place** (6 dégorgement, 4 plomberie, 5 électricité, 1 équipe/véhicule). Il ne reste que deux emplacements à remplir.
 Les emplacements restants attendent vos fichiers.
 
 La galerie s'adapte au nombre de photos fournies : **3 colonnes** si ce nombre est
@@ -128,7 +128,7 @@ elle n'a donc pas ses propres images à fournir.
 | --- | --- | --- |
 | Dégorgement | WC, lavabo, douche, inspection caméra, hydrocurage, pompage | — (galerie complète, 6 photos) |
 | Plomberie | diagnostic sous lavabo, chauffe-eau, canalisation enterrée, salle de bain | photo d'équipe |
-| Électricité | tableau électrique | 3 photos de galerie + photo d'équipe |
+| Électricité | tableau, mise aux normes, contrôle de prise, borne de recharge, luminaire | — (complet) |
 | Accueil | 6 photos | — |
 | Assurances | canalisation enterrée (réutilisée) | — |
 | Contact | — | atelier |
@@ -171,11 +171,19 @@ une surface visuelle comparable (58 / 64 / 43 px) :
 
 ```python
 LOGOS = [
-    ("label-artisan.png", "Artisan de France", 58),
-    ("label-cma.png", "Chambres de Métiers et de l'Artisanat", 64),
-    ("logo-assureur.png", "MIC Insurance", 43),
+    ("label-artisan.png", "Artisan de France", 58, -0.031),
+    ("label-cma.png", "Chambres de Métiers et de l'Artisanat", 66, 0.045),
+    ("logo-assureur.png", "MIC Insurance", 38, -0.042),
 ]
 ```
+
+Le quatrième nombre corrige la position verticale, en fraction de la hauteur. Les
+logos sont alignés sur leur **centre optique** (barycentre des pixels opaques) et
+non sur leur centre géométrique : CMA, dont l'encre se concentre en haut, est
+descendu&nbsp;; Artisan et MIC sont remontés. Après correction, les trois centres
+optiques tiennent dans 0,4 px. La hauteur de MIC est par ailleurs réduite car
+c'est un aplat plein (53 % de densité d'encre contre 28 % pour les deux labels)&nbsp;:
+à surface égale, il paraîtrait beaucoup plus lourd.
 
 Le CSS réduit ensuite ces hauteurs proportionnellement (×0,88 sous 900 px, ×0,74
 sous 720 px), si bien que la rangée tient **sur une seule ligne de 320 à 1920 px**

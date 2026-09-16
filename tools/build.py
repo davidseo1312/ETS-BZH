@@ -353,8 +353,8 @@ def bandeau_confiance():
     Fond clair obligatoire : les logos comportent du texte noir."""
     logos = "".join(
         '<span class="confiance__cell">'
-        '<img src="assets/img/%s" alt="%s" style="--h:%dpx" loading="lazy"></span>'
-        % (f, alt, h) for f, alt, h in LOGOS)
+        '<img src="assets/img/%s" alt="%s" style="--h:%dpx;--dy:%s" loading="lazy"></span>'
+        % (f, alt, h, dy) for f, alt, h, dy in LOGOS)
     return f"""
 <section class="confiance" aria-label="Qualifications et assurance">
   <div class="container confiance__logos">{logos}</div>

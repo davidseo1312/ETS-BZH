@@ -39,10 +39,11 @@ PAGES PLOMBERIE
 PAGES ÉLECTRICITÉ
 -----------------
   electricite-1.jpg ......... [FOURNIE] Remplacement de tableau électrique
-  electricite-2.jpg ......... à fournir — Mise aux normes NF C 15-100
-  electricite-3.jpg ......... à fournir — Recherche de panne
-  electricite-4.jpg ......... à fournir — Pose de borne de recharge
-  electricite-equipe.jpg .... à fournir — Électricien en intervention
+  electricite-2.jpg ......... [FOURNIE] Mise aux normes NF C 15-100
+  electricite-3.jpg ......... [FOURNIE] Recherche de panne / contrôle de prise
+  electricite-4.jpg ......... [FOURNIE] Pose de borne de recharge
+  electricite-equipe.jpg .... [FOURNIE] Installation de luminaire (section urgences)
+  (les pages Électricité sont complètes)
 
 
 PAGE ASSURANCES

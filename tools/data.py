@@ -484,15 +484,18 @@ ACTIVITES = [
             ("electricite-1.jpg",
              "Électricien ETS-BZH intervenant sur un tableau électrique",
              "Remplacement de tableau électrique"),
-            ("electricite-2.jpg", "Mise aux normes d'une installation NF C 15-100",
+            ("electricite-2.jpg",
+             "Électricien ETS-BZH remettant aux normes un tableau électrique",
              "Mise aux normes NF C 15-100"),
-            ("electricite-3.jpg", "Recherche de panne sur un circuit électrique",
-             "Recherche de panne"),
-            ("electricite-4.jpg", "Pose d'une borne de recharge pour véhicule électrique",
+            ("electricite-3.jpg",
+             "Électricien ETS-BZH contrôlant une prise au multimètre",
+             "Recherche de panne et contrôle de circuit"),
+            ("electricite-4.jpg",
+             "Électricien ETS-BZH posant une borne de recharge pour véhicule électrique",
              "Pose de borne de recharge"),
         ],
         "photo_equipe": ("electricite-equipe.jpg",
-                         "Électricien ETS-BZH en intervention"),
+                         "Électricien ETS-BZH installant un luminaire sur escabeau"),
         "prose_h3": [
             ("Les signaux qui doivent vous alerter",
              ["Une odeur de brûlé ou une prise qui noircit — coupez et appelez immédiatement",
@@ -557,15 +560,18 @@ PHOTO_EQUIPE = ("equipe.jpg", "L'équipe ETS-BZH et ses véhicules d'interventio
 PHOTO_CONTACT = ("atelier.jpg", "Atelier et matériel professionnel ETS-BZH")
 
 
-# (fichier, texte alternatif, hauteur d'affichage en px)
-# Les trois logos ont des proportions très différentes (1,25 à 2,80) : à hauteur
-# identique, MIC paraîtrait deux fois plus large que CMA. Les hauteurs ci-dessous
-# les équilibrent optiquement, à surface visuelle comparable.
+# (fichier, texte alternatif, hauteur en px, correction verticale en fraction de
+# la hauteur). Les trois logos diffèrent par leurs proportions (1,25 à 2,80) et par
+# leur densité d'encre (28 % pour les deux labels, 53 % pour l'aplat MIC, qui pèse
+# donc visuellement davantage à surface égale). Les hauteurs ci-dessous égalisent
+# la présence visuelle ; la correction verticale aligne les centres optiques
+# (mesurés sur le barycentre des pixels opaques) et non les centres géométriques.
 LOGOS = [
-    ("label-artisan.png", "Artisan de France", 58),
-    ("label-cma.png", "Chambres de Métiers et de l'Artisanat", 64),
-    ("logo-assureur.png", "MIC Insurance", 43),
+    ("label-artisan.png", "Artisan de France", 58, -0.031),
+    ("label-cma.png", "Chambres de Métiers et de l'Artisanat", 66, 0.045),
+    ("logo-assureur.png", "MIC Insurance", 38, -0.042),
 ]
+
 
 STATS = [
     ("24/7", "Astreinte urgence"),
