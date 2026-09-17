@@ -680,10 +680,9 @@ LOGOS = [
 ]
 
 
-# (chiffre, libellé, icône)
 STATS = [
-    ("24/7", "Astreinte urgence", "horloge"),
-    ("4", "Départements couverts", "carte"),
-    ("&lt; 1 h", "Délai visé en urgence", "eclair"),
-    ("100 %", "Devis gratuits", "devis"),
+    ("24/7", "Astreinte urgence"),
+    ("4", "Départements couverts"),
+    ("&lt; 1 h", "Délai visé en urgence"),
+    ("100 %", "Devis gratuits"),
 ]

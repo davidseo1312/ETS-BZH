@@ -215,8 +215,8 @@ h3 { font-size: 1.16rem; }
 
 /* ---------- Barre d'urgence ---------- */
 .topbar {
-  background: linear-gradient(90deg, #063f61 0%, var(--bleu) 55%, #0b6b9c 100%);
-  color: #d7ebf6;
+  background: linear-gradient(90deg, #0a5c88 0%, #0e6c9e 55%, #1176ad 100%);
+  color: #ffffff;
   font-size: .86rem;
   padding: 10px 0;
 }
@@ -315,15 +315,15 @@ h3 { font-size: 1.16rem; }
   background-color: var(--bleu);
   background-image:
     linear-gradient(112deg,
-      rgba(5,48,74,.92) 0%, rgba(8,77,114,.86) 40%,
-      rgba(12,106,153,.79) 72%, rgba(24,132,184,.72) 100%),
+      rgba(8,62,93,.90) 0%, rgba(13,99,142,.83) 40%,
+      rgba(29,140,190,.75) 72%, rgba(51,169,220,.68) 100%),
     url("../img/fond-equipe.jpg");
   /* WebP (-41 %) pour les navigateurs qui le gèrent ; les autres gardent
      la déclaration JPEG ci-dessus. */
   background-image:
     linear-gradient(112deg,
-      rgba(5,48,74,.92) 0%, rgba(8,77,114,.86) 40%,
-      rgba(12,106,153,.79) 72%, rgba(24,132,184,.72) 100%),
+      rgba(8,62,93,.90) 0%, rgba(13,99,142,.83) 40%,
+      rgba(29,140,190,.75) 72%, rgba(51,169,220,.68) 100%),
     image-set(url("../img/fond-equipe.webp") type("image/webp"),
               url("../img/fond-equipe.jpg") type("image/jpeg"));
   background-size: auto, cover;
@@ -350,7 +350,7 @@ h3 { font-size: 1.16rem; }
   content: "";
   position: absolute; inset: 0;
   background: linear-gradient(100deg,
-              rgba(4,40,62,.52) 0%, rgba(4,40,62,.27) 46%, rgba(4,40,62,0) 76%);
+              rgba(4,40,62,.62) 0%, rgba(4,40,62,.38) 46%, rgba(4,40,62,0) 78%);
   pointer-events: none;
 }
 
@@ -375,7 +375,7 @@ h3 { font-size: 1.16rem; }
 .hero > .container { position: relative; z-index: 1; }
 .hero__grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 54px; align-items: start; }
 .hero h1 { color: #fff; margin-bottom: 18px; }
-.hero__sub { font-size: 1.16rem; color: #dbecf5; margin-bottom: 26px; max-width: 620px; }
+.hero__sub { font-size: 1.16rem; color: #ffffff; margin-bottom: 26px; max-width: 620px; }
 .hero__badge {
   display: inline-flex; align-items: center; gap: 9px;
   background: rgba(255,255,255,.13); border: 1px solid rgba(255,255,255,.3);
@@ -383,14 +383,14 @@ h3 { font-size: 1.16rem; }
   letter-spacing: .08em; text-transform: uppercase; margin-bottom: 20px;
 }
 .hero__points { display: grid; gap: 11px; margin: 0 0 28px; }
-.hero__points li { display: flex; gap: 12px; align-items: flex-start; font-size: 1.02rem; color: #eaf5fb; }
+.hero__points li { display: flex; gap: 12px; align-items: flex-start; font-size: 1.02rem; color: #ffffff; }
 .hero__points .tick {
   flex: none; width: 24px; height: 24px; background: #fff; color: var(--bleu);
   display: flex; align-items: center; justify-content: center; margin-top: 2px;
 }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 14px; }
 
-.hero__villes { margin-top: 26px; font-size: .9rem; color: #dcf0fb; }
+.hero__villes { margin-top: 26px; font-size: .9rem; color: #ffffff; }
 .hero__villes strong { color: #fff; }
 
 /* ---------- Formulaire ---------- */
@@ -450,30 +450,28 @@ h3 { font-size: 1.16rem; }
 /* ---------- Bandeau chiffres ---------- */
 .stats {
   position: relative;
-  background: linear-gradient(115deg, #06405f 0%, var(--bleu) 48%, #0e7cb2 100%);
-  color: #fff; padding: 0;
+  /* Bleu ciel adouci, repris de --bleu-ciel : la bande respire au lieu de
+     prolonger le bandeau sombre. Texte foncé, donc lisible sans effort. */
+  background: linear-gradient(115deg, #dcf0fa 0%, #b9e1f4 55%, #a2d7f0 100%);
+  color: var(--nuit);
+  padding: 0;
   overflow: hidden;
+  border-bottom: 1px solid #93cfeb;
 }
-/* même motif que le bandeau haut : les deux premières sections se répondent */
 .stats::before {
   content: "";
   position: absolute; inset: 0;
   background: url("../img/motif-plomberie.svg") center / 300px 300px repeat;
-  opacity: .07;
+  opacity: .1;
+  filter: invert(1);
   pointer-events: none;
 }
-.stats__grid { position: relative; }
-.stats__grid { display: grid; grid-template-columns: repeat(4, 1fr); }
-.stat { padding: 32px 22px; text-align: center; border-right: 1px solid rgba(255,255,255,.14); }
-.stat__ico {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 46px; height: 46px; margin-bottom: 12px;
-  color: #fff; background: rgba(255,255,255,.16);
-}
+.stats__grid { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); }
+.stat { padding: 30px 22px; text-align: center; border-right: 1px solid rgba(10,48,63,.13); }
 .stat:last-child { border-right: none; }
-.stat__num { font-family: "Barlow Condensed", "Barlow", sans-serif; font-size: 2.6rem;
-  font-weight: 700; color: #fff; line-height: 1; margin-bottom: 8px; }
-.stat__lbl { font-size: .84rem; color: #d3e8f4; text-transform: uppercase; letter-spacing: .08em; font-weight: 700; }
+.stat__num { font-family: "Barlow Condensed", "Barlow", sans-serif; font-size: 2.7rem;
+  font-weight: 700; color: #07496e; line-height: 1; margin-bottom: 6px; }
+.stat__lbl { font-size: .82rem; color: var(--nuit); text-transform: uppercase; letter-spacing: .08em; font-weight: 700; }
 
 /* ---------- Grilles / cartes ---------- */
 .grid { display: grid; gap: 24px; }
@@ -1079,11 +1077,11 @@ a.note-globale:hover { border-color: var(--bleu); text-decoration: none; }
     padding: 44px 0 52px;
     background-image:
       linear-gradient(160deg,
-        rgba(5,48,74,.90) 0%, rgba(9,82,120,.855) 55%, rgba(18,120,168,.78) 100%),
+        rgba(8,62,93,.89) 0%, rgba(15,104,148,.84) 55%, rgba(45,160,210,.74) 100%),
       url("../img/fond-equipe-mobile.jpg");
     background-image:
       linear-gradient(160deg,
-        rgba(5,48,74,.90) 0%, rgba(9,82,120,.855) 55%, rgba(18,120,168,.78) 100%),
+        rgba(8,62,93,.89) 0%, rgba(15,104,148,.84) 55%, rgba(45,160,210,.74) 100%),
       image-set(url("../img/fond-equipe-mobile.webp") type("image/webp"),
                 url("../img/fond-equipe-mobile.jpg") type("image/jpeg"));
   }

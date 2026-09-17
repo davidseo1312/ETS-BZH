@@ -358,9 +358,8 @@ def formulaire(idp, titre, soustitre, bouton, dept=None, act=None, court=False,
 
 def bandeau_stats():
     cases = "".join(
-        '<div class="stat"><span class="stat__ico">%s</span>'
-        '<div class="stat__num">%s</div><div class="stat__lbl">%s</div></div>'
-        % (picto(i, 24), n, l) for n, l, i in STATS)
+        '<div class="stat"><div class="stat__num">%s</div>'
+        '<div class="stat__lbl">%s</div></div>' % (n, l) for n, l in STATS)
     return ('\n<section class="stats" aria-label="ETS-BZH en chiffres">'
             '<div class="stats__grid">%s</div></section>' % cases)
 

@@ -281,8 +281,7 @@ Au-delà du contenu, quelques éléments d'interface travaillent la conversion :
 - **Tuiles d'icônes** sur les atouts et numérotation appuyée sur les
   prestations, avec un état de survol marqué (relèvement, ombre portée,
   inversion de la tuile).
-- **Bandeau de chiffres** en dégradé avec icônes, placé juste sous le premier
-  écran.
+- **Bandeau de chiffres** en bleu ciel clair, placé juste sous le premier écran.
 - **Galeries remontées en troisième section**, juste après les prestations : la
   preuve visuelle arrive avant que le visiteur ne décroche, et non en bas de page.
 - **Chaque photo est décrite en trois ou quatre phrases** : ce que nous faisons,
@@ -314,17 +313,21 @@ sans fichier ni requête supplémentaire.
 Le bleu nuit a été éclairci (depuis `#0A1A26`) et le bleu clair remplacé par le
 bleu ciel marseillais.
 
-**Haut de page.** La barre d'infos, le bandeau principal et la bande de chiffres
-forment un dégradé continu de bleu Marseille (`#063F61` → `#0E7CB2`), sur lequel
-le motif de plomberie et la photo d'équipe restent perceptibles. L'en-tête garde
-un fond clair — indispensable à la lisibilité du menu et de l'emblème — mais gagne
-un léger dégradé et un filet bleu de 3 px qui l'assoit sur le bandeau.
+**Haut de page.** La barre d'infos et le bandeau principal déclinent le bleu
+Marseille en s'ouvrant vers le bleu ciel (`#33A9DC`), et la bande de chiffres
+bascule franchement en **bleu ciel clair** (`#DCF0FA` → `#A2D7F0`) avec un texte
+foncé : la page respire au lieu d'empiler deux bandeaux sombres. L'en-tête garde
+un fond clair — indispensable à la lisibilité du menu et de l'emblème — avec un
+léger dégradé et un filet bleu de 3 px qui l'assoit sur le bandeau.
+
+La bande de chiffres n'a **pas d'icônes** : sur quatre chiffres déjà explicites,
+elles n'ajoutaient rien et alourdissaient la lecture.
 
 Le bandeau compact des pages légales a son propre voile, plus dense&nbsp;: sans
 formulaire pour couvrir sa partie droite, le titre y déborderait sinon sur la zone
 claire de la photo. Tous les couples texte/fond ont été revérifiés après le
 changement : le plus faible est à **4,77:1** sur les petites légendes, et
-**5,07:1** sur le rendu réel du haut de page, mesuré pixel par pixel sur 14 zones
+**5,29:1** sur le rendu réel du haut de page, mesuré pixel par pixel sur 21 zones
 de texte — au-dessus du seuil WCAG AA de 4,5:1. Le gris des légendes a dû être assombri à cette occasion — il était à
 3,3:1, donc non conforme, depuis le début.
 
