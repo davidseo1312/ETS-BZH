@@ -349,8 +349,9 @@ def formulaire(idp, titre, soustitre, bouton, dept=None, act=None, court=False,
         <li>{picto("horloge", 16)} Rappel sous 30 min</li>
         <li>{picto("bouclier", 16)} Données non revendues</li>
       </ul>
-      <p class="form-note">Urgence&nbsp;? Appelez directement le
-        <a href="tel:{TEL_LIEN}">{TEL}</a></p>
+      <p class="form-note">Vous préférez le téléphone&nbsp;? Appelez le
+        <a href="tel:{TEL_LIEN}">{TEL}</a><br>
+        <span class="form-note__sur">Numéro fixe, non surtaxé — un technicien vous répond.</span></p>
     </form>
   </div>
 </div>"""

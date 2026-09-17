@@ -84,18 +84,20 @@ Le bandeau haut de chaque page utilise, de bas en haut :
 1. `assets/img/fond-equipe.webp` (repli `.jpg`) — photo d'un technicien devant un
    véhicule ETS-BZH, servie en `image-set()` ; une version `-mobile` allégée
    prend le relais sous 720 px
-2. un dégradé **bleu Marseille** (0,56 à 0,91 d'opacité) qui laisse la photo
-   perceptible tout en gardant les textes lisibles
-3. `motif-plomberie.svg` à 10 % d'opacité, pour la texture
-4. un voile latéral côté texte
+2. un **voile clair** (ivoire à gauche, bleu très pâle à droite, 0,74 à 0,96
+   d'opacité) qui laisse la photo perceptible sans écraser le texte
+3. `motif-plomberie.svg` à 7 % d'opacité, **inversé** — le motif est tracé en
+   blanc, il lui faut un `filter: invert(1)` pour exister sur fond clair
+4. un voile latéral côté texte, clair lui aussi
 
-Ce dégradé partait auparavant du bleu nuit (`rgba(8,62,93,.90)`) : le bandeau
-pesait alors comme un bloc sombre. Il part maintenant du bleu Marseille
-(`rgba(10,95,140,.91)`) et s'ouvre plus largement sur le bleu ciel. Pour rendre
-la photo plus ou moins visible, ajustez ces opacités — les baisser révèle la
-photo, les augmenter l'effacent ; le voile latéral (`.hero::after`) est ce qui
-tient le contraste du titre, c'est lui qu'il faut remonter si vous éclaircissez
-encore.
+**Le bandeau a été inversé.** Il a d'abord été bleu nuit, puis bleu Marseille,
+avec un titre blanc posé sur la photo assombrie ; il est maintenant **clair**,
+titre bleu nuit sur ivoire. Ce n'est pas qu'une question de goût : le texte
+blanc sur photo plafonnait à 4,7:1, il est maintenant à **11,8:1**. Sur une
+cible âgée, c'est la différence entre lire et deviner. Pour rendre la photo plus
+ou moins visible, ajustez ces opacités — les baisser révèle la photo, les
+augmenter l'effacent ; le voile latéral (`.hero::after`) est ce qui tient le
+contraste du titre, c'est lui qu'il faut remonter si vous éclaircissez encore.
 
 Poids : 89 Ko en WebP desktop (151 Ko en repli JPEG), 33 Ko en WebP mobile.
 
@@ -299,6 +301,30 @@ système, dont le rendu varie d'un appareil à l'autre.
 Les icônes sont des tracés SVG intégrés au HTML (`PICTOS` dans `tools/build.py`),
 sans fichier ni requête supplémentaire.
 
+## Lisibilité : une clientèle âgée
+
+Une part importante des appels en plomberie d'urgence vient de personnes âgées.
+Le site est réglé pour elles, et cela profite à tout le monde.
+
+- **Corps de texte à 19 px**, interlignage 1,72. Les paragraphes secondaires, les
+  légendes de photos et les listes ont été remontés d'autant : plus rien n'est
+  sous 0,86 rem.
+- **Champs de formulaire de 56 px de haut**, texte de saisie à 1,05 rem,
+  libellés à 0,9 rem, case à cocher de 24 px. Une saisie ne doit pas demander de
+  précision.
+- **Boutons de 58 px minimum** (66 px pour les boutons d'appel), barre mobile
+  portée à 62 px.
+- **Liens du contenu soulignés** : un lien qui ne se distingue que par sa
+  couleur disparaît quand la perception des contrastes baisse.
+- **Anneau de focus ambre de 4 px** : visible sur les fonds bleus comme sur les
+  fonds clairs, contrairement à l'ancien liseré bleu ciel.
+- **« Vous préférez le téléphone ? »** sous chaque formulaire, avec le numéro en
+  gros et la mention « numéro fixe, non surtaxé ». Beaucoup de visiteurs
+  n'utiliseront jamais le formulaire ; il ne faut pas qu'ils repartent pour
+  autant.
+- **Bandeau haut clair** (voir plus haut) : c'est le gain de lisibilité le plus
+  important de tout le site.
+
 ## Charte graphique
 
 | Élément | Valeur | Usage |
@@ -312,6 +338,9 @@ sans fichier ni requête supplémentaire.
 | Blanc | `#FFFFFF` | Fonds |
 | Bleu pâle | `#E7F4FB` / `#F4FAFD` | Tuiles, sections alternées, pied de page |
 | Bleu voile | `#EAF5FB` | Sections de respiration |
+| Ivoire | `#FFF8EF` / `#FDF1E1` | Bandeau haut, une section sur deux |
+| Ambre | `#E8901F` / `#C2610A` | Pastilles, filets, tuiles — une sur deux |
+| Ambre texte | `#9A4D06` | La seule déclinaison chaude posée sur du texte |
 | Rouge urgence | `#D43F1A` | Bouton d'urgence uniquement |
 | Angles | `border-radius: 0` | Appliqué globalement |
 
@@ -321,10 +350,18 @@ aplats qui l'utilisaient (pied de page, en-tête de formulaire, en-tête du
 tableau des tarifs, barre d'action collante) sont passés au bleu Marseille ou à
 un fond clair.
 
+**Une famille chaude contre l'effet « site générique ».** Une charte
+entièrement bleue sur fond blanc finit par ressembler à n'importe quel site de
+dépannage. Un second registre chaud a donc été introduit : l'ivoire sert de fond
+à une section sur deux (`.section--fond`) et au bandeau haut, l'ambre marque les
+filets sous les titres (moitié bleu, moitié ambre), une tuile d'icône sur deux,
+la pastille de la dernière étape et l'anneau de focus. Le bleu reste majoritaire
+et porte toujours l'action : boutons, liens, aplats forts.
+
 **Une page claire, sans gris.** Les fonds neutres étaient gris (`#F6F8FA`) ; ils
-sont désormais bleutés (`#EEF6FB`, `#EAF5FB`), et les sections alternées s'ouvrent
-et se referment sur du blanc par un dégradé vertical court, ce qui évite l'effet
-de blocs empilés. Les ombres portées, jusque-là noires, sont teintées de bleu
+sont désormais bleutés ou ivoire (`#EEF6FB`, `#EAF5FB`, `#FFF8EF`), et les
+sections alternées s'ouvrent et se referment sur du blanc par un dégradé
+vertical court, ce qui évite l'effet de blocs empilés. Les ombres portées, jusque-là noires, sont teintées de bleu
 (`rgba(12,74,112,…)`) : elles posent les cartes sans grisailler la page.
 
 **Pied de page clair.** Il occupait près d'un tiers de la hauteur de la page
@@ -347,15 +384,21 @@ Le bandeau compact des pages légales a son propre voile, plus dense&nbsp;: sans
 formulaire pour couvrir sa partie droite, le titre y déborderait sinon sur la zone
 claire de la photo.
 
-**Contraste.** Éclaircir un fond réduit mécaniquement le contraste : chaque
-réglage a donc été mesuré sur le **rendu réel**, et non sur les valeurs CSS —
+**Contraste.** Chaque réglage est mesuré sur le **rendu réel**, et non sur les
+valeurs CSS —
 un dégradé posé sur une photo ne se calcule pas, il se regarde. La méthode :
 les lignes de texte sont localisées par un `Range` posé sur les nœuds texte
 (ce qui exclut les icônes et les blocs voisins), les glyphes passent en
 `color: transparent` — et non en `visibility: hidden`, qui effacerait aussi le
 fond propre d'un bouton — puis chaque pixel du fond est comparé à la couleur du
-texte. Sur **56 zones** réparties sur 6 pages, en 1440 px et en 390 px, le pire
-cas est à **4,69:1** (seuil WCAG AA : 4,5:1).
+texte. Sur **65 zones** réparties sur 6 pages, en 1440 px et en 390 px, le pire
+cas est à **4,66:1** (seuil WCAG AA : 4,5:1).
+
+Deux chiffres d'étapes étaient sous ce seuil : le bleu ciel de la quatrième
+pastille ne donnait que **2,68:1** sous du blanc — sous le seuil de 3:1 des
+grands caractères, donc non conforme depuis l'origine. Les pastilles chaudes
+portent maintenant un chiffre bleu nuit sur ambre vif (5,52:1), ce qui est à la
+fois plus lisible et plus vivant que du blanc sur ambre (4,19:1).
 
 Deux textes du bandeau CTA étaient sous le seuil **avant** ce changement (4,37:1
 et 4,26:1) : ils étaient en bleu très pâle sur un dégradé qui s'ouvrait jusqu'au
