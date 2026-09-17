@@ -215,10 +215,10 @@ h3 { font-size: 1.16rem; }
 
 /* ---------- Barre d'urgence ---------- */
 .topbar {
-  background: var(--nuit);
-  color: #cfe0ea;
+  background: linear-gradient(90deg, #063f61 0%, var(--bleu) 55%, #0b6b9c 100%);
+  color: #d7ebf6;
   font-size: .86rem;
-  padding: 9px 0;
+  padding: 10px 0;
 }
 .topbar__inner { display: flex; flex-wrap: wrap; gap: 8px 26px; align-items: center; justify-content: space-between; }
 .topbar__list { display: flex; flex-wrap: wrap; gap: 8px 22px; }
@@ -233,9 +233,9 @@ h3 { font-size: 1.16rem; }
   position: sticky;
   top: 0;
   z-index: 100;
-  background: #fff;
-  border-bottom: 1px solid var(--bordure);
-  box-shadow: var(--ombre);
+  background: linear-gradient(180deg, #ffffff 0%, #f1f8fc 100%);
+  border-bottom: 3px solid var(--bleu);
+  box-shadow: 0 3px 16px rgba(10, 48, 63, .10);
 }
 .header__inner {
   height: var(--header-h);
@@ -315,15 +315,15 @@ h3 { font-size: 1.16rem; }
   background-color: var(--bleu);
   background-image:
     linear-gradient(112deg,
-      rgba(0,36,57,.93) 0%, rgba(0,52,80,.89) 38%,
-      rgba(0,70,108,.84) 68%, rgba(0,88,132,.80) 100%),
+      rgba(5,48,74,.92) 0%, rgba(8,77,114,.86) 40%,
+      rgba(12,106,153,.79) 72%, rgba(24,132,184,.72) 100%),
     url("../img/fond-equipe.jpg");
   /* WebP (-41 %) pour les navigateurs qui le gèrent ; les autres gardent
      la déclaration JPEG ci-dessus. */
   background-image:
     linear-gradient(112deg,
-      rgba(0,36,57,.93) 0%, rgba(0,52,80,.89) 38%,
-      rgba(0,70,108,.84) 68%, rgba(0,88,132,.80) 100%),
+      rgba(5,48,74,.92) 0%, rgba(8,77,114,.86) 40%,
+      rgba(12,106,153,.79) 72%, rgba(24,132,184,.72) 100%),
     image-set(url("../img/fond-equipe.webp") type("image/webp"),
               url("../img/fond-equipe.jpg") type("image/jpeg"));
   background-size: auto, cover;
@@ -342,7 +342,7 @@ h3 { font-size: 1.16rem; }
   background-size: 420px 420px;
   background-repeat: repeat;
   background-position: center;
-  opacity: .06;
+  opacity: .085;
   pointer-events: none;
 }
 /* voile dégradé : garantit la lisibilité du titre et des textes */
@@ -350,12 +350,25 @@ h3 { font-size: 1.16rem; }
   content: "";
   position: absolute; inset: 0;
   background: linear-gradient(100deg,
-              rgba(0,28,46,.55) 0%, rgba(0,28,46,.30) 46%, rgba(0,28,46,0) 76%);
+              rgba(4,40,62,.52) 0%, rgba(4,40,62,.27) 46%, rgba(4,40,62,0) 76%);
   pointer-events: none;
 }
 
 /* bandeau d'en-tête compact (pages légales, 404) */
 .hero--compact { padding: 46px 0 52px; }
+/* Pas de formulaire pour couvrir la droite du bandeau : le voile doit rester
+   assez dense sur toute la largeur pour que le titre tienne le contraste. */
+.hero--compact {
+  background-image:
+    linear-gradient(112deg,
+      rgba(5,48,74,.94) 0%, rgba(7,66,98,.91) 45%, rgba(9,86,126,.88) 100%),
+    url("../img/fond-equipe.jpg");
+  background-image:
+    linear-gradient(112deg,
+      rgba(5,48,74,.94) 0%, rgba(7,66,98,.91) 45%, rgba(9,86,126,.88) 100%),
+    image-set(url("../img/fond-equipe.webp") type("image/webp"),
+              url("../img/fond-equipe.jpg") type("image/jpeg"));
+}
 .hero--compact .hero__sub { margin-bottom: 0; }
 .hero .eyebrow { color: #bcdcec; border-left-color: #fff; }
 .hero--compact .hero__actions { margin-top: 26px; }
@@ -377,7 +390,7 @@ h3 { font-size: 1.16rem; }
 }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 14px; }
 
-.hero__villes { margin-top: 26px; font-size: .9rem; color: #bcd9e8; }
+.hero__villes { margin-top: 26px; font-size: .9rem; color: #dcf0fb; }
 .hero__villes strong { color: #fff; }
 
 /* ---------- Formulaire ---------- */
@@ -436,20 +449,31 @@ h3 { font-size: 1.16rem; }
 
 /* ---------- Bandeau chiffres ---------- */
 .stats {
-  background: linear-gradient(120deg, var(--nuit) 0%, #1b3c50 55%, var(--bleu) 100%);
+  position: relative;
+  background: linear-gradient(115deg, #06405f 0%, var(--bleu) 48%, #0e7cb2 100%);
   color: #fff; padding: 0;
+  overflow: hidden;
 }
+/* même motif que le bandeau haut : les deux premières sections se répondent */
+.stats::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: url("../img/motif-plomberie.svg") center / 300px 300px repeat;
+  opacity: .07;
+  pointer-events: none;
+}
+.stats__grid { position: relative; }
 .stats__grid { display: grid; grid-template-columns: repeat(4, 1fr); }
 .stat { padding: 32px 22px; text-align: center; border-right: 1px solid rgba(255,255,255,.14); }
 .stat__ico {
   display: inline-flex; align-items: center; justify-content: center;
   width: 46px; height: 46px; margin-bottom: 12px;
-  color: var(--bleu-ciel); background: rgba(255,255,255,.08);
+  color: #fff; background: rgba(255,255,255,.16);
 }
 .stat:last-child { border-right: none; }
 .stat__num { font-family: "Barlow Condensed", "Barlow", sans-serif; font-size: 2.6rem;
   font-weight: 700; color: #fff; line-height: 1; margin-bottom: 8px; }
-.stat__lbl { font-size: .84rem; color: #a9c6d6; text-transform: uppercase; letter-spacing: .08em; font-weight: 700; }
+.stat__lbl { font-size: .84rem; color: #d3e8f4; text-transform: uppercase; letter-spacing: .08em; font-weight: 700; }
 
 /* ---------- Grilles / cartes ---------- */
 .grid { display: grid; gap: 24px; }
@@ -1055,11 +1079,11 @@ a.note-globale:hover { border-color: var(--bleu); text-decoration: none; }
     padding: 44px 0 52px;
     background-image:
       linear-gradient(160deg,
-        rgba(0,36,57,.90) 0%, rgba(0,56,86,.855) 55%, rgba(0,80,122,.81) 100%),
+        rgba(5,48,74,.90) 0%, rgba(9,82,120,.855) 55%, rgba(18,120,168,.78) 100%),
       url("../img/fond-equipe-mobile.jpg");
     background-image:
       linear-gradient(160deg,
-        rgba(0,36,57,.90) 0%, rgba(0,56,86,.855) 55%, rgba(0,80,122,.81) 100%),
+        rgba(5,48,74,.90) 0%, rgba(9,82,120,.855) 55%, rgba(18,120,168,.78) 100%),
       image-set(url("../img/fond-equipe-mobile.webp") type("image/webp"),
                 url("../img/fond-equipe-mobile.jpg") type("image/jpeg"));
   }

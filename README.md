@@ -312,10 +312,20 @@ sans fichier ni requête supplémentaire.
 | Angles | `border-radius: 0` | Appliqué globalement |
 
 Le bleu nuit a été éclairci (depuis `#0A1A26`) et le bleu clair remplacé par le
-bleu ciel marseillais. Tous les couples texte/fond ont été revérifiés après le
-changement : le plus faible est à **4,77:1** sur les petites légendes et
-**5,22:1** sur le rendu réel des bandeaux photo, au-dessus du seuil WCAG AA de
-4,5:1. Le gris des légendes a dû être assombri à cette occasion — il était à
+bleu ciel marseillais.
+
+**Haut de page.** La barre d'infos, le bandeau principal et la bande de chiffres
+forment un dégradé continu de bleu Marseille (`#063F61` → `#0E7CB2`), sur lequel
+le motif de plomberie et la photo d'équipe restent perceptibles. L'en-tête garde
+un fond clair — indispensable à la lisibilité du menu et de l'emblème — mais gagne
+un léger dégradé et un filet bleu de 3 px qui l'assoit sur le bandeau.
+
+Le bandeau compact des pages légales a son propre voile, plus dense&nbsp;: sans
+formulaire pour couvrir sa partie droite, le titre y déborderait sinon sur la zone
+claire de la photo. Tous les couples texte/fond ont été revérifiés après le
+changement : le plus faible est à **4,77:1** sur les petites légendes, et
+**5,07:1** sur le rendu réel du haut de page, mesuré pixel par pixel sur 14 zones
+de texte — au-dessus du seuil WCAG AA de 4,5:1. Le gris des légendes a dû être assombri à cette occasion — il était à
 3,3:1, donc non conforme, depuis le début.
 
 ## Régénérer le site
