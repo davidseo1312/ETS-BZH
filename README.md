@@ -84,15 +84,18 @@ Le bandeau haut de chaque page utilise, de bas en haut :
 1. `assets/img/fond-equipe.webp` (repli `.jpg`) — photo d'un technicien devant un
    véhicule ETS-BZH, servie en `image-set()` ; une version `-mobile` allégée
    prend le relais sous 720 px
-2. un dégradé bleu très couvrant (0,80 à 0,93 d'opacité) qui rend la photo
-   discrète tout en gardant les textes lisibles
-3. `motif-plomberie.svg` à 6 % d'opacité, pour la texture
+2. un dégradé **bleu Marseille** (0,56 à 0,91 d'opacité) qui laisse la photo
+   perceptible tout en gardant les textes lisibles
+3. `motif-plomberie.svg` à 10 % d'opacité, pour la texture
 4. un voile latéral côté texte
 
-Contraste mesuré sur le rendu réel, 13 zones de texte réparties sur desktop et
-mobile : **5,21:1 au pire cas** (seuil WCAG AA : 4,5:1). Pour rendre la photo
-plus ou moins visible, ajustez les opacités du dégradé de `.hero` — les baisser
-révèle la photo, les augmenter l'efface.
+Ce dégradé partait auparavant du bleu nuit (`rgba(8,62,93,.90)`) : le bandeau
+pesait alors comme un bloc sombre. Il part maintenant du bleu Marseille
+(`rgba(10,95,140,.91)`) et s'ouvre plus largement sur le bleu ciel. Pour rendre
+la photo plus ou moins visible, ajustez ces opacités — les baisser révèle la
+photo, les augmenter l'effacent ; le voile latéral (`.hero::after`) est ce qui
+tient le contraste du titre, c'est lui qu'il faut remonter si vous éclaircissez
+encore.
 
 Poids : 89 Ko en WebP desktop (151 Ko en repli JPEG), 33 Ko en WebP mobile.
 
@@ -303,18 +306,35 @@ sans fichier ni requête supplémentaire.
 | Bleu Marseille | `#0A5F8C` | Boutons, liens, libellés, aplats |
 | Bleu intermédiaire | `#0E86BE` | Dégradés, survols — sûr sous du texte blanc |
 | Bleu ciel marseillais | `#33A9DC` | Accents : filets, focus, bordures |
-| Bleu nuit | `#16303F` | Pied de page, bandeaux sombres, titres |
+| Bleu nuit | `#16303F` | Titres |
 | Bleu nuit clair | `#1F4157` | Texte courant |
 | Gris | `#4D6272` / `#627585` | Textes secondaires et légendes |
 | Blanc | `#FFFFFF` | Fonds |
+| Bleu pâle | `#E7F4FB` / `#F4FAFD` | Tuiles, sections alternées, pied de page |
+| Bleu voile | `#EAF5FB` | Sections de respiration |
 | Rouge urgence | `#D43F1A` | Bouton d'urgence uniquement |
 | Angles | `border-radius: 0` | Appliqué globalement |
 
 Le bleu nuit a été éclairci (depuis `#0A1A26`) et le bleu clair remplacé par le
-bleu ciel marseillais.
+bleu ciel marseillais. Le bleu nuit ne sert plus **qu'au texte** : tous les
+aplats qui l'utilisaient (pied de page, en-tête de formulaire, en-tête du
+tableau des tarifs, barre d'action collante) sont passés au bleu Marseille ou à
+un fond clair.
+
+**Une page claire, sans gris.** Les fonds neutres étaient gris (`#F6F8FA`) ; ils
+sont désormais bleutés (`#EEF6FB`, `#EAF5FB`), et les sections alternées s'ouvrent
+et se referment sur du blanc par un dégradé vertical court, ce qui évite l'effet
+de blocs empilés. Les ombres portées, jusque-là noires, sont teintées de bleu
+(`rgba(12,74,112,…)`) : elles posent les cartes sans grisailler la page.
+
+**Pied de page clair.** Il occupait près d'un tiers de la hauteur de la page
+d'accueil en bleu nuit plein. Il est maintenant sur un dégradé `#F4FAFD` →
+`#E7F4FB`, texte gris foncé, titres bleu nuit et filets bleus ; le bouton d'appel
+bleu plein y reste le seul aplat fort, donc le point de fuite du regard.
 
 **Haut de page.** La barre d'infos et le bandeau principal déclinent le bleu
-Marseille en s'ouvrant vers le bleu ciel (`#33A9DC`), et la bande de chiffres
+Marseille en s'ouvrant vers le bleu ciel (`#33A9DC`), l'en-tête du formulaire de
+devis est passé du bleu nuit au bleu Marseille, et la bande de chiffres
 bascule franchement en **bleu ciel clair** (`#DCF0FA` → `#A2D7F0`) avec un texte
 foncé : la page respire au lieu d'empiler deux bandeaux sombres. L'en-tête garde
 un fond clair — indispensable à la lisibilité du menu et de l'emblème — avec un
@@ -325,11 +345,22 @@ elles n'ajoutaient rien et alourdissaient la lecture.
 
 Le bandeau compact des pages légales a son propre voile, plus dense&nbsp;: sans
 formulaire pour couvrir sa partie droite, le titre y déborderait sinon sur la zone
-claire de la photo. Tous les couples texte/fond ont été revérifiés après le
-changement : le plus faible est à **4,77:1** sur les petites légendes, et
-**5,29:1** sur le rendu réel du haut de page, mesuré pixel par pixel sur 21 zones
-de texte — au-dessus du seuil WCAG AA de 4,5:1. Le gris des légendes a dû être assombri à cette occasion — il était à
-3,3:1, donc non conforme, depuis le début.
+claire de la photo.
+
+**Contraste.** Éclaircir un fond réduit mécaniquement le contraste : chaque
+réglage a donc été mesuré sur le **rendu réel**, et non sur les valeurs CSS —
+un dégradé posé sur une photo ne se calcule pas, il se regarde. La méthode :
+les lignes de texte sont localisées par un `Range` posé sur les nœuds texte
+(ce qui exclut les icônes et les blocs voisins), les glyphes passent en
+`color: transparent` — et non en `visibility: hidden`, qui effacerait aussi le
+fond propre d'un bouton — puis chaque pixel du fond est comparé à la couleur du
+texte. Sur **56 zones** réparties sur 6 pages, en 1440 px et en 390 px, le pire
+cas est à **4,69:1** (seuil WCAG AA : 4,5:1).
+
+Deux textes du bandeau CTA étaient sous le seuil **avant** ce changement (4,37:1
+et 4,26:1) : ils étaient en bleu très pâle sur un dégradé qui s'ouvrait jusqu'au
+`#0E86BE`. Ils sont passés en blanc pur et le dégradé est plafonné à `#0D7CAD`,
+la teinte la plus claire qui reste conforme sous du texte blanc de petite taille.
 
 ## Régénérer le site
 
