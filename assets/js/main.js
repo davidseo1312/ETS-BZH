@@ -9,8 +9,12 @@
    * Renseigner une URL (Formspree, API interne, Netlify Forms…) pour
    * un envoi direct en POST JSON.
    * ---------------------------------------------------------------- */
+  /* Point d'arrivée des formulaires. Il est posé par le générateur sur chaque
+     <form data-endpoint="…"> ; cette constante ne sert que de repli. */
   var FORM_ENDPOINT = "";
   var EMAIL = "contact@etablissement-breizh.fr";
+  var TEL = "02 20 06 00 75";
+  var TEL_LIEN = "+33220060075";
 
   /* ---------- Menu mobile ---------- */
   var burger = document.querySelector(".burger");
@@ -44,12 +48,20 @@
     return data;
   }
 
-  function afficherMessage(form, type, texte) {
+  function afficherMessage(form, type, texte, bouton) {
     var box = form.querySelector(".form-msg");
     if (!box) return;
     box.className = "form-msg form-msg--" + type;
     box.textContent = texte;
     box.setAttribute("role", "status");
+    if (bouton) {
+      var a = document.createElement("a");
+      a.className = "form-msg__tel";
+      a.href = "tel:" + TEL_LIEN;
+      a.setAttribute("data-cta", "echec-formulaire");
+      a.textContent = TEL;
+      box.appendChild(a);
+    }
     box.scrollIntoView({ block: "nearest" });
   }
 
@@ -76,26 +88,38 @@
       if (!form.checkValidity()) { form.reportValidity(); return; }
 
       var data = champs(form);
-      data.page = document.title;
+      data.page = document.title + " (" + location.pathname + ")";
 
       var btn = form.querySelector('button[type="submit"]');
       var libelle = btn ? btn.textContent : "";
 
-      if (!FORM_ENDPOINT) { envoyerParMail(form, data); return; }
+      var endpoint = form.getAttribute("data-endpoint") || FORM_ENDPOINT;
+      if (!endpoint) { envoyerParMail(form, data); return; }
 
       if (btn) { btn.disabled = true; btn.textContent = "Envoi en cours…"; }
-      fetch(FORM_ENDPOINT, {
+      fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json", "Accept": "application/json" },
         body: JSON.stringify(data)
       }).then(function (r) {
-        if (!r.ok) throw new Error("HTTP " + r.status);
+        return r.json().catch(function () { return { ok: r.ok }; })
+                .then(function (j) {
+                  if (!r.ok || j.ok === false) {
+                    throw new Error(j.erreur || "HTTP " + r.status);
+                  }
+                });
+      }).then(function () {
         form.reset();
         afficherMessage(form, "ok",
-          "Demande envoyée. Un technicien ETS-BZH vous rappelle sous 30 minutes ouvrées.");
-      }).catch(function () {
-        afficherMessage(form, "err",
-          "L'envoi a échoué. Appelez-nous au 02 20 06 00 75 ou écrivez à " + EMAIL + ".");
+          "Demande bien reçue. Un technicien ETS-BZH vous rappelle sous 30 minutes ouvrées. " +
+          "Pour une urgence immédiate, appelez le " + TEL + ".");
+      }).catch(function (err) {
+        /* Un formulaire qui échoue en silence est une demande perdue : on
+           affiche l'erreur et on remet le téléphone en avant, en lien
+           cliquable. */
+        var raison = (err && err.message && err.message.indexOf("HTTP") !== 0)
+          ? err.message : "L'envoi de votre demande a échoué.";
+        afficherMessage(form, "err", raison + " Appelez-nous directement :", true);
       }).finally(function () {
         if (btn) { btn.disabled = false; btn.textContent = libelle; }
       });

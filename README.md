@@ -36,20 +36,29 @@ domaine, pas dans un sous-répertoire.
 
 ## Structure d'une landing page
 
-1. Barre d'infos + **header sticky** (logo à gauche, bouton d'appel à droite)
-2. **Hero** : H1 localisé, sous-titre de réassurance, formulaire de rappel immédiat
+1. Barre d'infos (numéro en clair) + **header sticky** (logo à gauche, bouton
+   d'appel à droite)
+2. **Hero** : H1 localisé, accroche, **formulaire de rappel à deux champs**
 3. Bandeau de chiffres clés
 4. **Nos prestations** (8 blocs carrés)
-5. Situations d'urgence + zone d'intervention
-6. **Pourquoi choisir ETS-BZH** (24/7, devis gratuit, artisans qualifiés, décennale)
-7. Tarifs indicatifs (transparence)
-8. Processus en 4 étapes
-9. **Avis clients & témoignages** localisés
-10. Communes desservies (maillage local)
-11. FAQ (balisage `FAQPage`)
-12. Contenu rédactionnel SEO géolocalisé
-13. **CTA final** : bannière bleue, bouton d'appel géant + formulaire court
-14. Maillage interne + footer + barre d'appel fixe mobile
+5. Photos de chantiers, chacune décrite
+6. **Tarifs indicatifs** (transparence)
+7. **Avis clients & témoignages** localisés
+8. Situations d'urgence
+9. Communes desservies + carte cliquable (maillage local)
+10. **Pourquoi choisir ETS-BZH** (24/7, devis gratuit, artisans qualifiés, décennale)
+11. Processus en 4 étapes
+12. FAQ (balisage `FAQPage`)
+13. Contenu rédactionnel SEO géolocalisé
+14. **CTA final** : bannière bleue, bouton d'appel géant + formulaire court
+15. Maillage interne + footer + barre d'appel fixe mobile
+
+**Les tarifs et les avis ont été remontés** de la 7e et de la 9e place à la 6e
+et la 7e, juste après les photos. Mesuré sur mobile avant ce changement : les
+tarifs arrivaient à 12 628 px, soit le 15e écran, et les avis à 14 810 px, le
+18e. Ce sont pourtant les deux arguments qui décident un appel. Ils sont
+maintenant à 7 344 px et 8 490 px, et le texte SEO long — qui n'a besoin d'être
+lu par personne — est passé derrière.
 
 ## Logo
 
@@ -286,6 +295,21 @@ Au-delà du contenu, quelques éléments d'interface travaillent la conversion :
 - **Tuiles d'icônes** sur les atouts et numérotation appuyée sur les
   prestations, avec un état de survol marqué (relèvement, ombre portée,
   inversion de la tuile).
+- **Le numéro est écrit en clair au premier écran, sur mobile aussi.** Il
+  apparaissait auparavant uniquement sous forme d'icône dans l'en-tête, et la
+  barre du haut affichait l'adresse e-mail à sa place : sur une page de
+  dépannage d'urgence, le numéro n'était visible nulle part avant de faire
+  défiler. Il figure désormais dans la barre du haut, dans le bouton de
+  l'en-tête (au-dessus de 430 px) et dans la barre basse permanente.
+- **Formulaire de rappel à deux champs** : téléphone et commune. Le département
+  et le métier sont déduits de la page et transmis en champs masqués, donc la
+  demande arrive complète sans que le visiteur ait à la remplir. Le formulaire
+  détaillé ne subsiste que sur la page Contact, où la démarche est posée.
+- **Sur mobile, le formulaire passe devant les arguments** (`grid-template-areas`
+  sur `.hero__grid`) : il est à 705 px au lieu de 1 217 px, soit dans le premier
+  écran et demi au lieu du troisième.
+- **Un envoi qui échoue ne coûte pas la demande** : le message d'erreur affiche
+  le numéro en gros bouton rouge cliquable, et les champs saisis sont conservés.
 - **Bandeau de chiffres** en bleu ciel clair, placé juste sous le premier écran.
 - **Galeries remontées en troisième section**, juste après les prestations : la
   preuve visuelle arrive avant que le visiteur ne décroche, et non en bas de page.
@@ -435,15 +459,35 @@ Pages HTML de ~36 Ko.
 
 ## Réception des formulaires
 
-Par défaut, l'envoi ouvre la messagerie du visiteur avec une demande pré-remplie
-vers `contact@etablissement-breizh.fr`. Pour recevoir les demandes directement en base ou par
-webhook, renseignez `FORM_ENDPOINT` en haut de `assets/js/main.js` :
+Les formulaires envoient leurs demandes à **`formulaire.php`**, à la racine du
+site. Ce script n'a aucune dépendance et fonctionne sur tout hébergement PHP,
+dont l'offre mutualisée d'Hostinger retenue ici. Il valide le numéro et la
+commune, écarte les robots (champ piège `_gotcha`), limite à six demandes par
+appareil et par tranche de dix minutes, puis envoie un courriel lisible :
 
-```js
-var FORM_ENDPOINT = "https://…"; // reçoit un POST JSON
+```
+Téléphone            : 06 12 34 56 78
+Ville                : Saint-Brieuc
+Département          : Côtes-d'Armor (22)
+Type d’intervention  : Plomberie & Dépannage
+Page d’origine       : Plomberie 22 (/plomberie-depannage-cotes-d-armor-22/)
 ```
 
-Un champ piège (`_gotcha`) bloque les robots de formulaire.
+**À vérifier une fois en ligne** : que `DESTINATAIRE` reçoit bien les demandes
+(faites un essai réel), et que `EXPEDITEUR` est une adresse du domaine — sinon
+les messages partent en indésirables. Si l'hébergeur bloque `mail()`, remplacez
+l'envoi par un service SMTP, ou pointez `SITE["form_endpoint"]` (dans
+`tools/data.py`) vers un service externe qui accepte un POST JSON : Formspree,
+Brevo, ou tout autre.
+
+**Si l'adresse est vidée**, les demandes basculent sur un `mailto:` que le
+visiteur doit envoyer lui-même depuis sa messagerie — autant dire qu'elles sont
+perdues. C'était l'état du site jusqu'ici, et c'est pour cela que le repli
+n'existe plus que comme filet de sécurité.
+
+**Si le script est absent** (hébergement sans PHP), l'envoi échoue proprement :
+le visiteur voit le numéro en gros bouton cliquable, et ce qu'il a saisi reste
+dans les champs.
 
 ## À compléter avant mise en ligne
 
@@ -465,7 +509,10 @@ Un champ piège (`_gotcha`) bloque les robots de formulaire.
       (voir « Emplacements photo »). N'utilisez que des visuels dont vous
       détenez les droits : présenter des images de banque comme vos
       réalisations est trompeur et juridiquement risqué
-- [ ] **Endpoint de formulaire** (voir ci-dessus)
+- [ ] **Essai réel du formulaire** — une fois en ligne, envoyez une demande et
+      vérifiez qu'elle arrive bien dans la boîte `contact@etablissement-breizh.fr`
+      (voir « Réception des formulaires »). Tant que cet essai n'est pas fait,
+      considérez que les demandes se perdent
 - [ ] **Domaine** — `SITE["url"]` vaut encore `https://www.ets-bzh.fr` alors que
       l'e-mail est passé à `@etablissement-breizh.fr`. Si le site doit être publié
       sur `etablissement-breizh.fr`, changez aussi cette valeur dans

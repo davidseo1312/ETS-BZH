@@ -416,7 +416,20 @@ h3 { font-size: 1.2rem; }
 
 .hero--compact .hero__actions { margin-top: 26px; }
 .hero > .container { position: relative; z-index: 1; }
-.hero__grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 54px; align-items: start; }
+/* Deux zones de texte à gauche, le formulaire à droite sur toute la hauteur :
+   cette découpe ne se voit pas sur ordinateur, mais elle permet de glisser le
+   formulaire entre les deux sur mobile. */
+.hero__grid {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  grid-template-areas: "haut form" "bas form";
+  column-gap: 54px; row-gap: 0;
+  align-items: start;
+}
+.hero__haut { grid-area: haut; }
+.hero__bas  { grid-area: bas; }
+.hero__form { grid-area: form; }
+.hero--compact .hero__grid { grid-template-columns: 1fr; grid-template-areas: "haut" "bas"; }
 .hero h1 { color: var(--nuit); margin-bottom: 20px; }
 .hero__sub { font-size: 1.26rem; color: var(--nuit-2); margin-bottom: 28px; max-width: 640px; }
 .hero__badge {
@@ -503,6 +516,15 @@ h3 { font-size: 1.2rem; }
 .form-msg { display: none; padding: 14px 16px; font-size: .92rem; font-weight: 700; margin-bottom: 16px; border-left: 5px solid; }
 .form-msg--ok { display: block; background: #e7f5ee; border-color: var(--succes); color: #14603c; }
 .form-msg--err { display: block; background: #fdeee9; border-color: var(--urgence); color: #8f2a0c; }
+/* Un envoi qui échoue ne doit pas coûter la demande : le numéro repart en
+   bouton cliquable à l'intérieur du message. */
+.form-msg__tel {
+  display: block; margin-top: 10px; padding: 13px 18px;
+  background: var(--urgence); color: #fff !important;
+  font-family: "Barlow Condensed", "Barlow", sans-serif;
+  font-size: 1.5rem; font-weight: 700; letter-spacing: .01em; text-align: center;
+}
+.form-msg__tel:hover { background: var(--urgence-hover); text-decoration: none; }
 
 /* ---------- Bandeau chiffres ---------- */
 .stats {
@@ -1076,7 +1098,13 @@ a.note-globale:hover { border-color: var(--bleu); text-decoration: none; }
 }
 
 @media (max-width: 1080px) {
-  .hero__grid { grid-template-columns: 1fr; gap: 40px; }
+  /* Sur une colonne, le formulaire passe devant les arguments et les boutons :
+     il est le premier geste possible, il doit arriver le premier. */
+  .hero__grid {
+    grid-template-columns: 1fr;
+    grid-template-areas: "haut" "form" "bas";
+    row-gap: 34px;
+  }
   .dept-grid, .grid--4, .liens-grid, .steps { grid-template-columns: repeat(2, 1fr); }
   .zone-grid { grid-template-columns: 1fr; gap: 32px; }
   .stats__grid { grid-template-columns: repeat(2, 1fr); }
@@ -1103,10 +1131,20 @@ a.note-globale:hover { border-color: var(--bleu); text-decoration: none; }
   .nav.is-open a { padding: 14px 12px; border-bottom: 1px solid var(--bordure); }
   .nav.is-open .sub { position: static; display: block; border: none; border-left: 3px solid var(--bleu-pale); box-shadow: none; padding: 0 0 8px 10px; }
   .burger { display: flex; }
-  .header__cta .tel-btn .tel-btn__txt { display: none; }
-  .header__cta .tel-btn { padding: 13px 15px; }
+  /* Le numéro reste écrit dans l'en-tête : le masquer ne laissait qu'une
+     icône, et le visiteur devait deviner. */
+  .header__cta .tel-btn { padding: 13px 14px; font-size: 1rem; gap: 8px; }
   .logo__mark { width: 44px; height: 44px; }
   .logo__name { font-size: 1.18rem; }
+}
+
+@media (max-width: 430px) {
+  /* Sous cette largeur, le numéro ne tient plus à côté du nom écrit : c'est
+     l'emblème qui cède la place, pas le numéro. */
+  .header__cta .tel-btn .tel-btn__txt { display: none; }
+  .header__cta .tel-btn { padding: 12px 14px; }
+  .header__inner { gap: 10px; }
+  .burger { width: 44px; height: 44px; }
 }
 
 @media (max-width: 520px) {
@@ -1142,8 +1180,13 @@ a.note-globale:hover { border-color: var(--bleu); text-decoration: none; }
   .topbar { font-size: .8rem; }
   .topbar__inner { justify-content: center; text-align: center; gap: 4px 16px; }
   .topbar__list { justify-content: center; }
+  /* Sur mobile, la barre du haut ne garde que deux informations : la
+     disponibilité et le numéro. L'adresse e-mail et la liste des départements
+     prenaient la place de la seule chose qu'on veut voir en urgence. */
   .topbar__list:first-child li:not(:first-child),
-  .topbar__list:last-child li:first-child { display: none; }
+  .topbar li.topbar__zone, .topbar li.topbar__mail { display: none; }
+  .topbar { font-size: .95rem; }
+  .topbar__tel a { font-size: 1.05rem; letter-spacing: .01em; }
   .hero {
     padding: 44px 0 52px;
     background-image:

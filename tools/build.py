@@ -25,6 +25,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEL = SITE["tel"]
 TEL_LIEN = SITE["tel_lien"]
 EMAIL = SITE["email"]
+FORM_ENDPOINT = SITE.get("form_endpoint", "")
 BASE = SITE["url"]
 TODAY = date.today().isoformat()
 
@@ -194,8 +195,9 @@ def topbar():
       <li>Garantie décennale</li>
     </ul>
     <ul class="topbar__list">
-      <li>{SVG['pin']} Bretagne&nbsp;: 22 · 29 · 35 · 56</li>
-      <li>{SVG['mail']} <a href="mailto:{EMAIL}">{EMAIL}</a></li>
+      <li class="topbar__tel">{SVG['tel']} <a href="tel:{TEL_LIEN}" data-cta="topbar">{TEL}</a></li>
+      <li class="topbar__zone">{SVG['pin']} Bretagne&nbsp;: 22 · 29 · 35 · 56</li>
+      <li class="topbar__mail">{SVG['mail']} <a href="mailto:{EMAIL}">{EMAIL}</a></li>
     </ul>
   </div>
 </div>"""
@@ -259,12 +261,16 @@ def ariane(items):
             '<ol>%s</ol></div></nav>' % lis)
 
 
-def formulaire(idp, titre, soustitre, bouton, dept=None, act=None, court=False,
+def formulaire(idp, titre, soustitre, bouton, dept=None, act=None, express=False,
                message=False):
     """Formulaire de rappel / devis.
 
-    court   : version compacte (bandeau CTA de fin de page)
-    message : ajoute un champ libre (page contact)
+    express : version courte — téléphone et commune, rien d'autre. C'est la
+              forme utilisée partout sauf sur la page Contact : quelqu'un dont
+              la canalisation déborde ne remplit pas six champs. Le département
+              et le métier sont déduits de la page et transmis en champs
+              masqués, donc la demande arrive complète sans effort du visiteur.
+    message : ajoute un champ libre (page Contact).
     """
     opts_dept = "".join(
         '<option value="%s (%s)"%s>%s (%s)</option>'
@@ -277,15 +283,61 @@ def formulaire(idp, titre, soustitre, bouton, dept=None, act=None, court=False,
            clean(a["nom"]))
         for a in ACTIVITES)
 
-    bloc_presta = "" if court else f"""
+    ville_ex = dept["prefecture"] if dept else "Votre commune"
+
+    champ_tel = f"""
+        <div class="field">
+          <label for="{idp}-tel">Votre téléphone <span class="req">*</span></label>
+          <input id="{idp}-tel" name="telephone" type="tel" autocomplete="tel"
+                 inputmode="tel" pattern="[0-9 +().-]{{9,}}" placeholder="06 00 00 00 00" required>
+        </div>"""
+
+    champ_ville = f"""
+        <div class="field">
+          <label for="{idp}-ville">Votre commune <span class="req">*</span></label>
+          <input id="{idp}-ville" name="ville" type="text" autocomplete="address-level2"
+                 placeholder="{ville_ex}" required>
+        </div>"""
+
+    if express:
+        # Le contexte part quand même : il est lu sur la page, pas saisi.
+        masques = ""
+        if dept:
+            masques += ('\n      <input type="hidden" name="departement" value="%s (%s)">'
+                        % (dept["nom"], dept["num"]))
+        if act:
+            masques += ('\n      <input type="hidden" name="prestation" value="%s">'
+                        % clean(act["nom"]))
+        corps_champs = f"""
+      <div class="field-row">{champ_tel}{champ_ville}
+      </div>{masques}"""
+    else:
+        bloc_message = f"""
+        <div class="field">
+          <label for="{idp}-msg">Décrivez votre problème <span style="font-weight:600;text-transform:none;letter-spacing:0;color:var(--gris-clair)">(facultatif)</span></label>
+          <textarea id="{idp}-msg" name="message"
+                    placeholder="Ex. : WC bouché depuis ce matin, maison individuelle, accès par le garage."></textarea>
+        </div>""" if message else ""
+        corps_champs = f"""
+      <div class="field-row">
+        <div class="field">
+          <label for="{idp}-nom">Nom <span class="req">*</span></label>
+          <input id="{idp}-nom" name="nom" type="text" autocomplete="name"
+                 placeholder="Votre nom" required>
+        </div>{champ_tel}
+      </div>
+      <div class="field-row">{champ_ville}
+        <div class="field">
+          <label for="{idp}-dept">Département</label>
+          <select id="{idp}-dept" name="departement">{opts_dept}</select>
+        </div>
+      </div>
         <div class="field">
           <label for="{idp}-presta">Type d'intervention</label>
           <select id="{idp}-presta" name="prestation">{opts_presta}
             <option value="Autre / je ne sais pas">Autre / je ne sais pas</option>
           </select>
-        </div>"""
-
-    bloc_urgence = "" if court else f"""
+        </div>
         <div class="field">
           <label for="{idp}-urgence">Degré d'urgence</label>
           <select id="{idp}-urgence" name="urgence">
@@ -293,15 +345,7 @@ def formulaire(idp, titre, soustitre, bouton, dept=None, act=None, court=False,
             <option>Sous 48 h</option>
             <option>Demande de devis, sans urgence</option>
           </select>
-        </div>"""
-
-    bloc_message = f"""
-        <div class="field">
-          <label for="{idp}-msg">Décrivez votre problème <span style="font-weight:600;text-transform:none;letter-spacing:0;color:var(--gris-clair)">(facultatif)</span></label>
-          <textarea id="{idp}-msg" name="message"
-                    placeholder="Ex. : WC bouché depuis ce matin, maison individuelle, accès par le garage."></textarea>
-        </div>""" if message else ""
-
+        </div>{bloc_message}"""
 
     return f"""
 <div class="form-card">
@@ -310,31 +354,8 @@ def formulaire(idp, titre, soustitre, bouton, dept=None, act=None, court=False,
     <p>{soustitre}</p>
   </div>
   <div class="form-card__body">
-    <form data-devis id="{idp}" novalidate>
-      <p class="form-msg" aria-live="polite"></p>
-      <div class="field-row">
-        <div class="field">
-          <label for="{idp}-nom">Nom <span class="req">*</span></label>
-          <input id="{idp}-nom" name="nom" type="text" autocomplete="name"
-                 placeholder="Votre nom" required>
-        </div>
-        <div class="field">
-          <label for="{idp}-tel">Téléphone <span class="req">*</span></label>
-          <input id="{idp}-tel" name="telephone" type="tel" autocomplete="tel"
-                 inputmode="tel" pattern="[0-9 +().-]{{9,}}" placeholder="06 00 00 00 00" required>
-        </div>
-      </div>
-      <div class="field-row">
-        <div class="field">
-          <label for="{idp}-ville">Ville <span class="req">*</span></label>
-          <input id="{idp}-ville" name="ville" type="text" autocomplete="address-level2"
-                 placeholder="{dept['prefecture'] if dept else 'Votre commune'}" required>
-        </div>
-        <div class="field">
-          <label for="{idp}-dept">Département</label>
-          <select id="{idp}-dept" name="departement">{opts_dept}</select>
-        </div>
-      </div>{bloc_presta}{bloc_urgence}{bloc_message}
+    <form data-devis data-endpoint="{FORM_ENDPOINT}" id="{idp}" novalidate>
+      <p class="form-msg" aria-live="polite"></p>{corps_champs}
       <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"
              aria-hidden="true" style="position:absolute;left:-9999px;opacity:0">
       <label class="consent">
@@ -350,7 +371,7 @@ def formulaire(idp, titre, soustitre, bouton, dept=None, act=None, court=False,
         <li>{picto("bouclier", 16)} Données non revendues</li>
       </ul>
       <p class="form-note">Vous préférez le téléphone&nbsp;? Appelez le
-        <a href="tel:{TEL_LIEN}">{TEL}</a><br>
+        <a href="tel:{TEL_LIEN}" data-cta="sous-formulaire">{TEL}</a><br>
         <span class="form-note__sur">Numéro fixe, non surtaxé — un technicien vous répond.</span></p>
     </form>
   </div>
@@ -415,8 +436,8 @@ def cta_final(titre, texte, idp, dept=None, act=None):
       </a>
       <p class="cta__dispo">Ligne directe · 24h/24 et 7j/7 · Devis gratuit sans engagement</p>
     </div>
-    {formulaire(idp, "Être rappelé rapidement", "Réponse sous 30 minutes ouvrées",
-                "Obtenir un Devis Gratuit", dept=dept, act=act, court=True)}
+    {formulaire(idp, "Être rappelé rapidement", "Téléphone et commune : c'est tout.",
+                "Je veux être rappelé", dept=dept, act=act, express=True)}
   </div>
 </section>"""
 
@@ -569,7 +590,7 @@ def footer():
 </div>
 
 <div class="mobile-bar">
-  <a class="mobile-bar__tel" href="tel:{TEL_LIEN}" data-cta="mobile">{SVG['tel']} Appeler</a>
+  <a class="mobile-bar__tel" href="tel:{TEL_LIEN}" data-cta="mobile">{SVG['tel']} {TEL}</a>
   <a class="mobile-bar__devis" href="#devis">{SVG['form']} Devis gratuit</a>
 </div>
 
@@ -816,11 +837,13 @@ def page_landing(act, dept):
 <!-- ============================ HERO ============================ -->
 <section class="hero">
   <div class="container hero__grid">
-    <div>
+    <div class="hero__haut">
       <span class="hero__badge"><span class="dot dot--live"></span> Urgence {d_nom} · 24h/24</span>
       <h1>{h1}</h1>
       <p class="hero__sub">Interventions rapides 7j/7 — techniciens qualifiés à votre service
         {art} {d_nom}. {act['accroche']}</p>
+    </div>
+    <div class="hero__bas">
       <ul class="hero__points">{hero_points}</ul>
       <div class="hero__actions">
         <a class="btn btn--blanc btn--xl" href="tel:{TEL_LIEN}" data-cta="hero">
@@ -831,10 +854,10 @@ def page_landing(act, dept):
       <p class="hero__villes"><strong>Nous intervenons&nbsp;:</strong>
         {", ".join(dept["villes"][:8])} et toutes les communes {du}.</p>
     </div>
-    {formulaire("hero-" + act["key"] + "-" + d_num,
-                "Rappel immédiat &amp; devis gratuit",
-                "Un technicien %s vous rappelle sous 30 minutes ouvrées." % du,
-                "Obtenir un Devis Gratuit", dept=dept, act=act)}
+    <div class="hero__form">{formulaire("hero-" + act["key"] + "-" + d_num,
+                "Être rappelé en 30 minutes",
+                "Deux informations suffisent : un technicien %s vous rappelle." % du,
+                "Je veux être rappelé", dept=dept, act=act, express=True)}</div>
   </div>
 </section>
 {bandeau_stats()}
@@ -858,8 +881,44 @@ def page_landing(act, dept):
          "Quelques chantiers réalisés par nos équipes. Photos de nos propres "
          "interventions — pas de banque d'images.")}
 
-<!-- ========================== URGENCES ========================== -->
+<!-- =========================== TARIFS ========================== -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Transparence des tarifs</span>
+      <h2>Nos tarifs indicatifs {art} {d_nom}</h2>
+      <p class="lead">Aucun prix caché. Ces montants sont des points de départ&nbsp;: le tarif
+        exact est fixé après diagnostic et validé par vous avant toute intervention.</p>
+    </div>
+    <div class="table-scroll">
+    <table class="tarifs">
+      <caption>Tarifs TTC indicatifs {TODAY[:4]}, hors pièces spécifiques et hors majorations
+        éventuelles. Le devis gratuit fait foi.</caption>
+      <thead><tr><th scope="col">Intervention</th><th scope="col">Tarif indicatif</th></tr></thead>
+      <tbody>{lignes}</tbody>
+    </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ AVIS ============================ -->
 <section class="section section--pale">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Avis clients</span>
+      <h2>Ils nous ont appelés {art} {d_nom}</h2>
+      <p class="lead">La proximité se mesure sur le terrain. Voici ce que disent nos clients
+        {du} après une intervention.</p>
+    </div>
+    <div class="grid grid--3">{avis}</div>
+    <div class="center">
+      {bandeau_avis("Note moyenne des interventions ETS-BZH en Bretagne")}
+    </div>
+  </div>
+</section>
+
+<!-- ========================== URGENCES ========================== -->
+<section class="section">
   <div class="container grid grid--2" style="align-items:center">
     <div>
       <span class="eyebrow">Situations d'urgence</span>
@@ -913,44 +972,10 @@ def page_landing(act, dept):
 
 {bloc_reassurance(dept)}
 
-<!-- =========================== TARIFS ========================== -->
-<section class="section section--pale">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Transparence des tarifs</span>
-      <h2>Nos tarifs indicatifs {art} {d_nom}</h2>
-      <p class="lead">Aucun prix caché. Ces montants sont des points de départ&nbsp;: le tarif
-        exact est fixé après diagnostic et validé par vous avant toute intervention.</p>
-    </div>
-    <div class="table-scroll">
-    <table class="tarifs">
-      <caption>Tarifs TTC indicatifs {TODAY[:4]}, hors pièces spécifiques et hors majorations
-        éventuelles. Le devis gratuit fait foi.</caption>
-      <thead><tr><th scope="col">Intervention</th><th scope="col">Tarif indicatif</th></tr></thead>
-      <tbody>{lignes}</tbody>
-    </table>
-    </div>
-  </div>
-</section>
 
 {bloc_etapes("De votre appel à la remise en service",
              "Quatre étapes, sans zone d'ombre&nbsp;: vous gardez la main à chaque instant.")}
 
-<!-- ============================ AVIS ============================ -->
-<section class="section">
-  <div class="container">
-    <div class="section-head center">
-      <span class="eyebrow">Avis clients</span>
-      <h2>Ils nous ont appelés {art} {d_nom}</h2>
-      <p class="lead">La proximité se mesure sur le terrain. Voici ce que disent nos clients
-        {du} après une intervention.</p>
-    </div>
-    <div class="grid grid--3">{avis}</div>
-    <div class="center">
-      {bandeau_avis("Note moyenne des interventions ETS-BZH en Bretagne")}
-    </div>
-  </div>
-</section>
 
 <!-- ============================ FAQ ============================= -->
 <section class="section">
@@ -1077,12 +1102,14 @@ def page_index():
 
 <section class="hero">
   <div class="container hero__grid">
-    <div>
+    <div class="hero__haut">
       <span class="hero__badge"><span class="dot dot--live"></span> Astreinte urgence 24h/24 — 7j/7</span>
       <h1>Plomberie, Dégorgement &amp; Électricité en Bretagne&nbsp;: dépannage d'urgence 7j/7</h1>
       <p class="hero__sub">ETS-BZH intervient sur les Côtes-d'Armor&nbsp;(22), le
         Finistère&nbsp;(29), l'Ille-et-Vilaine&nbsp;(35) et le Morbihan&nbsp;(56).
         Des artisans qualifiés, un tarif annoncé avant intervention, une garantie décennale.</p>
+    </div>
+    <div class="hero__bas">
       <ul class="hero__points">
         <li><span class="tick">{picto("check", 13)}</span><span>Un technicien au téléphone, pas un répondeur&nbsp;: délai annoncé dès l'appel</span></li>
         <li><span class="tick">{picto("check", 13)}</span><span>Devis gratuit sans engagement, validé avant tout démarrage</span></li>
@@ -1097,9 +1124,9 @@ def page_index():
       <p class="hero__villes"><strong>Bases d'intervention&nbsp;:</strong>
         Saint-Brieuc, Brest, Quimper, Rennes, Saint-Malo, Vannes, Lorient et toute la Bretagne.</p>
     </div>
-    {formulaire("hero-accueil", "Devis gratuit en 2 minutes",
-                "Décrivez votre besoin, nous vous rappelons.",
-                "Obtenir un Devis Gratuit")}
+    <div class="hero__form">{formulaire("hero-accueil", "Être rappelé en 30 minutes",
+                "Votre téléphone et votre commune : c'est tout ce qu'il nous faut.",
+                "Je veux être rappelé", express=True)}</div>
   </div>
 </section>
 {bandeau_stats()}
@@ -1246,9 +1273,9 @@ def page_contact():
         <li><span class="tick">{picto("zone", 13)}</span><span>Interventions&nbsp;: Côtes-d'Armor (22), Finistère (29), Ille-et-Vilaine (35), Morbihan (56)</span></li>
       </ul>
     </div>
-    {formulaire("contact-principal", "Formulaire de devis express",
+    <div class="hero__form">{formulaire("contact-principal", "Formulaire de devis express",
                 "Département, type de panne, degré d'urgence&nbsp;: tout en 1 minute.",
-                "Obtenir un Devis Gratuit", message=True)}
+                "Obtenir un Devis Gratuit", message=True)}</div>
   </div>
 </section>
 {bandeau_stats()}

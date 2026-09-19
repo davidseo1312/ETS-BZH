@@ -10,6 +10,12 @@ SITE = {
     "tel_lien": "+33220060075",
     "email": "contact@etablissement-breizh.fr",
     "url": "https://www.ets-bzh.fr",
+    # Point d'arrivée des formulaires. Tant qu'il est vide, les demandes
+    # basculent sur un « mailto: » que le visiteur doit envoyer lui-même —
+    # autant dire qu'elles sont perdues. Le script formulaire.php, à la racine
+    # du site, fonctionne sur tout hébergement PHP (dont Hostinger). Pour un
+    # service externe, remplacez simplement l'URL (Formspree, Brevo, etc.).
+    "form_endpoint": "/formulaire.php",
     # --- Identité légale (source : registres RCS / RNE / INSEE) ---
     "denomination": "ASSOUL BILAL",
     "nom_commercial": "ETS-BZH",
