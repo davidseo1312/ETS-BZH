@@ -20,7 +20,9 @@ sans configuration.
 | `/degorgement-canalisation-{dept}/` | `…/index.html` | 4 landing pages Dégorgement |
 | `/plomberie-depannage-{dept}/` | `…/index.html` | 4 landing pages Plomberie |
 | `/electricite-urgence-{dept}/` | `…/index.html` | 4 landing pages Électricité |
-| `/conseils/` | `conseils/index.html` | Index des 40 articles d'urgence |
+| `/conseils/` | `conseils/index.html` | Rubrique conseils, page 1 sur 4 |
+| `/conseils/page-{n}/` | `…/index.html` | Pages 2 à 4 de la rubrique |
+| `/conseils/{dept}/` | `…/index.html` | Sous-catégorie départementale (10 articles) |
 | `/conseils/{article}/` | `…/index.html` | 40 articles d'urgence (10 par département) |
 | `/contact/` | `contact/index.html` | Formulaire de devis express |
 | `/mentions-legales/` | `mentions-legales/index.html` | Éditeur, hébergeur, identité, assurances |
@@ -114,9 +116,43 @@ dictionnaire de plus dans la liste `ARTICLES`. Tout le reste suit
 automatiquement&nbsp;: page générée, entrée au sitemap, classement par département
 sur l'index, et vignettes de maillage.
 
+**Pagination et sous-catégories.** Quarante vignettes sur une seule page ne se
+lisent pas. La rubrique est donc découpée à **12 articles par page** (quatre
+lignes de trois), avec une barre de numéros en bas, et une **barre de
+sous-catégories** en haut&nbsp;: tous les départements, puis un lien par
+département avec son compteur.
+
+```
+/conseils/                    page 1 sur 4, tous départements
+/conseils/page-2/  … page-4/  la suite
+/conseils/cotes-d-armor-22/   les 10 conseils du 22
+/conseils/finistere-29/       les 10 du 29   (idem 35 et 56)
+```
+
+Trois choix méritent d'être expliqués&nbsp;:
+
+- **Ce sont des liens, pas un filtre en JavaScript.** Chaque sous-catégorie a sa
+  propre URL, donc un titre, une description et un `<h1>` qui lui sont propres —
+  « Conseils d'urgence dans le Finistère » se positionne, pas un paramètre
+  d'URL. Elle est partageable, indexable, et elle fonctionne sans script.
+- **Les intertitres de département subsistent dans la liste paginée.** Les
+  articles sont triés par département puis par métier, et un `<h2>` réapparaît à
+  chaque changement de département&nbsp;: même coupée en tranches de douze, la
+  page reste lisible.
+- **Chaque page a son propre `canonical` et son propre titre**, et les pages 2 à
+  4 portent « Page N sur 4 » en tête de description. Sans cela, Google verrait
+  quatre pages au résumé identique.
+
+Le découpage est générique&nbsp;: `url_conseils()`, `articles_tries()` et
+`nb_pages()` servent aussi bien à la liste complète qu'aux sous-catégories. Les
+pages départementales ne comptent aujourd'hui qu'une page chacune, donc la barre
+de numéros n'y apparaît pas&nbsp;; elle apparaîtra d'elle-même au-delà de douze
+articles.
+
 **Maillage.** Chaque page métier affiche les **quatre premiers articles** de son
-département — dix vignettes noieraient le bas de page — et l'index `/conseils/`
-porte la liste complète, groupée par département sur trois colonnes.
+département, sous un intertitre qui renvoie à la sous-catégorie complète — dix
+vignettes noieraient le bas de page. Le fil d'Ariane d'un article passe par son
+département&nbsp;: Accueil › Conseils d'urgence › Côtes-d'Armor (22) › WC bouché.
 
 ## Logo
 

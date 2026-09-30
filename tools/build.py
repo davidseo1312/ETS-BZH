@@ -713,6 +713,39 @@ def articles_du_dept(num):
     return [a for a in ARTICLES if a["dept"] == num]
 
 
+PAR_PAGE = 12          # 12 vignettes, soit quatre lignes de trois
+
+
+def url_conseils(page=1, dept=None):
+    """URL d'une page de la rubrique conseils.
+
+    /conseils/            page 1, tous départements
+    /conseils/page-2/     page 2, tous départements
+    /conseils/finistere-29/          page 1 du Finistère
+    /conseils/finistere-29/page-2/   page 2 du Finistère
+    """
+    base = "/conseils/" if dept is None else "/conseils/%s-%s/" % (dept["slug"], dept["num"])
+    return base if page == 1 else base + "page-%d/" % page
+
+
+def articles_tries(dept=None):
+    """Ordre de lecture : département, puis métier, puis titre.
+
+    La liste complète reste ainsi groupée par département même une fois
+    découpée en pages, et les vignettes d'un même métier se suivent.
+    """
+    ordre_dept = {d["num"]: i for i, d in enumerate(DEPARTEMENTS)}
+    ordre_act = {a["key"]: i for i, a in enumerate(ACTIVITES)}
+    liste = ARTICLES if dept is None else articles_du_dept(dept["num"])
+    return sorted(liste, key=lambda a: (ordre_dept[a["dept"]],
+                                        ordre_act[a["act"]], a["court"]))
+
+
+def nb_pages(dept=None):
+    total = len(articles_tries(dept))
+    return max(1, -(-total // PAR_PAGE))
+
+
 def ld_ariane(items):
     return {
         "@context": "https://schema.org",
@@ -1035,7 +1068,13 @@ def page_landing(act, dept):
         <div class="liens-grid" style="grid-template-columns:1fr;margin-top:12px">{autres_dept}</div>
       </div>
     </div>
-    <div class="art-grille art-grille--2" style="margin-top:26px">{conseils_dept}</div>
+    <div class="section-head" style="margin:44px 0 22px">
+      <h3 style="font-size:1.35rem">Conseils d'urgence {art} {d_nom}</h3>
+      <p class="lead" style="margin:0">Ce qu'il faut faire dans les premières minutes,
+        situation par situation. <a href="{url_conseils(dept=dept)}"><strong>Voir les
+        {len(articles_du_dept(d_num))} conseils {art} {d_nom}</strong></a></p>
+    </div>
+    <div class="art-grille art-grille--2">{conseils_dept}</div>
   </div>
 </section>
 
@@ -1123,11 +1162,75 @@ def carte_article(art):
                art["h1"], art["chapo"][:150].rsplit(" ", 1)[0] + "…"))
 
 
+def filtres_conseils(dept_courant=None):
+    """Barre de sous-catégories : tous les départements, puis les quatre."""
+    def lien(label, href, actif, nb):
+        return ('<a class="filtre%s" href="%s"%s>%s'
+                '<span class="filtre__nb">%d</span></a>'
+                % (" est-actif" if actif else "", href,
+                   ' aria-current="page"' if actif else "", label, nb))
+    out = lien("Tous les départements", url_conseils(), dept_courant is None, len(ARTICLES))
+    for d in DEPARTEMENTS:
+        out += lien("%s (%s)" % (d["nom"], d["num"]), url_conseils(dept=d),
+                    dept_courant is not None and d["num"] == dept_courant["num"],
+                    len(articles_du_dept(d["num"])))
+    return ('<nav class="filtres" aria-label="Filtrer par département">%s</nav>' % out)
+
+
+def pagination(page, total_pages, dept=None):
+    """Numéros de page. Rien n'est affiché s'il n'y a qu'une page."""
+    if total_pages <= 1:
+        return ""
+    liens = ""
+    if page > 1:
+        liens += ('<a class="page-lien page-lien--prec" href="%s" rel="prev">'
+                  '<span aria-hidden="true">&#8592;</span> Précédent</a>'
+                  % url_conseils(page - 1, dept))
+    for n in range(1, total_pages + 1):
+        # Le libellé complet passe par aria-label plutôt que par un texte masqué :
+        # un intitulé accessible n'a pas besoin d'exister dans le flux visuel.
+        if n == page:
+            liens += ('<span class="page-num est-actif" aria-current="page" '
+                      'aria-label="Page %d, page courante">%d</span>' % (n, n))
+        else:
+            liens += ('<a class="page-num" href="%s" aria-label="Page %d">%d</a>'
+                      % (url_conseils(n, dept), n, n))
+    if page < total_pages:
+        liens += ('<a class="page-lien page-lien--suiv" href="%s" rel="next">'
+                  'Suivant <span aria-hidden="true">&#8594;</span></a>'
+                  % url_conseils(page + 1, dept))
+    return ('<nav class="pagination" aria-label="Pages de la rubrique conseils">'
+            '%s</nav>' % liens)
+
+
+def grille_conseils(articles, avec_titres):
+    """Vignettes du lot courant.
+
+    Sur la liste tous départements, un intertitre réapparaît à chaque
+    changement de département : la page reste lisible même coupée en tranches.
+    """
+    if not avec_titres:
+        return '<div class="art-grille">%s</div>' % "".join(
+            carte_article(a) for a in articles)
+    out, dept_precedent = "", None
+    for a in articles:
+        if a["dept"] != dept_precedent:
+            if dept_precedent is not None:
+                out += "</div></div>"
+            d = DEPT[a["dept"]]
+            out += ('<div class="conseils-dept"><h2>%s (%s)</h2>'
+                    '<div class="art-grille">' % (d["nom"], d["num"]))
+            dept_precedent = a["dept"]
+        out += carte_article(a)
+    return out + "</div></div>" if out else ""
+
+
 def page_article(art):
     dept, act = DEPT[art["dept"]], ACT[art["act"]]
     url = url_article(art)
     d_nom, d_num = dept["nom"], dept["num"]
     fil = [("Accueil", "/"), ("Conseils d'urgence", "/conseils/"),
+           ("%s (%s)" % (d_nom, d_num), url_conseils(dept=dept)),
            (art["court"], url)]
 
     cta_titre = ("Une urgence %s %s %s&nbsp;?"
@@ -1199,9 +1302,10 @@ def page_article(art):
       </div>
       <div class="card">
         <h3>Tous nos conseils d'urgence</h3>
-        <p>Huit situations traitées département par département&nbsp;: ce qu'il faut
+        <p>Quarante situations traitées département par département&nbsp;: ce qu'il faut
           faire dans les premières minutes, et quand appeler.</p>
-        <p><a href="/conseils/"><strong>Voir les conseils d'urgence en Bretagne</strong></a></p>
+        <p><a href="{url_conseils(dept=dept)}"><strong>Les {len(articles_du_dept(d_num))} conseils {dept['article']} {d_nom}</strong></a><br>
+          <a href="/conseils/">Voir toute la rubrique en Bretagne</a></p>
       </div>
     </div>
   </div>
@@ -1221,36 +1325,69 @@ def page_article(art):
 """ + footer())
 
 
-def page_conseils():
-    titre = "Urgences plomberie, dégorgement & électricité — ETS-BZH"
-    desc = ("Que faire en urgence en Bretagne : fosse qui déborde, canalisation gelée, "
-            "colonne bouchée, dégât des eaux, chauffe-eau qui fuit, odeur de brûlé.")
-    fil = [("Accueil", "/"), ("Conseils d'urgence", "/conseils/")]
+def page_conseils(page=1, dept=None):
+    """Liste des conseils, paginée, éventuellement filtrée sur un département."""
+    tous = articles_tries(dept)
+    total_pages = nb_pages(dept)
+    lot = tous[(page - 1) * PAR_PAGE: page * PAR_PAGE]
+    url = url_conseils(page, dept)
 
-    blocs = ""
-    for d in DEPARTEMENTS:
-        cartes = "".join(carte_article(a) for a in articles_du_dept(d["num"]))
-        blocs += f"""
-    <div class="conseils-dept">
-      <h2>{d['nom']} ({d['num']})</h2>
-      <div class="art-grille">{cartes}</div>
-    </div>"""
+    suffixe = "" if page == 1 else " — page %d" % page
+    if dept:
+        d_nom, d_num = dept["nom"], dept["num"]
+        titre = "Conseils d'urgence %s (%s)%s — ETS-BZH" % (d_nom, d_num, suffixe)
+        desc = ("Que faire en urgence %s %s : %d situations de plomberie, dégorgement "
+                "et électricité expliquées geste par geste. 02 20 06 00 75."
+                % (dept["article"], d_nom, len(tous)))
+        h1 = "Conseils d'urgence %s %s" % (dept["article"], d_nom)
+        chapo = ("%d situations que nous traitons toute l'année %s %s, expliquées sans "
+                 "jargon&nbsp;: les gestes des premières minutes, ce qu'il ne faut "
+                 "surtout pas faire, et le moment où il faut appeler."
+                 % (len(tous), dept["article"], d_nom))
+        mots = ("conseils plomberie urgence %s, que faire fuite d'eau %s, "
+                "canalisation bouchée %s, urgence électrique %s"
+                % (d_nom, d_nom, d_nom, d_nom))
+        fil = [("Accueil", "/"), ("Conseils d'urgence", "/conseils/"),
+               ("%s (%s)" % (d_nom, d_num), url_conseils(dept=dept))]
+        eyebrow = "Conseils · %s (%s)" % (d_nom, d_num)
+    else:
+        # Au-delà de la première page, un titre plus court laisse la place au
+        # numéro sans dépasser ce que Google affiche.
+        titre = ("Urgences plomberie, dégorgement & électricité — ETS-BZH" if page == 1
+                 else "Conseils d'urgence en Bretagne — page %d — ETS-BZH" % page)
+        desc = ("Que faire en urgence en Bretagne : fosse qui déborde, canalisation "
+                "gelée, colonne bouchée, dégât des eaux, chauffe-eau qui fuit, odeur "
+                "de brûlé.")
+        h1 = "Que faire en attendant le dépanneur&nbsp;?"
+        chapo = ("%d situations que nous traitons toute l'année en Bretagne, expliquées "
+                 "sans jargon&nbsp;: les gestes des premières minutes, ce qu'il ne faut "
+                 "surtout pas faire, et le moment où il faut appeler." % len(ARTICLES))
+        mots = ("conseils plomberie urgence Bretagne, que faire fuite d'eau, "
+                "canalisation bouchée que faire, urgence électrique Bretagne")
+        fil = [("Accueil", "/"), ("Conseils d'urgence", "/conseils/")]
+        eyebrow = "Conseils d'urgence"
+
+    if page > 1:
+        fil = fil + [("Page %d" % page, url)]
+        chapo = ("Page %d sur %d. " % (page, total_pages)) + chapo
+        # Description distincte par page : sans cela, Google verrait quatre
+        # pages au résumé identique.
+        desc = "Page %d sur %d. %s" % (page, total_pages, desc)
+
+    compteur = ("Articles %d à %d sur %d"
+                % ((page - 1) * PAR_PAGE + 1, (page - 1) * PAR_PAGE + len(lot), len(tous)))
 
     return (
-        head(titre, desc, "/conseils/", [ld_ariane(fil)],
-             "conseils plomberie urgence Bretagne, que faire fuite d'eau, "
-             "canalisation bouchée que faire, urgence électrique Bretagne")
-        + topbar() + header() + ariane(fil) + f"""
+        head(titre, desc, url, [ld_ariane(fil)], mots)
+        + topbar() + header("conseils") + ariane(fil) + f"""
 
 <main id="contenu">
 
 <section class="hero hero--compact">
   <div class="container">
-    <span class="eyebrow">Conseils d'urgence</span>
-    <h1>Que faire en attendant le dépanneur&nbsp;?</h1>
-    <p class="hero__sub">Huit situations que nous traitons toutes les semaines en
-      Bretagne, expliquées sans jargon&nbsp;: les gestes des premières minutes, ce qu'il
-      ne faut surtout pas faire, et le moment où il faut appeler.</p>
+    <span class="eyebrow">{eyebrow}</span>
+    <h1>{h1}</h1>
+    <p class="hero__sub">{chapo}</p>
     <div class="hero__actions">
       <a class="btn btn--blanc btn--xl" href="tel:{TEL_LIEN}" data-cta="conseils-hero">
         {SVG['tel']} Appeler le {TEL}
@@ -1260,7 +1397,11 @@ def page_conseils():
 </section>
 
 <section class="section">
-  <div class="container">{blocs}
+  <div class="container">
+    {filtres_conseils(dept)}
+    <p class="compteur">{compteur}</p>
+    {grille_conseils(lot, avec_titres=dept is None)}
+    {pagination(page, total_pages, dept)}
   </div>
 </section>
 
@@ -1268,7 +1409,8 @@ def page_conseils():
            "Décrivez-la nous au téléphone. Un technicien qualifie le problème, vous "
            "annonce un délai et un ordre de prix avant tout déplacement. "
            "Devis gratuit et sans engagement.",
-           "cta-conseils")}
+           "cta-conseils" + ("" if dept is None else "-" + dept["num"])
+           + ("" if page == 1 else "-p%d" % page), dept=dept)}
 
 </main>
 """ + footer())
@@ -2062,8 +2204,16 @@ def main():
             ecrire(fichier_landing(act, dept), page_landing(act, dept))
             pages.append((url_landing(act, dept), "0.9", "monthly"))
 
-    ecrire("conseils/index.html", page_conseils())
-    pages.append(("/conseils/", "0.8", "monthly"))
+    def ecrire_liste(dept=None):
+        """Écrit toutes les pages d'une liste paginée."""
+        for n in range(1, nb_pages(dept) + 1):
+            u = url_conseils(n, dept)
+            ecrire(u.strip("/") + "/index.html", page_conseils(n, dept))
+            pages.append((u, "0.8" if n == 1 else "0.5", "monthly"))
+
+    ecrire_liste()
+    for d in DEPARTEMENTS:
+        ecrire_liste(d)
     for art in ARTICLES:
         ecrire("conseils/%s/index.html" % art["slug"], page_article(art))
         pages.append((url_article(art), "0.7", "monthly"))
@@ -2083,9 +2233,11 @@ def main():
            "User-agent: *\nAllow: /\n\nSitemap: %s/sitemap.xml\n" % BASE)
 
     print("-" * 62)
+    listes = nb_pages() + sum(nb_pages(d) for d in DEPARTEMENTS)
     print("%d pages HTML générées : 12 pages métier, %d articles d'urgence, "
-          "%d pages annexes.\n"
-          % (len(pages) + 1, len(ARTICLES), len(pages) + 1 - 13 - len(ARTICLES)))
+          "%d pages de rubrique, %d pages annexes.\n"
+          % (len(pages) + 1, len(ARTICLES), listes,
+             len(pages) + 1 - 13 - len(ARTICLES) - listes))
 
 
 if __name__ == "__main__":
