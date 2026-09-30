@@ -770,7 +770,7 @@ def ecrire(nom, contenu):
 def page_landing(act, dept):
     url = url_landing(act, dept)
     d_nom, d_num = dept["nom"], dept["num"]
-    conseils_dept = "".join(carte_article(a) for a in articles_du_dept(d_num))
+    conseils_dept = "".join(carte_article(a) for a in articles_du_dept(d_num)[:4])
     art = dept["article"]
     du = DE[d_num]
     activite = clean(act["nom_court"]).lower()
@@ -1233,7 +1233,7 @@ def page_conseils():
         blocs += f"""
     <div class="conseils-dept">
       <h2>{d['nom']} ({d['num']})</h2>
-      <div class="art-grille art-grille--2">{cartes}</div>
+      <div class="art-grille">{cartes}</div>
     </div>"""
 
     return (
