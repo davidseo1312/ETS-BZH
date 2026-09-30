@@ -116,7 +116,7 @@ body {
 img, svg { max-width: 100%; height: auto; display: block; }
 a { color: var(--bleu); text-decoration: none; }
 a:hover { color: var(--bleu-hover); text-decoration: underline; }
-.prose a, .faq__body a, .consent a, .form-note a {
+.prose a:not(.btn), .faq__body a, .consent a, .form-note a {
   text-decoration: underline;
   text-underline-offset: 3px;
   text-decoration-thickness: 2px;
@@ -881,6 +881,87 @@ a.note-globale:hover { border-color: var(--bleu); text-decoration: none; }
 .encadre h3 { font-size: 1.08rem; margin-bottom: 8px; }
 .encadre p:last-child { margin-bottom: 0; }
 
+/* ---------- Articles d'urgence ---------- */
+/* L'encadré d'ouverture : le visiteur est en situation, il lit ça et rien
+   d'autre. Bord rouge franc, gestes numérotés, bouton d'appel en bas. */
+.urgence {
+  background: #fff5f1;
+  border: 3px solid var(--urgence);
+  padding: 26px 28px 24px;
+  margin: 0 0 30px;
+}
+.urgence__titre {
+  display: flex; align-items: center; gap: 12px;
+  font-family: "Barlow Condensed", "Barlow", sans-serif;
+  font-size: 1.7rem; font-weight: 700; line-height: 1.1;
+  color: var(--urgence-hover); margin: 0 0 18px;
+}
+.urgence__titre svg { flex: none; }
+.urgence__liste { display: grid; gap: 14px; margin: 0 0 22px; padding: 0; list-style: none; }
+.urgence__liste li { display: flex; gap: 14px; align-items: flex-start; font-size: 1.05rem; color: var(--nuit-2); }
+.urgence__num {
+  flex: none; width: 30px; height: 30px; margin-top: 1px;
+  background: var(--urgence); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: .98rem;
+}
+.urgence__appel { margin: 0; }
+
+/* L'avertissement de sécurité : ton chaud, pas rouge — il ne doit pas
+   concurrencer visuellement l'encadré d'action juste au-dessus. */
+.danger {
+  display: flex; gap: 16px; align-items: flex-start;
+  background: var(--ivoire-2);
+  border-left: 6px solid var(--ambre);
+  padding: 20px 24px;
+  margin: 0 0 30px;
+}
+.danger svg { flex: none; color: var(--ambre-txt); margin-top: 2px; }
+.danger p { margin: 0; color: var(--nuit-2); font-size: 1.02rem; }
+.danger strong { color: var(--ambre-txt); }
+
+.prose--article { max-width: 860px; }
+.prose--article h2 { margin-top: 1.5em; }
+.prose--article .checks { margin: 0 0 1.2em; gap: 12px; display: grid; }
+
+.hero--article .hero__sub { max-width: 760px; margin-bottom: 26px; }
+
+/* Vignettes d'articles */
+.art-grille { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.art-grille--2 { grid-template-columns: repeat(2, 1fr); }
+.art-carte {
+  display: flex; flex-direction: column; gap: 8px;
+  background: #fff; border: 1px solid var(--bordure); border-top: 5px solid var(--bleu);
+  padding: 22px 22px 20px; color: var(--nuit-2);
+  transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+.art-carte:hover {
+  border-top-color: var(--ambre); box-shadow: 0 14px 34px rgba(12, 74, 112, .16);
+  transform: translateY(-4px); text-decoration: none; color: var(--nuit-2);
+}
+.art-carte__dept {
+  display: flex; align-items: center; gap: 7px;
+  font-size: .78rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--ambre-txt);
+}
+.art-carte__titre {
+  font-family: "Barlow Condensed", "Barlow", sans-serif;
+  font-size: 1.35rem; font-weight: 700; line-height: 1.12; color: var(--nuit);
+}
+.art-carte__txt { font-size: .98rem; color: var(--gris); line-height: 1.55; }
+.art-carte__lire {
+  margin-top: auto; padding-top: 12px;
+  font-weight: 800; font-size: .93rem; color: var(--bleu);
+}
+.art-carte:hover .art-carte__lire { text-decoration: underline; }
+
+.conseils-dept { margin-bottom: 44px; }
+.conseils-dept:last-child { margin-bottom: 0; }
+.conseils-dept h2 {
+  padding-bottom: 12px; margin-bottom: 22px;
+  border-bottom: 3px solid var(--bordure-forte);
+}
+
 /* ---------- Contenu SEO ---------- */
 .prose { max-width: 820px; }
 .prose h2 { margin-top: 1.6em; }
@@ -1100,6 +1181,7 @@ a.note-globale:hover { border-color: var(--bleu); text-decoration: none; }
 @media (max-width: 1080px) {
   /* Sur une colonne, le formulaire passe devant les arguments et les boutons :
      il est le premier geste possible, il doit arriver le premier. */
+  .art-grille { grid-template-columns: repeat(2, 1fr); }
   .hero__grid {
     grid-template-columns: 1fr;
     grid-template-areas: "haut" "form" "bas";
@@ -1156,6 +1238,9 @@ a.note-globale:hover { border-color: var(--bleu); text-decoration: none; }
   body { font-size: 16px; padding-bottom: 58px; }
   .section { padding: 52px 0; }
   .grid--2, .grid--3, .grid--4, .dept-grid, .liens-grid, .steps, .field-row { grid-template-columns: 1fr; }
+  .art-grille, .art-grille--2 { grid-template-columns: 1fr; }
+  .urgence { padding: 22px 20px 20px; }
+  .danger { padding: 18px 18px; gap: 12px; }
   .dept-grid--compact { grid-template-columns: 1fr 1fr; }
   .carte { padding: 14px; }
 }

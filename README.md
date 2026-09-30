@@ -1,8 +1,8 @@
 # Site ETS-BZH — Plomberie · Dégorgement · Électricité (Bretagne)
 
 Site vitrine statique orienté conversion pour **ETS-BZH**, avec 12 landing pages
-ultra-ciblées (3 activités × 4 départements bretons) générées à partir d'un
-template unique.
+ultra-ciblées (3 activités × 4 départements bretons) et 8 articles d'urgence
+géolocalisés, générés à partir de templates uniques.
 
 - **Téléphone :** 02 20 06 00 75 · **E-mail :** contact@etablissement-breizh.fr
 - **Zones :** Côtes-d'Armor (22), Finistère (29), Ille-et-Vilaine (35), Morbihan (56)
@@ -20,6 +20,8 @@ sans configuration.
 | `/degorgement-canalisation-{dept}/` | `…/index.html` | 4 landing pages Dégorgement |
 | `/plomberie-depannage-{dept}/` | `…/index.html` | 4 landing pages Plomberie |
 | `/electricite-urgence-{dept}/` | `…/index.html` | 4 landing pages Électricité |
+| `/conseils/` | `conseils/index.html` | Index des 8 articles d'urgence |
+| `/conseils/{article}/` | `…/index.html` | 8 articles d'urgence (2 par département) |
 | `/contact/` | `contact/index.html` | Formulaire de devis express |
 | `/mentions-legales/` | `mentions-legales/index.html` | Éditeur, hébergeur, identité, assurances |
 | `/politique-de-confidentialite/` | `…/index.html` | RGPD : finalités, bases légales, droits |
@@ -59,6 +61,51 @@ tarifs arrivaient à 12 628 px, soit le 15e écran, et les avis à 14 810 px, le
 18e. Ce sont pourtant les deux arguments qui décident un appel. Ils sont
 maintenant à 7 344 px et 8 490 px, et le texte SEO long — qui n'a besoin d'être
 lu par personne — est passé derrière.
+
+## Articles d'urgence
+
+Huit articles, **deux par département**, publiés sous `/conseils/`. Ils ne
+répètent pas les pages métier&nbsp;: ils visent une autre intention de recherche.
+Quelqu'un qui tape « plombier Saint-Brieuc » cherche une entreprise&nbsp;; quelqu'un
+qui tape « fosse septique qui déborde » cherche quoi faire dans les cinq minutes.
+Ce sont deux visiteurs différents, et le second appelle plus vite que le premier
+si on lui répond clairement.
+
+| Département | Article | Métier |
+| --- | --- | --- |
+| 22 | Fosse septique qui déborde&nbsp;: que faire dans l'heure | Dégorgement |
+| 22 | Plus de courant après une tempête&nbsp;: réseau ou installation&nbsp;? | Électricité |
+| 29 | Canalisation gelée&nbsp;: dégeler sans faire éclater le tuyau | Plomberie |
+| 29 | L'eau remonte dans la douche&nbsp;: siphon, collecteur ou réseau&nbsp;? | Dégorgement |
+| 35 | Colonne d'eaux usées bouchée à Rennes&nbsp;: qui appelle, qui paie | Dégorgement |
+| 35 | Dégât des eaux venant du voisin&nbsp;: les deux premières heures | Plomberie |
+| 56 | Chauffe-eau qui fuit&nbsp;: ce qui se répare vraiment | Plomberie |
+| 56 | Odeur de brûlé au tableau&nbsp;: les cinq premières minutes | Électricité |
+
+**Structure de chaque article** (`page_article` dans `tools/build.py`)&nbsp;:
+bandeau avec bouton d'appel, encadré rouge « À faire tout de suite » numéroté et
+suivi d'un bouton d'appel pleine largeur, encadré d'avertissement de sécurité,
+trois à quatre sections de fond, FAQ balisée `FAQPage`, bandeau de rappel,
+liens vers les trois pages métier du département et vers trois autres articles.
+Neuf liens d'appel par article.
+
+**Non-redondance mesurée.** Le contenu est comparé au rendu réel des 12 pages
+métier, texte contre texte&nbsp;: la similarité maximale d'un article avec une page
+métier est de **10,9&nbsp;%**, et la similarité maximale entre deux articles de
+**22,1&nbsp;%**. À titre de comparaison, les 4 pages d'un même métier sont
+identiques entre elles à 84–90&nbsp;%. Le script de mesure est reproductible&nbsp;:
+extraction du texte visible, puis `difflib.SequenceMatcher`.
+
+**Ancrage local.** Chaque article traite le contexte réel du département plutôt
+que de remplacer un nom de ville dans un texte générique&nbsp;: assainissement non
+collectif et nappes hautes dans l'arrière-pays costarmoricain, résidences
+secondaires non chauffées et collecteurs anciens en Finistère, colonnes
+collectives et rotation locative sur Rennes métropole, locations saisonnières et
+air marin dans le Morbihan.
+
+**Le contenu vit dans `tools/articles.py`**, séparé de `tools/data.py`&nbsp;: un
+article se modifie sans toucher aux données du site, et s'ajoute en écrivant un
+dictionnaire de plus dans la liste `ARTICLES`.
 
 ## Logo
 
@@ -440,6 +487,7 @@ python3 tools/build.py
 
 - `tools/data.py` — contenus éditoriaux (activités, prestations, tarifs, FAQ,
   avis, départements et communes)
+- `tools/articles.py` — les 8 articles d'urgence, un dictionnaire par article
 - `tools/build.py` — templates, rendu HTML, JSON-LD, sitemap
 
 Aucune dépendance : Python 3 seul suffit. Prévisualisation locale **via un

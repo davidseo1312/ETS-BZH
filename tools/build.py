@@ -59,6 +59,8 @@ DE = {"22": "des Côtes-d'Armor", "29": "du Finistère",
       "35": "d'Ille-et-Vilaine", "56": "du Morbihan"}
 
 ACT = {a["key"]: a for a in ACTIVITES}
+from articles import ARTICLES
+DEPT = {d["num"]: d for d in DEPARTEMENTS}
 DEPT = {d["num"]: d for d in DEPARTEMENTS}
 
 
@@ -235,6 +237,7 @@ def header(courant=""):
       <ul style="display:contents">
         <li><a href="/"{cur('accueil')}>Accueil</a></li>
         {nav_zones()}
+        <li><a href="/conseils/"{cur('conseils')}>Conseils</a></li>
         <li><a href="/contact/"{cur('contact')}>Contact</a></li>
       </ul>
     </nav>
@@ -568,6 +571,7 @@ def footer():
       <span>© <span data-annee>2026</span> ETS-BZH — Tous droits réservés.</span>
       <nav class="footer__legal" aria-label="Liens légaux">
         <a href="/">Accueil</a>
+        <a href="/conseils/">Conseils d'urgence</a>
         <a href="/contact/">Contact</a>
         <a href="/mentions-legales/">Mentions légales</a>
         <a href="/politique-de-confidentialite/">Confidentialité</a>
@@ -701,6 +705,14 @@ def ld_faq(act, dept):
     }
 
 
+def url_article(art):
+    return "/conseils/%s/" % art["slug"]
+
+
+def articles_du_dept(num):
+    return [a for a in ARTICLES if a["dept"] == num]
+
+
 def ld_ariane(items):
     return {
         "@context": "https://schema.org",
@@ -758,6 +770,7 @@ def ecrire(nom, contenu):
 def page_landing(act, dept):
     url = url_landing(act, dept)
     d_nom, d_num = dept["nom"], dept["num"]
+    conseils_dept = "".join(carte_article(a) for a in articles_du_dept(d_num))
     art = dept["article"]
     du = DE[d_num]
     activite = clean(act["nom_court"]).lower()
@@ -1022,8 +1035,240 @@ def page_landing(act, dept):
         <div class="liens-grid" style="grid-template-columns:1fr;margin-top:12px">{autres_dept}</div>
       </div>
     </div>
+    <div class="art-grille art-grille--2" style="margin-top:26px">{conseils_dept}</div>
   </div>
 </section>
+
+</main>
+""" + footer())
+
+
+
+# ============================================================ ARTICLES
+def bloc_urgent(art):
+    """L'encadré « À faire tout de suite » : c'est lui que le visiteur lit."""
+    etapes = "".join(
+        '<li><span class="urgence__num">%d</span><span>%s</span></li>' % (i, t)
+        for i, t in enumerate(art["urgent"], 1))
+    danger = ""
+    if art.get("danger"):
+        danger = ('\n<div class="danger">%s<p><strong>À ne pas faire&nbsp;:</strong> %s</p></div>'
+                  % (picto("alerte", 26), art["danger"]))
+    return ('\n<div class="urgence">'
+            '<p class="urgence__titre">%s À faire tout de suite</p>'
+            '<ol class="urgence__liste">%s</ol>'
+            '<a class="btn btn--urgence btn--xl btn--bloc urgence__appel" href="tel:%s" '
+            'data-cta="article-urgence">%s Appeler le %s</a>'
+            '</div>%s' % (picto("alerte", 26), etapes, TEL_LIEN, SVG["tel"], TEL, danger))
+
+
+def corps_article(art):
+    out = ""
+    for h2, paras, puces in art["sections"]:
+        out += "\n      <h2>%s</h2>\n" % h2
+        out += "".join("      <p>%s</p>\n" % t for t in paras)
+        if puces:
+            out += ('      <ul class="checks">%s</ul>\n'
+                    % "".join('<li><span class="tick">%s</span><span>%s</span></li>'
+                              % (picto("check", 13), x) for x in puces))
+    return out
+
+
+def bloc_faq(art):
+    items = "".join(
+        "<details><summary>%s</summary><div class=\"faq__body\"><p>%s</p></div></details>"
+        % (q, r) for q, r in art["faq"])
+    return items
+
+
+def ld_article(art, dept):
+    return {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": clean(art["h1"]),
+        "description": clean(art["meta"]),
+        "inLanguage": "fr-FR",
+        "datePublished": art["date"],
+        "dateModified": TODAY,
+        "author": {"@type": "Organization", "name": SITE["nom"], "url": BASE + "/"},
+        "publisher": {"@type": "Organization", "name": SITE["nom"],
+                      "logo": {"@type": "ImageObject",
+                               "url": BASE + "/assets/img/logo.jpg"}},
+        "mainEntityOfPage": {"@type": "WebPage", "@id": BASE + url_article(art)},
+        "about": {"@type": "Thing", "name": clean(ACT[art["act"]]["nom"])},
+        "contentLocation": {"@type": "AdministrativeArea",
+                            "name": "%s (%s)" % (dept["nom"], dept["num"])},
+    }
+
+
+def ld_faq_article(art):
+    return {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [{"@type": "Question", "name": clean(q),
+                        "acceptedAnswer": {"@type": "Answer", "text": clean(r)}}
+                       for q, r in art["faq"]],
+    }
+
+
+def carte_article(art):
+    """Vignette utilisée sur l'index et dans les articles liés."""
+    d = DEPT[art["dept"]]
+    return ('<a class="art-carte" href="%s">'
+            '<span class="art-carte__dept">%s %s (%s)</span>'
+            '<span class="art-carte__titre">%s</span>'
+            '<span class="art-carte__txt">%s</span>'
+            '<span class="art-carte__lire">Lire la suite</span></a>'
+            % (url_article(art), picto("carte", 14), d["nom"], d["num"],
+               art["h1"], art["chapo"][:150].rsplit(" ", 1)[0] + "…"))
+
+
+def page_article(art):
+    dept, act = DEPT[art["dept"]], ACT[art["act"]]
+    url = url_article(art)
+    d_nom, d_num = dept["nom"], dept["num"]
+    fil = [("Accueil", "/"), ("Conseils d'urgence", "/conseils/"),
+           (art["court"], url)]
+
+    cta_titre = ("Une urgence %s %s %s&nbsp;?"
+                 % (act["nom_court"].lower(), dept["article"], d_nom))
+
+    autres = [a for a in ARTICLES if a["slug"] != art["slug"]
+              and (a["dept"] == art["dept"] or a["act"] == art["act"])][:3]
+    lies = "".join(carte_article(a) for a in autres)
+
+    pages_dept = "".join(
+        '<li><a href="%s">%s %s (%s)</a></li>'
+        % (url_landing(a, dept), a["nom_court"], d_nom, d_num) for a in ACTIVITES)
+
+    return (
+        head(art["titre"], clean(art["meta"]), url,
+             [ld_article(art, dept), ld_faq_article(art), ld_ariane(fil)],
+             art["mots_cles"])
+        + topbar() + header() + ariane(fil) + f"""
+
+<main id="contenu">
+
+<section class="hero hero--compact hero--article">
+  <div class="container">
+    <span class="eyebrow">Urgence {d_nom} ({d_num}) · {act['nom_court']}</span>
+    <h1>{art['h1']}</h1>
+    <p class="hero__sub">{art['chapo']}</p>
+    <div class="hero__actions">
+      <a class="btn btn--blanc btn--xl" href="tel:{TEL_LIEN}" data-cta="article-hero">
+        {SVG['tel']} Appeler le {TEL}
+      </a>
+      <a class="btn btn--outline-blanc btn--xl" href="#devis">Être rappelé</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="prose prose--article">
+      {bloc_urgent(art)}
+{corps_article(art)}
+    </div>
+  </div>
+</section>
+
+<section class="section section--pale">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Questions fréquentes</span>
+      <h2>Ce que l'on nous demande le plus souvent</h2>
+    </div>
+    <div class="faq">{bloc_faq(art)}</div>
+  </div>
+</section>
+
+{cta_final(cta_titre,
+           "Un technicien vous répond directement, qualifie la situation au téléphone "
+           "et vous annonce un délai réaliste. Devis gratuit, tarif validé avant "
+           "intervention, garantie décennale.",
+           "cta-article-" + art["slug"][:28], dept=dept, act=act)}
+
+<section class="section">
+  <div class="container">
+    <div class="grid grid--2">
+      <div class="card">
+        <h3>Nos interventions {dept['article']} {d_nom}</h3>
+        <div class="liens-grid" style="grid-template-columns:1fr;margin-top:12px">
+          <ul>{pages_dept}</ul>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Tous nos conseils d'urgence</h3>
+        <p>Huit situations traitées département par département&nbsp;: ce qu'il faut
+          faire dans les premières minutes, et quand appeler.</p>
+        <p><a href="/conseils/"><strong>Voir les conseils d'urgence en Bretagne</strong></a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--fond">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">À lire aussi</span>
+      <h2>Autres situations d'urgence</h2>
+    </div>
+    <div class="art-grille">{lies}</div>
+  </div>
+</section>
+
+</main>
+""" + footer())
+
+
+def page_conseils():
+    titre = "Urgences plomberie, dégorgement & électricité — ETS-BZH"
+    desc = ("Que faire en urgence en Bretagne : fosse qui déborde, canalisation gelée, "
+            "colonne bouchée, dégât des eaux, chauffe-eau qui fuit, odeur de brûlé.")
+    fil = [("Accueil", "/"), ("Conseils d'urgence", "/conseils/")]
+
+    blocs = ""
+    for d in DEPARTEMENTS:
+        cartes = "".join(carte_article(a) for a in articles_du_dept(d["num"]))
+        blocs += f"""
+    <div class="conseils-dept">
+      <h2>{d['nom']} ({d['num']})</h2>
+      <div class="art-grille art-grille--2">{cartes}</div>
+    </div>"""
+
+    return (
+        head(titre, desc, "/conseils/", [ld_ariane(fil)],
+             "conseils plomberie urgence Bretagne, que faire fuite d'eau, "
+             "canalisation bouchée que faire, urgence électrique Bretagne")
+        + topbar() + header() + ariane(fil) + f"""
+
+<main id="contenu">
+
+<section class="hero hero--compact">
+  <div class="container">
+    <span class="eyebrow">Conseils d'urgence</span>
+    <h1>Que faire en attendant le dépanneur&nbsp;?</h1>
+    <p class="hero__sub">Huit situations que nous traitons toutes les semaines en
+      Bretagne, expliquées sans jargon&nbsp;: les gestes des premières minutes, ce qu'il
+      ne faut surtout pas faire, et le moment où il faut appeler.</p>
+    <div class="hero__actions">
+      <a class="btn btn--blanc btn--xl" href="tel:{TEL_LIEN}" data-cta="conseils-hero">
+        {SVG['tel']} Appeler le {TEL}
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">{blocs}
+  </div>
+</section>
+
+{cta_final("Votre situation n'est pas dans la liste&nbsp;?",
+           "Décrivez-la nous au téléphone. Un technicien qualifie le problème, vous "
+           "annonce un délai et un ordre de prix avant tout déplacement. "
+           "Devis gratuit et sans engagement.",
+           "cta-conseils")}
 
 </main>
 """ + footer())
@@ -1817,6 +2062,12 @@ def main():
             ecrire(fichier_landing(act, dept), page_landing(act, dept))
             pages.append((url_landing(act, dept), "0.9", "monthly"))
 
+    ecrire("conseils/index.html", page_conseils())
+    pages.append(("/conseils/", "0.8", "monthly"))
+    for art in ARTICLES:
+        ecrire("conseils/%s/index.html" % art["slug"], page_article(art))
+        pages.append((url_article(art), "0.7", "monthly"))
+
     ecrire("contact/index.html", page_contact())
     ecrire("mentions-legales/index.html", page_mentions())
     ecrire("cgu/index.html", page_cgu())
@@ -1832,8 +2083,9 @@ def main():
            "User-agent: *\nAllow: /\n\nSitemap: %s/sitemap.xml\n" % BASE)
 
     print("-" * 62)
-    print("%d pages HTML générées (12 landing pages + %d pages annexes).\n"
-          % (len(pages) + 1, len(pages) + 1 - 13))
+    print("%d pages HTML générées : 12 pages métier, %d articles d'urgence, "
+          "%d pages annexes.\n"
+          % (len(pages) + 1, len(ARTICLES), len(pages) + 1 - 13 - len(ARTICLES)))
 
 
 if __name__ == "__main__":
