@@ -86,11 +86,52 @@ couvrent quarante pannes distinctes, réparties 15 dégorgement, 15 plomberie et
 | **56** | WC en location · bac à graisse · pompe de relevage | chauffe-eau qui fuit · facture anormale · vanne bloquée · coup de bélier | odeur de brûlé · ballon qui ne chauffe plus · borne de recharge |
 
 **Structure de chaque article** (`page_article` dans `tools/build.py`)&nbsp;:
-bandeau avec bouton d'appel, encadré rouge « À faire tout de suite » numéroté et
-suivi d'un bouton d'appel pleine largeur, encadré d'avertissement de sécurité,
-trois à quatre sections de fond, FAQ balisée `FAQPage`, bandeau de rappel,
-liens vers les trois pages métier du département et vers trois autres articles.
+
+1. Bandeau avec le titre, le résumé et deux boutons d'appel.
+2. **Ligne de contexte**&nbsp;: date de mise à jour, temps de lecture, métier et
+   département.
+3. **Sommaire ancré** vers chaque section.
+4. **« À faire tout de suite »**&nbsp;: la marche à suivre numérotée, suivie d'un
+   bouton d'appel pleine largeur.
+5. **Avertissement de sécurité**, sur un filet ambre.
+6. Trois à cinq sections de fond, chacune avec son ancre.
+7. Un **lien contextuel** vers la page métier du département.
+8. Une **photo d'intervention** légendée.
+9. Un **bloc de proximité**&nbsp;: communes desservies et liens vers les trois
+   pages métier du département.
+10. FAQ balisée `FAQPage`, bandeau de rappel, trois articles liés.
+
 Neuf liens d'appel par article.
+
+### Référencement des articles
+
+Chaque article porte quatre blocs de données structurées&nbsp;:
+
+- **`Article`** — titre, description, dates de publication et de modification,
+  nombre de mots, rubrique, mots-clés, image, et un nœud `about` de type
+  `Service` qui relie le métier à la zone desservie.
+- **`LocalBusiness`** (`Plumber` ou `Electrician` selon le métier) — nom,
+  téléphone, `areaServed` avec le département **et** ses six principales
+  communes, horaires 24h/24 et 7j/7. Un article est souvent la page d'entrée
+  depuis une recherche d'urgence&nbsp;: il doit porter lui-même l'entreprise et
+  sa zone, pas seulement renvoyer vers la page métier.
+- **`FAQPage`** — les quatre questions de fin d'article.
+- **`BreadcrumbList`** — Accueil › Conseils › Département › Article.
+
+S'y ajoutent `og:type=article` et les métadonnées `article:published_time`,
+`article:modified_time` et `article:section`.
+
+**Signaux locaux.** Le bloc de proximité nomme le département, ses dix communes
+principales et renvoie vers les trois pages métier correspondantes avec des
+ancres descriptives. Le lien contextuel en fin de corps de texte utilise une
+ancre du type « dégorgement dans les Côtes-d'Armor », avec trois tournures
+alternées pour qu'elle ne soit pas identique sur quarante pages. La légende de
+la photo porte elle aussi le métier et le département.
+
+**Sommaire ancré.** Chaque `<h2>` reçoit un identifiant stable, et le sommaire
+pointe dessus. C'est utile au lecteur sur un article de 800 mots, et c'est ce
+que Google utilise pour proposer des liens de saut directement dans ses
+résultats.
 
 **Non-redondance mesurée.** Le contenu est comparé au rendu réel des 12 pages
 métier, texte contre texte&nbsp;: sur les 40 articles, la similarité maximale avec
@@ -102,6 +143,27 @@ elles à 84–90&nbsp;%. Le script de mesure est reproductible&nbsp;: extraction
 texte visible, puis `difflib.SequenceMatcher`.
 
 **Volume.** 31 500 mots au total, de 694 à 983 mots par article, moyenne 788.
+
+### Mise en forme des articles
+
+Les numéros d'étape et les puces de liste étaient des **pastilles carrées
+pleines**, rouges pour la marche à suivre et bleues pour les listes. Sur un
+article entier, cela donnait un air de notice d'avertissement plutôt que de
+conseil professionnel — et dans les listes, la puce de `.prose` doublait le
+marqueur, ce qui faisait deux carrés par ligne.
+
+La hiérarchie repose désormais sur la typographie et des filets&nbsp;:
+
+- les numéros d'étape sont de **grands chiffres en Barlow Condensed**, sans
+  fond, séparés par des filets fins&nbsp;;
+- les listes utilisent une **coche verte fine**, sans aplat, avec un filet entre
+  les éléments&nbsp;;
+- l'encadré de marche à suivre est une carte blanche avec un filet rouge à
+  gauche et une ombre douce, au lieu d'un cadre rouge plein&nbsp;;
+- l'avertissement passe sur un fond ivoire et un filet ambre.
+
+Le seul aplat de couleur restant dans le corps de l'article est le **bouton
+d'appel**, et c'est voulu&nbsp;: c'est le seul élément qui doit attirer l'œil.
 
 **Ancrage local.** Chaque article traite le contexte réel du département plutôt
 que de remplacer un nom de ville dans un texte générique&nbsp;: assainissement non

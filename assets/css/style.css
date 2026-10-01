@@ -882,47 +882,150 @@ a.note-globale:hover { border-color: var(--bleu); text-decoration: none; }
 .encadre p:last-child { margin-bottom: 0; }
 
 /* ---------- Articles d'urgence ---------- */
-/* L'encadré d'ouverture : le visiteur est en situation, il lit ça et rien
-   d'autre. Bord rouge franc, gestes numérotés, bouton d'appel en bas. */
+/* Les pastilles carrées de couleur ont été retirées : les numéros d'étape et
+   les puces étaient des aplats rouges et bleus qui donnaient un air de notice
+   d'avertissement. La hiérarchie repose désormais sur la typographie, des
+   filets et un seul aplat — le bouton d'appel, qui doit rester le point fort. */
 .urgence {
-  background: #fff5f1;
-  border: 3px solid var(--urgence);
-  padding: 26px 28px 24px;
-  margin: 0 0 30px;
+  background: #fff;
+  border: 1px solid var(--bordure);
+  border-left: 5px solid var(--urgence);
+  box-shadow: 0 10px 30px rgba(12, 74, 112, .08);
+  padding: 30px 32px 28px;
+  margin: 0 0 32px;
 }
 .urgence__titre {
-  display: flex; align-items: center; gap: 12px;
+  display: flex; align-items: baseline; gap: 14px;
   font-family: "Barlow Condensed", "Barlow", sans-serif;
-  font-size: 1.7rem; font-weight: 700; line-height: 1.1;
-  color: var(--urgence-hover); margin: 0 0 18px;
+  font-size: 1.85rem; font-weight: 700; line-height: 1.05;
+  color: var(--nuit); margin: 0 0 4px;
 }
-.urgence__titre svg { flex: none; }
-.urgence__liste { display: grid; gap: 14px; margin: 0 0 22px; padding: 0; list-style: none; }
-.urgence__liste li { display: flex; gap: 14px; align-items: flex-start; font-size: 1.05rem; color: var(--nuit-2); }
+.urgence__sur {
+  display: block; margin: 0 0 22px;
+  font-size: .82rem; font-weight: 800; letter-spacing: .13em;
+  text-transform: uppercase; color: var(--urgence-hover);
+}
+.urgence__liste { margin: 0 0 26px; padding: 0; list-style: none; counter-reset: etape; }
+.urgence__liste li {
+  display: grid; grid-template-columns: 48px 1fr; align-items: baseline;
+  gap: 0 14px; padding: 15px 0;
+  border-top: 1px solid var(--bordure);
+  font-size: 1.06rem; color: var(--nuit-2);
+}
+.urgence__liste li:first-child { border-top: none; padding-top: 4px; }
+/* Le numéro est un chiffre, pas une pastille : grande graisse condensée,
+   aligné sur la première ligne du texte. */
 .urgence__num {
-  flex: none; width: 30px; height: 30px; margin-top: 1px;
-  background: var(--urgence); color: #fff;
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 800; font-size: .98rem;
+  font-family: "Barlow Condensed", "Barlow", sans-serif;
+  font-size: 1.9rem; font-weight: 700; line-height: 1;
+  color: var(--urgence); text-align: right; letter-spacing: -.02em;
 }
 .urgence__appel { margin: 0; }
 
-/* L'avertissement de sécurité : ton chaud, pas rouge — il ne doit pas
-   concurrencer visuellement l'encadré d'action juste au-dessus. */
+/* Avertissement de sécurité : un filet ambre et un fond très léger, pas de
+   bloc qui concurrence l'encadré d'action. */
 .danger {
   display: flex; gap: 16px; align-items: flex-start;
-  background: var(--ivoire-2);
-  border-left: 6px solid var(--ambre);
-  padding: 20px 24px;
-  margin: 0 0 30px;
+  background: var(--ivoire);
+  border-left: 5px solid var(--ambre-clair);
+  padding: 22px 26px;
+  margin: 0 0 34px;
 }
-.danger svg { flex: none; color: var(--ambre-txt); margin-top: 2px; }
+.danger svg { flex: none; color: var(--ambre-txt); margin-top: 3px; }
 .danger p { margin: 0; color: var(--nuit-2); font-size: 1.02rem; }
 .danger strong { color: var(--ambre-txt); }
 
+/* ---- Ligne de contexte sous le titre ---- */
+.article-meta {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px;
+  margin: 0 0 30px; padding-bottom: 20px;
+  border-bottom: 1px solid var(--bordure);
+  font-size: .92rem; color: var(--gris);
+}
+.article-meta__item { display: inline-flex; align-items: center; gap: 8px; }
+.article-meta svg { color: var(--bleu); flex: none; }
+.article-meta strong { color: var(--nuit-2); font-weight: 700; }
+
+/* ---- Sommaire ---- */
+.sommaire {
+  background: var(--bleu-pale-2);
+  border: 1px solid var(--bordure);
+  border-top: 4px solid var(--bleu);
+  padding: 24px 28px;
+  margin: 0 0 34px;
+}
+.sommaire__titre {
+  display: block; margin: 0 0 14px;
+  font-size: .82rem; font-weight: 800; letter-spacing: .13em;
+  text-transform: uppercase; color: var(--bleu);
+}
+.sommaire ol { margin: 0; padding: 0; list-style: none; counter-reset: som; display: grid; gap: 2px; }
+.sommaire li { counter-increment: som; }
+.sommaire a {
+  display: block; padding: 9px 0 9px 36px; position: relative;
+  color: var(--nuit-2); font-weight: 600; font-size: 1.02rem;
+  border-bottom: 1px solid var(--bordure);
+}
+.sommaire li:last-child a { border-bottom: none; }
+.sommaire a::before {
+  content: counter(som, decimal-leading-zero);
+  position: absolute; left: 0; top: 9px;
+  font-family: "Barlow Condensed", "Barlow", sans-serif;
+  font-weight: 700; font-size: 1.05rem; color: var(--bleu);
+}
+.sommaire a:hover { color: var(--bleu); }
+.sommaire a:hover::before { color: var(--ambre); }
+
+/* ---- Bloc d'intervention locale ---- */
+.zone-locale {
+  background: #fff;
+  border: 1px solid var(--bordure);
+  border-left: 5px solid var(--bleu);
+  padding: 26px 30px;
+  margin: 36px 0 0;
+}
+.prose--article .zone-locale h2 { font-size: 1.5rem; margin: 0 0 12px; }
+.zone-locale p { color: var(--gris); margin-bottom: 1em; }
+.zone-locale p:last-child { margin-bottom: 0; }
+.zone-locale__liens { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.zone-locale__liens a {
+  display: inline-flex; align-items: center; min-height: 48px;
+  padding: 11px 18px; background: var(--bleu-pale);
+  border-left: 3px solid var(--bleu);
+  color: var(--nuit-2); font-weight: 700; font-size: .98rem;
+}
+.zone-locale__liens a:hover { background: var(--bleu); color: #fff; text-decoration: none; }
+
 .prose--article { max-width: 860px; }
-.prose--article h2 { margin-top: 1.5em; }
-.prose--article .checks { margin: 0 0 1.2em; gap: 12px; display: grid; }
+.prose--article h2 { margin-top: 1.6em; scroll-margin-top: calc(var(--header-h) + 20px); }
+.prose--article .urgence__titre { margin-top: 0; }
+/* Le soulignement systématique des liens de contenu vaut pour le texte courant,
+   pas pour le sommaire ni pour les pastilles de zone : six liens soulignés
+   d'affilée font un bloc illisible. */
+.prose--article .sommaire a,
+.prose--article .zone-locale__liens a { text-decoration: none; }
+.prose--article .sommaire a:hover {
+  text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 2px;
+}
+/* Listes d'article : une coche fine, sans aplat, et un filet de séparation.
+   La puce carrée de .prose est neutralisée pour ne pas doubler le marqueur. */
+.prose--article .checks { margin: .4em 0 1.6em; display: grid; gap: 0; }
+.prose--article .checks li {
+  display: grid; grid-template-columns: 26px 1fr; align-items: baseline;
+  gap: 0 12px; padding: 13px 0;
+  border-top: 1px solid var(--bordure);
+  font-size: 1.04rem; color: var(--nuit-2);
+}
+.prose--article .checks li:first-child { border-top: none; }
+.prose--article .checks li::before { content: none; }
+.prose--article .checks .tick {
+  width: auto; height: auto; background: none; margin: 0;
+  color: var(--succes); display: block;
+}
+.prose--article .checks .tick--alerte { background: none; color: var(--urgence); }
+/* La coche est dessinée à 13 px dans le HTML : sans son fond, elle a besoin
+   d'un peu plus de présence pour rester lisible. */
+.prose--article .checks .tick svg { width: 17px; height: 17px; }
 
 .hero--article .hero__sub { max-width: 760px; margin-bottom: 26px; }
 
@@ -1300,7 +1403,12 @@ a.note-globale:hover { border-color: var(--bleu); text-decoration: none; }
   .pagination { gap: 8px; justify-content: center; }
   .page-lien--prec, .page-lien--suiv { margin: 0; width: 100%; }
   .urgence { padding: 22px 20px 20px; }
+  .urgence__liste li { grid-template-columns: 34px 1fr; gap: 0 10px; }
+  .urgence__num { font-size: 1.55rem; }
   .danger { padding: 18px 18px; gap: 12px; }
+  .sommaire { padding: 20px 20px; }
+  .zone-locale { padding: 22px 20px; }
+  .zone-locale__liens a { width: 100%; }
   .dept-grid--compact { grid-template-columns: 1fr 1fr; }
   .carte { padding: 14px; }
 }

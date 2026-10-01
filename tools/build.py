@@ -145,7 +145,8 @@ ICONES = {
 
 
 # ------------------------------------------------------------------ fragments
-def head(titre, description, canonical, extra_json=None, mots_cles=""):
+def head(titre, description, canonical, extra_json=None, mots_cles="", extra_meta="",
+         og_type="website"):
     """canonical=None : aucune balise canonique (page 404, en noindex)."""
     jsonld = ""
     for bloc in (extra_json or []):
@@ -165,7 +166,7 @@ def head(titre, description, canonical, extra_json=None, mots_cles=""):
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="author" content="{SITE['nom']}">
   <meta name="theme-color" content="#0a5f8c">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="{og_type}">
   <meta property="og:site_name" content="{SITE['nom']}">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:title" content="{titre}">
@@ -175,7 +176,7 @@ def head(titre, description, canonical, extra_json=None, mots_cles=""):
   <meta property="og:image:width" content="680">
   <meta property="og:image:height" content="460">
   <meta property="og:image:alt" content="Logo ETS-BZH">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary">{extra_meta}
   <link rel="icon" href="/assets/img/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/img/logo-emblem.png">
   <link rel="preload" href="/assets/fonts/barlow-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -1084,6 +1085,47 @@ def page_landing(act, dept):
 
 
 # ============================================================ ARTICLES
+MOIS = ("janvier", "février", "mars", "avril", "mai", "juin", "juillet",
+        "août", "septembre", "octobre", "novembre", "décembre")
+
+
+def date_fr(iso):
+    a, m, j = iso.split("-")
+    jour = "1er" if j == "01" else str(int(j))
+    return "%s %s %s" % (jour, MOIS[int(m) - 1], a)
+
+
+_ACCENTS = str.maketrans("àâäçéèêëîïôöùûüÿñ", "aaaceeeeiioouuuyn")
+
+
+def ancre(titre):
+    """Identifiant d'ancre stable à partir d'un intertitre."""
+    t = clean(titre).lower().translate(_ACCENTS)
+    t = _re.sub(r"[^a-z0-9]+", "-", t).strip("-")
+    return t[:60].rstrip("-")
+
+
+def illustration(art):
+    """Photo d'illustration : une par article, prise dans la banque du métier et
+    tournée pour que deux articles voisins n'affichent pas la même image.
+
+    Renvoie (fichier, alt, titre, description) comme dans les données.
+    """
+    photos = ACT[art["act"]]["photos"]
+    meme_metier = [a["slug"] for a in ARTICLES if a["act"] == art["act"]]
+    return photos[meme_metier.index(art["slug"]) % len(photos)]
+
+
+def mots_article(art):
+    n = len(art["chapo"].split()) + len(art["danger"].split())
+    n += sum(len(x.split()) for x in art["urgent"])
+    for h2, paras, puces in art["sections"]:
+        n += len(h2.split()) + sum(len(x.split()) for x in paras)
+        n += sum(len(x.split()) for x in (puces or []))
+    n += sum(len(q.split()) + len(r.split()) for q, r in art["faq"])
+    return n
+
+
 def bloc_urgent(art):
     """L'encadré « À faire tout de suite » : c'est lui que le visiteur lit."""
     etapes = "".join(
@@ -1093,18 +1135,19 @@ def bloc_urgent(art):
     if art.get("danger"):
         danger = ('\n<div class="danger">%s<p><strong>À ne pas faire&nbsp;:</strong> %s</p></div>'
                   % (picto("alerte", 26), art["danger"]))
-    return ('\n<div class="urgence">'
-            '<p class="urgence__titre">%s À faire tout de suite</p>'
+    return ('\n<div class="urgence" id="a-faire-tout-de-suite">'
+            '<span class="urgence__sur">Marche à suivre</span>'
+            '<h2 class="urgence__titre">À faire tout de suite</h2>'
             '<ol class="urgence__liste">%s</ol>'
             '<a class="btn btn--urgence btn--xl btn--bloc urgence__appel" href="tel:%s" '
             'data-cta="article-urgence">%s Appeler le %s</a>'
-            '</div>%s' % (picto("alerte", 26), etapes, TEL_LIEN, SVG["tel"], TEL, danger))
+            '</div>%s' % (etapes, TEL_LIEN, SVG["tel"], TEL, danger))
 
 
 def corps_article(art):
     out = ""
     for h2, paras, puces in art["sections"]:
-        out += "\n      <h2>%s</h2>\n" % h2
+        out += '\n      <h2 id="%s">%s</h2>\n' % (ancre(h2), h2)
         out += "".join("      <p>%s</p>\n" % t for t in paras)
         if puces:
             out += ('      <ul class="checks">%s</ul>\n'
@@ -1121,22 +1164,66 @@ def bloc_faq(art):
 
 
 def ld_article(art, dept):
+    act = ACT[art["act"]]
     return {
         "@context": "https://schema.org",
         "@type": "Article",
-        "headline": clean(art["h1"]),
+        "headline": clean(art["h1"])[:110],
+        "alternativeHeadline": clean(art["court"]),
         "description": clean(art["meta"]),
         "inLanguage": "fr-FR",
+        "isAccessibleForFree": True,
         "datePublished": art["date"],
         "dateModified": TODAY,
+        "wordCount": mots_article(art),
+        "articleSection": clean(act["nom"]),
+        "keywords": clean(art["mots_cles"]),
         "author": {"@type": "Organization", "name": SITE["nom"], "url": BASE + "/"},
         "publisher": {"@type": "Organization", "name": SITE["nom"],
                       "logo": {"@type": "ImageObject",
                                "url": BASE + "/assets/img/logo.jpg"}},
         "mainEntityOfPage": {"@type": "WebPage", "@id": BASE + url_article(art)},
-        "about": {"@type": "Thing", "name": clean(ACT[art["act"]]["nom"])},
+        "about": {"@type": "Service", "name": clean(act["nom"]),
+                  "serviceType": clean(act["metier"]),
+                  "areaServed": {"@type": "AdministrativeArea",
+                                 "name": "%s (%s)" % (dept["nom"], dept["num"])},
+                  "provider": {"@type": "LocalBusiness", "name": SITE["nom"]}},
         "contentLocation": {"@type": "AdministrativeArea",
                             "name": "%s (%s)" % (dept["nom"], dept["num"])},
+        "image": BASE + "/assets/img/photos/" + illustration(art)[0],
+    }
+
+
+def ld_entreprise(art, dept):
+    """Fiche d'entreprise portée par chaque article.
+
+    L'article est la page d'entrée depuis une recherche d'urgence : il doit
+    donc porter lui-même le nom, le téléphone et la zone desservie, et pas
+    seulement renvoyer vers la page métier.
+    """
+    act = ACT[art["act"]]
+    return {
+        "@context": "https://schema.org",
+        "@type": ["LocalBusiness",
+                  "Electrician" if act["key"] == "electricite" else "Plumber"],
+        "@id": BASE + "/#entreprise",
+        "name": SITE["nom"],
+        "description": "%s %s %s, intervention d'urgence 24h/24 et 7j/7."
+                       % (clean(act["metier"]), dept["article"], dept["nom"]),
+        "url": BASE + url_landing(act, dept),
+        "telephone": "+33" + SITE["tel"].replace(" ", "")[1:],
+        "email": EMAIL,
+        "priceRange": "€€",
+        "address": {"@type": "PostalAddress", "addressRegion": "Bretagne",
+                    "addressCountry": "FR"},
+        "areaServed": [{"@type": "AdministrativeArea",
+                        "name": "%s (%s)" % (dept["nom"], dept["num"])}]
+                      + [{"@type": "City", "name": v} for v in dept["villes"][:6]],
+        "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday",
+                          "Friday", "Saturday", "Sunday"],
+            "opens": "00:00", "closes": "23:59"},
     }
 
 
@@ -1148,6 +1235,72 @@ def ld_faq_article(art):
                         "acceptedAnswer": {"@type": "Answer", "text": clean(r)}}
                        for q, r in art["faq"]],
     }
+
+
+def sommaire(art):
+    """Sommaire ancré : il donne la structure d'un coup d'œil et c'est aussi
+    ce que Google utilise pour proposer des liens de saut dans ses résultats."""
+    items = '<li><a href="#a-faire-tout-de-suite">À faire tout de suite</a></li>'
+    items += "".join('<li><a href="#%s">%s</a></li>' % (ancre(h2), h2)
+                     for h2, _, _ in art["sections"])
+    items += '<li><a href="#questions">Questions fréquentes</a></li>'
+    return ('<nav class="sommaire" aria-label="Sommaire de l\'article">'
+            '<span class="sommaire__titre">Sur cette page</span>'
+            '<ol>%s</ol></nav>' % items)
+
+
+def ligne_meta(art, dept, act):
+    lecture = max(1, round(mots_article(art) / 200))
+    return ('<div class="article-meta">'
+            '<span class="article-meta__item">%s Mis à jour le <strong>%s</strong></span>'
+            '<span class="article-meta__item">%s Lecture <strong>%d min</strong></span>'
+            '<span class="article-meta__item">%s <strong>%s</strong> · %s %s %s</span>'
+            '</div>'
+            % (picto("horloge", 17), date_fr(TODAY),
+               picto("devis", 17), lecture,
+               picto("carte", 17), SITE["nom"],
+               clean(act["nom_court"]), dept["article"], dept["nom"]))
+
+
+# Trois tournures alternées : un lien contextuel identique sur quarante pages
+# se verrait, et il ne servirait ni le lecteur ni le référencement.
+_RENVOIS = (
+    "Au-delà de cette situation, notre page %s détaille nos interventions, nos "
+    "tarifs indicatifs et nos délais annoncés.",
+    "Pour le détail de ce que nous traitons, de nos tarifs indicatifs et de nos "
+    "délais, voyez notre page %s.",
+    "Nos prestations complètes, nos tarifs indicatifs et nos délais figurent sur "
+    "notre page %s.",
+)
+
+
+def lien_contextuel(art, dept, act):
+    i = [a["slug"] for a in ARTICLES].index(art["slug"]) % len(_RENVOIS)
+    ancre_txt = "%s %s %s" % (clean(act["nom_court"]).lower(),
+                              dept["article"], dept["nom"])
+    lien = '<a href="%s">%s</a>' % (url_landing(act, dept), ancre_txt)
+    return "      <p>%s</p>\n" % (_RENVOIS[i] % lien)
+
+
+def zone_locale(art, dept, act):
+    """Bloc de proximité : communes desservies et liens vers les pages métier
+    du département. C'est le signal local le plus direct de la page."""
+    villes = dept["villes"]
+    liens = "".join(
+        '<a href="%s">%s %s (%s)</a>'
+        % (url_landing(a, dept), a["nom_court"], dept["nom"], dept["num"])
+        for a in ACTIVITES)
+    return f"""
+<div class="zone-locale">
+  <h2 id="intervention">{clean(act['nom_court'])} d'urgence {dept['article']} {dept['nom']} ({dept['num']})</h2>
+  <p>Nos {act['pro_pluriel']} interviennent 24h/24 et 7j/7 sur l'ensemble du
+    département, de {villes[0]} à {villes[1]} en passant par {villes[2]},
+    {villes[3]} et {villes[4]}. Le délai est annoncé au téléphone avant tout
+    déplacement, et le devis est validé avec vous avant le démarrage.</p>
+  <p><strong>Communes desservies&nbsp;:</strong> {", ".join(villes[:10])} et toutes
+    les communes {DE[dept['num']]}.</p>
+  <div class="zone-locale__liens">{liens}</div>
+</div>"""
 
 
 def carte_article(art):
@@ -1229,6 +1382,7 @@ def page_article(art):
     dept, act = DEPT[art["dept"]], ACT[art["act"]]
     url = url_article(art)
     d_nom, d_num = dept["nom"], dept["num"]
+    du = DE[d_num]
     fil = [("Accueil", "/"), ("Conseils d'urgence", "/conseils/"),
            ("%s (%s)" % (d_nom, d_num), url_conseils(dept=dept)),
            (art["court"], url)]
@@ -1240,19 +1394,28 @@ def page_article(art):
               and (a["dept"] == art["dept"] or a["act"] == art["act"])][:3]
     lies = "".join(carte_article(a) for a in autres)
 
-    pages_dept = "".join(
-        '<li><a href="%s">%s %s (%s)</a></li>'
-        % (url_landing(a, dept), a["nom_court"], d_nom, d_num) for a in ACTIVITES)
+    fichier, alt, _legende, description = illustration(art)
+    visuel = photo(fichier, alt,
+                   "%s %s %s" % (clean(act["nom_court"]), dept["article"], d_nom),
+                   large=True, description=description)
+
+    # Les dates d'un article pèsent dans son référencement : elles sont dans le
+    # balisage, dans les métadonnées Open Graph et visibles à l'écran.
+    meta_sup = ('\n  <meta property="article:published_time" content="%s">'
+                '\n  <meta property="article:modified_time" content="%s">'
+                '\n  <meta property="article:section" content="%s">'
+                % (art["date"], TODAY, clean(act["nom"])))
 
     return (
         head(art["titre"], clean(art["meta"]), url,
-             [ld_article(art, dept), ld_faq_article(art), ld_ariane(fil)],
-             art["mots_cles"])
-        + topbar() + header() + ariane(fil) + f"""
+             [ld_article(art, dept), ld_entreprise(art, dept),
+              ld_faq_article(art), ld_ariane(fil)],
+             art["mots_cles"], meta_sup, og_type="article")
+        + topbar() + header("conseils") + ariane(fil) + f"""
 
 <main id="contenu">
 
-<section class="hero hero--compact hero--article">
+<article class="hero hero--compact hero--article">
   <div class="container">
     <span class="eyebrow">Urgence {d_nom} ({d_num}) · {act['nom_court']}</span>
     <h1>{art['h1']}</h1>
@@ -1264,13 +1427,17 @@ def page_article(art):
       <a class="btn btn--outline-blanc btn--xl" href="#devis">Être rappelé</a>
     </div>
   </div>
-</section>
+</article>
 
 <section class="section">
   <div class="container">
     <div class="prose prose--article">
+      {ligne_meta(art, dept, act)}
+      {sommaire(art)}
       {bloc_urgent(art)}
-{corps_article(art)}
+{corps_article(art)}{lien_contextuel(art, dept, act)}
+      {visuel}
+      {zone_locale(art, dept, act)}
     </div>
   </div>
 </section>
@@ -1279,7 +1446,8 @@ def page_article(art):
   <div class="container">
     <div class="section-head center">
       <span class="eyebrow">Questions fréquentes</span>
-      <h2>Ce que l'on nous demande le plus souvent</h2>
+      <h2 id="questions">{art['court']}&nbsp;: vos questions</h2>
+      <p class="lead">Ce que l'on nous demande le plus souvent {du}.</p>
     </div>
     <div class="faq">{bloc_faq(art)}</div>
   </div>
@@ -1291,31 +1459,11 @@ def page_article(art):
            "intervention, garantie décennale.",
            "cta-article-" + art["slug"][:28], dept=dept, act=act)}
 
-<section class="section">
-  <div class="container">
-    <div class="grid grid--2">
-      <div class="card">
-        <h3>Nos interventions {dept['article']} {d_nom}</h3>
-        <div class="liens-grid" style="grid-template-columns:1fr;margin-top:12px">
-          <ul>{pages_dept}</ul>
-        </div>
-      </div>
-      <div class="card">
-        <h3>Tous nos conseils d'urgence</h3>
-        <p>Quarante situations traitées département par département&nbsp;: ce qu'il faut
-          faire dans les premières minutes, et quand appeler.</p>
-        <p><a href="{url_conseils(dept=dept)}"><strong>Les {len(articles_du_dept(d_num))} conseils {dept['article']} {d_nom}</strong></a><br>
-          <a href="/conseils/">Voir toute la rubrique en Bretagne</a></p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="section section--fond">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">À lire aussi</span>
-      <h2>Autres situations d'urgence</h2>
+      <h2>Autres situations d'urgence {du}</h2>
     </div>
     <div class="art-grille">{lies}</div>
   </div>
