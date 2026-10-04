@@ -976,6 +976,39 @@ a.note-globale:hover { border-color: var(--bleu); text-decoration: none; }
 .sommaire a:hover { color: var(--bleu); }
 .sommaire a:hover::before { color: var(--ambre); }
 
+/* ---- Tableau ville par ville ---- */
+/* Un visiteur cherche « plombier urgence Lannion », pas « plombier
+   Côtes-d'Armor » : la page doit nommer sa commune et dire quelque chose de
+   vrai sur elle. Deux colonnes, des filets, aucune pastille. */
+.villes-urg {
+  background: #fff;
+  border: 1px solid var(--bordure);
+  border-top: 4px solid var(--bleu);
+  padding: 28px 30px 24px;
+  margin: 36px 0 0;
+}
+.prose--article .villes-urg h2 { font-size: 1.5rem; margin: 0 0 12px; }
+.villes-urg > p { color: var(--gris); }
+.villes-urg__liste { margin: 22px 0; padding: 0; list-style: none; display: grid; }
+.villes-urg__liste li {
+  display: grid; grid-template-columns: 190px 1fr; gap: 4px 20px;
+  padding: 15px 0; border-top: 1px solid var(--bordure);
+}
+.villes-urg__liste li:first-child { border-top: none; padding-top: 0; }
+/* La puce carrée de .prose ul li a une spécificité supérieure : il faut la
+   neutraliser depuis .prose--article, sinon elle se glisse devant chaque ville. */
+.prose--article .villes-urg__liste li { padding-left: 0; }
+.prose--article .villes-urg__liste li::before { content: none; }
+.villes-urg__nom {
+  font-family: "Barlow Condensed", "Barlow", sans-serif;
+  font-size: 1.3rem; font-weight: 700; line-height: 1.15; color: var(--nuit);
+}
+.villes-urg__note { color: var(--gris); font-size: 1rem; line-height: 1.6; }
+.villes-urg__pied {
+  margin: 0; padding-top: 18px; border-top: 2px solid var(--bordure);
+  font-size: .98rem; color: var(--gris);
+}
+
 /* ---- Bloc d'intervention locale ---- */
 .zone-locale {
   background: #fff;
@@ -1018,6 +1051,7 @@ a.note-globale:hover { border-color: var(--bleu); text-decoration: none; }
 }
 .prose--article .checks li:first-child { border-top: none; }
 .prose--article .checks li::before { content: none; }
+.prose--article .checks li { padding-left: 0; }
 .prose--article .checks .tick {
   width: auto; height: auto; background: none; margin: 0;
   color: var(--succes); display: block;
@@ -1409,6 +1443,8 @@ a.note-globale:hover { border-color: var(--bleu); text-decoration: none; }
   .sommaire { padding: 20px 20px; }
   .zone-locale { padding: 22px 20px; }
   .zone-locale__liens a { width: 100%; }
+  .villes-urg { padding: 22px 20px 20px; }
+  .villes-urg__liste li { grid-template-columns: 1fr; gap: 2px; }
   .dept-grid--compact { grid-template-columns: 1fr 1fr; }
   .carte { padding: 14px; }
 }

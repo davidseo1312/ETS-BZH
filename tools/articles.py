@@ -4015,4 +4015,3100 @@ ARTICLES = [
  ],
 },
 
+# =================================================================
+#  ARTICLES DE ZONE — deux par métier et par département.
+#
+#  Famille distincte des guides de situation ci-dessus : ceux-là
+#  répondent à « que faire », ceux-ci à « qui intervient chez moi ».
+#  Chacun porte un tableau « ville par ville » qui dit, commune par
+#  commune, ce qui change réellement sur le terrain.
+# =================================================================
+
+# ------------------------------------------------- 22 — CÔTES-D'ARMOR
+{
+ "slug": "debouchage-urgence-nuit-week-end-cotes-d-armor",
+ "court": "Débouchage nuit et week-end (22)",
+ "dept": "22", "act": "degorgement", "date": "2026-10-04",
+ "titre": "Débouchage nuit et dimanche (22) : qui vient — ETS-BZH",
+ "h1": "Débouchage d'urgence la nuit, le dimanche et les jours fériés dans les Côtes-d'Armor",
+ "meta": ("Canalisation bouchée la nuit ou un dimanche dans les Côtes-d'Armor : "
+          "ce que change l'astreinte, ville par ville. Appelez le 02 20 06 00 75."),
+ "mots_cles": ("débouchage nuit Côtes-d'Armor, plombier dimanche Saint-Brieuc, "
+               "dégorgement urgence 24h/24 Lannion, canalisation bouchée jour férié"),
+ "chapo": ("Un bouchon ne choisit pas son heure, et il tombe souvent au pire "
+           "moment&nbsp;: un samedi soir, un dimanche de fête de famille, un 1er&nbsp;mai. "
+           "Voici ce qui change réellement quand on appelle en dehors des heures "
+           "ouvrées, commune par commune, et comment éviter de payer une "
+           "intervention de nuit pour rien."),
+ "villes_titre": "Délais et contraintes, ville par ville",
+ "villes_intro": ("Le délai d'une intervention de nuit ne dépend pas que de la "
+                  "distance&nbsp;: il dépend aussi de la nature du bâti et de l'accès. "
+                  "Voici ce que nous constatons sur les principales communes "
+                  "costarmoricaines."),
+ "villes": [
+   ("Saint-Brieuc", "Le secteur le plus rapide du département. Beaucoup "
+    "d'immeubles de centre-ville&nbsp;: la question du bouchon privatif ou de "
+    "colonne collective se pose dès l'appel, et elle détermine qui paie."),
+   ("Lannion", "Agglomération dense et habitat pavillonnaire étendu. Les "
+    "interventions de nuit y portent surtout sur des évacuations individuelles "
+    "et des regards de jardin."),
+   ("Dinan", "Centre historique avec des réseaux anciens en grès et des accès "
+    "étroits. Prévoyez d'indiquer où se garer&nbsp;: en intra-muros, c'est ce qui "
+    "fait gagner le plus de temps."),
+   ("Guingamp", "Secteur charnière vers l'arrière-pays. De nuit, le délai "
+    "s'allonge mécaniquement dès qu'on quitte l'agglomération&nbsp;: nous "
+    "l'annonçons avant de partir."),
+   ("Paimpol", "Littoral, nombreuses résidences secondaires. Une urgence de nuit "
+    "y est souvent déclenchée par un voisin ou un gardien plutôt que par "
+    "l'occupant&nbsp;: un accord écrit du propriétaire évite de perdre une heure."),
+   ("Loudéac", "Zone rurale, assainissement non collectif fréquent. La nuit, le "
+    "diagnostic au téléphone compte double&nbsp;: un camion de pompage et un furet "
+    "ne se chargent pas pour le même problème."),
+ ],
+ "urgent": [
+   "Arrêtez tout rejet d'eau&nbsp;: WC, douche, machines. C'est ce qui empêche "
+   "une situation gênante de devenir un dégât.",
+   "Regardez si un seul appareil est touché ou plusieurs&nbsp;: c'est la première "
+   "question que nous poserons, et elle change le matériel embarqué.",
+   "En immeuble, demandez à un voisin si lui aussi a un problème&nbsp;: si oui, "
+   "c'est une colonne, donc une affaire de syndic.",
+   "Préparez l'accès&nbsp;: portail, code, stationnement, emplacement du regard. "
+   "De nuit, c'est ce qui fait gagner le plus de temps.",
+   "Appelez. Nous vous dirons si la situation tient jusqu'au matin ou non.",
+ ],
+ "danger": ("Ne videz jamais un déboucheur chimique dans une évacuation bouchée "
+            "en attendant le dépanneur, et encore moins la nuit. Le produit stagne, "
+            "il n'atteint pas le bouchon, et il rend l'intervention dangereuse "
+            "quelques heures plus tard&nbsp;: les projections de soude lors du "
+            "débouchage mécanique brûlent la peau et les yeux."),
+ "sections": [
+  ("Ce qui justifie vraiment une intervention de nuit",
+   ["Toutes les situations ne demandent pas de faire déplacer une équipe à "
+    "trois heures du matin, et nous vous le dirons franchement au téléphone.",
+    "<strong>Cela ne peut pas attendre</strong> quand l'eau continue de monter, "
+    "quand des eaux usées refoulent dans le logement, quand plusieurs logements "
+    "sont touchés, quand le WC est le seul de la maison, ou quand un commerce doit "
+    "ouvrir le lendemain matin.",
+    "<strong>Cela peut souvent attendre</strong> quand un seul appareil s'évacue "
+    "lentement sans refouler, quand un autre point d'eau reste utilisable, ou "
+    "quand le logement est inoccupé et que l'arrivée d'eau peut être coupée.",
+    "Dans ce second cas, programmer l'intervention au matin coûte moins cher et "
+    "ne change rien au résultat. Nous préférons vous le dire que vous facturer "
+    "une majoration de nuit pour un bouchon qui aurait tenu six heures."],
+   None),
+  ("Comment se passe une intervention hors horaires",
+   ["Le déroulé est le même que de jour, avec deux différences qui comptent.",
+    "La première est le <strong>diagnostic au téléphone</strong>, beaucoup plus "
+    "poussé. De nuit, on ne revient pas chercher du matériel&nbsp;: il faut savoir "
+    "avant de partir s'il s'agit d'un bouchon ponctuel au furet, d'un réseau "
+    "encrassé qui demande un hydrocureur, ou d'une fosse pleine qui demande un "
+    "camion de pompage. Vos réponses déterminent le véhicule envoyé.",
+    "La seconde est le <strong>tarif</strong>. Les majorations de nuit, de "
+    "dimanche et de jour férié sont annoncées avant le déplacement et validées "
+    "par vous&nbsp;: elles figurent sur le devis, jamais en surprise sur la "
+    "facture. Le devis reste gratuit, même à deux heures du matin.",
+    "Sur place, l'ordre ne change pas&nbsp;: localiser, déboucher, contrôler "
+    "l'écoulement devant vous, et vous dire si la cause est ponctuelle ou "
+    "structurelle. Un bouchon qui revient tous les six mois n'est pas une "
+    "malchance, et la nuit n'est pas le bon moment pour le découvrir."],
+   None),
+  ("Les quatre informations à préparer avant d'appeler",
+   [],
+   ["Votre commune et votre adresse exacte, avec le code d'accès ou l'étage.",
+    "Les appareils touchés, et ceux qui fonctionnent encore.",
+    "Maison ou appartement&nbsp;: en collectif, l'information « d'autres logements "
+    "sont touchés » change tout.",
+    "Tout-à-l'égout ou fosse septique&nbsp;: c'est la différence entre un furet et "
+    "un camion.",
+    "Ce qui a déjà été tenté — ventouse, produit, furet de magasin.",
+    "Si vous êtes locataire, le contact du propriétaire ou de l'agence."],
+   ),
+ ],
+ "faq": [
+  ("Intervenez-vous vraiment la nuit et le dimanche&nbsp;?",
+   "Oui, l'astreinte couvre les nuits, les week-ends et les jours fériés sur "
+   "l'ensemble des Côtes-d'Armor. Le délai est annoncé dès l'appel, et il est "
+   "réaliste&nbsp;: nous préférons annoncer deux heures et les tenir qu'une heure "
+   "et vous laisser attendre."),
+  ("Combien coûte un débouchage de nuit&nbsp;?",
+   "Le tarif de base reste celui annoncé sur nos pages, majoré pour les "
+   "interventions de nuit, de dimanche et de jour férié. La majoration est "
+   "annoncée au téléphone et validée avec vous avant le déplacement&nbsp;: la "
+   "facture ne dépasse jamais le devis accepté."),
+  ("Puis-je attendre le lendemain matin&nbsp;?",
+   "Souvent oui, et nous vous le dirons. Si un seul appareil est touché, qu'il "
+   "n'y a pas de refoulement et qu'un autre point d'eau reste utilisable, "
+   "programmer au matin coûte moins cher pour un résultat identique."),
+  ("J'habite une commune rurale, le délai est-il le même&nbsp;?",
+   "Non, et nous ne prétendrons pas le contraire. Sur l'agglomération briochine "
+   "et les principales villes, nous visons l'heure&nbsp;; dans l'arrière-pays, "
+   "entre Loudéac, Rostrenen et Callac, comptez davantage. Le délai réel vous est "
+   "annoncé avant tout déplacement."),
+ ],
+},
+
+{
+ "slug": "inspection-camera-curage-reseau-cotes-d-armor",
+ "court": "Inspection caméra et curage (22)",
+ "dept": "22", "act": "degorgement", "date": "2026-10-04",
+ "titre": "Inspection caméra et curage (22) : voir avant — ETS-BZH",
+ "h1": "Inspection caméra et curage de réseau dans les Côtes-d'Armor&nbsp;: voir avant de creuser",
+ "meta": ("Bouchon qui revient dans les Côtes-d'Armor : inspection caméra, "
+          "hydrocurage et diagnostic écrit, ville par ville. 02 20 06 00 75."),
+ "mots_cles": ("inspection caméra canalisation Côtes-d'Armor, hydrocurage "
+               "Saint-Brieuc, curage réseau enterré, diagnostic canalisation Dinan"),
+ "chapo": ("Quand une canalisation se rebouche trois fois en un an, ce n'est plus "
+           "un problème d'usage&nbsp;: c'est un défaut du réseau. Le furet soulage, "
+           "il ne corrige rien. L'inspection caméra dit où est le défaut, de quelle "
+           "nature il est, et ce qu'il faut réellement faire — avant d'ouvrir une "
+           "tranchée au jugé."),
+ "villes_titre": "Ce que nous trouvons, ville par ville",
+ "villes_intro": ("Les réseaux ne vieillissent pas de la même façon selon le "
+                  "bâti et le sol. Voici ce que l'inspection caméra révèle le plus "
+                  "souvent sur les principales communes du département."),
+ "villes": [
+   ("Saint-Brieuc", "Collecteurs anciens en fonte et en grès dans le centre et "
+    "les quartiers d'avant-guerre. Les joints de grès se déchaussent et créent un "
+    "ressaut où tout s'arrête."),
+   ("Dinan", "Réseaux intra-muros très anciens, parfois repris par tronçons sur "
+    "plusieurs décennies. Les changements de diamètre mal raccordés sont la cause "
+    "la plus fréquente des récidives."),
+   ("Lamballe-Armor", "Habitat pavillonnaire des années 1970-1980&nbsp;: PVC de "
+    "première génération, emboîtements fatigués et contre-pentes après tassement "
+    "du terrain."),
+   ("Plérin", "Terrains en pente vers la mer. Les réseaux enterrés y subissent "
+    "des mouvements lents, et l'affaissement d'une portion suffit à retenir les "
+    "matières à chaque passage."),
+   ("Guingamp", "Secteur mixte bourg et campagne. Les racines de haies et de "
+    "talus entrent par les joints des réseaux enterrés anciens&nbsp;: le filet "
+    "racinaire retient tout ce qui passe."),
+   ("Quintin", "Bâti ancien en pierre et assainissement individuel fréquent. "
+    "L'inspection sert autant à qualifier le réseau qu'à vérifier le départ vers "
+    "l'épandage."),
+ ],
+ "urgent": [
+   "Notez les dates de vos précédents débouchages&nbsp;: une récidive régulière "
+   "au même endroit est l'information la plus utile que vous puissiez nous donner.",
+   "Repérez les regards accessibles et ce qui pousse au-dessus du tracé.",
+   "Cessez d'enchaîner les passages de furet à l'aveugle&nbsp;: chacun coûte, "
+   "aucun ne traite la cause.",
+   "Si vous êtes locataire ou copropriétaire, demandez un diagnostic écrit&nbsp;: "
+   "c'est la pièce qui déplace la discussion du terrain de l'opinion à celui des "
+   "faits.",
+ ],
+ "danger": ("N'ouvrez pas une tranchée sur la foi d'une zone humide en surface. "
+            "L'eau suit la tranchée de pose et ressort rarement à l'aplomb du "
+            "défaut&nbsp;: une fouille au mauvais endroit coûte plus cher que la "
+            "localisation, et elle risque d'endommager d'autres réseaux enterrés — "
+            "électricité, télécoms, gaz."),
+ "sections": [
+  ("Trois défauts que seule la caméra distingue",
+   ["Vu depuis la maison, un bouchon ressemble toujours à un bouchon. Dans la "
+    "canalisation, il y a trois situations très différentes.",
+    "<strong>L'encrassement.</strong> La paroi s'est recouverte de graisses, de "
+    "savon et de calcaire, et le diamètre utile a fondu. Le furet perce un "
+    "passage, l'hydrocurage haute pression rend au tuyau son diamètre d'origine. "
+    "C'est le seul des trois cas où le curage suffit.",
+    "<strong>La racine.</strong> Elle est entrée par un joint ouvert et s'est "
+    "ramifiée à l'intérieur. On la fraise, on cure, et elle repousse si le défaut "
+    "d'entrée n'est pas traité. La caméra dit par où elle entre et sur quelle "
+    "longueur.",
+    "<strong>Le défaut structurel.</strong> Affaissement, contre-pente, fissure, "
+    "emboîtement déboîté. Là, aucun curage ne tiendra&nbsp;: la portion doit être "
+    "reprise. Mieux vaut le savoir avant d'avoir payé quatre débouchages."],
+   None),
+  ("Ce que vous recevez à la fin",
+   ["Une inspection ne vaut que par ce qu'elle laisse derrière elle. Nous "
+    "remettons systématiquement un diagnostic écrit qui précise la localisation au "
+    "mètre près depuis le regard de départ, la nature du défaut, son étendue, et "
+    "ce qui relève de l'entretien courant par opposition aux travaux.",
+    "Ce document a une valeur bien au-delà de la technique. En location, il "
+    "tranche entre l'entretien — à la charge de l'occupant — et la réparation d'un "
+    "ouvrage dégradé, qui revient au propriétaire. En copropriété, il permet au "
+    "conseil syndical de décider sur pièces. Auprès d'un assureur, il établit la "
+    "cause. Et à la vente d'un bien, il rassure un acquéreur mieux que n'importe "
+    "quelle déclaration.",
+    "Nous vous disons aussi, noir sur blanc, ce qu'il <em>n'est pas</em> "
+    "nécessaire de faire. Un rapport qui ne conclut qu'à des travaux n'est pas un "
+    "diagnostic, c'est un devis déguisé."],
+   None),
+  ("Quand demander une inspection plutôt qu'un énième débouchage",
+   [],
+   ["Le bouchon revient au même endroit plus d'une fois par an.",
+    "Plusieurs appareils ralentissent ensemble sans cause évidente.",
+    "Une odeur persistante résiste au remplissage des siphons.",
+    "Un regard se remplit à chaque épisode pluvieux.",
+    "Vous achetez ou vendez une maison ancienne et le réseau n'a jamais été vu.",
+    "Un litige s'annonce entre locataire et propriétaire, ou entre voisins&nbsp;: "
+    "une image vaut mieux qu'un échange de courriers."],
+   ),
+ ],
+ "faq": [
+  ("Combien de temps dure une inspection caméra&nbsp;?",
+   "Comptez environ une heure sur un réseau domestique accessible par les "
+   "regards, davantage s'il faut d'abord curer pour que la caméra passe. Le "
+   "diagnostic écrit vous est remis à l'issue de l'intervention."),
+  ("Faut-il déboucher avant de filmer&nbsp;?",
+   "Souvent oui&nbsp;: une caméra ne traverse pas un bouchon compact, et une "
+   "paroi encrassée masque les défauts. Dans la pratique, nous curons puis nous "
+   "filmons, ce qui donne une image exploitable de la paroi réelle."),
+  ("L'inspection peut-elle servir pour un litige ou une assurance&nbsp;?",
+   "C'est l'un de ses usages les plus fréquents. Le rapport localise le défaut et "
+   "en décrit la nature&nbsp;: c'est une pièce technique, pas une opinion, et elle "
+   "est exploitable par un expert, un syndic ou un bailleur."),
+  ("Intervenez-vous sur tout le département&nbsp;?",
+   "Oui, de Saint-Brieuc et Lannion aux communes de l'arrière-pays. "
+   "L'inspection se programme&nbsp;: contrairement à un débouchage d'urgence, "
+   "elle gagne à être faite dans de bonnes conditions, de jour et avec le temps "
+   "de regarder."),
+ ],
+},
+
+{
+ "slug": "recherche-de-fuite-non-destructive-cotes-d-armor",
+ "court": "Recherche de fuite (22)",
+ "dept": "22", "act": "plomberie", "date": "2026-10-04",
+ "titre": "Recherche de fuite (22) : trouver sans casser — ETS-BZH",
+ "h1": "Recherche de fuite non destructive dans les Côtes-d'Armor&nbsp;: trouver sans casser",
+ "meta": ("Recherche de fuite non destructive dans les Côtes-d'Armor : caméra "
+          "thermique, gaz traceur, corrélation. Ville par ville. 02 20 06 00 75."),
+ "mots_cles": ("recherche de fuite Côtes-d'Armor, détection fuite non destructive "
+               "Saint-Brieuc, caméra thermique fuite, gaz traceur Lannion"),
+ "chapo": ("Une tache qui s'élargit, une facture qui double, un mur qui reste "
+           "humide&nbsp;: la fuite est quelque part, et elle n'est pas là où ça se "
+           "voit. Ouvrir au jugé coûte presque toujours plus cher que de chercher "
+           "correctement. Voici les trois méthodes que nous employons, et ce "
+           "qu'elles voient réellement."),
+ "villes_titre": "Ce qui fuit, ville par ville",
+ "villes_intro": ("Le type de fuite dépend du bâti autant que de l'âge de "
+                  "l'installation. Voici ce que nous rencontrons le plus souvent "
+                  "sur les principales communes costarmoricaines."),
+ "villes": [
+   ("Saint-Brieuc", "Immeubles et maisons de ville&nbsp;: canalisations encastrées "
+    "dans les dalles et colonnes communes. L'eau ressort souvent un étage plus "
+    "bas et une pièce plus loin que son origine."),
+   ("Lannion", "Pavillons des années 1970-1990 avec réseaux sous chape. La caméra "
+    "thermique y est très efficace sur les circuits d'eau chaude et de chauffage."),
+   ("Trégueux", "Lotissements récents&nbsp;: les fuites se déclarent surtout sur "
+    "les raccords enterrés entre compteur et maison, sur de longues conduites en "
+    "polyéthylène."),
+   ("Paimpol", "Maisons de bord de mer souvent inoccupées l'hiver. Une fuite peut "
+    "couler des semaines avant d'être découverte&nbsp;: le relevé de compteur est "
+    "le premier geste à faire à chaque passage."),
+   ("Perros-Guirec", "Résidences secondaires et terrains en pente. Le gaz traceur "
+    "est la méthode la plus fiable sur les conduites enterrées en terrain "
+    "rocheux, où rien n'apparaît en surface."),
+   ("Loudéac", "Maisons anciennes et longères rénovées&nbsp;: conduites passées "
+    "sous dallage lors des travaux, sans gaine, dans un sol humide en permanence."),
+ ],
+ "urgent": [
+   "Fermez tous les robinets, relevez le compteur, attendez une heure sans rien "
+   "consommer, relevez à nouveau&nbsp;: un index qui bouge confirme la fuite.",
+   "Fermez ensuite la vanne d'entrée de la maison et refaites l'essai&nbsp;: si "
+   "le compteur tourne encore, la fuite est sur la portion enterrée.",
+   "Photographiez la tache en datant, et notez son évolution d'un jour sur "
+   "l'autre.",
+   "Appelez votre assureur avant d'engager la recherche&nbsp;: beaucoup de "
+   "contrats la prennent en charge, et cela évite une avance inutile.",
+ ],
+ "danger": ("Ne percez pas une dalle ou une cloison pour « voir »&nbsp;: vous "
+            "risquez de toucher une autre canalisation, un câble encastré ou un "
+            "plancher chauffant, et de transformer une fuite en sinistre. En "
+            "immeuble, s'y ajoute le risque de percer une conduite qui ne dessert "
+            "même pas votre logement."),
+ "sections": [
+  ("Trois méthodes, trois usages",
+   ["Aucune ne convient à tout, et c'est leur combinaison qui donne un point "
+    "précis.",
+    "<strong>La caméra thermique</strong> lit les écarts de température en "
+    "surface. Elle excelle sur les fuites d'eau chaude, les circuits de chauffage "
+    "et les planchers chauffants, où le tracé apparaît et l'anomalie avec lui. "
+    "Elle voit beaucoup moins bien une fuite d'eau froide dans un mur épais en "
+    "pierre — fréquent dans le bâti costarmoricain.",
+    "<strong>Le gaz traceur</strong> remplit la conduite vidée d'un mélange "
+    "inoffensif plus léger que l'air, qui s'échappe au point de fuite et remonte "
+    "à travers le sol ou le revêtement, où un détecteur le repère. C'est la "
+    "méthode la plus précise sur les conduites enterrées et les fuites froides.",
+    "<strong>La corrélation acoustique</strong> écoute le bruit de l'eau sous "
+    "pression et recoupe les mesures prises en deux points pour situer la fuite "
+    "le long du tracé. Elle est particulièrement utile sur les longues conduites "
+    "entre compteur et maison.",
+    "Dans la pratique, on commence toujours par isoler les circuits un par un — "
+    "eau froide, eau chaude, chauffage — pour savoir lequel perd. Cela réduit déjà "
+    "la zone de moitié sans sortir un seul appareil."],
+   None),
+  ("L'objectif : ouvrir un mètre carré, pas une pièce",
+   ["La valeur d'une recherche ne se mesure pas au temps passé mais à la surface "
+    "qu'elle évite d'ouvrir. Sur une conduite enterrée de trente mètres, la "
+    "différence entre une fouille d'un mètre carré et une tranchée complète "
+    "représente plusieurs journées de terrassement et de remise en état.",
+    "C'est aussi ce qui rend la recherche rentable même quand l'assurance ne la "
+    "prend pas en charge. Et quand elle la prend — ce qui est fréquent dans le "
+    "cadre d'un dégât des eaux —, le rapport que nous remettons est rédigé pour "
+    "être exploitable par l'expert&nbsp;: localisation, méthode employée, nature "
+    "du défaut, photographies.",
+    "Une précision utile dans le bâti ancien en pierre, très présent dans le "
+    "département&nbsp;: la recherche sert aussi à <em>écarter</em> l'hypothèse "
+    "d'une fuite. Une remontée capillaire imite parfaitement une fuite d'eau, et "
+    "savoir qu'il n'y en a pas évite d'ouvrir un mur pour rien."],
+   None),
+  ("Les signes qui doivent déclencher une recherche",
+   [],
+   ["Le compteur tourne alors que tous les robinets sont fermés.",
+    "Une facture d'eau anormale sans changement d'habitudes.",
+    "Une tache qui s'élargit lentement au plafond, au mur ou au sol.",
+    "Une plinthe qui gondole, un parquet qui se soulève, un carrelage qui sonne "
+    "creux.",
+    "Un mur qui reste froid et humide alors que la pièce est chauffée.",
+    "Une pression de chaudière qui baisse et qu'il faut compléter toutes les "
+    "semaines."],
+   ),
+ ],
+ "faq": [
+  ("L'assurance prend-elle en charge la recherche de fuite&nbsp;?",
+   "Souvent oui, dans le cadre d'un dégât des eaux, selon les garanties du "
+   "contrat. Un appel à votre assureur avant l'intervention permet de vérifier la "
+   "couverture et la procédure. Nous fournissons dans tous les cas un rapport "
+   "exploitable par l'expert."),
+  ("Combien de temps dure une recherche&nbsp;?",
+   "Comptez deux à quatre heures en intérieur, et souvent une demi-journée sur "
+   "une conduite enterrée selon la longueur du tracé et la nature du sol. La "
+   "réparation se programme ensuite, une fois le point exact connu."),
+  ("Et si la fuite est sous la dalle&nbsp;?",
+   "La méthode reste la même&nbsp;: localiser avant d'ouvrir. Selon la position et "
+   "la longueur concernée, il est parfois plus économique d'abandonner la portion "
+   "défectueuse et de créer un nouveau tracé en contournement plutôt que de "
+   "casser. Nous vous présentons les deux options chiffrées."),
+  ("Intervenez-vous sur les résidences secondaires en l'absence du "
+   "propriétaire&nbsp;?",
+   "Oui, avec un accès et un accord écrit. Sur le littoral costarmoricain, une "
+   "bonne part de nos recherches de fuite hivernales sont déclenchées par un "
+   "voisin ou un gardien&nbsp;: nous intervenons, nous sécurisons, et nous "
+   "transmettons le rapport photographique au propriétaire."),
+ ],
+},
+
+{
+ "slug": "depannage-chauffe-eau-cotes-d-armor",
+ "court": "Dépannage chauffe-eau (22)",
+ "dept": "22", "act": "plomberie", "date": "2026-10-04",
+ "titre": "Dépannage chauffe-eau (22) : réparer ou changer — ETS-BZH",
+ "h1": "Dépannage et remplacement de chauffe-eau dans les Côtes-d'Armor",
+ "meta": ("Chauffe-eau en panne dans les Côtes-d'Armor : pièce à bord, "
+          "remplacement, eau douce et anode. Ville par ville. 02 20 06 00 75."),
+ "mots_cles": ("dépannage chauffe-eau Côtes-d'Armor, remplacement ballon eau "
+               "chaude Saint-Brieuc, anode chauffe-eau eau douce, plombier Dinan"),
+ "chapo": ("Un chauffe-eau se répare bien plus souvent qu'on ne le remplace. "
+           "Encore faut-il que le diagnostic porte sur la bonne pièce — et, dans "
+           "ce département où l'eau est douce, qu'il regarde aussi ce que "
+           "personne ne regarde&nbsp;: l'anode."),
+ "villes_titre": "Ce que nous intervenons, ville par ville",
+ "villes_intro": ("Le parc d'appareils n'est pas le même d'une commune à l'autre, "
+                  "et cela change le diagnostic autant que la pièce à prévoir."),
+ "villes": [
+   ("Saint-Brieuc", "Appartements et maisons de ville&nbsp;: beaucoup de ballons "
+    "de 150 à 200 litres installés en placard, avec un accès serré. La question du "
+    "remplacement se pose aussi en termes d'encombrement."),
+   ("Plérin", "Pavillons des années 1980&nbsp;: appareils de première génération "
+    "arrivés en fin de vie. L'anode y est presque toujours épuisée quand nous "
+    "ouvrons."),
+   ("Lannion", "Logements récents et équipements plus variés, chauffe-eau "
+    "thermodynamiques compris. Le diagnostic porte souvent sur la régulation "
+    "plutôt que sur la cuve."),
+   ("Dinan", "Bâti ancien, ballons installés en combles ou en cave. Une fuite y "
+    "fait des dégâts sur plusieurs niveaux&nbsp;: le bac de rétention vaut son prix."),
+   ("Lamballe-Armor", "Habitat pavillonnaire dense, familles&nbsp;: le motif "
+    "d'appel le plus fréquent n'est pas la panne mais le sous-dimensionnement, "
+    "l'eau chaude manquant en fin de journée."),
+   ("Paimpol", "Résidences secondaires du littoral&nbsp;: appareils sollicités "
+    "deux mois par an et laissés en eau le reste du temps, ce qui est le pire des "
+    "cycles pour une cuve."),
+ ],
+ "urgent": [
+   "Coupez le disjoncteur du chauffe-eau au tableau avant toute manipulation.",
+   "Si de l'eau coule, fermez l'arrivée d'eau froide du ballon&nbsp;: la vanne "
+   "située juste avant le groupe de sécurité.",
+   "Repérez d'où vient l'eau&nbsp;: groupe de sécurité, raccord, bride, ou "
+   "dessous de la cuve. C'est la seule information qui compte pour la suite.",
+   "S'il n'y a pas de fuite mais plus d'eau chaude, essayez la marche forcée du "
+   "contacteur jour/nuit pendant deux heures.",
+ ],
+ "danger": ("Ne bouchez jamais l'écoulement du groupe de sécurité pour arrêter un "
+            "goutte-à-goutte, et ne remplacez pas cet organe par un bouchon. C'est "
+            "la soupape qui évacue la surpression quand l'eau chauffe&nbsp;: "
+            "neutralisée, elle transforme le ballon en récipient sous pression, "
+            "avec un risque d'éclatement réel."),
+ "sections": [
+  ("Ce qui se répare, ce qui ne se répare pas",
+   ["La frontière est nette, et elle ne dépend pas de l'âge de l'appareil.",
+    "<strong>Se répare toujours</strong>&nbsp;: le groupe de sécurité entartré ou "
+    "fatigué, un raccord qui fuit, un thermostat en sécurité, une résistance "
+    "coupée, un contacteur jour/nuit dont les contacts sont piqués. Ce sont des "
+    "pièces courantes, que nos véhicules ont à bord.",
+    "<strong>Se discute</strong>&nbsp;: le joint de bride sur un appareil de plus "
+    "de huit ans. On le remplace, et c'est le moment de contrôler l'anode et "
+    "l'état intérieur de la cuve, puisqu'elle est ouverte.",
+    "<strong>Ne se répare pas</strong>&nbsp;: une cuve percée par corrosion. "
+    "L'eau suinte sous l'appareil sans qu'aucun raccord soit en cause. Il n'existe "
+    "aucune réparation durable, et personne ne devrait vous proposer de souder.",
+    "Un cas à part&nbsp;: l'eau chaude qui manque sans panne. Si le volume ne "
+    "tient plus la journée alors que rien n'a changé dans l'appareil, c'est le "
+    "dimensionnement qui est en cause, pas la mécanique."],
+   None),
+  ("L'eau douce bretonne : un avantage et un piège",
+   ["Le sous-sol granitique costarmoricain donne une eau peu calcaire. Les "
+    "résistances s'entartrent lentement, les robinetteries durent, et le "
+    "détartrage régulier que l'on recommande ailleurs n'a pas le même intérêt ici.",
+    "Le revers est moins connu&nbsp;: une eau douce est plus agressive pour les "
+    "métaux. La protection de la cuve repose alors entièrement sur l'<strong>anode "
+    "</strong>, cette tige sacrificielle qui se consume à la place de l'acier. "
+    "Personne ne la surveille, elle s'épuise en silence, et la corrosion commence "
+    "sans aucun signe extérieur. Deux ou trois ans plus tard, la cuve perce d'un "
+    "coup.",
+    "La conséquence pratique est simple&nbsp;: dans ce département, un contrôle "
+    "tous les deux ans avec vérification de l'anode et du groupe de sécurité "
+    "prolonge réellement la vie de l'appareil, bien plus qu'un détartrage. Et "
+    "quand un ballon de plus de dix ans tombe en panne, le diagnostic ne doit pas "
+    "s'arrêter à la pièce défectueuse — remplacer une résistance sur une cuve déjà "
+    "corrodée n'a aucun sens."],
+   None),
+  ("Les gestes qui allongent la durée de vie",
+   [],
+   ["Manœuvrer le robinet du groupe de sécurité une fois par mois pour éviter "
+    "qu'il ne se bloque.",
+    "Régler la température entre 55 et 60&nbsp;°C&nbsp;: assez chaud pour la "
+    "sécurité sanitaire, assez modéré pour limiter la corrosion.",
+    "Faire contrôler l'anode tous les deux ans — c'est l'entretien le plus utile "
+    "sur une eau douce.",
+    "Couper l'électricité et fermer l'arrivée d'eau à chaque absence prolongée.",
+    "Dans une maison laissée vide tout l'hiver, vidanger&nbsp;: une eau stagnante "
+    "accélère la corrosion.",
+    "À la remise en service, remplir <strong>avant</strong> d'alimenter&nbsp;: une "
+    "résistance alimentée à vide grille en quelques minutes."],
+   ),
+ ],
+ "faq": [
+  ("Combien de temps sans eau chaude&nbsp;?",
+   "Si la pièce est courante — groupe de sécurité, thermostat, résistance, "
+   "contacteur — nos véhicules l'ont à bord et l'eau chaude revient dans la "
+   "journée. Un remplacement complet demande en général une demi-journée, une "
+   "fois le modèle choisi."),
+  ("Faut-il détartrer un chauffe-eau dans les Côtes-d'Armor&nbsp;?",
+   "Beaucoup moins souvent qu'ailleurs, l'eau étant peu calcaire sur une grande "
+   "partie du département. Le contrôle de l'anode et du groupe de sécurité est "
+   "nettement plus utile ici."),
+  ("Mon ballon a quinze ans, faut-il le changer préventivement&nbsp;?",
+   "Pas forcément. Un appareil ancien mais sain, dont l'anode a été entretenue, "
+   "peut encore durer. Nous regardons l'état réel et nous vous donnons les deux "
+   "options chiffrées&nbsp;: réparer maintenant, ou remplacer en choisissant le "
+   "moment plutôt que de le subir."),
+  ("Intervenez-vous sur toutes les marques&nbsp;?",
+   "Oui, sur l'ensemble des Côtes-d'Armor, de Saint-Brieuc et Lannion aux "
+   "communes rurales. Le diagnostic et le devis sont gratuits, et le tarif est "
+   "validé avec vous avant tout démarrage."),
+ ],
+},
+
+{
+ "slug": "remise-en-securite-electrique-apres-sinistre-cotes-d-armor",
+ "court": "Remise en sécurité électrique (22)",
+ "dept": "22", "act": "electricite", "date": "2026-10-04",
+ "titre": "Remise en sécurité électrique (22) : après sinistre — ETS-BZH",
+ "h1": "Remise en sécurité électrique après un sinistre dans les Côtes-d'Armor",
+ "meta": ("Après une fuite, un départ de feu ou une tempête dans les Côtes-d'Armor : "
+          "contrôle d'isolement et remise en service. Ville par ville. 02 20 06 00 75."),
+ "mots_cles": ("remise en sécurité électrique Côtes-d'Armor, contrôle isolement "
+               "après dégât des eaux, électricien urgence Saint-Brieuc, tableau inondé"),
+ "chapo": ("Après un dégât des eaux, un départ de feu ou un coup de vent qui a "
+           "ouvert la toiture, la question n'est pas de savoir si l'électricité "
+           "fonctionne encore&nbsp;: c'est de savoir si elle est sûre. Et cela ne "
+           "se décide pas à l'œil — cela se mesure."),
+ "villes_titre": "Ce qui déclenche l'appel, ville par ville",
+ "villes_intro": ("Les sinistres n'ont pas la même origine selon l'exposition et "
+                  "le bâti. Voici ce qui nous amène le plus souvent sur les "
+                  "principales communes du département."),
+ "villes": [
+   ("Saint-Brieuc", "Dégâts des eaux en immeuble&nbsp;: l'eau descend par les "
+    "gaines et atteint les points lumineux de l'étage inférieur avant tout le "
+    "reste. Le contrôle porte d'abord sur ces circuits."),
+   ("Plérin", "Façades exposées au vent de mer. Après une tempête, l'eau entre "
+    "par une tuile déplacée et ressort sur une dérivation en combles, souvent "
+    "oubliée depuis une extension."),
+   ("Paimpol", "Habitat littoral&nbsp;: aux dégâts d'eau s'ajoute le sel, qui "
+    "dégrade lentement les contacts dans les coffrets extérieurs et les boîtes de "
+    "dérivation."),
+   ("Perros-Guirec", "Résidences secondaires&nbsp;: le sinistre est découvert "
+    "plusieurs jours après, et l'installation a eu le temps de s'imprégner. "
+    "L'assèchement y est toujours plus long qu'on ne le croit."),
+   ("Guingamp", "Maisons de bourg en pierre&nbsp;: les murs humides restent "
+    "conducteurs longtemps après l'épisode, ce qui rend un défaut d'isolement "
+    "bien plus dangereux qu'en bâti sec."),
+   ("Rostrenen", "Secteur rural, alimentation souvent aérienne&nbsp;: aux dégâts "
+    "d'eau s'ajoutent les surtensions d'orage, qui atteignent le tableau en "
+    "premier."),
+ ],
+ "urgent": [
+   "Coupez l'alimentation du secteur concerné au tableau. Si l'eau est proche du "
+   "tableau, coupez le disjoncteur de branchement, en amont.",
+   "N'entrez pas dans une pièce inondée avant d'avoir coupé, et jamais pieds nus.",
+   "Ne débranchez aucun appareil resté dans l'eau tant que le circuit est sous "
+   "tension.",
+   "Laissez le courant coupé sur ce secteur, même si tout semble sec.",
+   "Photographiez tout avant nettoyage&nbsp;: niveau atteint, appareils, tableau. "
+   "C'est la base du dossier d'assurance.",
+ ],
+ "danger": ("Une installation peut être sèche en surface et saturée à "
+            "l'intérieur. L'eau circule dans les gaines par capillarité et stagne "
+            "dans les boîtes de dérivation et les points bas des conduits, parfois "
+            "des semaines. Remettre sous tension parce que « ça a séché » est la "
+            "faute la plus courante après un sinistre, et la plus dangereuse&nbsp;: "
+            "le défaut se manifeste alors sur un contact humain."),
+ "sections": [
+  ("Ce qu'on mesure, et pourquoi l'œil ne suffit pas",
+   ["Ce que l'on contrôle après un sinistre n'est pas la présence d'eau mais la "
+    "<strong>résistance d'isolement</strong>&nbsp;: la capacité des gaines et des "
+    "conducteurs à empêcher le courant de partir là où il ne doit pas. L'humidité "
+    "fait chuter cette valeur bien avant de provoquer une panne visible.",
+    "La mesure se fait circuit par circuit, installation hors tension, avec un "
+    "appareil dédié. Elle donne trois réponses possibles&nbsp;: le circuit est "
+    "sain et peut être remis en service&nbsp;; il est dégradé et doit sécher avant "
+    "un nouveau contrôle&nbsp;; il est compromis et doit être repris.",
+    "C'est aussi ce contrôle qui permet une remise en service <em>partielle</em>, "
+    "ce qui compte énormément dans une maison sinistrée&nbsp;: on isole les "
+    "circuits atteints et on rétablit le reste, plutôt que de laisser tout le "
+    "logement dans le noir pendant des semaines d'assèchement."],
+   None),
+  ("Ce qui se remplace, ce qui se sèche",
+   ["<strong>Se remplace systématiquement</strong>&nbsp;: tout appareillage "
+    "immergé — prises, interrupteurs, boîtes de dérivation — et tout matériel du "
+    "tableau ayant été en contact avec l'eau. Un disjoncteur ou un différentiel "
+    "mouillé ne se sèche pas et ne se répare pas&nbsp;: son mécanisme interne et "
+    "ses contacts sont atteints, et la protection qu'il est censé assurer n'est "
+    "plus garantie.",
+    "<strong>Peut sécher et être recontrôlé</strong>&nbsp;: les circuits dont "
+    "seules les gaines ont pris l'humidité, sans immersion prolongée. On sèche, on "
+    "ventile, on remesure. Dans une maison en pierre costarmoricaine, cela prend "
+    "souvent plusieurs semaines.",
+    "<strong>Doit être repris</strong>&nbsp;: les circuits dont l'isolement reste "
+    "insuffisant après séchage, et les installations sans protection "
+    "différentielle 30&nbsp;mA — où le défaut ne serait de toute façon jamais "
+    "détecté. Après un sinistre, c'est souvent l'occasion de régler cette absence "
+    "une bonne fois."],
+   None),
+  ("L'ordre des opérations après un sinistre",
+   [],
+   ["Couper, sécuriser, photographier.",
+    "Arrêter l'origine — l'eau, le départ de feu — avant tout le reste.",
+    "Faire contrôler l'installation et rétablir les circuits sains pour que le "
+    "logement reste habitable.",
+    "Déclarer à l'assurance, rapport d'intervention à l'appui.",
+    "Assécher réellement&nbsp;: ventilation, chauffage doux, temps. Cela ne se "
+    "contourne pas.",
+    "Faire recontrôler avant la remise en service définitive des circuits isolés.",
+    "Ne refermer, ne recouvrir et ne repeindre qu'après."],
+   ),
+ ],
+ "faq": [
+  ("Le courant fonctionne encore, dois-je vraiment couper&nbsp;?",
+   "Oui. Le fait que ça marche ne dit rien de la sécurité&nbsp;: un défaut "
+   "d'isolement ne coupe pas le courant, il crée un chemin de fuite. Sans "
+   "différentiel 30&nbsp;mA, rien ne l'interrompra avant qu'une personne ne le "
+   "referme."),
+  ("Combien de temps faut-il sécher&nbsp;?",
+   "Il n'y a pas de durée standard&nbsp;: cela dépend du volume d'eau, des "
+   "matériaux et de la ventilation, et cela va de quelques jours à plusieurs "
+   "semaines — davantage dans un mur en pierre. La seule réponse fiable est la "
+   "mesure d'isolement, refaite après séchage."),
+  ("L'assurance prend-elle en charge la remise en état électrique&nbsp;?",
+   "Les dommages électriques consécutifs à un dégât des eaux ou à un incendie "
+   "sont généralement couverts selon les termes du contrat. Le rapport "
+   "d'intervention, qui distingue ce qui est atteint de ce qui ne l'est pas, est "
+   "la pièce qui fait avancer le dossier."),
+  ("Intervenez-vous en urgence pour sécuriser&nbsp;?",
+   "Oui, 24h/24 et 7j/7 sur l'ensemble des Côtes-d'Armor. La première visite vise "
+   "à couper ce qui doit l'être et à rétablir les circuits sains&nbsp;; le "
+   "contrôle définitif se fait après assèchement."),
+ ],
+},
+
+{
+ "slug": "mise-aux-normes-tableau-electrique-cotes-d-armor",
+ "court": "Mise aux normes du tableau (22)",
+ "dept": "22", "act": "electricite", "date": "2026-10-04",
+ "titre": "Mise aux normes électrique (22) : vente, location — ETS-BZH",
+ "h1": "Mise aux normes du tableau électrique dans les Côtes-d'Armor&nbsp;: avant la vente ou la location",
+ "meta": ("Diagnostic électrique en anomalie dans les Côtes-d'Armor : ce qu'il "
+          "faut reprendre avant de vendre ou de louer. Ville par ville. 02 20 06 00 75."),
+ "mots_cles": ("mise aux normes électrique Côtes-d'Armor, diagnostic électrique "
+               "vente, tableau électrique Saint-Brieuc, différentiel 30 mA, NF C 15-100"),
+ "chapo": ("Le diagnostic est tombé, il liste des anomalies, et la vente ou la "
+           "mise en location approche. La bonne nouvelle, c'est qu'une mise en "
+           "sécurité ne demande presque jamais de refaire toute l'électricité "
+           "d'une maison. Encore faut-il savoir ce qui compte vraiment et ce qui "
+           "peut attendre."),
+ "villes_titre": "Ce que le diagnostic relève, ville par ville",
+ "villes_intro": ("Les anomalies ne sont pas les mêmes selon l'âge et le type de "
+                  "bâti. Voici ce que nous retrouvons le plus souvent sur les "
+                  "principales communes du département."),
+ "villes": [
+   ("Saint-Brieuc", "Appartements anciens divisés&nbsp;: absence de protection "
+    "différentielle 30&nbsp;mA et circuits qui traversent plusieurs lots, héritage "
+    "de découpages successifs."),
+   ("Dinan", "Maisons de centre historique&nbsp;: fusibles à broche encore en "
+    "place, prise de terre absente ou réduite à un piquet corrodé."),
+   ("Lannion", "Pavillons des années 1970-1980&nbsp;: tableau d'origine sans "
+    "circuits dédiés, auxquels ont été ajoutés four, plaque et sèche-linge sans "
+    "changer la section des câbles."),
+   ("Loudéac", "Longères rénovées par étapes&nbsp;: dérivations dans les combles "
+    "et les dépendances, souvent sans boîte ni protection, et liaison "
+    "équipotentielle manquante dans les pièces d'eau."),
+   ("Guingamp", "Maisons de bourg en pierre&nbsp;: l'humidité permanente des murs "
+    "rend l'absence de différentiel bien plus dangereuse qu'en bâti sec. C'est le "
+    "premier point que nous traitons."),
+   ("Paimpol", "Résidences du littoral&nbsp;: coffrets et prises extérieures "
+    "corrodés par l'air salin, indices de protection insuffisants, terre dégradée."),
+ ],
+ "urgent": [
+   "Ne remplacez jamais un fusible fondu par un fil de cuivre, une pièce de "
+   "monnaie ou un calibre supérieur&nbsp;: c'est la cause d'incendie la plus "
+   "documentée sur ces installations.",
+   "Testez votre interrupteur différentiel s'il en existe un&nbsp;: le bouton "
+   "« test » doit le faire déclencher. S'il ne se déclenche pas, il ne protège "
+   "plus personne.",
+   "Si un fusible ou un disjoncteur saute à répétition sur le même circuit, "
+   "laissez-le hors service et faites contrôler&nbsp;: il y a un vrai défaut "
+   "derrière.",
+   "Rassemblez le diagnostic&nbsp;: la liste des anomalies est le point de départ "
+   "du devis, et elle évite un déplacement d'évaluation.",
+ ],
+ "danger": ("Un fusible protège le câble, pas la personne. Il fond sur une "
+            "surintensité, c'est-à-dire sur un courant fort. Le courant qui "
+            "traverse un corps humain lors d'un contact avec une masse sous "
+            "tension est très inférieur à ce seuil&nbsp;: rien ne coupera. C'est "
+            "exactement ce que fait un dispositif différentiel 30&nbsp;mA, et "
+            "c'est pour cela qu'il est au cœur de toute mise en sécurité."),
+ "sections": [
+  ("Les cinq points qui reviennent dans tous les diagnostics",
+   ["Un diagnostic électrique de vente ou de location examine un nombre limité de "
+    "points, et les anomalies relevées sont presque toujours les mêmes.",
+    "<strong>L'absence de dispositif différentiel 30&nbsp;mA.</strong> C'est le "
+    "point le plus important, parce que c'est le seul qui protège les personnes. "
+    "Sans lui, aucun défaut d'isolement n'est détecté.",
+    "<strong>L'absence ou l'insuffisance de prise de terre</strong>, et de liaison "
+    "équipotentielle dans la salle de bain. Dans le bâti ancien costarmoricain, "
+    "c'est la deuxième anomalie la plus fréquente.",
+    "<strong>Un dispositif de protection inadapté</strong> à la section des "
+    "conducteurs&nbsp;: un disjoncteur trop fort protège le câble à un niveau "
+    "qu'il ne supporte pas.",
+    "<strong>Des matériels vétustes ou inadaptés</strong>&nbsp;: porte-fusibles à "
+    "broche, appareillage cassé, conducteurs apparents non protégés.",
+    "<strong>Des conducteurs non protégés mécaniquement</strong>, typiquement "
+    "dans les combles, les caves et les dépendances."],
+   None),
+  ("Mise en sécurité d'abord, rénovation ensuite",
+   ["La crainte qui bloque la décision est toujours la même&nbsp;: tout refaire, "
+    "casser les murs, ouvrir les plafonds. Ce n'est pas ce que demande un "
+    "diagnostic en anomalie, et ce n'est pas ce que nous proposons.",
+    "La <strong>mise en sécurité</strong> consiste à remplacer le tableau par un "
+    "tableau moderne avec protections différentielles 30&nbsp;mA, à créer ou "
+    "reprendre la prise de terre et la liaison équipotentielle, à ajouter les "
+    "circuits dédiés aux appareils de forte puissance, et à repérer les circuits "
+    "existants. Cela se fait en général en une journée, sans toucher aux murs, et "
+    "c'est ce qui lève la quasi-totalité des anomalies.",
+    "La <strong>rénovation</strong> — refaire les câbles anciens, remplacer les "
+    "appareillages sans terre, reprendre les volumes de la salle de bain — se "
+    "planifie ensuite, par étapes, au rythme des travaux de la maison.",
+    "Pour un bien mis en location, la distinction est importante&nbsp;: un "
+    "logement doit répondre à des critères de décence, et l'installation "
+    "électrique en fait partie. La mise en sécurité est l'étape qui y répond."],
+   None),
+  ("Comment se passe le chantier",
+   [],
+   ["Un état des lieux circuit par circuit, avec mesure de la prise de terre.",
+    "Une coupure d'alimentation limitée à la durée du chantier, annoncée à "
+    "l'avance pour que vous puissiez vous organiser.",
+    "La pose du nouveau tableau, protections et disjoncteurs adaptés à chaque "
+    "circuit.",
+    "Le repérage et l'étiquetage de tous les départs&nbsp;: vous saurez enfin ce "
+    "que coupe chaque protection.",
+    "La reprise ou la création de la terre et de la liaison équipotentielle.",
+    "Les essais en votre présence, protection par protection, et un rapport écrit "
+    "de ce qui a été fait et de ce qui reste à prévoir."],
+   ),
+ ],
+ "faq": [
+  ("Un diagnostic en anomalie empêche-t-il de vendre&nbsp;?",
+   "Non. Le diagnostic électrique est un document d'information remis à "
+   "l'acquéreur&nbsp;: il n'interdit pas la vente. En pratique, il pèse sur la "
+   "négociation, et une mise en sécurité faite avant la mise en vente coûte "
+   "souvent moins que la décote qu'elle évite."),
+  ("Combien de temps dure un remplacement de tableau&nbsp;?",
+   "En général une journée, coupure comprise. Nous annonçons la plage précise à "
+   "l'avance. Les travaux plus lourds, s'il y en a, se planifient séparément."),
+  ("Faut-il tout refaire dans une maison ancienne&nbsp;?",
+   "Presque jamais. La mise en sécurité lève l'essentiel des anomalies sans "
+   "toucher aux murs. Le reste se fait par étapes, et nous vous disons clairement "
+   "ce qui est urgent et ce qui ne l'est pas."),
+  ("Intervenez-vous pour les bailleurs et les agences&nbsp;?",
+   "Oui, sur l'ensemble des Côtes-d'Armor, avec devis détaillé et rapport "
+   "d'intervention. Le diagnostic et le devis sont gratuits et sans engagement."),
+ ],
+},
+
+# ------------------------------------------------------- 29 — FINISTÈRE
+{
+ "slug": "vidange-pompage-fosse-bac-relevage-finistere",
+ "court": "Vidange et pompage (29)",
+ "dept": "29", "act": "degorgement", "date": "2026-10-04",
+ "titre": "Vidange et pompage (29) : fosses, bacs, relevage — ETS-BZH",
+ "h1": "Vidange et pompage en Finistère&nbsp;: fosses, bacs à graisse et postes de relevage",
+ "meta": ("Vidange de fosse, bac à graisse ou poste de relevage en Finistère : "
+          "fréquences, bordereau, délais. Ville par ville. 02 20 06 00 75."),
+ "mots_cles": ("vidange fosse septique Finistère, pompage bac à graisse Brest, "
+               "poste de relevage Quimper, bordereau de suivi assainissement"),
+ "chapo": ("Une vidange n'est pas un dépannage&nbsp;: c'est un entretien qui, fait "
+           "à temps, évite le dépannage. Reste à savoir à quelle fréquence, pour "
+           "quel ouvrage, et ce qu'on doit pouvoir montrer en cas de contrôle. "
+           "Voici ce qui change selon l'installation et selon la commune."),
+ "villes_titre": "Ce que nous pompons, ville par ville",
+ "villes_intro": ("Le parc d'ouvrages n'est pas le même d'un bout à l'autre du "
+                  "département. Voici ce que nous rencontrons le plus souvent."),
+ "villes": [
+   ("Brest", "Beaucoup de postes de relevage en habitat collectif et en zone "
+    "d'activité, et des bacs à graisse en restauration de centre-ville. "
+    "L'entretien programmé y est la règle plutôt que l'urgence."),
+   ("Quimper", "Mixte urbain et périurbain&nbsp;: fosses toutes eaux en limite "
+    "d'agglomération, bacs à graisse dans les restaurants du centre historique."),
+   ("Châteaulin", "Secteur rural&nbsp;: assainissement non collectif très présent, "
+    "fosses de 3&nbsp;m³ sur habitat permanent, et épandages anciens qui "
+    "saturent en hiver."),
+   ("Crozon", "Presqu'île et résidences secondaires&nbsp;: les fosses y travaillent "
+    "deux mois par an. La vidange se cale avant ou après la saison, jamais en "
+    "plein mois d'août."),
+   ("Carhaix-Plouguer", "Habitat dispersé et exploitations&nbsp;: distances plus "
+    "longues, donc interventions groupées lorsque c'est possible, ce qui réduit "
+    "le coût pour chacun."),
+   ("Concarneau", "Restauration et activité portuaire&nbsp;: les bacs à graisse y "
+    "sont sollicités en saison, et le rythme d'entretien doit suivre la "
+    "fréquentation, pas le calendrier."),
+ ],
+ "urgent": [
+   "Si l'ouvrage déborde déjà, coupez tout rejet d'eau&nbsp;: c'est le seul geste "
+   "qui gagne du temps.",
+   "N'ouvrez pas le tampon plus que nécessaire et ne vous penchez jamais "
+   "au-dessus.",
+   "Retrouvez votre dernier bordereau de vidange&nbsp;: la date conditionne le "
+   "diagnostic.",
+   "Notez le volume de l'ouvrage s'il est connu, et le nombre d'occupants "
+   "permanents&nbsp;: c'est ce qui détermine la fréquence.",
+ ],
+ "danger": ("Ne descendez jamais dans une fosse, un regard ou un poste de "
+            "relevage, et n'y faites descendre personne — pas même « juste pour "
+            "racler ». La fermentation produit de l'hydrogène sulfuré, un gaz qui "
+            "sature l'odorat avant d'assommer. Ces interventions se font depuis la "
+            "surface, avec du matériel de pompage."),
+ "sections": [
+  ("Trois ouvrages, trois rythmes",
+   ["<strong>La fosse toutes eaux.</strong> La règle pratique est de vidanger "
+    "avant que les boues n'occupent la moitié du volume utile, soit en général "
+    "tous les quatre ans pour un foyer permanent. Dans une résidence secondaire "
+    "occupée deux mois par an, l'échéance s'éloigne nettement&nbsp;; dans une "
+    "maison qui accueille six personnes, elle se rapproche.",
+    "<strong>Le bac à graisse.</strong> Pour un établissement de restauration, le "
+    "rythme de référence est semestriel, trimestriel sur une cuisine à forte "
+    "production de graisses. Les signes d'alerte précèdent toujours la panne&nbsp;: "
+    "plonge qui ralentit, odeur à l'ouverture, siphon de sol qui gargouille.",
+    "<strong>Le poste de relevage.</strong> Il ne se vidange pas au même titre, "
+    "mais il demande un nettoyage de cuve et un contrôle du flotteur une fois par "
+    "an. C'est ce qui évite l'alarme un dimanche soir.",
+    "Dans les trois cas, le même principe s'applique&nbsp;: un entretien programmé "
+    "se cale au calendrier et coûte un tarif de jour. Une urgence se subit, et "
+    "elle tombe toujours au mauvais moment."],
+   None),
+  ("Le bordereau : la seule chose qui prouve que c'est fait",
+   ["À chaque vidange, les matières sont évacuées vers une filière agréée et un "
+    "<strong>bordereau de suivi</strong> vous est remis. Il indique la date, le "
+    "volume, l'ouvrage concerné et la destination des matières.",
+    "Ce document n'est pas une formalité. C'est ce que demande le service public "
+    "d'assainissement non collectif lors de son contrôle périodique, ce qu'un "
+    "acquéreur regarde à la vente d'une maison, et ce qu'un contrôle réclame à un "
+    "établissement de restauration. En son absence, l'entretien est réputé ne pas "
+    "avoir eu lieu, quelle que soit la réalité.",
+    "Conservez-les tous. Nous les remettons systématiquement, et nous pouvons "
+    "fournir un duplicata&nbsp;: c'est le genre de papier qu'on cherche toujours "
+    "le jour où on en a besoin."],
+   None),
+  ("Ce qui se vérifie pendant la vidange",
+   [],
+   ["Le niveau réel des boues avant pompage&nbsp;: il dit si la fréquence est "
+    "adaptée.",
+    "Le préfiltre en sortie de fosse, à nettoyer une à deux fois par an — c'est la "
+    "panne la plus évitable de toutes.",
+    "L'écoulement effectif vers l'épandage après remise en service.",
+    "L'état des tampons et leur étanchéité&nbsp;: un tampon qui ne joint plus "
+    "laisse entrer la terre et sortir les odeurs.",
+    "La ventilation de l'ouvrage, souvent oubliée et pourtant responsable d'une "
+    "bonne part des odeurs dans la maison.",
+    "Pour un poste de relevage&nbsp;: le flotteur, l'alarme et le clapet de "
+    "refoulement."],
+   ),
+ ],
+ "faq": [
+  ("À quelle fréquence faut-il vidanger une fosse&nbsp;?",
+   "La règle pratique est de ne pas laisser les boues dépasser la moitié du "
+   "volume utile, ce qui correspond souvent à quatre ans environ pour un foyer "
+   "permanent. Le nombre d'occupants et le volume de l'ouvrage font varier cette "
+   "échéance&nbsp;: le niveau relevé lors de la vidange précédente est le meilleur "
+   "indicateur."),
+  ("Les produits « activateurs » évitent-ils la vidange&nbsp;?",
+   "Non. Ils peuvent soutenir l'activité bactérienne, ils ne retirent pas les "
+   "boues&nbsp;: le volume utile continue de diminuer. La vidange reste "
+   "nécessaire, et le bordereau aussi."),
+  ("Pouvez-vous intervenir hors des heures d'ouverture d'un restaurant&nbsp;?",
+   "Oui, et c'est le cas le plus fréquent&nbsp;: tôt le matin, entre deux "
+   "services, ou le jour de fermeture. Les entretiens programmés se calent à "
+   "l'avance sur votre calendrier."),
+  ("Intervenez-vous sur toute la presqu'île et le Centre-Finistère&nbsp;?",
+   "Oui, de Brest et Quimper à Crozon, Châteaulin et Carhaix-Plouguer. Sur les "
+   "secteurs éloignés, nous groupons les interventions quand c'est possible, ce "
+   "qui réduit le coût du déplacement pour chacun."),
+ ],
+},
+
+{
+ "slug": "eaux-pluviales-bouchees-finistere",
+ "court": "Eaux pluviales bouchées (29)",
+ "dept": "29", "act": "degorgement", "date": "2026-10-04",
+ "titre": "Eaux pluviales bouchées (29) : descentes, regards — ETS-BZH",
+ "h1": "Eaux pluviales bouchées en Finistère&nbsp;: descentes, regards et réseaux enterrés",
+ "meta": ("Débordement d'eaux pluviales en Finistère : descente, regard ou réseau "
+          "enterré ? Diagnostic et curage, ville par ville. 02 20 06 00 75."),
+ "mots_cles": ("eaux pluviales bouchées Finistère, descente de gouttière bouchée "
+               "Brest, regard eaux pluviales, curage réseau pluvial Quimper"),
+ "chapo": ("En Finistère, le réseau d'eaux pluviales travaille beaucoup plus que "
+           "celui des eaux usées — et personne ne l'entretient. Quand il lâche, "
+           "l'eau ne va pas dans la rue&nbsp;: elle va dans les fondations, le "
+           "sous-sol ou le mur. Voici comment savoir où ça bouche avant que "
+           "l'automne ne s'en charge."),
+ "villes_titre": "Ce qui bouche, ville par ville",
+ "villes_intro": ("La cause varie avec l'environnement immédiat&nbsp;: végétation, "
+                  "exposition au vent de mer, âge du réseau."),
+ "villes": [
+   ("Brest", "Bâti dense et toitures anciennes&nbsp;: mousses et graviers de "
+    "couverture descendent dans les chéneaux et bloquent les naissances. Les "
+    "réseaux enterrés d'avant-guerre sont souvent sous-dimensionnés pour les "
+    "pluies actuelles."),
+   ("Morlaix", "Terrains en pente et vallée encaissée&nbsp;: l'eau arrive vite et "
+    "en volume. Un regard partiellement obstrué suffit à faire déborder en amont."),
+   ("Quimper", "Secteurs proches des cours d'eau&nbsp;: en épisode intense, le "
+    "réseau public sature et refoule. Un clapet anti-retour est alors la seule "
+    "vraie parade côté particulier."),
+   ("Plougastel-Daoulas", "Jardins arborés&nbsp;: feuilles et aiguilles de pin "
+    "remplissent les gouttières chaque automne, et les racines entrent dans les "
+    "réseaux enterrés anciens."),
+   ("Fouesnant", "Littoral sableux&nbsp;: le sable charrié par le vent et le "
+    "ruissellement se dépose au point bas du réseau et s'y compacte."),
+   ("Landerneau", "Lotissements des années 1980 avec réseaux séparatifs&nbsp;: les "
+    "mauvais branchements — une gouttière raccordée sur l'eau usée — sont une "
+    "cause fréquente de refoulement en pluie forte."),
+ ],
+ "urgent": [
+   "Dégagez ce qui est accessible sans monter&nbsp;: grille de descente, regard de "
+   "pied de gouttière, caniveau.",
+   "Ne montez pas sur un toit ou une échelle sous la pluie et dans le vent. Le "
+   "risque n'est pas proportionnel au problème.",
+   "Dirigez l'eau qui déborde loin des fondations avec ce que vous avez&nbsp;: "
+   "une planche, une bâche, une rigole.",
+   "Repérez où ça déborde exactement&nbsp;: en haut de la descente, à son pied, ou "
+   "au regard. C'est l'information qui situe le bouchon.",
+ ],
+ "danger": ("Une eau pluviale qui déborde au pied d'un mur ne fait pas de dégât "
+            "spectaculaire le premier jour&nbsp;: elle s'infiltre. Quelques "
+            "épisodes suffisent à saturer le sol sous la fondation et à faire "
+            "remonter l'humidité dans le mur. En bâti ancien en pierre, très "
+            "présent dans le département, c'est la première cause de remontées "
+            "capillaires durables — et la réparation d'un mur coûte "
+            "incomparablement plus cher qu'un curage."),
+ "sections": [
+  ("Trois points de blocage, trois symptômes",
+   ["<strong>La gouttière et la naissance.</strong> L'eau déborde par-dessus le "
+    "chéneau, en nappe, dès qu'il pleut fort. Cause&nbsp;: mousses, feuilles, "
+    "graviers de couverture. C'est le cas le plus simple et le plus fréquent.",
+    "<strong>La descente.</strong> L'eau sort au niveau d'un raccord ou refoule "
+    "par le haut de la descente. Un nid, un ballon, une accumulation de feuilles "
+    "compactées. On démonte, on dégage, on remonte.",
+    "<strong>Le réseau enterré.</strong> Le regard de pied de descente est plein, "
+    "ou l'eau ressort à la surface du terrain. C'est le cas sérieux&nbsp;: sable, "
+    "racines, affaissement, ou réseau public saturé. L'hydrocurage rend le "
+    "diamètre, l'inspection caméra dit s'il y a un défaut structurel derrière.",
+    "Un quatrième cas, moins visible&nbsp;: le <strong>mauvais branchement</strong>. "
+    "Une gouttière raccordée par erreur sur le réseau d'eaux usées sature le "
+    "branchement à chaque orage et fait refouler les sanitaires. Cela se corrige, "
+    "et cela s'identifie à la caméra."],
+   None),
+  ("Pourquoi c'est un sujet finistérien",
+   ["Le département cumule une pluviométrie soutenue, des épisodes venteux qui "
+    "chargent les toitures en débris, et un bâti dont une partie n'a jamais été "
+    "conçue pour les volumes d'aujourd'hui. Les réseaux enterrés des centres "
+    "anciens de Brest, Morlaix ou Quimper datent souvent d'une époque où "
+    "l'imperméabilisation des sols était bien moindre.",
+    "S'y ajoute un facteur saisonnier très net&nbsp;: tout se joue entre octobre et "
+    "mars. Les feuilles tombent, les premières tempêtes arrivent, et un réseau "
+    "qui tenait l'été se bouche en quelques semaines. C'est pourquoi un curage "
+    "préventif en septembre vaut mieux qu'une urgence en novembre.",
+    "Enfin, sur le littoral, le sable et le sel s'invitent&nbsp;: le sable se "
+    "compacte au point bas du réseau, et le sel accélère la corrosion des éléments "
+    "métalliques de collecte."],
+   None),
+  ("L'entretien qui évite l'urgence",
+   [],
+   ["Un nettoyage des gouttières et des chéneaux chaque automne, après la chute "
+    "des feuilles.",
+    "Des crapaudines sur les naissances de descente&nbsp;: quelques euros, et "
+    "l'essentiel du problème disparaît.",
+    "Un contrôle et un curage des regards tous les deux à trois ans.",
+    "Un exutoire de descente éloigné du mur&nbsp;: un rejet au pied de la fondation "
+    "alimente directement le sol sous la maison.",
+    "Une vérification des branchements en cas de refoulement répété&nbsp;: les "
+    "eaux pluviales n'ont rien à faire dans le réseau d'eaux usées.",
+    "Un clapet anti-retour quand c'est le réseau public qui refoule, et non votre "
+    "installation."],
+   ),
+ ],
+ "faq": [
+  ("Le réseau pluvial est-il à ma charge&nbsp;?",
+   "La partie située en domaine privé vous appartient, y compris le regard de "
+   "branchement selon les cas. Au-delà, c'est le service de la collectivité. Le "
+   "règlement d'assainissement de votre commune fixe la limite exacte&nbsp;: il "
+   "vaut la peine d'être consulté une fois pour toutes."),
+  ("Mon sous-sol se remplit à chaque orage, est-ce lié&nbsp;?",
+   "Très souvent oui. Soit l'eau de toiture n'est pas évacuée assez loin et "
+   "s'infiltre, soit le réseau refoule. Le diagnostic distingue les deux, et la "
+   "réponse n'est pas la même&nbsp;: dans un cas on cure et on éloigne, dans "
+   "l'autre on pose un clapet."),
+  ("Peut-on curer un réseau pluvial sans tout casser&nbsp;?",
+   "Oui, c'est la règle&nbsp;: l'hydrocurage se fait depuis les regards et rend au "
+   "tuyau son diamètre d'origine. On n'ouvre que si l'inspection caméra révèle un "
+   "défaut structurel, et à l'endroit exact."),
+  ("Intervenez-vous avant la saison des pluies&nbsp;?",
+   "Oui, et c'est le bon moment. Un curage programmé en septembre coûte un tarif "
+   "de jour et évite l'urgence de novembre. Nous intervenons sur l'ensemble du "
+   "Finistère, agglomérations comme communes rurales."),
+ ],
+},
+
+{
+ "slug": "ouverture-fermeture-maison-plomberie-finistere",
+ "court": "Ouverture et fermeture de maison (29)",
+ "dept": "29", "act": "plomberie", "date": "2026-10-04",
+ "titre": "Fermer et rouvrir une maison (29) : la plomberie — ETS-BZH",
+ "h1": "Fermer et rouvrir une maison en Finistère&nbsp;: purge, remise en eau, contrôle",
+ "meta": ("Résidence secondaire en Finistère : purger avant l'hiver, remettre en "
+          "eau au printemps, sans casse. Ville par ville. 02 20 06 00 75."),
+ "mots_cles": ("purge plomberie résidence secondaire Finistère, remise en eau "
+               "maison, hivernage plomberie, fermeture maison Crozon"),
+ "chapo": ("Les dégâts les plus coûteux que nous constatons en Finistère ne sont "
+           "pas des pannes&nbsp;: ce sont des maisons vides où quelque chose a cédé "
+           "en janvier et où personne n'est passé avant avril. Deux visites par "
+           "an, faites dans le bon ordre, suppriment l'essentiel du risque."),
+ "villes_titre": "Ce que nous voyons, ville par ville",
+ "villes_intro": ("Le parc de maisons occupées par intermittence est considérable "
+                  "sur le département, et les risques ne sont pas les mêmes "
+                  "partout."),
+ "villes": [
+   ("Crozon", "Presqu'île très exposée&nbsp;: vent, humidité et maisons fermées "
+    "huit mois. Le compteur en regard extérieur est le premier point à protéger."),
+   ("Bénodet", "Résidences de bord de mer, souvent avec local technique de "
+    "piscine. C'est l'oubli classique de la fermeture de saison."),
+   ("Fouesnant", "Nombreuses maisons familiales occupées l'été&nbsp;: "
+    "installations correctes mais jamais purgées, parce que « il ne gèle pas ici »."),
+   ("Douarnenez", "Bâti ancien en pierre, humidité permanente&nbsp;: une fuite "
+    "lente y est invisible des mois et se révèle par le mur, pas par le sol."),
+   ("Plouzané", "Maisons avec dépendances et abris de jardin alimentés en "
+    "eau&nbsp;: des circuits sans vanne d'isolement ni purge, qui cèdent les "
+    "premiers."),
+   ("Pont-l'Abbé", "Pays bigouden&nbsp;: terrain plat, conduites enterrées longues "
+    "entre compteur en limite et maison. Une fuite enterrée y coule longtemps "
+    "sans trace visible."),
+ ],
+ "urgent": [
+   "Avant un départ prolongé&nbsp;: fermez l'arrivée d'eau générale. C'est le "
+   "geste qui supprime la quasi-totalité du risque.",
+   "Coupez l'alimentation électrique du chauffe-eau.",
+   "Ouvrez un robinet en point bas pour faire tomber la pression du réseau "
+   "intérieur.",
+   "Si la maison reste sans chauffage tout l'hiver, faites purger&nbsp;: fermer "
+   "ne suffit pas, l'eau reste dans les tuyaux.",
+   "À la réouverture&nbsp;: remplissez avant de remettre le chauffe-eau sous "
+   "tension, jamais l'inverse.",
+ ],
+ "danger": ("Ne remettez jamais un chauffe-eau sous tension avant de l'avoir "
+            "rempli. Une résistance alimentée dans une cuve vide grille en "
+            "quelques minutes, et c'est l'incident de remise en service le plus "
+            "fréquent au printemps. L'ordre est invariable&nbsp;: eau d'abord, "
+            "courant ensuite, après avoir vérifié qu'un robinet d'eau chaude coule "
+            "sans à-coups."),
+ "sections": [
+  ("La fermeture : trois niveaux selon l'usage",
+   ["<strong>Absence de quelques semaines, maison chauffée hors gel.</strong> "
+    "Fermer l'arrivée générale et couper le chauffe-eau suffit. Le circuit reste "
+    "en eau, sans pression, et le hors-gel protège le reste.",
+    "<strong>Fermeture de saison, maison non chauffée.</strong> Il faut purger&nbsp;: "
+    "vidanger les points bas, les robinets extérieurs, le chauffe-eau si le "
+    "logement reste vide plusieurs mois, et vider les siphons exposés ou les "
+    "protéger. Une maison fermée non purgée est le scénario qui produit les plus "
+    "gros sinistres.",
+    "<strong>Maison louée en saison puis fermée.</strong> C'est le cas le plus "
+    "délicat&nbsp;: l'installation a été très sollicitée, puis elle s'arrête net. "
+    "C'est le moment de contrôler ce qui a travaillé — groupe de sécurité, "
+    "flexibles, joints, robinets d'arrêt — avant de fermer pour l'hiver.",
+    "Dans tous les cas, un relevé de compteur à la fermeture et à la réouverture "
+    "vaut tous les discours&nbsp;: si l'index a bougé entre les deux, il y a eu "
+    "une fuite."],
+   None),
+  ("La réouverture : l'ordre compte",
+   ["Remettre une maison en eau n'est pas qu'ouvrir une vanne. Une installation "
+    "qui a passé l'hiver vide contient de l'air, et parfois des dépôts décollés.",
+    "On ouvre <strong>lentement</strong> la vanne générale, un robinet en point "
+    "bas ouvert, et on laisse l'air sortir avant de monter en pression. On purge "
+    "ensuite chaque point d'eau, du plus bas au plus haut. On laisse couler "
+    "jusqu'à ce que l'eau soit claire, sans la faire passer par un adoucisseur ni "
+    "un appareil électroménager, et on nettoie les mousseurs, qui auront capté les "
+    "dépôts.",
+    "On remplit le chauffe-eau, on vérifie qu'un robinet d'eau chaude coule sans "
+    "à-coups, <em>puis</em> on remet le courant. On manœuvre le groupe de sécurité. "
+    "Et on surveille le compteur une heure, tout fermé&nbsp;: c'est le contrôle qui "
+    "révèle une rupture survenue pendant l'hiver, avant qu'elle ne se voie."],
+   None),
+  ("Les six points qu'on oublie toujours",
+   [],
+   ["Le local technique de piscine et son circuit de filtration.",
+    "Le robinet extérieur&nbsp;: fermer la vanne intérieure et laisser le robinet "
+    "ouvert pour qu'il se vide.",
+    "L'abri de jardin ou la dépendance alimentée, sans vanne ni purge.",
+    "Le lave-linge et le lave-vaisselle&nbsp;: fermer leur arrivée, vidanger le "
+    "tuyau.",
+    "Le compteur en regard extérieur, à isoler avec un matériau qui n'absorbe pas "
+    "l'eau.",
+    "Les siphons de sol et les appareils peu utilisés, dont la garde d'eau "
+    "s'évapore et laisse remonter les odeurs à la réouverture."],
+   ),
+ ],
+ "faq": [
+  ("Il gèle rarement ici, faut-il vraiment purger&nbsp;?",
+   "C'est précisément le piège finistérien&nbsp;: parce que les grands froids sont "
+   "rares, peu d'installations sont protégées. Deux nuits à -4&nbsp;°C avec du "
+   "vent suffisent sur une conduite en garage ou un compteur en regard. Et le "
+   "coût d'une purge est sans commune mesure avec celui d'un dégât des eaux dans "
+   "une maison vide."),
+  ("Pouvez-vous intervenir en l'absence du propriétaire&nbsp;?",
+   "Oui, avec un accès et un accord écrit. Beaucoup de nos fermetures et "
+   "réouvertures se font pour des propriétaires qui résident ailleurs&nbsp;: nous "
+   "intervenons et nous transmettons un compte rendu avec photos."),
+  ("Que faire si je découvre un dégât à la réouverture&nbsp;?",
+   "Coupez l'eau, photographiez avant tout nettoyage, et déclarez rapidement à "
+   "votre assureur. Relisez la clause gel de votre contrat&nbsp;: beaucoup "
+   "conditionnent la garantie au chauffage du logement ou à la purge du circuit "
+   "en cas d'absence prolongée."),
+  ("Proposez-vous un passage de contrôle pendant l'hiver&nbsp;?",
+   "Oui, et c'est ce que nous recommandons après un épisode de gel sur une maison "
+   "fermée. Un passage de vérification coûte infiniment moins qu'un dégât "
+   "découvert trois mois plus tard."),
+ ],
+},
+
+{
+ "slug": "degat-des-eaux-assechement-assurance-finistere",
+ "court": "Dégât des eaux et assèchement (29)",
+ "dept": "29", "act": "plomberie", "date": "2026-10-04",
+ "titre": "Dégât des eaux (29) : arrêt, assèchement, dossier — ETS-BZH",
+ "h1": "Dégât des eaux en Finistère&nbsp;: arrêter, assécher, documenter",
+ "meta": ("Dégât des eaux en Finistère : arrêt de la fuite, assèchement réel et "
+          "dossier d'assurance. Ville par ville. Urgence au 02 20 06 00 75."),
+ "mots_cles": ("dégât des eaux Finistère, assèchement après fuite Brest, rapport "
+               "assurance dégât des eaux, plombier urgence Quimper"),
+ "chapo": ("Un dégât des eaux se joue en trois temps, et c'est le troisième qu'on "
+           "néglige&nbsp;: arrêter, documenter, assécher. Dans le bâti finistérien, "
+           "souvent en pierre et toujours humide, c'est l'assèchement qui "
+           "détermine si le sinistre est réglé ou s'il revient sous forme de "
+           "moisissures trois mois plus tard."),
+ "villes_titre": "Ce qui complique, ville par ville",
+ "villes_intro": ("La nature du bâti change complètement la durée et la méthode "
+                  "d'assèchement."),
+ "villes": [
+   ("Brest", "Immeubles d'après-guerre&nbsp;: canalisations encastrées dans les "
+    "dalles, salles de bain superposées. L'eau traverse et ressort deux étages "
+    "plus bas, décalée d'une pièce."),
+   ("Quimper", "Centre ancien et maisons de ville&nbsp;: murs en pierre épais qui "
+    "absorbent beaucoup et restituent lentement. Comptez plusieurs semaines "
+    "d'assèchement, pas quelques jours."),
+   ("Morlaix", "Maisons à pans de bois et bâti protégé&nbsp;: l'eau atteint les "
+    "bois de structure. L'assèchement y est un sujet de conservation autant que "
+    "de confort."),
+   ("Landerneau", "Pavillons sur vide sanitaire&nbsp;: une fuite s'y écoule sans "
+    "trace visible à l'étage, et se découvre par l'odeur ou par la facture."),
+   ("Le Relecq-Kerhuon", "Habitat récent avec chapes flottantes&nbsp;: l'eau "
+    "circule dans l'isolant sous le carrelage et ressort loin de l'origine."),
+   ("Douarnenez", "Bâti littoral humide en permanence&nbsp;: le point de départ "
+    "de l'assèchement est déjà haut, et un déshumidificateur seul ne suffit "
+    "souvent pas."),
+ ],
+ "urgent": [
+   "Coupez l'arrivée d'eau&nbsp;: la vanne générale, pas seulement le robinet "
+   "suspect.",
+   "Coupez l'électricité de la zone touchée avant d'y manipuler quoi que ce soit.",
+   "Photographiez largement et en datant&nbsp;: plafond, murs, sol, mobilier, et "
+   "même ce qui n'est pas encore abîmé.",
+   "Prévenez immédiatement le voisin concerné, au-dessus ou au-dessous&nbsp;: "
+   "c'est le geste qui détermine le ton de toute la suite.",
+   "Ne réparez rien et ne repeignez rien avant le passage de l'expert.",
+ ],
+ "danger": ("Une poche d'eau qui gonfle dans un plafond en plaque de plâtre finit "
+            "par céder d'un coup, avec plusieurs dizaines de litres. Si vous voyez "
+            "un bombement, évacuez la zone, ne restez pas dessous, et laissez un "
+            "professionnel percer le point bas de façon contrôlée."),
+ "sections": [
+  ("Arrêter, puis chercher au bon endroit",
+   ["La première heure sert à arrêter l'écoulement et à protéger. La seconde sert "
+    "à comprendre d'où ça vient — et ce n'est pas la même chose que de regarder où "
+    "c'est mouillé.",
+    "L'eau suit les pentes, les gaines et les dalles&nbsp;: elle ressort rarement "
+    "à l'aplomb de son origine. Dans une cloison, elle descend le long du montant "
+    "et sort à la plinthe, parfois de l'autre côté du mur. Dans une chape "
+    "flottante, elle circule dans l'isolant et apparaît à plusieurs mètres.",
+    "C'est l'objet de la recherche non destructive&nbsp;: caméra thermique sur les "
+    "circuits chauds, gaz traceur sur les fuites froides et enterrées, mise en "
+    "pression pour isoler le circuit fautif. L'objectif est d'ouvrir un carré de "
+    "quarante centimètres, pas une pièce — et parfois de prouver qu'il n'y a pas "
+    "de fuite du tout, ce qui arrive souvent en bâti ancien où une remontée "
+    "capillaire imite parfaitement un sinistre."],
+   None),
+  ("L'assèchement : la partie que tout le monde bâcle",
+   ["Un support imprégné ne sèche pas parce qu'on a réparé la fuite. Il sèche "
+    "parce qu'on crée les conditions pour cela, et parce qu'on attend.",
+    "Trois leviers&nbsp;: la <strong>ventilation</strong>, qui évacue l'humidité "
+    "au lieu de la laisser se recondenser&nbsp;; un <strong>chauffage doux et "
+    "continu</strong>, qui vaut mieux qu'un chauffage fort par à-coups&nbsp;; et le "
+    "<strong>temps</strong>, qui ne se négocie pas. Dans un mur en pierre "
+    "finistérien, plusieurs semaines sont la norme, pas l'exception.",
+    "Le piège est de refermer trop tôt. Une cloison rebouchée et repeinte sur un "
+    "support encore humide fait cloquer la peinture, développe des moisissures "
+    "derrière, et crée un second sinistre qui se discute beaucoup plus mal que le "
+    "premier — parce que rien ne prouve qu'il découle du même événement.",
+    "La règle que nous donnons est simple&nbsp;: on ne referme pas avant que le "
+    "support soit sec, et on ne juge pas de la sécheresse à la main."],
+   None),
+  ("Le dossier d'assurance, pièce par pièce",
+   [],
+   ["Les photographies horodatées, prises avant tout nettoyage.",
+    "Le constat amiable dégât des eaux, rempli avec le voisin le jour même si un "
+    "tiers est concerné.",
+    "La déclaration à votre assureur dans le délai prévu par le contrat — "
+    "généralement cinq jours ouvrés.",
+    "Le rapport d'intervention, qui établit l'origine et la nature de la fuite.",
+    "Le rapport de recherche de fuite, s'il y en a eu une&nbsp;: c'est souvent lui "
+    "qui débloque un dossier entre deux assureurs.",
+    "La conservation des biens endommagés jusqu'au passage de l'expert&nbsp;: les "
+    "jeter affaiblit le dossier."],
+   ),
+ ],
+ "faq": [
+  ("Qui paie la recherche de fuite&nbsp;?",
+   "Elle est fréquemment prise en charge dans le cadre d'un dégât des eaux, selon "
+   "les garanties du contrat. Un appel à votre assureur avant l'intervention "
+   "permet de vérifier la couverture et d'éviter une avance inutile."),
+  ("Combien de temps avant de pouvoir refaire les peintures&nbsp;?",
+   "Plusieurs semaines sur une cloison ou une dalle imprégnée, davantage sur un "
+   "mur en pierre. Et après le passage de l'expert. Repeindre trop tôt fait "
+   "cloquer la peinture et peut compromettre l'indemnisation."),
+  ("Le voisin refuse de signer le constat, que faire&nbsp;?",
+   "Déclarez seul en indiquant la date, l'heure, l'origine présumée et les "
+   "démarches entreprises. Un constat signé accélère le traitement, mais son "
+   "absence ne bloque pas votre indemnisation&nbsp;: les assureurs se rapprochent "
+   "directement."),
+  ("Intervenez-vous en urgence la nuit sur Brest et Quimper&nbsp;?",
+   "Oui, 24h/24 et 7j/7 sur l'ensemble du Finistère. La nuit, l'objectif est "
+   "d'arrêter l'écoulement et de sécuriser&nbsp;; la recherche fine et la "
+   "réparation définitive se programment ensuite."),
+ ],
+},
+
+{
+ "slug": "electricite-bati-ancien-finistere",
+ "court": "Électricité du bâti ancien (29)",
+ "dept": "29", "act": "electricite", "date": "2026-10-04",
+ "titre": "Électricité en maison ancienne (29) : par où — ETS-BZH",
+ "h1": "Électricité dans le bâti ancien finistérien&nbsp;: extensions, dérivations et humidité",
+ "meta": ("Installation électrique d'une maison ancienne en Finistère : ce qui est "
+          "dangereux, ce qui peut attendre. Ville par ville. 02 20 06 00 75."),
+ "mots_cles": ("électricité maison ancienne Finistère, rénovation électrique "
+               "Morlaix, dérivation combles, humidité installation électrique Brest"),
+ "chapo": ("Dans une maison bretonne de cent ans, l'installation électrique n'a "
+           "jamais été refaite d'un bloc&nbsp;: elle a été étendue, dérivée, "
+           "complétée, au gré des pièces aménagées. Le danger n'est presque jamais "
+           "là où on le cherche — et l'humidité des murs change tout."),
+ "villes_titre": "Ce que nous trouvons, ville par ville",
+ "villes_intro": ("L'état d'une installation ancienne dépend autant du bâti que "
+                  "de l'époque des travaux successifs."),
+ "villes": [
+   ("Morlaix", "Maisons à pans de bois et bâti protégé&nbsp;: les conducteurs "
+    "cheminent dans des vides difficiles d'accès, et toute reprise doit tenir "
+    "compte de la structure."),
+   ("Brest", "Immeubles reconstruits d'après-guerre, souvent divisés depuis&nbsp;: "
+    "des circuits qui traversent plusieurs logements et des tableaux sans aucune "
+    "protection différentielle."),
+   ("Quimper", "Maisons de ville anciennes avec caves voûtées humides&nbsp;: "
+    "l'absence de terre y est bien plus dangereuse qu'en bâti sec."),
+   ("Douarnenez", "Habitat de pêcheurs, pièces petites et humides, extensions "
+    "successives&nbsp;: les dérivations à dominos dans les combles sont la règle."),
+   ("Carhaix-Plouguer", "Longères et dépendances&nbsp;: alimentation des annexes "
+    "en fil nu ou en gaine dégradée, sans protection adaptée."),
+   ("Saint-Renan", "Maisons de bourg rénovées par étapes&nbsp;: un tableau récent "
+    "en façade d'une installation ancienne derrière, ce qui donne une fausse "
+    "impression de conformité."),
+ ],
+ "urgent": [
+   "Testez votre interrupteur différentiel&nbsp;: le bouton « test » doit le faire "
+   "déclencher. S'il ne se déclenche pas, il ne protège plus personne.",
+   "S'il n'y a aucun différentiel au tableau, signalez-le dès l'appel&nbsp;: c'est "
+   "ce qui détermine l'urgence réelle.",
+   "Ne remplacez jamais un fusible par un fil, une pièce de monnaie ou un calibre "
+   "supérieur.",
+   "Odeur de brûlé, trace noire, prise tiède, grésillement&nbsp;: coupez le "
+   "circuit concerné et appelez.",
+ ],
+ "danger": ("Dans une maison en pierre, les murs et les sols restent humides une "
+            "grande partie de l'année. Un corps humain en contact avec un sol "
+            "humide conduit infiniment mieux que sur un parquet sec&nbsp;: un "
+            "défaut d'isolement qui serait bénin ailleurs devient dangereux ici. "
+            "C'est la raison pour laquelle l'absence de protection différentielle "
+            "30&nbsp;mA est un sujet prioritaire dans ce bâti, avant même la "
+            "vétusté des câbles."),
+ "sections": [
+  ("Les quatre situations à traiter en premier",
+   ["Toutes les anomalies d'une installation ancienne ne se valent pas. Quatre "
+    "méritent d'être traitées avant les autres.",
+    "<strong>L'absence de protection différentielle 30&nbsp;mA.</strong> C'est le "
+    "seul dispositif qui protège les personnes. Sans lui, un défaut d'isolement ne "
+    "coupe rien&nbsp;: il attend qu'on le referme.",
+    "<strong>L'absence de prise de terre</strong>, ou une terre réduite à un "
+    "piquet corrodé dont plus personne ne connaît l'emplacement. Elle se mesure, "
+    "elle ne s'estime pas.",
+    "<strong>Les dérivations non protégées</strong> dans les combles, les caves et "
+    "les dépendances&nbsp;: dominos à l'air libre, connexions torsadées, gaines "
+    "percées. C'est là que l'eau d'une infiltration arrive en premier.",
+    "<strong>Les appareils de forte puissance sur des circuits d'origine.</strong> "
+    "Un four, une plaque, un sèche-linge ou un chauffage d'appoint branchés sur "
+    "une ligne conçue pour l'éclairage&nbsp;: le câble chauffe dans la cloison, et "
+    "aucun disjoncteur ne le signale."],
+   None),
+  ("Rénover sans tout casser",
+   ["La crainte qui bloque toujours la décision, c'est l'idée qu'il faudrait "
+    "saigner les murs d'une maison ancienne. Dans la très grande majorité des cas, "
+    "ce n'est pas ce que nous proposons.",
+    "La <strong>mise en sécurité</strong> — nouveau tableau avec différentiels "
+    "30&nbsp;mA, création ou reprise de la terre et de la liaison "
+    "équipotentielle, circuits dédiés pour les gros appareils, repérage des "
+    "départs — se fait en général en une journée, sans toucher aux murs. Elle "
+    "traite les quatre points ci-dessus, c'est-à-dire l'essentiel du risque.",
+    "Le reste se planifie par étapes, au rythme des travaux de la maison&nbsp;: on "
+    "refait les câbles d'une pièce quand on la rénove, pas avant. Dans le bâti "
+    "ancien, c'est aussi la méthode la moins destructive, parce qu'on profite des "
+    "ouvertures déjà faites.",
+    "Un mot sur les dépendances et les annexes, très présentes dans les longères "
+    "finistériennes&nbsp;: leur alimentation mérite un circuit propre, protégé et "
+    "adapté à l'extérieur. C'est souvent le point le plus dégradé de "
+    "l'installation, et le plus facile à reprendre."],
+   None),
+  ("Ce que nous contrôlons lors d'une visite",
+   [],
+   ["La présence et le bon fonctionnement des protections différentielles.",
+    "La valeur de la prise de terre, mesurée.",
+    "L'état du tableau&nbsp;: serrage des connexions, échauffements, matériel "
+    "vétuste.",
+    "Les circuits alimentant les pièces d'eau et les volumes concernés.",
+    "Les dérivations accessibles en combles, caves et dépendances.",
+    "L'adéquation entre les appareils réellement branchés et les circuits qui les "
+    "alimentent."],
+   ),
+ ],
+ "faq": [
+  ("Faut-il tout refaire dans une maison de 1900&nbsp;?",
+   "Presque jamais d'un seul coup. La mise en sécurité traite l'essentiel du "
+   "risque en une journée, sans toucher aux murs. Le remplacement des câbles "
+   "anciens se fait ensuite, pièce par pièce, au rythme des travaux."),
+  ("Mon installation fonctionne depuis quarante ans, pourquoi changer&nbsp;?",
+   "Parce qu'elle protège contre ce pour quoi elle a été conçue, et que les "
+   "usages ont changé&nbsp;: la puissance installée a été multipliée, et la "
+   "protection des personnes n'existait pas à l'époque. Ce n'est pas une question "
+   "de vétusté, c'est une fonction absente."),
+  ("Puis-je garder mon tableau si j'ajoute un différentiel&nbsp;?",
+   "Parfois, si le tableau est en bon état et dispose de la place nécessaire. "
+   "Mais sur une installation sans terre ou avec des circuits non repérés, un "
+   "différentiel ajouté seul déclenchera sans qu'on sache pourquoi. Nous le disons "
+   "après avoir vu l'existant."),
+  ("Intervenez-vous dans le Centre-Finistère&nbsp;?",
+   "Oui, sur l'ensemble du département, de Brest et Quimper à Morlaix, Châteaulin "
+   "et Carhaix-Plouguer. Le diagnostic et le devis sont gratuits et sans "
+   "engagement."),
+ ],
+},
+
+{
+ "slug": "panne-chauffage-electrique-hiver-finistere",
+ "court": "Panne de chauffage électrique (29)",
+ "dept": "29", "act": "electricite", "date": "2026-10-04",
+ "titre": "Chauffage électrique en panne (29) : que faire — ETS-BZH",
+ "h1": "Chauffage électrique en panne en Finistère&nbsp;: convecteurs, plancher chauffant, régulation",
+ "meta": ("Chauffage électrique en panne en Finistère : repérer si c'est "
+          "l'appareil, le circuit ou la régulation. Ville par ville. 02 20 06 00 75."),
+ "mots_cles": ("panne chauffage électrique Finistère, convecteur ne chauffe plus, "
+               "plancher chauffant électrique panne, électricien Quimper hiver"),
+ "chapo": ("Il fait 9&nbsp;°C dehors, les radiateurs sont froids, et la question "
+           "est de savoir s'il faut un électricien ou un appareil neuf. Dans la "
+           "majorité des cas que nous traitons, ce n'est ni l'un ni l'autre&nbsp;: "
+           "c'est la commande ou le circuit. Quelques vérifications suffisent à "
+           "trancher."),
+ "villes_titre": "Ce que nous dépannons, ville par ville",
+ "villes_intro": ("Le type de chauffage installé varie fortement selon l'époque de "
+                  "construction, et la panne avec lui."),
+ "villes": [
+   ("Brest", "Appartements des années 1960-1970 en tout électrique&nbsp;: "
+    "convecteurs d'origine, fil pilote parfois coupé lors d'un remplacement partiel."),
+   ("Quimper", "Maisons des années 1980&nbsp;: planchers chauffants électriques de "
+    "première génération, où la panne vient presque toujours du thermostat ou de "
+    "la sonde, pas de la trame."),
+   ("Guipavas", "Pavillons récents&nbsp;: radiateurs connectés et programmation "
+    "centralisée. La « panne » est souvent un réglage ou un délestage mal compris."),
+   ("Landerneau", "Logements rénovés par étapes&nbsp;: un tableau neuf et des "
+    "circuits de chauffage anciens, avec des sections insuffisantes pour les "
+    "appareils ajoutés depuis."),
+   ("Crozon", "Résidences secondaires&nbsp;: le hors-gel ne se déclenche pas, ou "
+    "il a été coupé par erreur. Le vrai sujet est alors la protection de la "
+    "plomberie autant que le confort."),
+   ("Châteaulin", "Maisons mixtes bois et électrique&nbsp;: les circuits d'appoint "
+    "sont sollicités par à-coups, et c'est là que les contacts chauffent."),
+ ],
+ "urgent": [
+   "Regardez le tableau&nbsp;: le disjoncteur du circuit chauffage est-il "
+   "relevé&nbsp;? Un déclenchement discret passe facilement inaperçu.",
+   "Vérifiez si tous les radiateurs sont froids ou seulement certains&nbsp;: cela "
+   "sépare un problème de circuit d'un problème d'appareil.",
+   "Contrôlez le thermostat d'ambiance et la programmation&nbsp;: pile usée, mode "
+   "absence, horloge déréglée après une coupure.",
+   "Si un appareil chauffe anormalement ou sent le brûlé, coupez son circuit et "
+   "n'attendez pas.",
+ ],
+ "danger": ("Un chauffage d'appoint branché sur une rallonge ou une multiprise est "
+            "la configuration la plus dangereuse de l'hiver. Ces appareils tirent "
+            "un courant élevé pendant des heures&nbsp;: une prise ancienne, une "
+            "rallonge enroulée ou une multiprise surchargée chauffent à l'intérieur, "
+            "dans la cloison, là où rien ne se voit et où aucun disjoncteur ne "
+            "coupera. Un appareil de chauffage se branche directement sur une "
+            "prise murale, point."),
+ "sections": [
+  ("Le diagnostic en trois questions",
+   ["<strong>Tous les radiateurs sont froids.</strong> Regardez d'abord le "
+    "tableau&nbsp;: disjoncteur du circuit chauffage, mais aussi contacteur de "
+    "délestage si l'installation en comporte un. Si rien n'a bougé, suspectez le "
+    "thermostat d'ambiance ou le gestionnaire d'énergie, qui commande l'ensemble.",
+    "<strong>Un seul radiateur est froid.</strong> L'appareil ou son alimentation "
+    "sont en cause. Vérifiez sa propre molette ou son thermostat intégré, puis le "
+    "fil pilote s'il y en a un&nbsp;: un fil pilote coupé ou mal raccordé met "
+    "l'appareil en arrêt alors qu'il est parfaitement alimenté.",
+    "<strong>Les radiateurs chauffent mais ne tiennent pas la température.</strong> "
+    "Ce n'est pas une panne&nbsp;: c'est un problème de puissance, d'isolation ou "
+    "de réglage. Avant de remplacer quoi que ce soit, il faut comparer la "
+    "puissance installée au volume à chauffer.",
+    "Pour un plancher chauffant, la démarche est la même mais les pièces "
+    "diffèrent&nbsp;: dans la grande majorité des cas, la panne vient du "
+    "thermostat ou de la sonde de sol, pas de la trame chauffante — qui, elle, se "
+    "contrôle à la mesure avant d'envisager quoi que ce soit de lourd."],
+   None),
+  ("Le délestage, source de la moitié des fausses pannes",
+   ["Beaucoup d'installations en tout électrique comportent un gestionnaire "
+    "d'énergie ou un contacteur de délestage. Son rôle est d'éviter que le "
+    "disjoncteur de branchement ne saute quand la puissance appelée dépasse "
+    "l'abonnement&nbsp;: il coupe temporairement certains circuits, à commencer "
+    "par le chauffage et le chauffe-eau.",
+    "Quand il fonctionne, personne ne le remarque. Quand il se dérègle ou qu'il "
+    "vieillit, il coupe trop souvent et trop longtemps&nbsp;: les radiateurs "
+    "restent froids aux heures où l'on cuisine, et on croit à une panne.",
+    "Le même raisonnement vaut pour les installations en heures creuses, où le "
+    "chauffe-eau et parfois le chauffage sont commandés par un contacteur. Un "
+    "contact piqué, un signal qui ne passe plus, et tout un circuit ne reçoit plus "
+    "rien alors que l'appareil est intact.",
+    "Dans un département où le chauffage fonctionne huit mois par an, ces organes "
+    "travaillent beaucoup. Ils font partie de ce que nous contrôlons "
+    "systématiquement avant de conclure à une panne d'appareil."],
+   None),
+  ("Avant l'hiver, ce qui évite l'appel en urgence",
+   [],
+   ["Une mise en route des radiateurs en septembre plutôt qu'au premier coup de "
+    "froid.",
+    "Un dépoussiérage des convecteurs et des grilles&nbsp;: l'odeur de brûlé de la "
+    "première chauffe vient presque toujours de là.",
+    "Le remplacement des piles des thermostats d'ambiance.",
+    "La vérification du contacteur et du gestionnaire d'énergie.",
+    "Le contrôle du serrage des connexions au tableau&nbsp;: les circuits de "
+    "chauffage sont ceux qui véhiculent le plus de courant sur la durée.",
+    "La suppression des rallonges et multiprises utilisées pour un appoint&nbsp;: "
+    "si une pièce manque de puissance, il lui faut un circuit, pas une rallonge."],
+   ),
+ ],
+ "faq": [
+  ("Mon radiateur ne chauffe plus, faut-il le remplacer&nbsp;?",
+   "Pas avant d'avoir vérifié son alimentation, son fil pilote et sa commande. "
+   "Nous voyons régulièrement des appareils déclarés morts qui fonctionnent "
+   "parfaitement une fois le fil pilote rétabli."),
+  ("Un plancher chauffant en panne, est-ce forcément lourd&nbsp;?",
+   "Non. Dans la grande majorité des cas, c'est le thermostat ou la sonde de sol, "
+   "et cela se remplace sans toucher au sol. La trame se contrôle à la mesure "
+   "avant d'envisager quoi que ce soit d'autre."),
+  ("Mes radiateurs se coupent quand je cuisine, est-ce normal&nbsp;?",
+   "C'est le délestage qui fait son travail&nbsp;: la puissance appelée dépasse "
+   "votre abonnement. Soit on augmente la puissance souscrite, soit on répartit "
+   "mieux les circuits. Nous regardons les deux avant de recommander l'un ou "
+   "l'autre."),
+  ("Intervenez-vous en urgence en plein hiver&nbsp;?",
+   "Oui, 24h/24 et 7j/7 sur le Finistère. Un logement sans chauffage avec des "
+   "personnes âgées ou de jeunes enfants fait partie des situations que nous "
+   "traitons en priorité."),
+ ],
+},
+
+{
+ "slug": "degorgement-copropriete-location-ille-et-vilaine",
+ "court": "Dégorgement en copropriété (35)",
+ "dept": "35", "act": "degorgement", "date": "2026-10-04",
+ "titre": "Dégorgement copropriété et location (35) — ETS-BZH",
+ "h1": "Dégorgement en copropriété et en location en Ille-et-Vilaine&nbsp;: qui appelle, qui paie, qui intervient",
+ "meta": ("Bouchon en immeuble ou en logement loué en Ille-et-Vilaine : qui "
+          "appelle, qui paie, délai d'intervention. Ville par ville. "
+          "02 20 06 00 75."),
+ "mots_cles": ("dégorgement copropriété Rennes, débouchage logement locatif "
+               "Ille-et-Vilaine, qui paie débouchage locataire, intervention "
+               "syndic Saint-Malo"),
+ "chapo": ("En immeuble, un bouchon n'est jamais seulement un problème "
+           "technique&nbsp;: il faut aussi savoir qui décide et qui règle. Cette "
+           "hésitation fait perdre des heures pendant que l'eau monte. Voici la "
+           "règle simple, puis la carte des délais commune par commune en "
+           "Ille-et-Vilaine."),
+ "villes_titre": "Nos délais et nos repères, ville par ville",
+ "villes_intro": ("Le type de parc immobilier change la nature des appels que nous "
+                  "recevons&nbsp;: la réponse technique n'est pas la même dans un "
+                  "immeuble des années 1970 et dans une résidence neuve."),
+ "villes": [
+   ("Rennes", "Forte densité d'immeubles collectifs et de logements loués. Nous "
+    "intervenons de jour comme de nuit&nbsp;; pour les colonnes, l'accès aux "
+    "caves et aux gaines techniques est le vrai facteur de délai&nbsp;: prévenir "
+    "le gardien ou le syndic en même temps que nous fait gagner trente minutes."),
+   ("Saint-Malo", "Beaucoup de petits immeubles anciens aux réseaux étroits et de "
+    "logements meublés loués à l'année ou à la semaine. Les bouchons surviennent "
+    "souvent aux changements d'occupants&nbsp;: lingettes, graisses, dépôts."),
+   ("Cesson-Sévigné", "Résidences récentes avec des réseaux bien dimensionnés "
+    "mais des colonnes communes longues. Un seul appartement en cause peut faire "
+    "déborder deux étages plus bas&nbsp;: le repérage par les regards de pied "
+    "d'immeuble est systématique."),
+   ("Saint-Jacques-de-la-Lande", "Secteur en construction continue&nbsp;: "
+    "résidences neuves, parfois encore sous garantie. Nous établissons un "
+    "constat écrit et photographique, utile quand la cause relève du "
+    "constructeur et non de l'usage."),
+   ("Chantepie", "Mélange de pavillonnaire et de petits collectifs. Les "
+    "interventions concernent souvent une branche horizontale d'étage plutôt "
+    "qu'une colonne entière&nbsp;: moins lourd, moins cher, à condition de "
+    "localiser avant de démonter."),
+   ("Fougères", "Parc ancien en centre-ville, réseaux en fonte et branchements "
+    "superposés. L'inspection caméra évite les erreurs de diagnostic&nbsp;: un "
+    "bouchon répétitif au même étage signale presque toujours un défaut de pente "
+    "ou un emboîtement décalé."),
+ ],
+ "urgent": [
+   "Arrêtez d'utiliser l'eau dans le logement et prévenez immédiatement les "
+   "voisins du dessous&nbsp;: en colonne commune, l'eau d'un étage ressort chez "
+   "un autre.",
+   "N'attendez pas l'accord du syndic pour appeler si l'eau déborde. La mise en "
+   "sécurité prime&nbsp;; la question de la prise en charge se règle après, par "
+   "écrit.",
+   "Photographiez le débordement, l'heure et l'endroit exact. C'est la pièce qui "
+   "fera la différence auprès de l'assurance ou du bailleur.",
+   "Notez si un seul appareil est touché ou plusieurs&nbsp;: un lavabo seul "
+   "désigne le logement, deux appareils ou plus désignent la colonne.",
+ ],
+ "danger": ("Le vrai risque, en immeuble, n'est pas le bouchon&nbsp;: c'est le "
+            "temps perdu à chercher qui doit appeler. Pendant ce temps, l'eau "
+            "usée traverse un plancher, atteint l'appartement du dessous et "
+            "transforme un dégorgement de quelques dizaines de minutes en "
+            "sinistre multi-lots, avec expertise, assèchement et réfection. "
+            "Toutes les copropriétés qui ont connu cela ont la même conclusion "
+            "après coup&nbsp;: il fallait appeler tout de suite."),
+ "sections": [
+  ("La règle, en trois lignes",
+   ["Un principe sépare presque tous les cas&nbsp;: ce qui est <strong>privatif</strong> "
+    "(l'évacuation de votre lavabo, de votre douche, de votre WC jusqu'à son "
+    "raccordement sur la colonne) relève de l'occupant ou du propriétaire du "
+    "lot&nbsp;; ce qui est <strong>commun</strong> (la colonne verticale, le "
+    "collecteur en cave, le branchement jusqu'au domaine public) relève de la "
+    "copropriété, donc du syndic.",
+    "Entre bailleur et locataire, la même logique s'applique avec un second "
+    "filtre&nbsp;: l'entretien courant et le débouchage simple sont à la charge "
+    "du locataire, la vétusté et le défaut de l'installation sont à la charge du "
+    "propriétaire. Un siphon encrassé n'est pas une canalisation affaissée, et "
+    "une intervention sérieuse le dit noir sur blanc.",
+    "C'est pourquoi nous remettons systématiquement un compte rendu qui précise "
+    "l'endroit du bouchon, sa nature et, lorsque c'est visible, sa cause. Ce "
+    "document suffit presque toujours à trancher la question de la prise en "
+    "charge sans discussion."],
+   None),
+  ("Reconnaître un bouchon de colonne en moins d'une minute",
+   ["Le test est simple et ne demande aucun outil. Faites couler l'eau dans un "
+    "seul appareil et observez les autres. Si rien ne bouge ailleurs, le bouchon "
+    "est privatif. Si un autre appareil remonte, gargouille ou déborde, le "
+    "bouchon est en aval, sur la partie commune.",
+    "Deuxième indice&nbsp;: la hauteur. Un bouchon de colonne se manifeste "
+    "d'abord à l'étage le plus bas, parce que l'eau cherche la première sortie "
+    "disponible. Un rez-de-chaussée qui déborde alors que ses occupants n'ont "
+    "rien utilisé est le signal le plus clair qui soit.",
+    "Troisième indice&nbsp;: la répétition. Un appartement qui se bouche trois "
+    "fois par an n'a pas un problème d'usage, il a un problème de réseau. "
+    "L'inspection caméra le démontre en quelques minutes et évite de refacturer "
+    "indéfiniment un dégorgement à un occupant qui n'y est pour rien."],
+   None),
+  ("Ce que nous faisons en immeuble, dans l'ordre",
+   [],
+   ["Nous localisons avant d'agir&nbsp;: appareils touchés, étages concernés, "
+    "regard de pied d'immeuble.",
+    "Nous travaillons depuis le point le plus accessible, pour éviter d'ouvrir "
+    "dans un logement quand une cave suffit.",
+    "Nous protégeons les parties communes&nbsp;: bâches, aspiration, nettoyage "
+    "après intervention.",
+    "Nous contrôlons l'écoulement à plusieurs étages avant de repartir, pas "
+    "seulement là où ça débordait.",
+    "Nous remettons un compte rendu daté, avec les photos et, si besoin, les "
+    "images de caméra.",
+    "Nous signalons par écrit tout défaut structurel constaté, pour que la "
+    "copropriété puisse l'inscrire à l'ordre du jour."],
+   ),
+  ("Syndics, bailleurs et agences&nbsp;: comment nous travaillons avec vous",
+   ["Nous intervenons pour des syndics, des bailleurs privés et des agences de "
+    "gestion sur l'ensemble de l'Ille-et-Vilaine. Le besoin est toujours le "
+    "même&nbsp;: un interlocuteur joignable, une intervention rapide et un "
+    "document exploitable derrière.",
+    "Concrètement, cela veut dire un devis avant travaux dès que le montant "
+    "dépasse le dépannage simple, une facturation au gestionnaire quand c'est "
+    "convenu, et un compte rendu qui permet d'arbitrer entre charges communes et "
+    "charges privatives sans avoir à redescendre sur place.",
+    "Pour les immeubles qui se bouchent régulièrement, un curage préventif "
+    "programmé des colonnes et du collecteur revient nettement moins cher que "
+    "trois urgences de nuit dans l'année. Nous établissons un plan de passage "
+    "simple, adapté au bâtiment."],
+   None),
+ ],
+ "faq": [
+  ("Le locataire doit-il payer le débouchage&nbsp;?",
+   "S'il s'agit d'un bouchon d'usage dans la partie privative — cheveux, "
+   "graisses, lingettes — oui, cela relève de l'entretien courant. Si le bouchon "
+   "vient d'un défaut de la canalisation ou de la colonne commune, non. Notre "
+   "compte rendu précise lequel des deux cas s'applique."),
+  ("Faut-il l'accord du syndic avant d'appeler&nbsp;?",
+   "Pas pour mettre fin à un débordement en cours&nbsp;: la mise en sécurité "
+   "prime. Pour des travaux sur partie commune au-delà de l'urgence, oui, et "
+   "nous fournissons le devis correspondant."),
+  ("Intervenez-vous la nuit en immeuble&nbsp;?",
+   "Oui, 24h/24 et 7j/7 en Ille-et-Vilaine. Un débordement d'eaux usées dans un "
+   "collectif ne peut pas attendre le lendemain matin&nbsp;: il se propage."),
+  ("Pouvez-vous intervenir si l'occupant est absent&nbsp;?",
+   "Oui, avec l'accord écrit du propriétaire ou du syndic et un accès organisé. "
+   "Nous établissons dans ce cas un constat photographique avant et après, remis "
+   "au donneur d'ordre."),
+ ],
+},
+
+{
+ "slug": "regards-reseaux-exterieurs-racines-ille-et-vilaine",
+ "court": "Regards et réseaux extérieurs (35)",
+ "dept": "35", "act": "degorgement", "date": "2026-10-04",
+ "titre": "Regards et réseaux extérieurs bouchés (35) — ETS-BZH",
+ "h1": "Regards, réseaux extérieurs et racines en Ille-et-Vilaine&nbsp;: le bouchon qui vient du jardin",
+ "meta": ("Regard qui déborde, réseau enterré bouché, racines dans la "
+          "canalisation en Ille-et-Vilaine : diagnostic et curage, ville par "
+          "ville. 02 20 06 00 75."),
+ "mots_cles": ("regard bouché Ille-et-Vilaine, racines dans canalisation Bruz, "
+               "curage réseau enterré Betton, débouchage extérieur Pacé"),
+ "chapo": ("Quand tous les appareils de la maison s'évacuent mal en même temps, "
+           "le problème n'est plus à l'intérieur. Il est entre la maison et la "
+           "rue, dans un réseau que personne ne regarde jamais. Voici comment "
+           "l'identifier, et ce que nous trouvons le plus souvent selon les "
+           "communes d'Ille-et-Vilaine."),
+ "villes_titre": "Ce que nous rencontrons, ville par ville",
+ "villes_intro": ("L'âge du lotissement, la nature du sol et la végétation "
+                  "expliquent la quasi-totalité des cas que nous traitons en "
+                  "secteur pavillonnaire."),
+ "villes": [
+   ("Bruz", "Lotissements étendus des années 1980 et 1990, haies de thuyas et "
+    "de bambous le long des limites. Les racines trouvent les emboîtements des "
+    "réseaux en PVC collés et s'y installent&nbsp;: le curage dégage, la caméra "
+    "dit s'il faut traiter durablement."),
+   ("Betton", "Terrains plats et nappe proche&nbsp;: les réseaux à faible pente "
+    "accumulent les dépôts et se bouchent lentement. Le symptôme typique est une "
+    "évacuation qui ralentit sur plusieurs mois avant de lâcher."),
+   ("Pacé", "Pavillonnaire récent, regards souvent enterrés sous la pelouse ou "
+    "la terrasse lors des aménagements. Nous les retrouvons avant d'intervenir, "
+    "plutôt que de travailler à l'aveugle depuis l'intérieur."),
+   ("Le Rheu", "Beaucoup de maisons avec grands arbres d'agrément en limite. Les "
+    "racines de saules et de peupliers sont les plus agressives&nbsp;: elles "
+    "pénètrent par un simple défaut d'étanchéité et prolifèrent dans le tuyau."),
+   ("Montfort-sur-Meu", "Secteurs partiellement en assainissement non collectif. "
+    "Un réseau extérieur qui refoule peut venir de la fosse ou de l'épandage, "
+    "pas seulement de la canalisation&nbsp;: le diagnostic commence par le "
+    "regard de répartition."),
+   ("Châteaubourg", "Communes rurales et terrains en pente&nbsp;: les réseaux "
+    "longs vers la rue accumulent sable et terre après chaque épisode pluvieux "
+    "important. L'hydrocurage leur rend leur diamètre d'origine."),
+ ],
+ "urgent": [
+   "Cessez tout usage d'eau dans la maison&nbsp;: machine à laver, douche, WC. "
+   "Chaque litre envoyé aggrave le débordement extérieur.",
+   "Ouvrez le regard le plus proche de la maison si vous savez où il est, et "
+   "regardez s'il est plein. Un regard plein désigne un bouchon en aval.",
+   "Ne versez aucun produit déboucheur dans un réseau extérieur&nbsp;: le volume "
+   "est trop important, le produit ne fait rien et reste dans le sol.",
+   "Éloignez les enfants et les animaux du regard ouvert, et recouvrez-le dès "
+   "que vous avez terminé de regarder.",
+ ],
+ "danger": ("Un réseau extérieur qui déborde répand des eaux usées à la surface "
+            "du terrain, souvent à quelques mètres d'une porte d'entrée ou d'une "
+            "aire de jeux. Le risque sanitaire est réel et immédiat. Le second "
+            "risque est structurel&nbsp;: un réseau bouché par des racines finit "
+            "par se fissurer, l'eau s'infiltre, le sol se déstabilise sous le "
+            "tuyau, et la réparation passe de quelques heures de curage à une "
+            "ouverture de tranchée."),
+ "sections": [
+  ("Trois signes qui situent le bouchon dehors",
+   ["<strong>Tout ralentit en même temps.</strong> Lavabo, douche, WC, évier&nbsp;: "
+    "quand plusieurs appareils sans rapport entre eux s'évacuent mal au même "
+    "moment, le point commun est le réseau qui part vers la rue.",
+    "<strong>Le WC du rez-de-chaussée remonte.</strong> C'est le point bas de "
+    "l'installation. Il reçoit tout ce que le réseau ne peut plus évacuer, même "
+    "quand l'eau vient de l'étage.",
+    "<strong>Le regard est plein.</strong> C'est la preuve directe. Un regard "
+    "dont le niveau d'eau dépasse la génératrice du tuyau de sortie signale un "
+    "bouchon situé après lui, en direction de la rue."],
+   None),
+  ("Les racines&nbsp;: pourquoi elles gagnent, et comment on les arrête",
+   ["Une racine n'attaque pas un tuyau sain. Elle entre par un défaut déjà "
+    "présent&nbsp;: un joint sec, un emboîtement légèrement désaligné, une "
+    "fissure capillaire. Une fois à l'intérieur, elle trouve de l'eau et des "
+    "nutriments en permanence et se développe beaucoup plus vite qu'en pleine "
+    "terre. En deux ou trois saisons, un réseau peut perdre la moitié de son "
+    "diamètre utile.",
+    "Le curage haute pression avec une tête adaptée coupe et extrait le "
+    "chevelu&nbsp;: l'écoulement revient immédiatement. Mais si le défaut "
+    "d'origine n'est pas traité, la racine revient, généralement dans l'année. "
+    "C'est pourquoi nous passons systématiquement la caméra après un curage sur "
+    "racines&nbsp;: elle montre le point d'entrée exact et sa profondeur.",
+    "Selon ce qu'elle révèle, la suite est soit une réparation ponctuelle sur "
+    "quelques dizaines de centimètres, soit un simple suivi avec curage "
+    "préventif. Dans les deux cas, la décision repose sur une image, pas sur une "
+    "supposition."],
+   None),
+  ("Le bon réflexe d'entretien en pavillonnaire",
+   [],
+   ["Repérez et marquez vos regards une fois pour toutes&nbsp;: un piquet, une "
+    "photo, une cote depuis un angle de mur.",
+    "Ne les enterrez pas sous une terrasse ou un gazon&nbsp;: le jour où il faut "
+    "intervenir, la pelle coûte plus cher que la pompe.",
+    "Faites contrôler le réseau tous les trois à cinq ans si vous avez de grands "
+    "arbres à moins de dix mètres.",
+    "Évitez de planter bambous, saules et peupliers le long du tracé des "
+    "canalisations.",
+    "Ne rejetez ni graisses de cuisson ni gravats de chantier dans les "
+    "évacuations&nbsp;: ils se déposent précisément dans les parties à faible "
+    "pente du réseau extérieur.",
+    "Après des travaux de terrassement, faites vérifier la pente&nbsp;: un engin "
+    "qui est passé sur un réseau peu profond l'a peut-être déformé."],
+   ),
+ ],
+ "faq": [
+  ("Jusqu'où le réseau est-il à ma charge&nbsp;?",
+   "En règle générale jusqu'à la limite de propriété, et souvent jusqu'au regard "
+   "de branchement inclus. Le règlement d'assainissement de votre commune fixe "
+   "la limite exacte&nbsp;: elle varie d'une collectivité à l'autre en "
+   "Ille-et-Vilaine."),
+  ("Faut-il casser pour déboucher un réseau extérieur&nbsp;?",
+   "Non, dans la très grande majorité des cas. L'hydrocurage se fait depuis les "
+   "regards. On n'ouvre que si la caméra montre un défaut structurel, et à "
+   "l'endroit précis qu'elle indique."),
+  ("Je n'ai aucun regard visible, que faire&nbsp;?",
+   "Nous les localisons. Le tracé se déduit de la sortie des eaux usées de la "
+   "maison et du point de branchement en limite&nbsp;: les regards se trouvent "
+   "aux changements de direction."),
+  ("Intervenez-vous en urgence sur le réseau extérieur&nbsp;?",
+   "Oui, 24h/24 et 7j/7 sur l'ensemble du département. Un réseau extérieur qui "
+   "déborde est une urgence sanitaire, pas un désagrément."),
+ ],
+},
+{
+ "slug": "plomberie-locative-bailleurs-agences-ille-et-vilaine",
+ "court": "Plomberie locative (35)",
+ "dept": "35", "act": "plomberie", "date": "2026-10-04",
+ "titre": "Plomberie locative (35) : bailleurs et agences — ETS-BZH",
+ "h1": "Plomberie locative en Ille-et-Vilaine&nbsp;: bailleurs, agences et logements entre deux locataires",
+ "meta": ("Urgence plomberie dans un logement loué en Ille-et-Vilaine : "
+          "intervention, accès, compte rendu pour bailleurs et agences. "
+          "02 20 06 00 75."),
+ "mots_cles": ("plombier logement locatif Ille-et-Vilaine, dépannage plomberie "
+               "bailleur Rennes, intervention agence immobilière Vitré, "
+               "plomberie entre deux locataires"),
+ "chapo": ("Un logement loué pose une contrainte que les autres n'ont pas&nbsp;: "
+           "l'occupant constate, le propriétaire décide, et souvent aucun des "
+           "deux n'est sur place. Nous travaillons depuis des années avec des "
+           "bailleurs et des agences d'Ille-et-Vilaine sur ce schéma précis. "
+           "Voici comment cela se passe, commune par commune."),
+ "villes_titre": "Ce que nous traitons le plus, ville par ville",
+ "villes_intro": ("Le type de parc locatif oriente nettement la nature des "
+                  "interventions que nous recevons."),
+ "villes": [
+   ("Rennes", "Le plus gros volume d'appels du département. Beaucoup de T1 et "
+    "T2 avec chauffe-eau électrique en placard&nbsp;: fuite de groupe de "
+    "sécurité, joint de bride, flexible de machine. Nous intervenons sur "
+    "mandat du bailleur ou de l'agence, 24h/24."),
+   ("Vitré", "Parc locatif ancien en centre et logements de fonction en "
+    "périphérie. Robinetterie vétuste et vannes d'arrêt grippées&nbsp;: la "
+    "première chose que nous vérifions à chaque passage, parce qu'une vanne qui "
+    "ferme évite le sinistre suivant."),
+   ("Saint-Grégoire", "Résidences récentes et logements de standing. Les "
+    "interventions portent surtout sur les raccordements d'appareils et les "
+    "arrivées encastrées&nbsp;: recherche non destructive avant toute ouverture."),
+   ("Bruz", "Beaucoup de maisons louées avec jardin&nbsp;: robinets extérieurs "
+    "éclatés après gel, arrosage enterré qui fuit, compteur qui tourne sans "
+    "usage. Nous isolons le circuit extérieur avant de chercher plus loin."),
+   ("Redon", "Logements anciens, réseaux en cuivre et parfois en acier galvanisé "
+    "en fin de vie. Les fuites se répètent sur la même portion&nbsp;: nous le "
+    "signalons par écrit, parce qu'un remplacement partiel coûte moins cher que "
+    "quatre dépannages."),
+   ("Dinard", "Mélange de locations à l'année et de meublés. Les remises en "
+    "service après vacance sont un motif fréquent&nbsp;: une installation restée "
+    "fermée plusieurs semaines se révèle au premier remplissage."),
+ ],
+ "urgent": [
+   "Faites fermer l'arrivée d'eau par l'occupant&nbsp;: vanne générale du "
+   "logement, ou robinet d'arrêt sous l'appareil concerné.",
+   "Demandez une photo immédiate de la fuite et de l'endroit touché. C'est ce "
+   "qui permet de préparer l'intervention et d'arbitrer la prise en charge.",
+   "Coupez l'électricité de la pièce si l'eau approche d'une prise, d'une "
+   "multiprise ou d'un tableau.",
+   "Prévenez le voisin du dessous dès que l'eau a traversé&nbsp;: un dégât des "
+   "eaux constaté tard coûte toujours plus cher qu'un dégât des eaux constaté "
+   "tout de suite.",
+ ],
+ "danger": ("Dans un logement loué, le délai est le facteur de coût principal. "
+            "Un occupant qui hésite à déranger son bailleur un dimanche, un "
+            "bailleur qui attend le lundi pour appeler&nbsp;: quarante-huit "
+            "heures suffisent à transformer une fuite de raccord en plancher "
+            "gorgé d'eau, en cloison à refaire et en relogement. La "
+            "responsabilité du propriétaire est engagée sur la vétusté&nbsp;; "
+            "celle de l'occupant l'est sur le défaut de signalement. Personne "
+            "n'a intérêt à attendre."),
+ "sections": [
+  ("Un cadre clair entre occupant, propriétaire et intervenant",
+   ["La difficulté n'est presque jamais technique. Elle tient au fait que celui "
+    "qui voit la fuite n'est pas celui qui commande l'intervention. Nous "
+    "fonctionnons donc sur un principe simple&nbsp;: l'occupant nous décrit et "
+    "nous ouvre, le donneur d'ordre — bailleur, agence ou syndic — valide et "
+    "reçoit le document.",
+    "En urgence avérée, nous mettons en sécurité d'abord&nbsp;: fermeture, "
+    "arrêt de la fuite, protection des biens. Cette première phase ne se "
+    "discute pas, parce que chaque minute compte et qu'elle coûte toujours moins "
+    "cher que ses conséquences.",
+    "Au-delà, tout passe par un devis adressé au donneur d'ordre avant exécution. "
+    "L'occupant n'a rien à avancer, et le propriétaire ne découvre pas une "
+    "facture décidée sans lui."],
+   None),
+  ("Ce que contient notre compte rendu",
+   [],
+   ["L'origine exacte de la fuite ou de la panne, localisée et photographiée.",
+    "La distinction entre usure normale, défaut d'installation et usage "
+    "inadapté&nbsp;: c'est elle qui détermine la prise en charge.",
+    "Les travaux réalisés, et ceux que nous recommandons sans les avoir "
+    "effectués.",
+    "L'état des organes de coupure&nbsp;: une vanne grippée signalée aujourd'hui "
+    "évite un sinistre dans six mois.",
+    "La date, l'heure d'arrivée et la durée d'intervention, exploitables pour "
+    "une déclaration d'assurance.",
+    "Le cas échéant, les photos avant et après, utiles quand l'occupant est "
+    "absent."],
+   ),
+  ("Entre deux locataires&nbsp;: la visite qui évite l'urgence",
+   ["Le moment où un logement est vide est le seul où l'on peut travailler sans "
+    "déranger personne, et c'est précisément celui où l'on n'y pense pas. "
+    "Pourtant la quasi-totalité des urgences que nous traitons en locatif "
+    "étaient visibles à ce moment-là.",
+    "Un passage d'une heure suffit&nbsp;: manœuvre et graissage des vannes "
+    "d'arrêt, contrôle du groupe de sécurité du chauffe-eau et de son "
+    "écoulement, vérification des flexibles de machine et de leur date, "
+    "remplacement des joints de robinetterie fatigués, contrôle du siphon et des "
+    "évacuations, purge si le logement est resté fermé.",
+    "Pour un bailleur qui détient plusieurs lots en Ille-et-Vilaine, c'est la "
+    "dépense la plus rentable du budget d'entretien&nbsp;: elle supprime les "
+    "appels de nuit, qui sont les plus coûteux, et elle documente l'état du "
+    "logement à l'entrée du nouvel occupant."],
+   None),
+  ("Flexibles, groupes de sécurité et vannes&nbsp;: les trois pièces qui causent tout",
+   ["Si l'on regarde une année d'interventions en logement loué, trois pièces "
+    "reviennent sans cesse. Le <strong>flexible de machine à laver</strong>, "
+    "d'abord&nbsp;: il vieillit mal, il est rarement remplacé, et il lâche "
+    "généralement en plein cycle, donc sous pression, donc en volume.",
+    "Le <strong>groupe de sécurité</strong> du chauffe-eau ensuite&nbsp;: il est "
+    "normal qu'il goutte pendant la chauffe, mais pas qu'il coule en continu ni "
+    "qu'il soit entartré au point de ne plus se manœuvrer. Un groupe bloqué, "
+    "c'est un ballon qui monte en pression.",
+    "La <strong>vanne d'arrêt</strong> enfin&nbsp;: elle ne fuit pas, elle ne "
+    "fait rien du tout — jusqu'au jour où il faut couper et où elle reste "
+    "bloquée. C'est la pièce la moins chère et celle dont le défaut coûte le "
+    "plus cher. Nous la manœuvrons à chaque passage."],
+   None),
+ ],
+ "faq": [
+  ("Pouvez-vous intervenir si je suis à distance&nbsp;?",
+   "Oui. Nous intervenons sur accord écrit du propriétaire ou de l'agence, avec "
+   "un accès organisé avec l'occupant. Le compte rendu photographique vous "
+   "parvient le jour même."),
+  ("Qui paie, le bailleur ou le locataire&nbsp;?",
+   "Cela dépend de la cause, et notre compte rendu la précise. L'entretien "
+   "courant et les dégradations d'usage relèvent de l'occupant&nbsp;; la "
+   "vétusté, le défaut d'installation et le remplacement d'équipement relèvent "
+   "du propriétaire."),
+  ("Travaillez-vous avec des agences de gestion&nbsp;?",
+   "Oui, sur l'ensemble de l'Ille-et-Vilaine, avec devis avant travaux, "
+   "facturation au gestionnaire et compte rendu exploitable pour les dossiers "
+   "d'assurance."),
+  ("Combien de temps pour une urgence dans un logement loué&nbsp;?",
+   "Nous intervenons 24h/24 et 7j/7. Appelez le 02 20 06 00 75&nbsp;: nous "
+   "annonçons un délai réaliste au téléphone en fonction de la commune et de "
+   "l'heure, pas un délai de principe."),
+ ],
+},
+
+{
+ "slug": "plomberie-petites-surfaces-colocations-rennes",
+ "court": "Petites surfaces et colocations (35)",
+ "dept": "35", "act": "plomberie", "date": "2026-10-04",
+ "titre": "Plomberie en studio et colocation (35) — ETS-BZH",
+ "h1": "Petites surfaces et colocations en Ille-et-Vilaine&nbsp;: pourquoi la plomberie y lâche plus vite",
+ "meta": ("Studio, T2, colocation en Ille-et-Vilaine : chauffe-eau saturé, "
+          "évacuations encombrées, fuite en cuisine. Intervention ville par "
+          "ville. 02 20 06 00 75."),
+ "mots_cles": ("plombier studio Rennes, plomberie colocation Ille-et-Vilaine, "
+               "chauffe-eau studio trop petit, évacuation bouchée kitchenette"),
+ "chapo": ("Une même installation ne vieillit pas de la même façon selon le "
+           "nombre de personnes qui l'utilisent. Dans les petites surfaces et "
+           "les colocations d'Ille-et-Vilaine, tout est sollicité deux à trois "
+           "fois plus que prévu — et cède au même endroit. Voici lesquels, et "
+           "quoi faire avant la panne."),
+ "villes_titre": "Où nous intervenons, et sur quoi",
+ "villes_intro": ("Le parc de petites surfaces est très inégalement réparti dans "
+                  "le département&nbsp;: les motifs d'appel suivent."),
+ "villes": [
+   ("Rennes", "Le cœur du parc étudiant et des petites surfaces du département. "
+    "Chauffe-eau de 50 à 100&nbsp;litres pour trois occupants, kitchenettes aux "
+    "évacuations de faible diamètre, douches à receveur bas&nbsp;: nous y "
+    "intervenons tous les jours, y compris le soir et le week-end."),
+   ("Cesson-Sévigné", "Résidences étudiantes et jeunes actifs à proximité des "
+    "campus et des zones d'activité. Installations récentes mais très "
+    "sollicitées&nbsp;: les joints de douche et les siphons plats sont les "
+    "premiers à lâcher."),
+   ("Bruz", "Pôle d'enseignement supérieur et colocations en maison. Un réseau "
+    "conçu pour une famille reçoit quatre occupants aux horaires "
+    "décalés&nbsp;: l'eau chaude manque, et les évacuations ne désemplissent "
+    "jamais."),
+   ("Saint-Grégoire", "Petits logements récents et meublés. Les appels portent "
+    "surtout sur les raccordements de lave-linge et de lave-vaisselle installés "
+    "par les occupants eux-mêmes, souvent sans siphon adapté."),
+   ("Chantepie", "Parc mixte, beaucoup de T2 loués meublés. Fuites de "
+    "robinetterie et chasses d'eau qui coulent en permanence&nbsp;: peu "
+    "spectaculaire, mais c'est la première cause de facture d'eau anormale."),
+   ("Le Rheu", "Colocations en pavillon avec un seul point d'eau chaude pour "
+    "plusieurs salles d'eau. Nous commençons par vérifier si le problème est le "
+    "volume du ballon ou son thermostat avant de proposer un remplacement."),
+ ],
+ "urgent": [
+   "Fermez le robinet d'arrêt de l'appareil concerné, et à défaut la vanne "
+   "générale du logement&nbsp;: dans un petit volume, l'eau atteint tout en "
+   "quelques minutes.",
+   "En colocation, prévenez tous les occupants immédiatement&nbsp;: la pire "
+   "aggravation est une machine lancée par quelqu'un qui n'était pas au courant.",
+   "Surélevez ce qui est au sol — rallonges, cartons, matelas posé à même le "
+   "parquet — avant même d'éponger.",
+   "Photographiez l'origine et l'étendue, puis prévenez le propriétaire ou "
+   "l'agence par écrit le jour même.",
+ ],
+ "danger": ("Dans un studio, l'eau n'a nulle part où aller. Une fuite de "
+            "quelques litres atteint la cloison, le parquet flottant et les "
+            "multiprises posées au sol dans un délai que l'on compte en "
+            "minutes, pas en heures. S'y ajoute un risque propre aux petites "
+            "surfaces&nbsp;: le chauffe-eau est souvent installé en hauteur "
+            "dans un placard, au-dessus d'un espace de vie. Quand il lâche, il "
+            "ne lâche pas dans un garage."),
+ "sections": [
+  ("L'eau chaude&nbsp;: le point de rupture numéro un",
+   ["Un chauffe-eau de 100&nbsp;litres est dimensionné pour une à deux "
+    "personnes. Mis dans une colocation de trois ou quatre, il est vidé chaque "
+    "matin et rechargé en permanence. Cette sollicitation continue accélère tout "
+    "ce qui l'use&nbsp;: entartrage de la résistance, fatigue du thermostat, "
+    "sollicitation du groupe de sécurité.",
+    "Le symptôme qui précède presque toujours la panne est connu&nbsp;: l'eau "
+    "chaude dure de moins en moins longtemps, puis un bruit de bouilloire "
+    "apparaît pendant la chauffe. C'est le tartre sur la résistance. À ce "
+    "stade, un détartrage avec remplacement de l'anode prolonge l'appareil de "
+    "plusieurs années pour une fraction du prix d'un remplacement.",
+    "Quand le ballon est réellement sous-dimensionné, nous le disons plutôt que "
+    "de remplacer à l'identique&nbsp;: un appareil trop petit remplacé par un "
+    "appareil trop petit se représentera dans deux ans, et le propriétaire aura "
+    "payé deux fois."],
+   None),
+  ("Les évacuations de kitchenette et de douche",
+   ["Dans une petite surface, l'évier de kitchenette est raccordé en petit "
+    "diamètre, avec un siphon compact et un parcours horizontal souvent long. "
+    "C'est la configuration la plus défavorable qui soit pour les graisses de "
+    "cuisson, qui se figent et réduisent le passage mois après mois.",
+    "Côté douche, le receveur extra-plat impose un siphon plat, dont le volume "
+    "de rétention est faible. Il se charge très vite en cheveux et en résidus de "
+    "savon, et il se désamorce facilement — d'où les remontées d'odeur "
+    "fréquentes dans ce type de logement.",
+    "Ces deux points ne relèvent pas du hasard&nbsp;: ils sont prévisibles. Un "
+    "nettoyage de siphon tous les trois à six mois, une bonde à panier dans la "
+    "douche et l'habitude de jeter les graisses à la poubelle suppriment "
+    "l'essentiel des appels que nous recevons sur ce parc."],
+   None),
+  ("Le raccordement d'appareil installé par l'occupant",
+   [],
+   ["Un lave-linge branché sur le siphon de l'évier sans siphon de machine "
+    "dédié&nbsp;: refoulement à chaque vidange.",
+    "Un flexible d'alimentation trop court, tendu ou plié&nbsp;: il cède au "
+    "coude, généralement en cours de cycle.",
+    "Un tuyau de vidange glissé trop profondément dans l'attente&nbsp;: la "
+    "machine se vide en continu par effet de siphon.",
+    "Un lave-vaisselle raccordé en eau chaude dans un logement qui ne le permet "
+    "pas&nbsp;: consommation et usure accélérées.",
+    "Aucun robinet d'arrêt dédié sur l'arrivée&nbsp;: en cas de fuite, il faut "
+    "couper tout le logement.",
+    "Un appareil posé sur un parquet sans bac de rétention&nbsp;: la moindre "
+    "fuite lente ne se voit qu'une fois le sol gonflé."],
+   ),
+ ],
+ "faq": [
+  ("Mon ballon est-il trop petit ou en panne&nbsp;?",
+   "Les deux se distinguent facilement. Trop petit&nbsp;: l'eau est bien chaude "
+   "mais s'épuise vite et revient après quelques heures. En panne ou "
+   "entartré&nbsp;: l'eau est tiède même après une nuit complète de chauffe."),
+  ("Qui paie dans une colocation&nbsp;?",
+   "La règle est la même que dans toute location&nbsp;: l'entretien courant "
+   "incombe aux occupants, la vétusté et l'équipement au propriétaire. Notre "
+   "compte rendu précise la cause, ce qui évite les discussions entre "
+   "colocataires et bailleur."),
+  ("Intervenez-vous le soir&nbsp;?",
+   "Oui, 24h/24 et 7j/7. C'est souvent le seul moment où tout le monde est "
+   "présent dans une colocation, et nous en tenons compte dans nos créneaux."),
+  ("Peut-on éviter les odeurs dans une douche à receveur plat&nbsp;?",
+   "Oui, en nettoyant le siphon régulièrement et en faisant couler de l'eau "
+   "après une absence prolongée. Si l'odeur persiste malgré cela, c'est le "
+   "siphon ou sa ventilation qui est en cause, et cela se corrige."),
+ ],
+},
+{
+ "slug": "electricite-parties-communes-immeuble-ille-et-vilaine",
+ "court": "Électricité des parties communes (35)",
+ "dept": "35", "act": "electricite", "date": "2026-10-04",
+ "titre": "Électricité des parties communes (35) — ETS-BZH",
+ "h1": "Électricité des parties communes en Ille-et-Vilaine&nbsp;: halls, caves, parkings et éclairage de sécurité",
+ "meta": ("Panne d'éclairage de hall, de cave ou de parking en Ille-et-Vilaine : "
+          "dépannage, blocs de secours, sécurité. Ville par ville. "
+          "02 20 06 00 75."),
+ "mots_cles": ("éclairage parties communes panne Rennes, électricien "
+               "copropriété Ille-et-Vilaine, bloc de secours BAES, panne "
+               "parking souterrain Saint-Malo"),
+ "chapo": ("Une cage d'escalier dans le noir n'est pas un désagrément&nbsp;: "
+           "c'est un risque de chute, et pour une copropriété, une "
+           "responsabilité engagée. Les pannes de parties communes ont des "
+           "causes très répétitives. Les voici, avec nos délais commune par "
+           "commune en Ille-et-Vilaine."),
+ "villes_titre": "Nos interventions en collectif, ville par ville",
+ "villes_intro": ("L'âge des immeubles détermine presque entièrement le type de "
+                  "panne que nous trouvons sur place."),
+ "villes": [
+   ("Rennes", "Immeubles des années 1960 à 1980 en grand nombre&nbsp;: "
+    "minuteries mécaniques en fin de vie, circuits d'éclairage en "
+    "commande centralisée, armoires de palier sans repérage. Nous intervenons "
+    "de nuit sur les cages d'escalier entièrement éteintes."),
+   ("Saint-Malo", "Bâti ancien réhabilité et caves semi-enterrées "
+    "humides&nbsp;: corrosion des boîtes de dérivation et des douilles, "
+    "disjonction différentielle récurrente. Le traitement durable passe par du "
+    "matériel étanche, pas par un remplacement à l'identique."),
+   ("Fougères", "Petits collectifs de centre-ville aux installations "
+    "anciennes&nbsp;: absence de liaison équipotentielle en cave, prises sans "
+    "terre dans les locaux techniques. Nous établissons un relevé écrit pour "
+    "l'assemblée générale."),
+   ("Vitré", "Résidences des années 1990 avec parkings couverts. Les blocs de "
+    "secours arrivent en fin de vie par série&nbsp;: les batteries ont le même "
+    "âge et lâchent la même année. Un remplacement groupé coûte moins cher "
+    "qu'un dépannage unitaire répété."),
+   ("Dinard", "Immeubles exposés à l'air marin&nbsp;: coffrets extérieurs, "
+    "éclairage de perron et commandes de portail souffrent de corrosion "
+    "saline. Le choix du matériel compte autant que la pose."),
+   ("Saint-Jacques-de-la-Lande", "Résidences récentes avec détection de "
+    "présence et éclairage LED commandé. Les pannes viennent plus souvent du "
+    "module de commande ou du réglage que des sources elles-mêmes&nbsp;: nous "
+    "contrôlons l'un avant de remplacer les autres."),
+ ],
+ "urgent": [
+   "Signalez immédiatement au syndic une cage d'escalier ou un parking "
+   "entièrement dans le noir&nbsp;: c'est une situation à traiter le jour même.",
+   "Ne remplacez pas un fusible qui a fondu deux fois de suite et ne forcez "
+   "pas un disjoncteur qui retombe&nbsp;: il protège contre quelque chose.",
+   "Balisez provisoirement la zone sombre — un escalier, une rampe de "
+   "parking — et prévenez les occupants, en particulier les personnes âgées.",
+   "N'ouvrez aucune armoire électrique commune&nbsp;: en collectif, certaines "
+   "parties restent sous tension même disjoncteur abaissé.",
+ ],
+ "danger": ("Dans un immeuble, l'éclairage des circulations et les blocs de "
+            "secours ne sont pas du confort&nbsp;: ils sont la condition d'une "
+            "évacuation. Une cage d'escalier éteinte, c'est une chute "
+            "probable&nbsp;; des blocs hors service, c'est une évacuation "
+            "impossible en cas de fumée. S'y ajoute le risque électrique "
+            "propre aux caves&nbsp;: humidité permanente, absence de terre sur "
+            "les installations anciennes, et matériel posé il y a quarante ans "
+            "que plus personne ne contrôle."),
+ "sections": [
+  ("Les quatre pannes que nous trouvons le plus souvent",
+   ["<strong>La minuterie.</strong> C'est la cause la plus fréquente d'une cage "
+    "d'escalier qui ne s'allume plus du tout. Les modèles mécaniques "
+    "vieillissent mal&nbsp;; les modèles électroniques récents tombent en panne "
+    "d'un coup. Le remplacement est rapide et peu coûteux, à condition "
+    "d'identifier le bon appareil dans l'armoire.",
+    "<strong>Le différentiel qui retombe.</strong> Presque toujours un défaut "
+    "d'isolement quelque part sur le circuit&nbsp;: une boîte de dérivation "
+    "humide en cave, une douille extérieure, un hublot de parking qui a pris "
+    "l'eau. Le défaut se localise circuit par circuit, méthodiquement.",
+    "<strong>Les blocs de secours hors service.</strong> Leurs batteries durent "
+    "quatre à cinq ans. Un bloc dont le voyant est éteint ne fonctionnera pas le "
+    "jour où il faudra. C'est le point le plus souvent négligé d'une "
+    "copropriété.",
+    "<strong>Le circuit de cave ou de parking.</strong> Humidité, chocs, "
+    "matériel non étanche&nbsp;: c'est là que se concentrent les défauts. Et "
+    "c'est aussi là que les occupants descendent seuls, souvent le soir."],
+   None),
+  ("Blocs de secours&nbsp;: ce qu'une copropriété doit savoir",
+   ["Les blocs autonomes d'éclairage de sécurité s'entretiennent, se testent et "
+    "se remplacent. Le voyant vert allumé indique seulement que le bloc est "
+    "alimenté&nbsp;: il ne dit rien de l'état de sa batterie. Seul un test de "
+    "mise en autonomie le dit.",
+    "La bonne pratique est un contrôle au moins annuel, avec vérification de "
+    "l'autonomie réelle, de l'état des étiquettes de balisage et de la "
+    "cohérence du cheminement signalé. Un bloc présent mais invisible derrière "
+    "un faux plafond ou une porte ouverte ne remplit pas sa fonction.",
+    "Nous remettons un relevé par niveau, avec les blocs conformes, ceux à "
+    "remplacer et ceux qui manquent. Le document est directement exploitable en "
+    "assemblée générale, ce qui évite de reporter la décision d'un exercice sur "
+    "l'autre."],
+   None),
+  ("Ce que nous contrôlons lors d'une visite de parties communes",
+   [],
+   ["L'armoire électrique commune&nbsp;: repérage des circuits, serrage des "
+    "connexions, état des protections.",
+    "La présence et le fonctionnement des dispositifs différentiels, testés un "
+    "par un.",
+    "L'éclairage de l'ensemble des circulations&nbsp;: hall, paliers, escaliers, "
+    "caves, local poubelles, parking.",
+    "Les blocs de secours&nbsp;: alimentation, autonomie, balisage, "
+    "positionnement.",
+    "La liaison équipotentielle et la mise à la terre dans les locaux "
+    "techniques.",
+    "Les points sensibles extérieurs&nbsp;: hublots, coffrets, commandes de "
+    "portail et d'interphone."],
+   ),
+  ("Travailler avec un syndic sans alourdir le dossier",
+   ["Une copropriété ne décide pas comme un particulier&nbsp;: il faut un devis, "
+    "parfois un vote, et toujours une trace. Nous adaptons notre fonctionnement "
+    "à cette contrainte plutôt que de la subir.",
+    "En urgence — une cage d'escalier éteinte, un différentiel qui ne tient "
+    "plus — nous intervenons et nous remettons la situation en sécurité, puis "
+    "nous documentons. Pour tout ce qui relève de l'amélioration ou du "
+    "remplacement programmé, nous fournissons un devis détaillé par poste, "
+    "lisible par des copropriétaires qui ne sont pas électriciens.",
+    "Nous intervenons sur l'ensemble de l'Ille-et-Vilaine, de Rennes et sa "
+    "couronne jusqu'à Saint-Malo, Fougères, Vitré et Redon, pour des syndics "
+    "professionnels comme pour des copropriétés bénévoles."],
+   None),
+ ],
+ "faq": [
+  ("Qui paie une panne d'éclairage de hall&nbsp;?",
+   "Les parties communes relèvent de la copropriété, donc des charges "
+   "collectives. Un particulier n'a pas à avancer les frais&nbsp;: c'est le "
+   "syndic ou le conseil syndical qui commande l'intervention."),
+  ("Intervenez-vous sans vote d'assemblée générale&nbsp;?",
+   "Pour une urgence de sécurité, oui&nbsp;: le syndic dispose du pouvoir "
+   "d'engager les travaux nécessaires à la conservation et à la sécurité de "
+   "l'immeuble. Pour le reste, nous fournissons le devis à soumettre."),
+  ("Tous les blocs de secours doivent-ils être remplacés en même temps&nbsp;?",
+   "Pas obligatoirement, mais c'est souvent plus économique&nbsp;: posés "
+   "ensemble, ils vieillissent ensemble. Notre relevé indique ceux qui sont "
+   "réellement en fin de vie."),
+  ("Intervenez-vous en urgence la nuit sur un immeuble&nbsp;?",
+   "Oui, 24h/24 et 7j/7. Une cage d'escalier ou un parking entièrement dans le "
+   "noir est traité comme une urgence, pas comme une demande ordinaire."),
+ ],
+},
+
+{
+ "slug": "diagnostic-mise-en-securite-electrique-avant-location-vente-ille-et-vilaine",
+ "court": "Avant une location ou une vente (35)",
+ "dept": "35", "act": "electricite", "date": "2026-10-04",
+ "titre": "Mise en sécurité électrique avant location (35) — ETS-BZH",
+ "h1": "Avant une location ou une vente en Ille-et-Vilaine&nbsp;: lever les anomalies du diagnostic électrique",
+ "meta": ("Diagnostic électrique avec anomalies en Ille-et-Vilaine : mise en "
+          "sécurité avant location ou vente, poste par poste. Ville par ville. "
+          "02 20 06 00 75."),
+ "mots_cles": ("mise en sécurité électrique avant location Ille-et-Vilaine, "
+               "anomalies diagnostic électrique Rennes, mise à la terre "
+               "logement ancien Combourg, électricien avant vente Redon"),
+ "chapo": ("Un diagnostic électrique qui revient avec une liste d'anomalies "
+           "n'est pas une sanction&nbsp;: c'est un relevé. Mais entre un point "
+           "à corriger en une heure et un tableau à reprendre entièrement, "
+           "l'écart est considérable. Voici comment lire ce document et "
+           "hiérarchiser, avec nos repères par commune."),
+ "villes_titre": "Ce que révèlent les diagnostics, ville par ville",
+ "villes_intro": ("Le type de bâti local explique la nature des anomalies que "
+                  "nous sommes appelés à lever."),
+ "villes": [
+   ("Rennes", "Appartements anciens rénovés par morceaux&nbsp;: le tableau a "
+    "parfois été modernisé sans que les circuits le soient. L'anomalie type est "
+    "l'absence de terre sur une partie des prises, invisible tant qu'on ne "
+    "l'a pas mesurée."),
+   ("Combourg", "Maisons de bourg et longères en pierre&nbsp;: installations par "
+    "strates successives, boîtes de dérivation inaccessibles, conducteurs sans "
+    "repérage. La mise en sécurité se fait par priorités, pas en une seule "
+    "opération."),
+   ("Janzé", "Pavillonnaire des années 1970 et 1980&nbsp;: tableaux à fusibles "
+    "encore en service, absence de différentiel 30&nbsp;mA. C'est le point le "
+    "plus souvent relevé, et c'est aussi celui qui protège le plus."),
+   ("Redon", "Logements anciens parfois humides en rez-de-chaussée&nbsp;: "
+    "absence de liaison équipotentielle dans la salle d'eau et matériel installé "
+    "trop près des points d'eau. Deux anomalies classiques, rapides à lever."),
+   ("Fougères", "Immeubles de centre ancien&nbsp;: colonnes montantes vétustes, "
+    "sections de conducteurs insuffisantes pour les usages actuels. Nous "
+    "distinguons ce qui relève du logement et ce qui relève de la copropriété."),
+   ("Dinard", "Maisons de bord de mer souvent inoccupées une partie de "
+    "l'année&nbsp;: corrosion des appareillages extérieurs, protections "
+    "détériorées par l'humidité. Une installation qui dort n'est pas une "
+    "installation préservée."),
+ ],
+ "urgent": [
+   "Si le diagnostic mentionne une absence de protection différentielle ou un "
+   "conducteur nu accessible, ne remettez pas le logement en service avant "
+   "correction.",
+   "Débranchez et n'utilisez plus un appareil raccordé à une prise sans terre "
+   "dans une salle d'eau ou une cuisine.",
+   "Ne faites pas intervenir deux corps de métier successifs sur un tableau "
+   "sans schéma&nbsp;: c'est ainsi que naissent les installations illisibles.",
+   "Gardez le rapport de diagnostic&nbsp;: il sert de base chiffrée au devis et "
+   "de preuve des travaux réalisés.",
+ ],
+ "danger": ("Les anomalies relevées dans un diagnostic ne se valent pas. "
+            "L'absence de dispositif différentiel 30&nbsp;mA et l'absence de "
+            "mise à la terre sont les deux seules qui exposent directement une "
+            "personne à l'électrocution&nbsp;: elles doivent être traitées "
+            "avant toute remise en location. Les autres — repérage manquant, "
+            "matériel vétuste, protection inadaptée — relèvent de la fiabilité "
+            "et de l'incendie, et se planifient. Tout mélanger conduit soit à "
+            "ne rien faire, soit à dépenser au mauvais endroit."),
+ "sections": [
+  ("Les six points que contrôle le diagnostic",
+   ["Le diagnostic porte sur un nombre limité de points, toujours les mêmes, et "
+    "les connaître permet d'anticiper. Premier point&nbsp;: la présence d'un "
+    "<strong>appareil général de commande et de protection</strong> accessible, "
+    "qui permet de couper l'installation entière depuis l'intérieur du logement.",
+    "Deuxième et troisième points, les plus importants&nbsp;: un "
+    "<strong>dispositif différentiel</strong> adapté aux conditions de mise à la "
+    "terre, et une <strong>prise de terre</strong> avec son installation de "
+    "mise à la terre effective. Ce sont eux qui protègent les personnes.",
+    "Quatrième point&nbsp;: des <strong>protections contre les surintensités</strong> "
+    "adaptées à la section des conducteurs — un disjoncteur de 20&nbsp;A sur du "
+    "1,5&nbsp;mm² est un départ d'incendie en attente. Cinquième&nbsp;: la "
+    "<strong>liaison équipotentielle</strong> et le respect des volumes dans les "
+    "salles d'eau. Sixième&nbsp;: l'absence de <strong>matériel vétuste ou "
+    "inadapté</strong> et de conducteurs non protégés mécaniquement."],
+   None),
+  ("Hiérarchiser&nbsp;: ce qui bloque, ce qui attend",
+   [],
+   ["À traiter avant toute occupation&nbsp;: absence de différentiel "
+    "30&nbsp;mA, absence de terre, conducteur nu accessible, matériel sous "
+    "tension accessible au doigt.",
+    "À traiter rapidement&nbsp;: protection surdimensionnée par rapport à la "
+    "section, matériel dans un volume interdit de salle d'eau, liaison "
+    "équipotentielle manquante.",
+    "À planifier&nbsp;: tableau à fusibles à remplacer, repérage des circuits, "
+    "remplacement d'appareillage vétuste.",
+    "À prévoir au prochain chantier&nbsp;: création de circuits dédiés, "
+    "augmentation du nombre de prises, remplacement de conducteurs sous-"
+    "dimensionnés.",
+    "À documenter systématiquement&nbsp;: tout ce qui a été fait, avec photos "
+    "du tableau avant et après et schéma de repérage remis au propriétaire."],
+   ),
+  ("Mise en sécurité ou mise aux normes&nbsp;? La distinction qui change le devis",
+   ["Ces deux expressions sont souvent confondues, et la confusion coûte cher. "
+    "La <strong>mise en sécurité</strong> consiste à supprimer les dangers "
+    "immédiats&nbsp;: elle porte sur les points vitaux, se réalise en général en "
+    "une journée, et suffit à remettre un logement en location sans risque pour "
+    "ses occupants.",
+    "La <strong>mise en conformité</strong> d'une installation complète est un "
+    "autre chantier&nbsp;: elle vise le niveau d'équipement d'une installation "
+    "neuve, circuits dédiés compris. Elle a du sens lors d'une rénovation "
+    "lourde, beaucoup moins pour remettre en location un logement occupé "
+    "jusqu'ici sans incident.",
+    "Notre position est constante&nbsp;: nous chiffrons d'abord la mise en "
+    "sécurité, poste par poste, et nous indiquons séparément ce qui relèverait "
+    "d'une modernisation. Le propriétaire décide avec les deux chiffres sous les "
+    "yeux, et non avec un montant global qu'il ne peut pas arbitrer."],
+   None),
+  ("Avant une vente&nbsp;: faut-il faire les travaux&nbsp;?",
+   ["Pour une vente, le diagnostic est informatif&nbsp;: il est annexé à la "
+    "promesse, et l'acquéreur achète en connaissance de cause. Rien n'oblige "
+    "juridiquement le vendeur à lever les anomalies.",
+    "Dans les faits, une liste d'anomalies longue pèse sur la négociation, "
+    "souvent bien au-delà du coût réel des travaux. Lever les deux ou trois "
+    "points majeurs avant la mise en vente revient fréquemment moins cher que la "
+    "décote qu'ils provoquent, et rassure un acquéreur qui, sinon, imagine le "
+    "pire.",
+    "Pour une location en revanche, la logique est différente&nbsp;: le "
+    "propriétaire doit délivrer un logement décent, et une installation "
+    "présentant un danger pour les occupants ne l'est pas. Là, les travaux ne "
+    "sont pas une option."],
+   None),
+ ],
+ "faq": [
+  ("Combien de temps dure une mise en sécurité&nbsp;?",
+   "Pour un logement courant, une journée suffit dans la majorité des cas "
+   "lorsqu'il s'agit de poser un différentiel 30&nbsp;mA, de reprendre la terre "
+   "et de corriger quelques points. Un tableau entièrement à refaire demande "
+   "davantage."),
+  ("Le diagnostic est-il obligatoire pour louer&nbsp;?",
+   "Oui, pour les installations de plus de quinze ans, le diagnostic est annexé "
+   "au bail. Et le logement doit être décent, ce qui suppose une installation "
+   "qui ne présente pas de danger."),
+  ("Pouvez-vous intervenir sur la base du rapport du diagnostiqueur&nbsp;?",
+   "Oui. Transmettez-nous le rapport&nbsp;: nous reprenons les anomalies une à "
+   "une et nous chiffrons chaque poste séparément, en distinguant l'urgent du "
+   "souhaitable."),
+  ("Travaillez-vous avec les agences et les notaires&nbsp;?",
+   "Oui, partout en Ille-et-Vilaine, avec devis avant travaux et attestation de "
+   "fin de travaux remise au donneur d'ordre pour le dossier."),
+ ],
+},
+{
+ "slug": "curage-campings-hotels-restaurants-morbihan",
+ "court": "Campings, hôtels, restaurants (56)",
+ "dept": "56", "act": "degorgement", "date": "2026-10-04",
+ "titre": "Curage campings, hôtels, restaurants (56) — ETS-BZH",
+ "h1": "Campings, hôtels et restaurants du Morbihan&nbsp;: curage, entretien et urgences en pleine saison",
+ "meta": ("Curage et débouchage pour campings, hôtels et restaurants du "
+          "Morbihan : entretien hors saison, urgence en juillet. Ville par "
+          "ville. 02 20 06 00 75."),
+ "mots_cles": ("curage camping Morbihan, débouchage restaurant Vannes, "
+               "entretien réseau hôtel Quiberon, urgence sanitaires camping "
+               "Sarzeau"),
+ "chapo": ("Un établissement touristique du Morbihan concentre sur dix "
+           "semaines ce qu'un logement répartit sur l'année. Les réseaux le "
+           "supportent mal, et une fermeture de sanitaires en août se compte "
+           "en avis clients autant qu'en euros. Voici comment on évite cela, "
+           "commune par commune."),
+ "villes_titre": "Notre présence sur le littoral, ville par ville",
+ "villes_intro": ("La saisonnalité est extrême dans certaines communes&nbsp;: "
+                  "nous adaptons nos créneaux à la réalité de chaque secteur."),
+ "villes": [
+   ("Quiberon", "Presqu'île saturée de juin à septembre&nbsp;: hôtels, "
+    "crêperies, campings. Les réseaux sont longs et parfois sableux. Nous "
+    "privilégions les interventions avant 9&nbsp;h ou après 23&nbsp;h pour ne "
+    "pas fermer un service."),
+   ("Sarzeau", "Forte concentration d'hôtellerie de plein air sur la presqu'île "
+    "de Rhuys. Postes de relevage très sollicités en juillet et "
+    "août&nbsp;: c'est le point qui lâche le plus, et toujours au plus mauvais "
+    "moment."),
+   ("Vannes", "Restauration dense en centre et sur le port. Bacs à graisse "
+    "sous-dimensionnés ou jamais vidangés&nbsp;: nous intervenons de nuit pour "
+    "les établissements qui ne peuvent pas fermer en service."),
+   ("Auray", "Restaurants du port de Saint-Goustan et hébergements en centre "
+    "ancien&nbsp;: réseaux anciens, pentes faibles, accès véhicule difficile. "
+    "Nous reconnaissons les lieux avant la saison plutôt que pendant."),
+   ("Le Palais", "Belle-Île&nbsp;: toute intervention suppose une traversée et "
+    "une organisation. C'est précisément pourquoi l'entretien programmé hors "
+    "saison y est indispensable&nbsp;; une urgence en août y coûte un temps "
+    "que personne n'a."),
+   ("Ploemeur", "Campings et résidences de tourisme en bord de mer, avec "
+    "réseaux enterrés étendus sur plusieurs hectares. Le curage préventif des "
+    "collecteurs au printemps évite la quasi-totalité des incidents d'été."),
+ ],
+ "urgent": [
+   "Fermez immédiatement l'accès aux sanitaires concernés et signalez-le "
+   "clairement&nbsp;: un bloc condamné vaut mieux qu'un débordement dans un "
+   "lieu public.",
+   "Coupez l'alimentation des appareils raccordés au réseau en cause&nbsp;: "
+   "lave-vaisselle professionnel, plonge, machines à glaçons.",
+   "Pour un bac à graisse qui déborde, n'ouvrez pas le couvercle en plein "
+   "service&nbsp;: les émanations sont nauséabondes et désorganisent la salle.",
+   "Appelez sans attendre la fin du service. Plus l'intervention est tardive, "
+   "plus elle devra se faire en urgence de nuit, au tarif correspondant.",
+ ],
+ "danger": ("Pour un établissement recevant du public, un réseau qui refoule "
+            "est d'abord un problème sanitaire&nbsp;: contact d'eaux usées "
+            "avec une zone de préparation alimentaire, sanitaires inutilisables "
+            "pour des dizaines de personnes, risque de fermeture administrative "
+            "en cas de contrôle. S'y ajoute un risque économique immédiat "
+            "— un service annulé, des clients relogés — et un risque "
+            "réputationnel durable, puisqu'un incident d'été se lit encore "
+            "l'hiver suivant dans les avis en ligne."),
+ "sections": [
+  ("Ce qui cède, et dans quel ordre",
+   ["<strong>Le bac à graisse.</strong> Dimensionné pour un flux moyen, il est "
+    "saturé en quelques semaines de pleine saison. Une fois plein, il ne sépare "
+    "plus rien&nbsp;: les graisses partent dans le réseau et s'y figent à la "
+    "première portion froide. Le bouchon ne se forme pas dans le bac, il se "
+    "forme trente mètres plus loin.",
+    "<strong>Le poste de relevage.</strong> Dans un camping ou un hôtel en "
+    "contrebas, tout passe par lui. Les lingettes et les textiles le bloquent, "
+    "les flotteurs s'encrassent, et une pompe sur deux suffit rarement en "
+    "pointe. C'est le point unique de défaillance de la plupart des "
+    "établissements du littoral.",
+    "<strong>Les collecteurs enterrés.</strong> Un camping, c'est plusieurs "
+    "centaines de mètres de réseau à faible pente, souvent sableux en bord de "
+    "mer. Les dépôts s'accumulent hors saison et le réseau se révèle au premier "
+    "week-end chargé.",
+    "<strong>Les sanitaires collectifs.</strong> Usage intensif et imprévisible, "
+    "objets jetés dans les cuvettes, siphons de sol encrassés. C'est le "
+    "symptôme visible&nbsp;; la cause est presque toujours en aval."],
+   None),
+  ("Le calendrier qui fonctionne",
+   [],
+   ["Mars-avril&nbsp;: curage des collecteurs et des réseaux de sanitaires "
+    "collectifs, avant la montée en charge.",
+    "Avril&nbsp;: contrôle complet du poste de relevage — pompes, flotteurs, "
+    "alarme, armoire — et nettoyage de la bâche.",
+    "Mai&nbsp;: vidange du bac à graisse et vérification de son "
+    "dimensionnement réel au regard du nombre de couverts.",
+    "Juin&nbsp;: inspection caméra des portions ayant déjà posé problème, pour "
+    "ne pas entrer en saison avec un défaut connu.",
+    "Juillet-août&nbsp;: intervention d'urgence en créneaux décalés, tôt le "
+    "matin ou après le service.",
+    "Septembre-octobre&nbsp;: vidange de fin de saison et bilan écrit de ce "
+    "qu'il faut corriger avant l'année suivante."],
+   ),
+  ("Intervenir sans fermer l'établissement",
+   ["C'est la contrainte dont nous entendons parler à chaque premier appel d'un "
+    "professionnel&nbsp;: non pas le prix, mais l'interruption. Un restaurant "
+    "qui ferme un service perd davantage que le coût de l'intervention&nbsp;; un "
+    "camping qui condamne un bloc sanitaire en août gère des réclamations "
+    "pendant une semaine.",
+    "Nous organisons donc l'intervention autour de l'activité. Concrètement&nbsp;: "
+    "créneaux tôt le matin ou en fin de soirée, accès et stationnement repérés à "
+    "l'avance, zone de travail balisée et isolée du public, matériel aspiré "
+    "plutôt que pelleté, nettoyage et désinfection de la zone avant de repartir.",
+    "Pour les établissements que nous suivons à l'année, nous conservons le plan "
+    "des réseaux et l'historique des interventions. Lors d'une urgence, cela "
+    "représente souvent une heure gagnée&nbsp;: nous savons déjà où sont les "
+    "regards et ce qui a lâché la dernière fois."],
+   None),
+ ],
+ "faq": [
+  ("À quelle fréquence vidanger un bac à graisse&nbsp;?",
+   "Tous les trois à six mois pour un établissement à l'année, et "
+   "impérativement avant et après la haute saison pour un saisonnier. Un bac "
+   "plus souvent plein que prévu est généralement sous-dimensionné&nbsp;: cela "
+   "se vérifie et se corrige."),
+  ("Intervenez-vous en pleine saison sur la presqu'île&nbsp;?",
+   "Oui, 24h/24 et 7j/7 sur tout le Morbihan, Quiberon, Rhuys et Belle-Île "
+   "compris. Nous privilégions les créneaux hors service pour ne pas "
+   "interrompre votre activité."),
+  ("Fournissez-vous un bordereau pour les contrôles&nbsp;?",
+   "Oui. Chaque vidange et chaque curage donne lieu à un document daté "
+   "mentionnant la nature de l'intervention, à conserver dans votre registre "
+   "d'entretien."),
+  ("Proposez-vous des contrats d'entretien&nbsp;?",
+   "Oui, avec un calendrier adapté à votre saisonnalité et un tarif connu "
+   "d'avance. C'est nettement moins coûteux que deux urgences de nuit en "
+   "pleine saison."),
+ ],
+},
+
+{
+ "slug": "reseaux-littoral-regards-ensables-postes-relevage-morbihan",
+ "court": "Réseaux du littoral (56)",
+ "dept": "56", "act": "degorgement", "date": "2026-10-04",
+ "titre": "Regards ensablés et relevage sur le littoral (56) — ETS-BZH",
+ "h1": "Réseaux du littoral morbihannais&nbsp;: regards ensablés, exutoires et postes de relevage",
+ "meta": ("Sable, sel et nappe haute : pourquoi les réseaux du littoral "
+          "morbihannais se bouchent, et comment les entretenir. Ville par "
+          "ville. 02 20 06 00 75."),
+ "mots_cles": ("regard ensablé Morbihan, poste de relevage littoral, curage "
+               "réseau bord de mer Guidel, exutoire bouché Sarzeau"),
+ "chapo": ("À cinq cents mètres de la mer, un réseau d'assainissement ne "
+           "vieillit pas comme ailleurs. Le sable entre, le sel attaque, la "
+           "nappe remonte et les postes de relevage travaillent en "
+           "permanence. Voici ce que cela change concrètement, commune par "
+           "commune dans le Morbihan."),
+ "villes_titre": "Ce que le littoral impose, ville par ville",
+ "villes_intro": ("La distance à la mer, la nature du sol et le niveau de la "
+                  "nappe expliquent la quasi-totalité des pannes que nous "
+                  "traitons sur ces secteurs."),
+ "villes": [
+   ("Guidel", "Sols sableux et vent dominant&nbsp;: le sable s'invite dans les "
+    "regards mal fermés et se compacte au point bas. Un curage haute pression "
+    "le remet en suspension et l'évacue&nbsp;; un simple furet ne fait que "
+    "percer un passage temporaire."),
+   ("Séné", "Secteurs bas en bord de golfe, nappe proche de la surface. Les "
+    "réseaux anciens prennent l'eau claire par les joints&nbsp;: le volume "
+    "pompé augmente, et le poste de relevage tourne sans raison apparente."),
+   ("Sarzeau", "Presqu'île de Rhuys, nombreuses résidences en contrebas "
+    "équipées de relevage individuel. Pompes très sollicitées en été, à "
+    "l'arrêt l'hiver&nbsp;: les deux régimes les usent, pour des raisons "
+    "différentes."),
+   ("Ploemeur", "Longs réseaux enterrés en terrain sableux desservant des "
+    "secteurs dispersés. Les points bas accumulent, et l'inspection caméra "
+    "permet de cibler le curage plutôt que de tout traiter."),
+   ("Hennebont", "Secteur d'estuaire soumis au marnage&nbsp;: certains "
+    "exutoires sont contraints par la marée et refoulent à pleine mer. Un "
+    "clapet anti-retour en bon état n'est pas un accessoire, c'est la pièce "
+    "maîtresse."),
+   ("Lorient", "Réseaux urbains anciens en zone portuaire&nbsp;: corrosion des "
+    "éléments métalliques, dépôts salins, branchements superposés. Le "
+    "diagnostic précède toujours l'intervention sur ce type de réseau."),
+ ],
+ "urgent": [
+   "Si un poste de relevage est en alarme, cessez tout rejet d'eau&nbsp;: la "
+   "bâche se remplit, et une bâche pleine déborde par le point le plus bas de "
+   "l'installation.",
+   "N'entrez jamais dans un poste de relevage ni dans un regard "
+   "profond&nbsp;: les gaz présents sont mortels et l'atmosphère y est souvent "
+   "pauvre en oxygène.",
+   "Si l'eau refoule à marée haute, attendez la marée descendante avant "
+   "d'évaluer&nbsp;: beaucoup de refoulements littoraux sont rythmés par la "
+   "marée, et l'information est décisive pour le diagnostic.",
+   "Notez l'heure exacte du refoulement et le coefficient du jour. C'est "
+   "l'indice qui fait gagner le plus de temps à l'intervenant.",
+ ],
+ "danger": ("Un poste de relevage hors service ne prévient pas longtemps&nbsp;: "
+            "selon le volume de la bâche, il reste de quelques heures à une "
+            "demi-journée avant le débordement. Ce débordement se produit "
+            "toujours au point le plus bas, c'est-à-dire à l'intérieur de "
+            "l'habitation ou dans un sous-sol. Sur le littoral, le risque est "
+            "doublé par la nappe&nbsp;: un réseau qui prend l'eau claire "
+            "sature le poste en permanence et use les pompes bien avant leur "
+            "terme, sans que personne ne s'en aperçoive."),
+ "sections": [
+  ("Le sable&nbsp;: pourquoi il gagne toujours",
+   ["Le sable ne bouche pas un réseau d'un coup. Il se dépose, grain après "
+    "grain, dans les portions où la vitesse d'écoulement tombe&nbsp;: les "
+    "changements de pente, les coudes, les regards profonds. Puis il se "
+    "compacte, et un dépôt compacté se comporte comme du béton tendre.",
+    "Il entre de trois façons. Par les regards dont le tampon ne joint plus, "
+    "surtout quand ils sont implantés dans une allée gravillonnée ou un "
+    "accotement. Par le ruissellement, lorsque les eaux pluviales d'une cour ou "
+    "d'une descente de garage chargent le réseau. Et par les travaux&nbsp;: "
+    "une tranchée mal refermée alimente le réseau en fines pendant des mois.",
+    "La réponse est l'hydrocurage, pas le furet. Le jet haute pression remet le "
+    "dépôt en suspension et la pompe l'extrait du réseau. Un furet traverse le "
+    "dépôt sans le retirer&nbsp;: l'écoulement revient le jour même et le "
+    "bouchon se reforme dans les semaines qui suivent, au même endroit."],
+   None),
+  ("Le poste de relevage, pièce la plus fragile du littoral",
+   ["Dès qu'une habitation ou un établissement se trouve en contrebas du "
+    "collecteur — configuration extrêmement fréquente dans le Morbihan "
+    "côtier — tout dépend d'une pompe. Si elle s'arrête, rien ne part.",
+    "Quatre causes couvrent presque tous les arrêts&nbsp;: une pompe bloquée "
+    "par des lingettes ou des textiles, un flotteur encrassé ou coincé qui ne "
+    "commande plus la mise en route, une protection électrique qui a déclenché "
+    "sans que personne ne regarde l'armoire, et l'usure pure d'une pompe qui a "
+    "trop tourné parce que le réseau prend l'eau claire.",
+    "Un poste correctement entretenu se contrôle deux fois par an&nbsp;: "
+    "nettoyage de la bâche, vérification des flotteurs et de leur course, test "
+    "de l'alarme — qui est trop souvent hors service — et contrôle du clapet. "
+    "Un poste équipé d'une alarme sonore et visuelle qui fonctionne transforme "
+    "une catastrophe en simple appel téléphonique."],
+   None),
+  ("Vivre avec la marée et la nappe",
+   [],
+   ["Un clapet anti-retour en bon état sur l'exutoire&nbsp;: il se contrôle, il "
+    "s'encrasse et il se remplace.",
+    "Une séparation stricte des eaux pluviales et des eaux usées&nbsp;: une "
+    "gouttière raccordée par erreur double le volume à relever.",
+    "Des regards avec tampons étanches, en particulier en zone sableuse ou "
+    "inondable.",
+    "Un contrôle de l'étanchéité du réseau quand le poste tourne plus qu'avant "
+    "sans changement d'usage&nbsp;: c'est le signe d'une entrée d'eau claire.",
+    "Une inspection caméra après tout épisode de submersion ou de travaux à "
+    "proximité.",
+    "Un entretien programmé plutôt que subi&nbsp;: sur le littoral, le réseau "
+    "qui n'est pas entretenu n'est pas stable, il est seulement en sursis."],
+   ),
+ ],
+ "faq": [
+  ("Pourquoi mon réseau se bouche-t-il toujours au même endroit&nbsp;?",
+   "Parce qu'il y a un point bas, un défaut de pente ou un emboîtement décalé "
+   "à cet endroit précis. Le curage rend le passage, l'inspection caméra "
+   "explique pourquoi il se reforme."),
+  ("Faut-il entretenir un poste de relevage peu utilisé&nbsp;?",
+   "Oui, et c'est contre-intuitif&nbsp;: une pompe qui ne tourne jamais se "
+   "grippe, et les flotteurs se collent. Une résidence secondaire a autant "
+   "besoin d'un contrôle annuel qu'une maison occupée."),
+  ("Mon poste tourne beaucoup plus qu'avant, est-ce grave&nbsp;?",
+   "C'est un signal à prendre au sérieux. Sans changement d'usage, cela "
+   "signifie presque toujours que de l'eau claire entre dans le réseau. Les "
+   "pompes s'useront prématurément si on ne traite pas la cause."),
+  ("Intervenez-vous sur les îles&nbsp;?",
+   "Oui, y compris à Belle-Île, avec une organisation adaptée aux traversées. "
+   "C'est aussi pourquoi nous y recommandons fortement l'entretien programmé "
+   "plutôt que l'urgence."),
+ ],
+},
+{
+ "slug": "plomberie-residences-secondaires-proprietaires-absents-morbihan",
+ "court": "Résidences secondaires (56)",
+ "dept": "56", "act": "plomberie", "date": "2026-10-04",
+ "titre": "Plomberie en résidence secondaire (56) — ETS-BZH",
+ "h1": "Résidences secondaires du Morbihan&nbsp;: intervenir quand le propriétaire est à cinq cents kilomètres",
+ "meta": ("Fuite dans une résidence secondaire du Morbihan : intervention à "
+          "distance, accès, constat photo pour l'assurance. Ville par ville. "
+          "02 20 06 00 75."),
+ "mots_cles": ("plombier résidence secondaire Morbihan, fuite maison "
+               "inoccupée Sarzeau, intervention propriétaire absent Quiberon, "
+               "dégât des eaux maison vide"),
+ "chapo": ("Le sinistre type de la résidence secondaire n'est pas une grosse "
+           "fuite&nbsp;: c'est une petite fuite qui coule pendant six "
+           "semaines sans témoin. Quand le propriétaire arrive, le sol est "
+           "fait. Voici comment organiser l'intervention à distance dans le "
+           "Morbihan, et ce que nous voyons commune par commune."),
+ "villes_titre": "Où nous intervenons pour des propriétaires absents",
+ "villes_intro": ("Les secteurs les plus concernés sont aussi ceux où la "
+                  "vacance hivernale est la plus longue."),
+ "villes": [
+   ("Sarzeau", "Presqu'île de Rhuys&nbsp;: très forte proportion de maisons "
+    "fermées d'octobre à avril. Les appels arrivent souvent d'un voisin ou "
+    "d'un gardiennage. Nous intervenons sur mandat écrit du propriétaire, avec "
+    "constat photographique systématique."),
+   ("Quiberon", "Maisons de bord de mer exposées au vent et au sel, fermées "
+    "une bonne partie de l'année. Les robinets extérieurs non purgés et les "
+    "chauffe-eau laissés en eau sont les deux causes dominantes."),
+   ("Le Palais", "Belle-Île&nbsp;: le délai d'accès impose d'être précis dès "
+    "le premier appel. Nous demandons une description détaillée et, si "
+    "possible, des photos transmises par la personne sur place avant de "
+    "programmer la traversée."),
+   ("Séné", "Maisons en bord de golfe souvent occupées par intermittence. "
+    "Nappe proche et sous-sols sensibles&nbsp;: une fuite lente y est "
+    "rapidement confondue avec de l'humidité ambiante, ce qui fait perdre des "
+    "semaines."),
+   ("Guidel", "Résidences secondaires et locations saisonnières mêlées. Les "
+    "remises en eau de printemps révèlent les dégâts de l'hiver&nbsp;: nous "
+    "recommandons d'être présent ou représenté au moment du remplissage."),
+   ("Auray", "Maisons de ville et pied-à-terre en centre ancien. Réseaux "
+    "mitoyens et voisinage immédiat&nbsp;: une fuite non traitée devient très "
+    "vite un litige avec le voisin plutôt qu'un simple dépannage."),
+ ],
+ "urgent": [
+   "Faites couper l'arrivée d'eau générale par la personne sur place&nbsp;: "
+   "voisin, gardien, locataire. C'est le geste qui arrête tout.",
+   "Demandez des photos immédiates&nbsp;: compteur, zone mouillée, plafond, "
+   "sol. Elles déterminent l'urgence réelle et évitent un déplacement à "
+   "l'aveugle.",
+   "Faites relever l'index du compteur, puis une seconde fois une heure plus "
+   "tard, eau coupée&nbsp;: s'il tourne encore, la fuite est en amont.",
+   "Prévenez votre assureur le jour même, même sans avoir constaté sur "
+   "place&nbsp;: le délai de déclaration court à partir de la connaissance du "
+   "sinistre.",
+ ],
+ "danger": ("Dans une maison occupée, une fuite est entendue, vue ou sentie en "
+            "quelques heures. Dans une maison fermée, rien ne l'arrête. Un "
+            "raccord qui goutte à raison d'un litre par heure déverse plus de "
+            "mille litres en six semaines&nbsp;: cela suffit à détremper une "
+            "chape, décoller un parquet, gonfler des plinthes et installer "
+            "durablement des moisissures. Le second risque est le gel&nbsp;: "
+            "une canalisation pleine dans une maison non chauffée éclate, et "
+            "elle éclate silencieusement — le dégât ne se révèle qu'au dégel, "
+            "quand l'eau recommence à circuler."),
+ "sections": [
+  ("Organiser l'intervention sans être là&nbsp;: le cadre",
+   ["Nous intervenons régulièrement pour des propriétaires qui ne sont pas dans "
+    "le département, et cela fonctionne à trois conditions, toujours les mêmes.",
+    "<strong>Un mandat écrit.</strong> Un courriel suffit&nbsp;: il nous "
+    "autorise à entrer, à intervenir et, le cas échéant, à engager les travaux "
+    "de mise en sécurité. Sans lui, nous ne pouvons pas pénétrer dans un "
+    "logement vide, quelle que soit l'urgence décrite par un tiers.",
+    "<strong>Un accès organisé.</strong> Voisin dépositaire des clés, boîte à "
+    "clés, gardiennage, agence&nbsp;: peu importe le moyen, à condition qu'il "
+    "soit identifié avant notre départ. Une intervention annulée sur place "
+    "faute de clé reste un déplacement.",
+    "<strong>Un retour documenté.</strong> Nous remettons des photos avant et "
+    "après, la localisation exacte de l'origine, les travaux réalisés et ceux "
+    "que nous recommandons. Pour un propriétaire à distance, ce document est le "
+    "seul moyen de décider en connaissance de cause — et il est directement "
+    "exploitable par l'assureur."],
+   None),
+  ("Fermer correctement&nbsp;: la liste qui évite le sinistre",
+   [],
+   ["Couper l'arrivée d'eau générale, puis ouvrir les robinets du point le plus "
+    "haut au point le plus bas pour vider les colonnes.",
+    "Vidanger les robinets extérieurs et les arrivées de garage, les premiers "
+    "touchés par le gel.",
+    "Mettre le chauffe-eau hors tension et, en cas d'absence longue ou de "
+    "maison non chauffée, le vidanger.",
+    "Débrancher et vidanger lave-linge et lave-vaisselle&nbsp;: il reste "
+    "toujours de l'eau dans la pompe et le flexible.",
+    "Verser un peu d'eau dans les siphons peu utilisés avant de partir, sinon "
+    "ils se désamorcent et les odeurs envahissent la maison.",
+    "Laisser un chauffage hors gel plutôt que tout couper&nbsp;: c'est moins "
+    "cher qu'une canalisation éclatée."],
+   ),
+  ("Rouvrir sans casse&nbsp;: la remise en eau",
+   ["La remise en service est le moment où tout se révèle, et c'est aussi "
+    "celui où l'on aggrave le plus souvent les choses. L'erreur classique "
+    "consiste à rouvrir la vanne générale en grand puis à partir faire autre "
+    "chose.",
+    "La bonne méthode est lente. On referme d'abord tous les robinets "
+    "intérieurs, on ouvre la vanne générale très progressivement, et on écoute. "
+    "Un réseau qui se remplit fait du bruit&nbsp;; un réseau percé fait un "
+    "bruit qui ne s'arrête pas. On ouvre ensuite les points de puisage un par "
+    "un, en commençant par le plus bas, pour chasser l'air sans provoquer de "
+    "coup de bélier.",
+    "Une fois la maison en eau, on referme tout et on relève le compteur. "
+    "Trente minutes plus tard, un index qui a bougé signe une fuite, même "
+    "invisible. C'est le seul contrôle qui ne trompe pas, et il prend moins de "
+    "temps qu'un appel téléphonique.",
+    "Pour une maison restée fermée tout l'hiver, nous recommandons de faire "
+    "coïncider cette remise en eau avec notre passage&nbsp;: s'il y a un défaut, "
+    "il se manifeste dans les premières minutes, et nous sommes là."],
+   None),
+ ],
+ "faq": [
+  ("Pouvez-vous entrer chez moi en mon absence&nbsp;?",
+   "Oui, avec votre accord écrit et un accès organisé — voisin, boîte à clés, "
+   "gardiennage ou agence. Nous documentons systématiquement l'intervention par "
+   "photos avant et après."),
+  ("Mon assurance couvre-t-elle une fuite dans une maison inoccupée&nbsp;?",
+   "Cela dépend du contrat, et beaucoup comportent une clause d'inoccupation "
+   "prolongée imposant la coupure de l'eau et une mise hors gel. Vérifiez-la "
+   "avant l'hiver plutôt qu'après le sinistre."),
+  ("Faut-il vidanger le chauffe-eau chaque hiver&nbsp;?",
+   "Pour une absence de quelques semaines dans une maison maintenue hors gel, "
+   "la coupure électrique suffit. Pour une maison non chauffée tout l'hiver, la "
+   "vidange est la seule protection réelle."),
+  ("Intervenez-vous en urgence sur la presqu'île et à Belle-Île&nbsp;?",
+   "Oui, sur l'ensemble du Morbihan. Pour les îles, l'organisation dépend des "
+   "traversées&nbsp;: appelez le 02 20 06 00 75, nous vous annonçons un délai "
+   "réaliste immédiatement."),
+ ],
+},
+
+{
+ "slug": "calcaire-corrosion-saline-installations-morbihan",
+ "court": "Calcaire et corrosion (56)",
+ "dept": "56", "act": "plomberie", "date": "2026-10-04",
+ "titre": "Calcaire et corrosion des installations (56) — ETS-BZH",
+ "h1": "Calcaire, sel et corrosion dans le Morbihan&nbsp;: ce qui use vos installations avant l'heure",
+ "meta": ("Calcaire, air marin et corrosion dans le Morbihan : ce qui use "
+          "ballon, robinetterie et réseaux, et comment le ralentir. Ville par "
+          "ville. 02 20 06 00 75."),
+ "mots_cles": ("calcaire plomberie Morbihan, corrosion saline installation "
+               "bord de mer, entretien chauffe-eau Pontivy, anode magnésium "
+               "ballon"),
+ "chapo": ("Deux installations identiques, l'une à Pontivy l'autre à Guidel, "
+           "ne vieillissent pas du tout de la même façon. L'eau d'un côté, "
+           "l'air de l'autre. Savoir lequel des deux vous concerne change "
+           "l'entretien à faire — et évite de remplacer un équipement tous "
+           "les six ans."),
+ "villes_titre": "Dureté de l'eau et exposition, ville par ville",
+ "villes_intro": ("Dans le Morbihan, la contrainte dominante change du tout au "
+                  "tout entre l'intérieur et la côte."),
+ "villes": [
+   ("Pontivy", "Intérieur du département&nbsp;: la contrainte principale est "
+    "l'entartrage des résistances et des échangeurs. Un détartrage avec "
+    "remplacement de l'anode tous les deux à trois ans prolonge nettement la "
+    "vie d'un ballon."),
+   ("Locminé", "Secteur rural, installations souvent anciennes avec portions "
+    "en acier galvanisé. La corrosion interne réduit le diamètre et fait "
+    "chuter la pression&nbsp;: le symptôme est un débit qui baisse lentement "
+    "sur plusieurs années."),
+   ("Baud", "Habitat dispersé, parfois alimenté par des réseaux longs. "
+    "Stagnation et dépôts dans les portions peu utilisées&nbsp;: les résidences "
+    "peu occupées sont les plus concernées."),
+   ("Questembert", "Mélange de bâti ancien et de pavillonnaire. Les groupes de "
+    "sécurité entartrés qui ne se manœuvrent plus sont l'un de nos motifs "
+    "d'intervention les plus fréquents sur ce secteur."),
+   ("Pluvigner", "Zone intermédiaire&nbsp;: entartrage modéré, mais "
+    "installations extérieures nombreuses — abris, puits, arrosage — exposées "
+    "au gel et à la corrosion des raccords."),
+   ("Lanester", "Proximité de l'estuaire et atmosphère chargée&nbsp;: la "
+    "corrosion externe des raccords, colliers et appareillages extérieurs prend "
+    "le pas sur le calcaire. Le choix des matériaux compte plus que "
+    "l'entretien."),
+ ],
+ "urgent": [
+   "Un groupe de sécurité qui coule en continu, et non seulement pendant la "
+   "chauffe, doit être remplacé sans attendre&nbsp;: il ne protège plus.",
+   "Un bruit de bouilloire dans le ballon signale un entartrage "
+   "avancé&nbsp;: faites intervenir avant la panne sèche, pas après.",
+   "Une baisse de pression générale et progressive n'est pas normale. Ne la "
+   "compensez pas en changeant de robinetterie&nbsp;: cherchez la cause.",
+   "Une trace verte ou blanche autour d'un raccord indique une fuite lente "
+   "déjà ancienne&nbsp;: elle ne se résorbera pas toute seule.",
+ ],
+ "danger": ("Le tartre et la corrosion ne provoquent pas d'accident "
+            "spectaculaire, et c'est précisément ce qui les rend coûteux&nbsp;: "
+            "ils travaillent sans signal d'alarme. Un groupe de sécurité "
+            "entartré au point de ne plus s'ouvrir laisse monter la pression "
+            "d'un ballon&nbsp;; une canalisation en acier corrodée de "
+            "l'intérieur finit par percer sous une cloison&nbsp;; une anode "
+            "entièrement consommée livre la cuve elle-même à la corrosion, et "
+            "une cuve percée ne se répare pas, elle se remplace."),
+ "sections": [
+  ("Deux ennemis différents, deux traitements différents",
+   ["<strong>Le calcaire</strong> agit à l'intérieur, et il agit avec la "
+    "chaleur. C'est pourquoi il se concentre là où l'eau chauffe&nbsp;: "
+    "résistance du ballon, échangeur de chaudière, mitigeurs thermostatiques, "
+    "groupe de sécurité. L'eau froide entartre beaucoup moins. Un réseau "
+    "d'eau froide qui perd du débit n'a généralement pas un problème de "
+    "calcaire mais de corrosion ou de dépôt.",
+    "<strong>La corrosion saline</strong> agit à l'extérieur, et elle agit sans "
+    "chaleur. L'air marin dépose du chlorure sur tout ce qui est métallique, et "
+    "l'humidité fait le reste. Elle attaque les colliers, les raccords, les "
+    "vannes extérieures, les coffrets et les fixations — rarement l'intérieur "
+    "du réseau.",
+    "La conséquence pratique est importante&nbsp;: un adoucisseur installé dans "
+    "une maison de bord de mer ne règle pas le problème de corrosion externe, "
+    "et un matériel inox posé à Pontivy ne protège pas du tartre. Il faut "
+    "identifier lequel des deux domine chez vous avant d'investir."],
+   None),
+  ("Les quatre pièces qui paient l'addition",
+   [],
+   ["<strong>L'anode du ballon</strong>&nbsp;: elle se sacrifie pour protéger "
+    "la cuve. Une fois consommée, la cuve est attaquée. Son remplacement coûte "
+    "une fraction d'un chauffe-eau neuf.",
+    "<strong>Le groupe de sécurité</strong>&nbsp;: il s'entartre, se bloque, et "
+    "cesse de jouer son rôle de soupape. Il se manœuvre une fois par mois et se "
+    "remplace tous les cinq ans environ.",
+    "<strong>La résistance</strong>&nbsp;: entartrée, elle consomme davantage "
+    "pour chauffer moins, puis finit par griller. Le bruit de bouilloire la "
+    "précède de plusieurs mois.",
+    "<strong>Les vannes et robinets d'arrêt</strong>&nbsp;: ils se grippent "
+    "s'ils ne sont jamais manœuvrés, et c'est le jour de la fuite qu'on "
+    "s'en aperçoit.",
+    "<strong>Les raccords extérieurs</strong> en bord de mer&nbsp;: colliers "
+    "acier, raccords mixtes, fixations. L'inox et le laiton tiennent, l'acier "
+    "ordinaire ne tient pas."],
+   ),
+  ("Ce qui marche vraiment, et ce qui ne marche pas",
+   ["Un adoucisseur a un intérêt réel dans les secteurs où l'eau est dure, à "
+    "condition d'être réglé, entretenu et régénéré correctement. Mal entretenu, "
+    "il devient lui-même un point faible du réseau&nbsp;: stagnation, "
+    "consommation de sel inutile, et parfois dégradation de la qualité de "
+    "l'eau.",
+    "Les dispositifs antitartre sans entretien ni consommable donnent des "
+    "résultats très variables selon les installations. Nous ne les déconseillons "
+    "pas systématiquement, mais nous ne les présentons jamais comme une "
+    "alternative à l'entretien du ballon&nbsp;: l'anode se consomme de la même "
+    "façon.",
+    "Ce qui marche, de façon certaine et mesurable, tient en peu de "
+    "choses&nbsp;: régler le ballon autour de 55 à 60&nbsp;°C — au-delà le "
+    "tartre se dépose beaucoup plus vite, en deçà le risque sanitaire augmente "
+    "—, remplacer l'anode quand elle est consommée, détartrer la résistance "
+    "avant qu'elle ne grille, manœuvrer vannes et groupe de sécurité "
+    "régulièrement, et choisir de l'inox ou du laiton pour tout ce qui est "
+    "exposé à l'air marin."],
+   None),
+ ],
+ "faq": [
+  ("À quelle température régler mon ballon&nbsp;?",
+   "Entre 55 et 60&nbsp;°C. C'est le compromis entre la limitation du tartre et "
+   "la prévention du risque sanitaire lié à la stagnation d'eau tiède."),
+  ("Faut-il un adoucisseur dans le Morbihan&nbsp;?",
+   "Cela dépend du secteur. Dans l'intérieur du département, il se justifie "
+   "souvent&nbsp;; sur le littoral, la contrainte dominante est la corrosion "
+   "externe, que l'adoucisseur ne traite pas. Nous le disons franchement avant "
+   "tout devis."),
+  ("Comment savoir si l'anode de mon ballon est usée&nbsp;?",
+   "Elle se contrôle visuellement lors d'un détartrage, en démontant la bride. "
+   "Si l'appareil a plus de cinq ans et n'a jamais été ouvert, il y a de "
+   "fortes chances qu'elle soit très entamée."),
+  ("Ma pression baisse depuis des années, est-ce le calcaire&nbsp;?",
+   "Plus probablement la corrosion interne d'une canalisation en acier "
+   "galvanisé, fréquente dans les installations d'avant 1970. Cela se vérifie "
+   "simplement, et le remplacement de la portion concernée règle le problème."),
+ ],
+},
+{
+ "slug": "electricite-bord-de-mer-corrosion-saline-morbihan",
+ "court": "Électricité de bord de mer (56)",
+ "dept": "56", "act": "electricite", "date": "2026-10-04",
+ "titre": "Électricité en bord de mer (56) : corrosion — ETS-BZH",
+ "h1": "Électricité en bord de mer dans le Morbihan&nbsp;: corrosion saline, coffrets et sécurité",
+ "meta": ("Air marin et installation électrique dans le Morbihan : corrosion "
+          "des coffrets, différentiel qui saute, matériel étanche. Ville par "
+          "ville. 02 20 06 00 75."),
+ "mots_cles": ("corrosion électrique bord de mer Morbihan, coffret extérieur "
+               "étanche Quiberon, différentiel qui saute maison bord de mer, "
+               "électricien littoral Sarzeau"),
+ "chapo": ("Une installation électrique posée à huit cents mètres de l'océan "
+           "vieillit deux à trois fois plus vite qu'à l'intérieur des terres. "
+           "Le sel ne fait pas sauter un disjoncteur du jour au "
+           "lendemain&nbsp;: il prépare la panne pendant des années. Voici "
+           "comment la voir venir, commune par commune."),
+ "villes_titre": "Ce que le sel provoque, ville par ville",
+ "villes_intro": ("L'exposition réelle dépend de la distance à la mer, des "
+                  "vents dominants et du fait que la maison soit occupée ou "
+                  "non."),
+ "villes": [
+   ("Quiberon", "Exposition maximale sur la presqu'île&nbsp;: embruns portés "
+    "par le vent jusque dans les terres. Coffrets de comptage en limite, "
+    "hublots extérieurs et prises de jardin sont les premiers touchés. Le "
+    "matériel non étanche ne tient pas trois hivers."),
+   ("Guidel", "Côte exposée et maisons souvent fermées une partie de "
+    "l'année&nbsp;: la corrosion progresse sans que personne ne la voie. Les "
+    "retours de printemps se soldent fréquemment par un différentiel qui ne "
+    "tient plus."),
+   ("Sarzeau", "Presqu'île de Rhuys, nombreuses installations extérieures — "
+    "portails, éclairage d'allée, abris, pompes. Les boîtes de dérivation "
+    "enterrées ou posées au sol sont le point faible systématique."),
+   ("Le Palais", "Belle-Île&nbsp;: exposition sévère et délai d'intervention "
+    "contraint par les traversées. C'est le secteur où le surcoût d'un "
+    "matériel réellement étanche se rentabilise le plus vite."),
+   ("Ploemeur", "Habitat littoral étendu avec beaucoup de dépendances "
+    "alimentées depuis la maison. Les liaisons enterrées anciennes, sans "
+    "protection différentielle dédiée, sont une cause fréquente de "
+    "déclenchement intempestif."),
+   ("Vannes", "Secteur de fond de golfe, exposition moindre mais humidité "
+    "élevée toute l'année. La corrosion y est plus lente mais bien "
+    "présente&nbsp;: elle se concentre dans les garages, caves et locaux non "
+    "chauffés."),
+ ],
+ "urgent": [
+   "Un différentiel qui saute de plus en plus souvent n'est pas capricieux "
+   "— il détecte une fuite de courant réelle. Ne le condamnez jamais.",
+   "N'utilisez pas une prise ou un appareillage extérieur dont le capot est "
+   "cassé, verdi ou rempli d'eau.",
+   "Coupez le circuit extérieur au tableau avant d'examiner quoi que ce "
+   "soit&nbsp;: l'humidité rend conducteur ce qui ne l'est pas d'ordinaire.",
+   "Après une tempête ou une submersion, faites contrôler l'installation "
+   "avant de la remettre en service, y compris si tout semble fonctionner.",
+ ],
+ "danger": ("La corrosion saline crée des chemins de fuite là où il n'y en "
+            "avait pas&nbsp;: un dépôt de sel humide conduit l'électricité. "
+            "Sur un appareillage extérieur dégradé, le courant trouve la "
+            "terre, le métal d'un portail, la grille d'un abri — ou la "
+            "personne qui y touche. C'est la raison pour laquelle un "
+            "différentiel 30&nbsp;mA en bon état n'est pas une recommandation "
+            "sur le littoral, mais la protection qui sépare un déclenchement "
+            "d'une électrisation. Le second risque est l'échauffement&nbsp;: "
+            "une connexion corrodée résiste, chauffe, et finit par amorcer."),
+ "sections": [
+  ("Comment le sel s'y prend",
+   ["Le chlorure de sodium transporté par les embruns se dépose sur toutes les "
+    "surfaces, y compris à plusieurs kilomètres des côtes quand le vent souffle "
+    "fort. Sec, il est inoffensif. Humide — et l'air du Morbihan l'est une "
+    "grande partie de l'année — il devient un électrolyte&nbsp;: il conduit, et "
+    "il accélère la corrosion de tous les métaux en contact.",
+    "Sur une installation électrique, cela se traduit par trois effets "
+    "successifs. D'abord la <strong>corrosion de surface</strong>&nbsp;: vis, "
+    "bornes, contacts, pattes de fixation. Puis l'<strong>augmentation de la "
+    "résistance de contact</strong>&nbsp;: la connexion chauffe sous charge, ce "
+    "qui accélère encore sa dégradation. Enfin la <strong>perte d'isolement</strong>&nbsp;: "
+    "le dépôt conducteur crée une fuite permanente vers la terre, et le "
+    "différentiel déclenche.",
+    "Ce dernier stade est celui que les occupants constatent, souvent des "
+    "années après le début du processus. D'où l'impression d'une panne "
+    "soudaine alors qu'il s'agit d'une usure longue."],
+   None),
+  ("Le différentiel qui saute&nbsp;: lire le symptôme",
+   ["Un déclenchement différentiel sur le littoral suit presque toujours des "
+    "schémas identifiables, et le moment du déclenchement désigne le coupable.",
+    "<strong>Il saute quand il pleut ou après une tempête</strong>&nbsp;: le "
+    "défaut est extérieur. Hublot, prise de jardin, coffret, boîte de "
+    "dérivation, liaison enterrée vers une dépendance.",
+    "<strong>Il saute au retour après plusieurs semaines d'absence</strong>&nbsp;: "
+    "l'humidité s'est installée dans une installation à l'arrêt. Un séchage "
+    "suffit parfois, mais il faut vérifier que le matériel n'est pas dégradé.",
+    "<strong>Il saute quand un appareil précis démarre</strong>&nbsp;: c'est "
+    "l'appareil, pas l'installation. Pompe de piscine, lave-linge, "
+    "chauffe-eau&nbsp;: leur résistance ou leur moteur a pris l'humidité.",
+    "La méthode est toujours la même&nbsp;: on isole circuit par circuit, en "
+    "abaissant tout puis en remontant un disjoncteur à la fois. Celui qui fait "
+    "déclencher désigne la zone. Ensuite seulement on cherche le point précis, "
+    "mesure d'isolement à l'appui."],
+   None),
+  ("Le matériel qui tient sur le littoral",
+   [],
+   ["Un indice de protection adapté à l'exposition réelle, et non le minimum "
+    "réglementaire&nbsp;: en bord de mer, on monte d'un cran.",
+    "Des coffrets en matériau de synthèse plutôt qu'en métal pour tout ce qui "
+    "est extérieur.",
+    "De l'inox ou du laiton pour la visserie et les fixations&nbsp;: l'acier "
+    "zingué ordinaire rouille en une saison.",
+    "Des presse-étoupes réellement serrés et orientés vers le bas&nbsp;: "
+    "l'essentiel des infiltrations entre par là.",
+    "Des boîtes de dérivation accessibles et jamais posées à même le sol.",
+    "Un circuit extérieur distinct, protégé par son propre différentiel "
+    "30&nbsp;mA&nbsp;: un défaut dehors ne doit pas éteindre la maison.",
+    "Une graisse de contact sur les bornes des équipements exposés, et un "
+    "resserrage des connexions tous les deux à trois ans."],
+   ),
+ ],
+ "faq": [
+  ("À quelle distance de la mer faut-il s'en préoccuper&nbsp;?",
+   "Il n'y a pas de seuil net&nbsp;: l'exposition dépend du vent et du relief. "
+   "En première ligne, c'est systématique. Jusqu'à deux ou trois kilomètres, "
+   "cela reste très sensible sur les installations extérieures."),
+  ("Un différentiel qui saute parfois est-il dangereux&nbsp;?",
+   "Il n'est pas dangereux&nbsp;: il fait son travail. C'est ce qu'il détecte "
+   "qui l'est. Un déclenchement répété doit être diagnostiqué, jamais "
+   "contourné."),
+  ("Faut-il tout refaire&nbsp;?",
+   "Rarement. Dans la plupart des cas, le défaut se concentre sur un circuit "
+   "extérieur ou un appareillage précis. La mesure d'isolement le localise, et "
+   "l'intervention se limite à cette zone."),
+  ("Intervenez-vous sur les presqu'îles et à Belle-Île&nbsp;?",
+   "Oui, sur tout le Morbihan. Pour les îles, nous organisons l'intervention "
+   "en fonction des traversées&nbsp;: appelez le 02 20 06 00 75 pour un délai "
+   "précis."),
+ ],
+},
+
+{
+ "slug": "eclairage-exterieur-portails-abris-morbihan",
+ "court": "Éclairage extérieur et portails (56)",
+ "dept": "56", "act": "electricite", "date": "2026-10-04",
+ "titre": "Éclairage extérieur et portails en panne (56) — ETS-BZH",
+ "h1": "Éclairage extérieur, portails et abris dans le Morbihan&nbsp;: les circuits qui prennent l'eau",
+ "meta": ("Éclairage d'allée, portail ou abri de jardin en panne dans le "
+          "Morbihan : causes, diagnostic et remise en état. Ville par ville. "
+          "02 20 06 00 75."),
+ "mots_cles": ("panne éclairage extérieur Morbihan, portail électrique en "
+               "panne Vannes, alimentation abri de jardin, électricien "
+               "extérieur Questembert"),
+ "chapo": ("Les circuits extérieurs sont ceux qu'on installe une fois et "
+           "qu'on ne regarde plus jamais. Ce sont aussi ceux qui subissent "
+           "la pluie, le gel, les engins de jardin et les racines. Quand "
+           "l'allée s'éteint ou que le portail ne répond plus, la cause est "
+           "presque toujours au même endroit."),
+ "villes_titre": "Nos interventions en extérieur, ville par ville",
+ "villes_intro": ("Le type d'habitat et l'ancienneté des aménagements "
+                  "extérieurs orientent nettement le diagnostic."),
+ "villes": [
+   ("Vannes", "Pavillonnaire périurbain équipé de portails motorisés et "
+    "d'interphones. Les pannes viennent le plus souvent de la platine de "
+    "commande ou de l'alimentation enterrée, rarement du moteur lui-même."),
+   ("Saint-Avé", "Lotissements des années 1990 et 2000&nbsp;: éclairages "
+    "d'allée posés à la construction, aujourd'hui en fin de vie. Les boîtes "
+    "de dérivation enterrées sans protection sont la cause numéro un."),
+   ("Caudan", "Maisons avec dépendances, ateliers et garages séparés. Les "
+    "liaisons enterrées anciennes, parfois sans gaine ni grillage "
+    "avertisseur, sont vulnérables au moindre coup de bêche."),
+   ("Pluvigner", "Terrains vastes et éclairages dispersés sur de longues "
+    "distances. Les chutes de tension en bout de ligne expliquent bien des "
+    "éclairages faibles ou clignotants&nbsp;: ce n'est pas la lampe, c'est la "
+    "section du câble."),
+   ("Questembert", "Habitat rural avec abris, serres et poulaillers alimentés "
+    "par des rallonges permanentes. C'est la situation la plus risquée que "
+    "nous rencontrons, et la plus simple à corriger durablement."),
+   ("Baud", "Secteur arboré&nbsp;: racines, humidité du sol et taupes mettent "
+    "à mal les liaisons enterrées peu profondes. La localisation précise du "
+    "défaut évite d'ouvrir toute la tranchée."),
+ ],
+ "urgent": [
+   "Coupez le disjoncteur du circuit extérieur avant toute manipulation, y "
+   "compris pour changer une simple ampoule d'allée.",
+   "Ne remettez pas sous tension un coffret ou une prise extérieure qui "
+   "contient visiblement de l'eau&nbsp;: laissez sécher et faites contrôler.",
+   "Supprimez toute rallonge permanente traversant le jardin&nbsp;: elle "
+   "n'est conçue ni pour rester dehors ni pour être piétinée ou tondue.",
+   "Un portail qui s'arrête en cours de course doit être débrayé "
+   "manuellement avant toute tentative de réparation.",
+ ],
+ "danger": ("Un circuit extérieur dégradé est dangereux pour une raison "
+            "simple&nbsp;: dehors, on est pieds nus, sur un sol mouillé, "
+            "souvent en contact avec du métal — un portail, une grille, un "
+            "robinet. Toutes les conditions qui aggravent une électrisation "
+            "sont réunies en même temps. Une rallonge sectionnée par une "
+            "tondeuse, une prise de jardin pleine d'eau ou une boîte de "
+            "dérivation enterrée sans étanchéité ne pardonnent pas de la même "
+            "façon qu'à l'intérieur d'une maison."),
+ "sections": [
+  ("Où se trouve la panne, dans neuf cas sur dix",
+   ["<strong>La boîte de dérivation enterrée ou posée au sol.</strong> C'est de "
+    "très loin la première cause. Une boîte non étanche, ou étanche mais dont "
+    "le presse-étoupe n'a jamais été serré, se remplit lentement. Les "
+    "connexions se corrodent, l'isolement chute, le différentiel déclenche — ou "
+    "le circuit s'éteint simplement.",
+    "<strong>La liaison enterrée.</strong> Un câble posé sans gaine, trop peu "
+    "profond, ou blessé lors de travaux de jardin. Le défaut peut mettre des "
+    "années à se déclarer, le temps que l'humidité fasse son chemin dans la "
+    "blessure.",
+    "<strong>Le point lumineux lui-même.</strong> Hublot fissuré, joint durci, "
+    "douille corrodée. Sur un éclairage de plus de dix ans en bord de mer, "
+    "c'est courant et cela se remplace.",
+    "<strong>L'alimentation et la commande du portail.</strong> Transformateur, "
+    "platine, cellules photoélectriques désalignées ou encrassées. Une "
+    "cellule sale suffit à bloquer un portail parfaitement sain&nbsp;: c'est la "
+    "première chose que nous vérifions."],
+   None),
+  ("Éclairage faible, clignotant ou qui ne tient pas",
+   ["Quand un éclairage extérieur fonctionne mais mal, le réflexe est de "
+    "changer la source. Dans la plupart des cas, ce n'est pas elle.",
+    "Sur une allée longue, le problème est souvent la <strong>chute de "
+    "tension</strong>&nbsp;: un câble de section insuffisante sur quarante ou "
+    "soixante mètres fait arriver nettement moins de tension au dernier point. "
+    "Les lampes du fond éclairent moins, chauffent plus et durent moins "
+    "longtemps. Le remède est le câble, pas l'ampoule.",
+    "Un clignotement sur des LED signale plutôt une incompatibilité entre la "
+    "source et son alimentation ou son variateur, ou un transformateur en fin "
+    "de vie sur du très basse tension.",
+    "Enfin, un éclairage commandé par détecteur qui s'allume seul ou refuse de "
+    "s'allumer relève du réglage et de l'état du détecteur&nbsp;: lentille "
+    "encrassée, sensibilité mal réglée, orientation vers une haie qui bouge au "
+    "vent. Cela se corrige en quelques minutes, sans rien remplacer."],
+   None),
+  ("Faire un circuit extérieur qui dure",
+   [],
+   ["Un circuit dédié au tableau, avec son propre différentiel 30&nbsp;mA "
+    "et sa protection adaptée.",
+    "Des câbles enterrés sous gaine rouge, à profondeur réglementaire, avec "
+    "grillage avertisseur au-dessus.",
+    "Une section calculée pour la longueur réelle du parcours, et non pour la "
+    "puissance seule.",
+    "Des boîtes de dérivation hors sol, accessibles, étanches, avec "
+    "presse-étoupes orientés vers le bas.",
+    "Des matériels d'indice de protection adapté, montés d'un cran en bord de "
+    "mer.",
+    "Un relevé du tracé conservé par le propriétaire&nbsp;: le jour où il faut "
+    "chercher un défaut ou planter un arbre, il vaut de l'or.",
+    "Aucune rallonge permanente&nbsp;: tout besoin durable mérite un circuit "
+    "fixe."],
+   ),
+ ],
+ "faq": [
+  ("Mon portail ne répond plus, faut-il changer le moteur&nbsp;?",
+   "Rarement. Dans la majorité des cas, la panne vient de l'alimentation, de "
+   "la platine de commande ou des cellules. Le moteur est la pièce la plus "
+   "chère et la moins souvent en cause&nbsp;: elle se teste avant d'être "
+   "remplacée."),
+  ("Peut-on alimenter un abri de jardin depuis la maison&nbsp;?",
+   "Oui, avec une liaison enterrée en bonne et due forme et un circuit "
+   "protégé. Pas avec une rallonge laissée à demeure, qui est à la fois "
+   "dangereuse et non assurable en cas de sinistre."),
+  ("Faut-il ouvrir toute la tranchée pour trouver un défaut enterré&nbsp;?",
+   "Non. La mesure d'isolement et la localisation permettent de cibler la "
+   "zone, et l'on n'ouvre qu'à l'endroit utile. C'est aussi ce qui fait la "
+   "différence de coût."),
+  ("Intervenez-vous en urgence sur un portail bloqué&nbsp;?",
+   "Oui, en particulier lorsqu'il empêche l'accès ou la sortie d'un véhicule. "
+   "Appelez le 02 20 06 00 75&nbsp;: nous intervenons 24h/24 et 7j/7 sur "
+   "l'ensemble du Morbihan."),
+ ],
+},
+
 ]

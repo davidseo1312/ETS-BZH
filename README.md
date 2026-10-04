@@ -1,8 +1,8 @@
 # Site ETS-BZH — Plomberie · Dégorgement · Électricité (Bretagne)
 
 Site vitrine statique orienté conversion pour **ETS-BZH**, avec 12 landing pages
-ultra-ciblées (3 activités × 4 départements bretons) et 40 articles d'urgence
-géolocalisés (10 par département), générés à partir de templates uniques.
+ultra-ciblées (3 activités × 4 départements bretons) et 64 articles géolocalisés
+(16 par département), générés à partir de templates uniques.
 
 - **Téléphone :** 02 20 06 00 75 · **E-mail :** contact@etablissement-breizh.fr
 - **Zones :** Côtes-d'Armor (22), Finistère (29), Ille-et-Vilaine (35), Morbihan (56)
@@ -20,10 +20,10 @@ sans configuration.
 | `/degorgement-canalisation-{dept}/` | `…/index.html` | 4 landing pages Dégorgement |
 | `/plomberie-depannage-{dept}/` | `…/index.html` | 4 landing pages Plomberie |
 | `/electricite-urgence-{dept}/` | `…/index.html` | 4 landing pages Électricité |
-| `/conseils/` | `conseils/index.html` | Rubrique conseils, page 1 sur 4 |
-| `/conseils/page-{n}/` | `…/index.html` | Pages 2 à 4 de la rubrique |
-| `/conseils/{dept}/` | `…/index.html` | Sous-catégorie départementale (10 articles) |
-| `/conseils/{article}/` | `…/index.html` | 40 articles d'urgence (10 par département) |
+| `/conseils/` | `conseils/index.html` | Rubrique conseils, page 1 sur 6 |
+| `/conseils/page-{n}/` | `…/index.html` | Pages 2 à 6 de la rubrique |
+| `/conseils/{dept}/` | `…/index.html` | Sous-catégorie départementale (16 articles, 2 pages) |
+| `/conseils/{article}/` | `…/index.html` | 64 articles (16 par département) |
 | `/contact/` | `contact/index.html` | Formulaire de devis express |
 | `/mentions-legales/` | `mentions-legales/index.html` | Éditeur, hébergeur, identité, assurances |
 | `/politique-de-confidentialite/` | `…/index.html` | RGPD : finalités, bases légales, droits |
@@ -64,14 +64,24 @@ tarifs arrivaient à 12 628 px, soit le 15e écran, et les avis à 14 810 px, le
 maintenant à 7 344 px et 8 490 px, et le texte SEO long — qui n'a besoin d'être
 lu par personne — est passé derrière.
 
-## Articles d'urgence
+## Articles
 
-Quarante articles, **dix par département**, publiés sous `/conseils/`. Ils ne
-répètent pas les pages métier&nbsp;: ils visent une autre intention de recherche.
-Quelqu'un qui tape « plombier Saint-Brieuc » cherche une entreprise&nbsp;; quelqu'un
-qui tape « fosse septique qui déborde » cherche quoi faire dans les cinq minutes.
-Ce sont deux visiteurs différents, et le second appelle plus vite que le premier
-si on lui répond clairement.
+Soixante-quatre articles, **seize par département**, publiés sous `/conseils/`.
+Ils ne répètent pas les pages métier&nbsp;: ils visent une autre intention de
+recherche. Quelqu'un qui tape « plombier Saint-Brieuc » cherche une
+entreprise&nbsp;; quelqu'un qui tape « fosse septique qui déborde » cherche quoi
+faire dans les cinq minutes. Ce sont deux visiteurs différents, et le second
+appelle plus vite que le premier si on lui répond clairement.
+
+Ils se répartissent en **deux familles**, qui ne se cannibalisent pas parce
+qu'elles répondent à deux questions différentes&nbsp;:
+
+| Famille | Nombre | Question à laquelle l'article répond |
+| --- | --- | --- |
+| **Guides de situation** | 40 (10 par département) | *Que faire&nbsp;?* Une panne précise, la marche à suivre, les erreurs à éviter |
+| **Articles de zone** | 24 (6 par département, 2 par métier) | *Qui intervient chez moi, et pour quoi&nbsp;?* Un contexte d'intervention, détaillé commune par commune |
+
+### Guides de situation (40)
 
 **Chaque article traite une situation différente.** Il n'y a pas un même sujet
 décliné quatre fois avec un nom de ville changé&nbsp;: les quarante articles
@@ -84,6 +94,44 @@ couvrent quarante pannes distinctes, réparties 15 dégorgement, 15 plomberie et
 | **29** | eaux usées qui remontent · évier bouché · racines · regard qui déborde | canalisation gelée · fuite sous évier · chasse d'eau · plus d'eau au robinet | surtension après orage · installation inondée |
 | **35** | colonne bouchée · WC en appartement · odeur d'égout · évacuation lente | dégât des eaux du voisin · lave-linge qui inonde · fuite encastrée · fuite vers le dessous | puissance insuffisante · prise hors service |
 | **56** | WC en location · bac à graisse · pompe de relevage | chauffe-eau qui fuit · facture anormale · vanne bloquée · coup de bélier | odeur de brûlé · ballon qui ne chauffe plus · borne de recharge |
+
+### Articles de zone (24)
+
+Six par département, **deux par métier** — dégorgement, plomberie,
+électricité. Là où un guide de situation répond à « mon WC est bouché », un
+article de zone répond à « qui intervient dans ma commune, pour ce type de
+problème, et dans quel délai ». C'est la requête de quelqu'un qui a déjà
+compris son problème et qui cherche un intervenant&nbsp;: il est beaucoup plus
+proche de l'appel.
+
+| Dép. | Dégorgement | Plomberie | Électricité |
+| --- | --- | --- | --- |
+| **22** | débouchage de nuit et le week-end · inspection caméra et curage | recherche de fuite non destructive · dépannage de chauffe-eau | remise en sécurité après sinistre · mise aux normes du tableau |
+| **29** | vidange de fosse et bac de relevage · eaux pluviales bouchées | fermeture et réouverture de maison · dégât des eaux et assèchement | électricité du bâti ancien · panne de chauffage en hiver |
+| **35** | dégorgement en copropriété et en location · regards et réseaux extérieurs | plomberie locative (bailleurs, agences) · petites surfaces et colocations | électricité des parties communes · mise en sécurité avant location ou vente |
+| **56** | campings, hôtels et restaurants · réseaux du littoral | résidences secondaires et propriétaires absents | calcaire et corrosion saline* · électricité de bord de mer · éclairage extérieur et portails |
+
+<sub>* « calcaire et corrosion saline » est un article de plomberie.</sub>
+
+**Le bloc commune par commune.** C'est ce qui distingue cette famille. Chaque
+article nomme **six communes du département** et dit, pour chacune, quelque
+chose de vrai et de spécifique au sujet traité&nbsp;: pourquoi les réseaux
+s'ensablent à Guidel et pas à Pontivy, pourquoi une intervention à Belle-Île se
+prépare en mars et pas en août, pourquoi le parc locatif rennais appelle pour
+des chauffe-eau de placard. Les notes ne sont jamais interchangeables&nbsp;: un
+même nom de commune reçoit une note différente d'un article à l'autre, parce
+que le sujet change.
+
+Ce bloc est généré par `bloc_villes()` (`tools/build.py`) à partir de la clé
+`villes` de l'article — une liste de couples `(commune, note)`. Il alimente
+aussi le `areaServed` du `LocalBusiness` de la page, qui porte alors les six
+communes citées plutôt que la liste générique du département. Un pied de bloc
+nomme huit communes supplémentaires et rappelle que le délai est annoncé au
+téléphone avant tout déplacement.
+
+Visuellement, c'est une liste à deux colonnes (`190px 1fr` en desktop,
+empilée sous 720&nbsp;px), nom en Barlow Condensed, note en gris, séparée par
+des filets — sans puce ni pastille, comme le reste du corps d'article.
 
 **Structure de chaque article** (`page_article` dans `tools/build.py`)&nbsp;:
 
@@ -125,7 +173,7 @@ S'y ajoutent `og:type=article` et les métadonnées `article:published_time`,
 principales et renvoie vers les trois pages métier correspondantes avec des
 ancres descriptives. Le lien contextuel en fin de corps de texte utilise une
 ancre du type « dégorgement dans les Côtes-d'Armor », avec trois tournures
-alternées pour qu'elle ne soit pas identique sur quarante pages. La légende de
+alternées pour qu'elle ne soit pas identique sur soixante-quatre pages. La légende de
 la photo porte elle aussi le métier et le département.
 
 **Sommaire ancré.** Chaque `<h2>` reçoit un identifiant stable, et le sommaire
@@ -133,16 +181,22 @@ pointe dessus. C'est utile au lecteur sur un article de 800 mots, et c'est ce
 que Google utilise pour proposer des liens de saut directement dans ses
 résultats.
 
-**Non-redondance mesurée.** Le contenu est comparé au rendu réel des 12 pages
-métier, texte contre texte&nbsp;: sur les 40 articles, la similarité maximale avec
-une page métier est de **13,3&nbsp;%**, et la similarité maximale entre deux
-articles de **36,6&nbsp;%** — ce dernier chiffre porte sur deux articles du même
-département, qui partagent nécessairement le contexte local et la structure de
-page. À titre de comparaison, les 4 pages d'un même métier sont identiques entre
-elles à 84–90&nbsp;%. Le script de mesure est reproductible&nbsp;: extraction du
-texte visible, puis `difflib.SequenceMatcher`.
+**Non-redondance mesurée.** Le contenu est comparé texte contre texte avec
+`difflib.SequenceMatcher`, sur le texte éditorial des 64 articles et sur le
+rendu réel des 12 pages métier.
 
-**Volume.** 31 500 mots au total, de 694 à 983 mots par article, moyenne 788.
+| Comparaison | Similarité |
+| --- | --- |
+| La paire d'articles la plus proche sur 2 016 paires | **12,9&nbsp;%** |
+| Article de zone ↔ page métier la plus proche | **9,6 à 14,0&nbsp;%** (moyenne 11,8&nbsp;%) |
+| *Pour mémoire&nbsp;:* 2 pages d'un même métier entre elles | 84–90&nbsp;% |
+
+Aucune paire d'articles ne dépasse 13&nbsp;% — y compris les paires les plus
+exposées, comme les deux articles « tableau électrique » des Côtes-d'Armor
+(12,9&nbsp;%), qui traitent l'un du remplacement d'un tableau à fusibles,
+l'autre de la mise aux normes dans un contexte d'intervention.
+
+**Volume.** Environ 57 000 mots, moyenne 892 mots par article.
 
 ### Mise en forme des articles
 
@@ -178,17 +232,18 @@ dictionnaire de plus dans la liste `ARTICLES`. Tout le reste suit
 automatiquement&nbsp;: page générée, entrée au sitemap, classement par département
 sur l'index, et vignettes de maillage.
 
-**Pagination et sous-catégories.** Quarante vignettes sur une seule page ne se
-lisent pas. La rubrique est donc découpée à **12 articles par page** (quatre
-lignes de trois), avec une barre de numéros en bas, et une **barre de
+**Pagination et sous-catégories.** Soixante-quatre vignettes sur une seule page
+ne se lisent pas. La rubrique est donc découpée à **12 articles par page**
+(quatre lignes de trois), avec une barre de numéros en bas, et une **barre de
 sous-catégories** en haut&nbsp;: tous les départements, puis un lien par
 département avec son compteur.
 
 ```
-/conseils/                    page 1 sur 4, tous départements
-/conseils/page-2/  … page-4/  la suite
-/conseils/cotes-d-armor-22/   les 10 conseils du 22
-/conseils/finistere-29/       les 10 du 29   (idem 35 et 56)
+/conseils/                        page 1 sur 6, tous départements
+/conseils/page-2/  … page-6/      la suite
+/conseils/cotes-d-armor-22/       les 16 articles du 22, page 1 sur 2
+/conseils/cotes-d-armor-22/page-2/
+/conseils/finistere-29/           les 16 du 29   (idem 35 et 56)
 ```
 
 Trois choix méritent d'être expliqués&nbsp;:
@@ -202,17 +257,17 @@ Trois choix méritent d'être expliqués&nbsp;:
   chaque changement de département&nbsp;: même coupée en tranches de douze, la
   page reste lisible.
 - **Chaque page a son propre `canonical` et son propre titre**, et les pages 2 à
-  4 portent « Page N sur 4 » en tête de description. Sans cela, Google verrait
-  quatre pages au résumé identique.
+  6 portent « Page N sur 6 » en tête de description. Sans cela, Google verrait
+  six pages au résumé identique.
 
 Le découpage est générique&nbsp;: `url_conseils()`, `articles_tries()` et
 `nb_pages()` servent aussi bien à la liste complète qu'aux sous-catégories. Les
-pages départementales ne comptent aujourd'hui qu'une page chacune, donc la barre
-de numéros n'y apparaît pas&nbsp;; elle apparaîtra d'elle-même au-delà de douze
-articles.
+pages départementales comptent aujourd'hui deux pages chacune (16 articles pour
+12 par page)&nbsp;; la barre de numéros y est apparue d'elle-même, sans rien
+changer au code.
 
 **Maillage.** Chaque page métier affiche les **quatre premiers articles** de son
-département, sous un intertitre qui renvoie à la sous-catégorie complète — dix
+département, sous un intertitre qui renvoie à la sous-catégorie complète — seize
 vignettes noieraient le bas de page. Le fil d'Ariane d'un article passe par son
 département&nbsp;: Accueil › Conseils d'urgence › Côtes-d'Armor (22) › WC bouché.
 
@@ -596,7 +651,8 @@ python3 tools/build.py
 
 - `tools/data.py` — contenus éditoriaux (activités, prestations, tarifs, FAQ,
   avis, départements et communes)
-- `tools/articles.py` — les 40 articles d'urgence, un dictionnaire par article
+- `tools/articles.py` — les 64 articles, un dictionnaire par article (la clé
+  `villes` fait d'un article un article de zone)
 - `tools/build.py` — templates, rendu HTML, JSON-LD, sitemap
 
 Aucune dépendance : Python 3 seul suffit. Prévisualisation locale **via un

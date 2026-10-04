@@ -1216,9 +1216,13 @@ def ld_entreprise(art, dept):
         "priceRange": "€€",
         "address": {"@type": "PostalAddress", "addressRegion": "Bretagne",
                     "addressCountry": "FR"},
+        # Les communes réellement traitées dans l'article passent dans
+        # areaServed : c'est ce qui relie la page à une recherche locale.
         "areaServed": [{"@type": "AdministrativeArea",
                         "name": "%s (%s)" % (dept["nom"], dept["num"])}]
-                      + [{"@type": "City", "name": v} for v in dept["villes"][:6]],
+                      + [{"@type": "City", "name": v}
+                         for v in ([x for x, _ in art["villes"]]
+                                   if art.get("villes") else dept["villes"][:6])],
         "openingHoursSpecification": {
             "@type": "OpeningHoursSpecification",
             "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday",
@@ -1243,6 +1247,8 @@ def sommaire(art):
     items = '<li><a href="#a-faire-tout-de-suite">À faire tout de suite</a></li>'
     items += "".join('<li><a href="#%s">%s</a></li>' % (ancre(h2), h2)
                      for h2, _, _ in art["sections"])
+    if art.get("villes"):
+        items += '<li><a href="#villes">%s</a></li>' % art["villes_titre"]
     items += '<li><a href="#questions">Questions fréquentes</a></li>'
     return ('<nav class="sommaire" aria-label="Sommaire de l\'article">'
             '<span class="sommaire__titre">Sur cette page</span>'
@@ -1280,6 +1286,34 @@ def lien_contextuel(art, dept, act):
                               dept["article"], dept["nom"])
     lien = '<a href="%s">%s</a>' % (url_landing(act, dept), ancre_txt)
     return "      <p>%s</p>\n" % (_RENVOIS[i] % lien)
+
+
+def bloc_villes(art, dept, act):
+    """Tableau des communes couvertes, avec ce qui change d'une ville à l'autre.
+
+    C'est le cœur des articles de zone : un visiteur cherche « plombier urgence
+    Lannion », pas « plombier Côtes-d'Armor ». La page doit donc nommer sa
+    commune et dire quelque chose de vrai sur elle.
+    """
+    if not art.get("villes"):
+        return ""
+    lignes = "".join(
+        '<li><span class="villes-urg__nom">%s</span>'
+        '<span class="villes-urg__note">%s</span></li>' % (v, note)
+        for v, note in art["villes"])
+    citees = [v for v, _ in art["villes"]]
+    autres = [v for v in dept["villes"] if v not in citees][:8]
+    return f"""
+<div class="villes-urg" id="villes">
+  <h2>{art['villes_titre']}</h2>
+  <p>{art['villes_intro']}</p>
+  <ul class="villes-urg__liste">{lignes}</ul>
+  <p class="villes-urg__pied">Nous intervenons aussi à {", ".join(autres)} et sur
+    l'ensemble des communes {DE[dept['num']]}. Le délai est toujours annoncé au
+    téléphone avant tout déplacement&nbsp;: nous préférons un créneau tenu à une
+    promesse large. <a href="tel:{TEL_LIEN}" data-cta="article-villes">Appelez le
+    {TEL}</a> pour connaître le nôtre sur votre commune.</p>
+</div>"""
 
 
 def zone_locale(art, dept, act):
@@ -1437,6 +1471,7 @@ def page_article(art):
       {bloc_urgent(art)}
 {corps_article(art)}{lien_contextuel(art, dept, act)}
       {visuel}
+      {bloc_villes(art, dept, act)}
       {zone_locale(art, dept, act)}
     </div>
   </div>
