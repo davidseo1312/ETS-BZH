@@ -667,11 +667,6 @@ PHOTO_EQUIPE = ("equipe.jpg", "L'équipe ETS-BZH et ses véhicules d'interventio
                 "caméra pour l'assainissement, détection de fuite pour la plomberie, "
                 "appareillage de mesure pour l'électricité. C'est ce qui permet de "
                 "résoudre la majorité des pannes dès le premier passage.")
-PHOTO_CONTACT = ("atelier.jpg", "Atelier et matériel professionnel ETS-BZH",
-                 "Notre atelier",
-                 "Le matériel est préparé et contrôlé avant chaque tournée&nbsp;: c'est ce "
-                 "qui évite les allers-retours et les interventions reportées.")
-
 
 # (fichier, texte alternatif, hauteur en px, correction verticale en fraction de
 # la hauteur). Les trois logos diffèrent par leurs proportions (1,25 à 2,80) et par

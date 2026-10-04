@@ -338,8 +338,10 @@ Pour renforcer ou atténuer le motif, ajustez la seule valeur `opacity` de
 
 ## Emplacements photo
 
-**17 photos sont en place** (6 dégorgement, 5 plomberie, 5 électricité, 1 équipe/véhicule). Il ne reste qu'un emplacement à remplir : `atelier.jpg` sur la page Contact.
-Les emplacements restants attendent vos fichiers.
+**Les 17 photos prévues sont en place** (6 dégorgement, 5 plomberie,
+5 électricité, 1 équipe/véhicule). Aucun emplacement n'attend plus de fichier.
+L'emplacement « atelier » de la page Contact a été retiré&nbsp;: il n'a jamais
+reçu de photo et affichait un cadre vide au milieu de la page.
 
 La galerie s'adapte au nombre de photos fournies : **3 colonnes** si ce nombre est
 un multiple de 3, **4 colonnes** sinon — jamais de dernière ligne bancale. La photo
@@ -352,10 +354,9 @@ Le site prévoit ces emplacements photo, répartis sur toutes les pages :
 | --- | --- |
 | Accueil | Galerie « ETS-BZH en images » (6 photos) + photo d'équipe dans « À propos » |
 | Chaque landing page | Galerie « Nos interventions en images » (4 photos) + photo d'équipe dans la section urgences |
-| Contact | 1 photo (atelier / matériel) |
 
 Les galeries sont **partagées par activité** : les 4 pages Dégorgement affichent
-les mêmes 4 photos, idem pour Plomberie et Électricité. Cela fait 23 fichiers à
+les mêmes 4 photos, idem pour Plomberie et Électricité. Cela fait 22 fichiers à
 fournir, pas 68. La galerie de l'accueil réutilise les fichiers des pages métier —
 elle n'a donc pas ses propres images à fournir.
 
@@ -368,7 +369,6 @@ elle n'a donc pas ses propres images à fournir.
 | Électricité | tableau, mise aux normes, contrôle de prise, borne de recharge, luminaire | — (complet) |
 | Accueil | 6 photos | — |
 | Assurances | canalisation enterrée (réutilisée) | — |
-| Contact | — | atelier |
 
 ### Comment ajouter une photo
 

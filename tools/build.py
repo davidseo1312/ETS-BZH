@@ -18,7 +18,7 @@ from datetime import date
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from data import (SITE, DEPARTEMENTS, ACTIVITES, REASSURANCE, ETAPES, STATS,  # noqa: E402
-                  PHOTOS_ACCUEIL, PHOTO_EQUIPE, PHOTO_CONTACT, LOGOS)
+                  PHOTOS_ACCUEIL, PHOTO_EQUIPE, LOGOS)
 from carte import CARTE_LARGEUR, CARTE_HAUTEUR, TRACES, CENTRES  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -1886,8 +1886,6 @@ def page_contact():
           Appelez-nous&nbsp;: nous couvrons l'intégralité des quatre départements bretons,
           y compris les communes rurales.</p>
       </div>
-      <div style="height:22px"></div>
-      {photo(PHOTO_CONTACT[0], PHOTO_CONTACT[1], PHOTO_CONTACT[2], large=True, description=PHOTO_CONTACT[3])}
       <div class="encadre" style="margin-top:22px;background:var(--bleu-pale-2)">
         <h3>Professionnels, syndics et bailleurs</h3>
         <p>Nous proposons des contrats d'entretien et des interventions récurrentes&nbsp;:
