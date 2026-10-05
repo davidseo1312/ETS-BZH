@@ -706,17 +706,25 @@ dans les champs.
 
 - [ ] **Identité de l'éditeur — provisoire, à rétablir** — le nom du dirigeant
       et les quatre identifiants d'immatriculation ont été retirés à la demande
-      du client. Tout tient dans `tools/data.py` : `denomination`, `dirigeant`,
-      `siren`, `siret`, `rcs` et `tva`. Renseigner un vrai `siren` suffit à
-      faire revenir le bloc complet (SIREN, SIRET, RCS, RNE, TVA) — voir
-      `bloc_immatriculation()` dans `tools/build.py`.
+      du client, avec l'adresse du siège social. Tout tient dans `tools/data.py` :
+      `denomination`, `dirigeant`, `siege`, `siren`, `siret`, `rcs` et `tva`.
+      Renseigner un vrai `siren` suffit à faire revenir le bloc complet (SIREN,
+      SIRET, RCS, RNE, TVA) — voir `bloc_immatriculation()` dans
+      `tools/build.py` ; le siège et le dirigeant se remettent en remplaçant
+      leur valeur.
 
-      **Ce n'est pas un état publiable.** Deux obligations distinctes :
-      l'article 6 III de la LCEN impose que les mentions légales d'un
-      entrepreneur individuel nomment la personne et le directeur de la
-      publication ; l'article R.123-237 du Code de commerce impose le numéro
-      SIREN et la mention du RCS à tout professionnel immatriculé. Les deux
-      sont à rétablir avant mise en ligne
+      **Ce n'est pas un état publiable.** Il ne reste aujourd'hui, pour
+      identifier l'éditeur, que le nom commercial, un téléphone et un e-mail.
+      Trois obligations distinctes sont en défaut :
+
+      | Texte | Ce qu'il impose |
+      | --- | --- |
+      | LCEN, art. 6 III | nom et prénom de l'éditeur, son domicile, et le directeur de la publication |
+      | Code de commerce, art. R.123-237 | le numéro SIREN et la mention du RCS de tout professionnel immatriculé |
+      | RGPD, art. 13 | l'identité et les coordonnées du responsable du traitement |
+
+      Les trois sont à rétablir avant mise en ligne. En l'état, le site peut
+      servir à montrer le rendu, pas à être publié
 - [ ] **Mentions légales** — l'hébergeur et l'immatriculation sont renseignés.
       Restent trois champs *[à compléter]* : le **numéro de contrat
       d'assurance**, les **activités déclarées au contrat**, et le **médiateur de

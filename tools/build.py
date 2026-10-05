@@ -1984,9 +1984,10 @@ def page_mentions():
       </ul>
 
       <h2>3. Zone d'intervention</h2>
-      <p>Le siège social est situé à Courbevoie&nbsp;(92). Les interventions présentées sur
-        ce site sont réalisées sur les départements des Côtes-d'Armor&nbsp;(22), du
-        Finistère&nbsp;(29), de l'Ille-et-Vilaine&nbsp;(35) et du Morbihan&nbsp;(56).</p>
+      <p>Les interventions présentées sur ce site sont réalisées sur les départements des
+        Côtes-d'Armor&nbsp;(22), du Finistère&nbsp;(29), de l'Ille-et-Vilaine&nbsp;(35) et
+        du Morbihan&nbsp;(56). L'entreprise ne reçoit pas de public&nbsp;: elle se déplace
+        sur le lieu de l'intervention.</p>
 
       <h2>4. Assurances professionnelles</h2>
       <p>{SITE['denomination']} est assurée auprès de <strong>MIC Insurance</strong> en
@@ -2180,9 +2181,9 @@ def page_politique():
 
     faq = [
         ("Qui est responsable du traitement&nbsp;?",
-         "%s (%s), dont le siège est situé %s. "
+         "%s (%s). "
          "Contact&nbsp;: <a href=\"mailto:%s\">%s</a>."
-         % (SITE["denomination"], SITE["forme"], SITE["siege"], EMAIL, EMAIL)),
+         % (SITE["denomination"], SITE["forme"], EMAIL, EMAIL)),
         ("Déposez-vous des cookies&nbsp;?",
          "Non. Ce site ne dépose <strong>aucun cookie</strong>, ni traceur publicitaire, ni "
          "outil de mesure d'audience. Aucun bandeau de consentement n'est donc nécessaire. "
