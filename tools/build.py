@@ -1915,6 +1915,10 @@ def page_mentions():
     desc = ("Mentions légales du site ETS-BZH : éditeur, hébergeur, identité de "
             "l'entreprise, assurances et propriété intellectuelle.")
     fil = [("Accueil", "/"), ("Mentions légales", "/mentions-legales/")]
+    # Tant que la dénomination légale n'est pas renseignée, elle vaut le nom
+    # commercial : inutile de l'afficher deux fois de suite.
+    nom_commercial = ("" if SITE["nom_commercial"] == SITE["denomination"]
+                      else " — exerçant sous le nom commercial %s" % SITE["nom_commercial"])
     return (
         head(titre, desc, "/mentions-legales/", [ld_ariane(fil)])
         + topbar() + header() + ariane(fil) + f"""
@@ -1935,8 +1939,7 @@ def page_mentions():
     <div class="prose">
       <h2>1. Éditeur du site</h2>
       <ul>
-        <li><strong>Dénomination sociale&nbsp;:</strong> {SITE['denomination']}</li>
-        <li><strong>Nom commercial&nbsp;:</strong> {SITE['nom_commercial']}</li>
+        <li><strong>Dénomination&nbsp;:</strong> {SITE['denomination']}{nom_commercial}</li>
         <li><strong>Forme juridique&nbsp;:</strong> {SITE['forme']}</li>
         <li><strong>Siège social&nbsp;:</strong> {SITE['siege']}</li>
         <li><strong>SIREN&nbsp;:</strong> {SITE['siren']}</li>
@@ -1952,8 +1955,8 @@ def page_mentions():
         <li><strong>Directeur de la publication&nbsp;:</strong> {SITE['dirigeant']}</li>
       </ul>
       <p>L'entreprise est exploitée sous le statut d'entrepreneur individuel&nbsp;: son
-        dirigeant, {SITE['dirigeant']}, en est l'unique responsable. À ce titre, elle ne
-        dispose ni de capital social, ni d'associés.</p>
+        dirigeant en est l'unique responsable. À ce titre, elle ne dispose ni de capital
+        social, ni d'associés.</p>
 
       <h2>2. Hébergement</h2>
       <ul>
@@ -1983,7 +1986,7 @@ def page_mentions():
 
       <h2>5. Propriété intellectuelle</h2>
       <p>L'ensemble des éléments du site (structure, textes, photographies, logo, identité
-        visuelle, code source) est la propriété de {SITE['denomination']} ou fait l'objet d'une
+        visuelle, code source) est la propriété d'{SITE['denomination']} ou fait l'objet d'une
         autorisation d'usage. Toute reproduction, représentation ou adaptation, totale ou
         partielle, sans autorisation écrite préalable est interdite et constituerait une
         contrefaçon au sens des articles L.335-2 et suivants du Code de la propriété
@@ -2224,8 +2227,7 @@ def page_politique():
 
       <h2>1. Responsable du traitement</h2>
       <ul>
-        <li><strong>{SITE['denomination']}</strong> ({SITE['forme']}), exerçant sous le nom
-          commercial {SITE['nom_commercial']}</li>
+        <li><strong>{SITE['nom_commercial']}</strong> ({SITE['forme']})</li>
         <li><strong>Siège&nbsp;:</strong> {SITE['siege']}</li>
         <li><strong>SIREN&nbsp;:</strong> {SITE['siren']} — <strong>RCS&nbsp;:</strong> {SITE['rcs']}</li>
         <li><strong>Contact&nbsp;:</strong> <a href="mailto:{EMAIL}">{EMAIL}</a> ou

@@ -704,8 +704,16 @@ dans les champs.
 
 ## À compléter avant mise en ligne
 
-- [ ] **Mentions légales** — l'identité de l'entreprise et l'hébergeur sont
-      renseignés. Restent trois champs *[à compléter]* : le **numéro de contrat
+- [ ] **Identité de l'éditeur** — le nom et le prénom du dirigeant ont été
+      retirés à la demande du client et remplacés par des libellés neutres
+      (`denomination` et `dirigeant` dans `tools/data.py`). **C'est un
+      provisoire, pas un état publiable** : l'article 6 III de la LCEN impose
+      que les mentions légales d'un entrepreneur individuel nomment la personne
+      et le directeur de la publication. À rétablir avant mise en ligne — le
+      SIREN, le SIRET et le RCS, eux, restent affichés et renvoient de toute
+      façon à la même personne dans les registres publics
+- [ ] **Mentions légales** — l'hébergeur et l'immatriculation sont renseignés.
+      Restent trois champs *[à compléter]* : le **numéro de contrat
       d'assurance**, les **activités déclarées au contrat**, et le **médiateur de
       la consommation** (obligatoire pour toute activité avec des particuliers,
       article L.612-1 du Code de la consommation)
@@ -718,7 +726,7 @@ dans les champs.
       d'exemple : remplacez-les par de vrais avis vérifiés avant publication
       (l'affichage d'avis fictifs est une pratique commerciale trompeuse)
 - [ ] **Tarifs** — vérifier les montants indicatifs de `tools/data.py`
-- [ ] **Photos** — remplir les 23 emplacements avec vos propres chantiers
+- [ ] **Photos** — remplir les 22 emplacements avec vos propres chantiers
       (voir « Emplacements photo »). N'utilisez que des visuels dont vous
       détenez les droits : présenter des images de banque comme vos
       réalisations est trompeur et juridiquement risqué

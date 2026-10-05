@@ -17,7 +17,11 @@ SITE = {
     # service externe, remplacez simplement l'URL (Formspree, Brevo, etc.).
     "form_endpoint": "/formulaire.php",
     # --- Identité légale (source : registres RCS / RNE / INSEE) ---
-    "denomination": "ASSOUL BILAL",
+    # Pour un entrepreneur individuel, la dénomination légale est le nom de la
+    # personne. Elle est volontairement remplacée ici par le nom commercial, en
+    # attendant la rédaction définitive. L'article 6 III de la LCEN impose que
+    # les mentions légales nomment la personne : à rétablir avant mise en ligne.
+    "denomination": "ETS-BZH",
     "nom_commercial": "ETS-BZH",
     "forme": "Entrepreneur individuel",
     "siren": "901 133 041",
@@ -30,7 +34,7 @@ SITE = {
     "creation": "06/07/2021",
     "naf": "81.29A",
     "naf_libelle": "Désinfection, désinsectisation, dératisation",
-    "dirigeant": "Bilal ASSOUL",
+    "dirigeant": "le représentant légal d'ETS-BZH",  # à remplacer par nom et prénom
     "siege": "1 rue Albert Simonin, 92400 Courbevoie",
     "adresse": "Bretagne — interventions sur les départements 22, 29, 35 et 56",
     # --- Hébergeur ---
