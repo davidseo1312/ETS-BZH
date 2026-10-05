@@ -704,14 +704,19 @@ dans les champs.
 
 ## À compléter avant mise en ligne
 
-- [ ] **Identité de l'éditeur** — le nom et le prénom du dirigeant ont été
-      retirés à la demande du client et remplacés par des libellés neutres
-      (`denomination` et `dirigeant` dans `tools/data.py`). **C'est un
-      provisoire, pas un état publiable** : l'article 6 III de la LCEN impose
-      que les mentions légales d'un entrepreneur individuel nomment la personne
-      et le directeur de la publication. À rétablir avant mise en ligne — le
-      SIREN, le SIRET et le RCS, eux, restent affichés et renvoient de toute
-      façon à la même personne dans les registres publics
+- [ ] **Identité de l'éditeur — provisoire, à rétablir** — le nom du dirigeant
+      et les quatre identifiants d'immatriculation ont été retirés à la demande
+      du client. Tout tient dans `tools/data.py` : `denomination`, `dirigeant`,
+      `siren`, `siret`, `rcs` et `tva`. Renseigner un vrai `siren` suffit à
+      faire revenir le bloc complet (SIREN, SIRET, RCS, RNE, TVA) — voir
+      `bloc_immatriculation()` dans `tools/build.py`.
+
+      **Ce n'est pas un état publiable.** Deux obligations distinctes :
+      l'article 6 III de la LCEN impose que les mentions légales d'un
+      entrepreneur individuel nomment la personne et le directeur de la
+      publication ; l'article R.123-237 du Code de commerce impose le numéro
+      SIREN et la mention du RCS à tout professionnel immatriculé. Les deux
+      sont à rétablir avant mise en ligne
 - [ ] **Mentions légales** — l'hébergeur et l'immatriculation sont renseignés.
       Restent trois champs *[à compléter]* : le **numéro de contrat
       d'assurance**, les **activités déclarées au contrat**, et le **médiateur de

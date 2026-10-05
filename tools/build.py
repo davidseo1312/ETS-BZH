@@ -1910,6 +1910,28 @@ def page_contact():
 
 
 # ============================================================ PAGES LÉGALES
+ATTENTE = "en attente de documents"
+IDENT_PROVISOIRE = SITE["siren"] == ATTENTE
+
+
+def bloc_immatriculation():
+    """Les quatre identifiants de l'entreprise, ou une ligne d'attente unique.
+
+    SIREN, SIRET, RCS et TVA portent tous les mêmes neuf chiffres : les afficher
+    séparément n'a de sens qu'une fois renseignés. Tant qu'ils ne le sont pas,
+    une seule ligne le dit, plutôt que quatre lignes qui se contredisent.
+    """
+    if IDENT_PROVISOIRE:
+        return ("        <li><strong>Immatriculation&nbsp;:</strong> %s "
+                "(SIREN, SIRET, RCS et TVA intracommunautaire à renseigner)</li>" % ATTENTE)
+    return f"""        <li><strong>SIREN&nbsp;:</strong> {SITE['siren']}</li>
+        <li><strong>SIRET (siège)&nbsp;:</strong> {SITE['siret']}</li>
+        <li><strong>Numéro RCS&nbsp;:</strong> {SITE['rcs']}
+          (immatriculée au greffe de {SITE['greffe']} le {SITE['rcs_date']})</li>
+        <li><strong>Inscription au RNE&nbsp;:</strong> le {SITE['rne_date']}</li>
+        <li><strong>Numéro de TVA intracommunautaire&nbsp;:</strong> {SITE['tva']}</li>"""
+
+
 def page_mentions():
     titre = "Mentions légales — ETS-BZH"
     desc = ("Mentions légales du site ETS-BZH : éditeur, hébergeur, identité de "
@@ -1942,12 +1964,7 @@ def page_mentions():
         <li><strong>Dénomination&nbsp;:</strong> {SITE['denomination']}{nom_commercial}</li>
         <li><strong>Forme juridique&nbsp;:</strong> {SITE['forme']}</li>
         <li><strong>Siège social&nbsp;:</strong> {SITE['siege']}</li>
-        <li><strong>SIREN&nbsp;:</strong> {SITE['siren']}</li>
-        <li><strong>SIRET (siège)&nbsp;:</strong> {SITE['siret']}</li>
-        <li><strong>Numéro RCS&nbsp;:</strong> {SITE['rcs']}
-          (immatriculée au greffe de {SITE['greffe']} le {SITE['rcs_date']})</li>
-        <li><strong>Inscription au RNE&nbsp;:</strong> le {SITE['rne_date']}</li>
-        <li><strong>Numéro de TVA intracommunautaire&nbsp;:</strong> {SITE['tva']}</li>
+{bloc_immatriculation()}
         <li><strong>Code NAF / APE&nbsp;:</strong> {SITE['naf']} — {SITE['naf_libelle']}</li>
         <li><strong>Date de création&nbsp;:</strong> {SITE['creation']}</li>
         <li><strong>Téléphone&nbsp;:</strong> <a href="tel:{TEL_LIEN}">{TEL}</a></li>
@@ -2163,9 +2180,9 @@ def page_politique():
 
     faq = [
         ("Qui est responsable du traitement&nbsp;?",
-         "%s (%s), dont le siège est situé %s, immatriculée sous le numéro SIREN %s. "
+         "%s (%s), dont le siège est situé %s. "
          "Contact&nbsp;: <a href=\"mailto:%s\">%s</a>."
-         % (SITE["denomination"], SITE["forme"], SITE["siege"], SITE["siren"], EMAIL, EMAIL)),
+         % (SITE["denomination"], SITE["forme"], SITE["siege"], EMAIL, EMAIL)),
         ("Déposez-vous des cookies&nbsp;?",
          "Non. Ce site ne dépose <strong>aucun cookie</strong>, ni traceur publicitaire, ni "
          "outil de mesure d'audience. Aucun bandeau de consentement n'est donc nécessaire. "
@@ -2229,7 +2246,7 @@ def page_politique():
       <ul>
         <li><strong>{SITE['nom_commercial']}</strong> ({SITE['forme']})</li>
         <li><strong>Siège&nbsp;:</strong> {SITE['siege']}</li>
-        <li><strong>SIREN&nbsp;:</strong> {SITE['siren']} — <strong>RCS&nbsp;:</strong> {SITE['rcs']}</li>
+        <li><strong>Immatriculation&nbsp;:</strong> {SITE['siren']}</li>
         <li><strong>Contact&nbsp;:</strong> <a href="mailto:{EMAIL}">{EMAIL}</a> ou
           <a href="tel:{TEL_LIEN}">{TEL}</a></li>
       </ul>

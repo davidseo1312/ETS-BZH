@@ -24,10 +24,13 @@ SITE = {
     "denomination": "ETS-BZH",
     "nom_commercial": "ETS-BZH",
     "forme": "Entrepreneur individuel",
-    "siren": "901 133 041",
-    "siret": "901 133 041 00011",
-    "tva": "FR17901133041",
-    "rcs": "901 133 041 R.C.S. Nanterre",
+    # Retirés à la demande du client, en attente des documents d'immatriculation.
+    # Ils restent obligatoires dans les mentions légales d'un professionnel
+    # immatriculé (article R.123-237 du Code de commerce) : à rétablir.
+    "siren": "en attente de documents",
+    "siret": "en attente de documents",
+    "tva": "en attente de documents",
+    "rcs": "en attente de documents",
     "greffe": "Nanterre",
     "rcs_date": "07/07/2021",
     "rne_date": "06/07/2021",
