@@ -1,8 +1,8 @@
 # Site ETS-BZH — Plomberie · Dégorgement · Électricité (Bretagne)
 
 Site vitrine statique orienté conversion pour **ETS-BZH**, avec 12 landing pages
-ultra-ciblées (3 activités × 4 départements bretons) et 64 articles géolocalisés
-(16 par département), générés à partir de templates uniques.
+ultra-ciblées (3 activités × 4 départements bretons) et 80 articles géolocalisés
+(20 par département), générés à partir de templates uniques.
 
 - **Téléphone :** 02 20 06 00 75 · **E-mail :** contact@etablissement-breizh.fr
 - **Zones :** Côtes-d'Armor (22), Finistère (29), Ille-et-Vilaine (35), Morbihan (56)
@@ -20,10 +20,10 @@ sans configuration.
 | `/degorgement-canalisation-{dept}/` | `…/index.html` | 4 landing pages Dégorgement |
 | `/plomberie-depannage-{dept}/` | `…/index.html` | 4 landing pages Plomberie |
 | `/electricite-urgence-{dept}/` | `…/index.html` | 4 landing pages Électricité |
-| `/conseils/` | `conseils/index.html` | Rubrique conseils, page 1 sur 6 |
-| `/conseils/page-{n}/` | `…/index.html` | Pages 2 à 6 de la rubrique |
-| `/conseils/{dept}/` | `…/index.html` | Sous-catégorie départementale (16 articles, 2 pages) |
-| `/conseils/{article}/` | `…/index.html` | 64 articles (16 par département) |
+| `/conseils/` | `conseils/index.html` | Rubrique conseils, page 1 sur 7 |
+| `/conseils/page-{n}/` | `…/index.html` | Pages 2 à 7 de la rubrique |
+| `/conseils/{dept}/` | `…/index.html` | Sous-catégorie départementale (20 articles, 2 pages) |
+| `/conseils/{article}/` | `…/index.html` | 80 articles (20 par département) |
 | `/contact/` | `contact/index.html` | Formulaire de devis express |
 | `/mentions-legales/` | `mentions-legales/index.html` | Éditeur, hébergeur, identité, assurances |
 | `/politique-de-confidentialite/` | `…/index.html` | RGPD : finalités, bases légales, droits |
@@ -66,20 +66,26 @@ lu par personne — est passé derrière.
 
 ## Articles
 
-Soixante-quatre articles, **seize par département**, publiés sous `/conseils/`.
+Quatre-vingts articles, **vingt par département**, publiés sous `/conseils/`.
 Ils ne répètent pas les pages métier&nbsp;: ils visent une autre intention de
 recherche. Quelqu'un qui tape « plombier Saint-Brieuc » cherche une
 entreprise&nbsp;; quelqu'un qui tape « fosse septique qui déborde » cherche quoi
 faire dans les cinq minutes. Ce sont deux visiteurs différents, et le second
 appelle plus vite que le premier si on lui répond clairement.
 
-Ils se répartissent en **deux familles**, qui ne se cannibalisent pas parce
-qu'elles répondent à deux questions différentes&nbsp;:
+Ils se répartissent en **trois familles**, qui ne se cannibalisent pas parce
+qu'elles répondent à trois questions différentes&nbsp;:
 
 | Famille | Nombre | Question à laquelle l'article répond |
 | --- | --- | --- |
 | **Guides de situation** | 40 (10 par département) | *Que faire&nbsp;?* Une panne précise, la marche à suivre, les erreurs à éviter |
 | **Articles de zone** | 24 (6 par département, 2 par métier) | *Qui intervient chez moi, et pour quoi&nbsp;?* Un contexte d'intervention, détaillé commune par commune |
+| **Articles d'installation** | 16 (4 par département) | *Qu'est-ce qu'on pose, combien de temps, comment on choisit&nbsp;?* Un remplacement ou une pose, de la décision à la mise en service |
+
+Les trois familles visent des intentions de recherche distinctes, et c'est ce
+qui les empêche de se concurrencer&nbsp;: « WC bouché que faire » (guide),
+« plombier Quiberon » (zone), « remplacer ballon d'eau chaude » (installation)
+ne ramènent pas les mêmes pages ni les mêmes visiteurs.
 
 ### Guides de situation (40)
 
@@ -113,6 +119,42 @@ proche de l'appel.
 
 <sub>* « calcaire et corrosion saline » est un article de plomberie.</sub>
 
+### Articles d'installation (16)
+
+Quatre par département, répartis **2 plomberie, 1 électricité, 1
+dégorgement** — la plomberie pèse le double parce que c'est là que se
+concentre la demande d'installation.
+
+| Dép. | Plomberie | Électricité | Dégorgement |
+| --- | --- | --- | --- |
+| **22** | remplacer un ballon d'eau chaude · poser radiateurs et sèche-serviettes | électricité de cuisine (circuits dédiés) | créer ou refaire des évacuations |
+| **29** | rénover une salle de bain · remplacer un WC (suspendu, broyeur) | compteur, branchement et puissance | raccordement au tout-à-l'égout |
+| **35** | baignoire remplacée par une douche · robinetterie et colonnes | remplacer un tableau électrique | installer un poste de relevage |
+| **56** | chauffe-eau thermodynamique ou électrique · canalisations plomb et acier | installer une VMC | poser un clapet anti-retour |
+
+Ils reprennent la même structure que les autres — marche à suivre, bloc
+sécurité, sections de fond, bloc commune par commune, FAQ — mais l'angle est
+la **décision et la pose**&nbsp;: quel appareil, quelles conditions, combien
+de temps de chantier, ce que comprend réellement un remplacement, et ce que
+l'équipement demandera ensuite.
+
+**Trois points de rédaction méritent d'être signalés**, parce qu'ils engagent
+l'entreprise et pas seulement le référencement&nbsp;:
+
+- L'article sur le **compteur** dit explicitement que le compteur et le
+  disjoncteur de branchement appartiennent au gestionnaire de réseau, qu'aucun
+  électricien privé n'intervient dessus, et qu'un changement de puissance se
+  demande au fournisseur. Promettre le contraire aurait été à la fois faux et
+  intenable.
+- L'article sur le **raccordement au tout-à-l'égout** renvoie au service
+  d'assainissement de la commune pour tout ce qui relève du règlement local
+  (délais, dérogations, participation financière), qui varie d'une
+  collectivité à l'autre.
+- L'article **baignoire → douche** mentionne l'existence d'aides à
+  l'adaptation du logement sans en nommer aucune ni en chiffrer le montant&nbsp;:
+  les dispositifs et leurs conditions changent trop souvent pour être gravés
+  dans une page statique.
+
 **Le bloc commune par commune.** C'est ce qui distingue cette famille. Chaque
 article nomme **six communes du département** et dit, pour chacune, quelque
 chose de vrai et de spécifique au sujet traité&nbsp;: pourquoi les réseaux
@@ -121,6 +163,9 @@ prépare en mars et pas en août, pourquoi le parc locatif rennais appelle pour
 des chauffe-eau de placard. Les notes ne sont jamais interchangeables&nbsp;: un
 même nom de commune reçoit une note différente d'un article à l'autre, parce
 que le sujet change.
+
+Les articles d'installation le portent aussi, avec des notes orientées
+pose&nbsp;: place disponible, type de réseau, contrainte d'accès, bâti local.
 
 Ce bloc est généré par `bloc_villes()` (`tools/build.py`) à partir de la clé
 `villes` de l'article — une liste de couples `(commune, note)`. Il alimente
@@ -182,21 +227,24 @@ que Google utilise pour proposer des liens de saut directement dans ses
 résultats.
 
 **Non-redondance mesurée.** Le contenu est comparé texte contre texte avec
-`difflib.SequenceMatcher`, sur le texte éditorial des 64 articles et sur le
+`difflib.SequenceMatcher`, sur le texte éditorial des 80 articles et sur le
 rendu réel des 12 pages métier.
 
 | Comparaison | Similarité |
 | --- | --- |
-| La paire d'articles la plus proche sur 2 016 paires | **12,9&nbsp;%** |
-| Article de zone ↔ page métier la plus proche | **9,6 à 14,0&nbsp;%** (moyenne 11,8&nbsp;%) |
+| La paire d'articles la plus proche sur 3 160 paires | **12,9&nbsp;%** |
+| Article à bloc communal ↔ page métier la plus proche | **9,4 à 14,2&nbsp;%** (moyenne 11,8&nbsp;%) |
 | *Pour mémoire&nbsp;:* 2 pages d'un même métier entre elles | 84–90&nbsp;% |
 
-Aucune paire d'articles ne dépasse 13&nbsp;% — y compris les paires les plus
-exposées, comme les deux articles « tableau électrique » des Côtes-d'Armor
-(12,9&nbsp;%), qui traitent l'un du remplacement d'un tableau à fusibles,
-l'autre de la mise aux normes dans un contexte d'intervention.
+Aucune paire d'articles ne dépasse 13&nbsp;%. Les paires les plus exposées ont
+été vérifiées une à une plutôt que laissées au hasard du maximum
+global&nbsp;: « remplacer un ballon » contre « dépannage de chauffe-eau »
+(2,0&nbsp;%), « remplacer un tableau » contre « mise aux normes du tableau »
+(4,7&nbsp;%), « installer un poste de relevage » contre « pompe de relevage en
+panne » (2,9&nbsp;%), « poser un clapet » contre « réseaux du littoral »
+(2,1&nbsp;%). Toutes restent sous 5&nbsp;%.
 
-**Volume.** Environ 57 000 mots, moyenne 892 mots par article.
+**Volume.** Environ 74 000 mots, moyenne 929 mots par article.
 
 ### Mise en forme des articles
 
@@ -232,18 +280,18 @@ dictionnaire de plus dans la liste `ARTICLES`. Tout le reste suit
 automatiquement&nbsp;: page générée, entrée au sitemap, classement par département
 sur l'index, et vignettes de maillage.
 
-**Pagination et sous-catégories.** Soixante-quatre vignettes sur une seule page
+**Pagination et sous-catégories.** Quatre-vingts vignettes sur une seule page
 ne se lisent pas. La rubrique est donc découpée à **12 articles par page**
 (quatre lignes de trois), avec une barre de numéros en bas, et une **barre de
 sous-catégories** en haut&nbsp;: tous les départements, puis un lien par
 département avec son compteur.
 
 ```
-/conseils/                        page 1 sur 6, tous départements
-/conseils/page-2/  … page-6/      la suite
-/conseils/cotes-d-armor-22/       les 16 articles du 22, page 1 sur 2
+/conseils/                        page 1 sur 7, tous départements
+/conseils/page-2/  … page-7/      la suite
+/conseils/cotes-d-armor-22/       les 20 articles du 22, page 1 sur 2
 /conseils/cotes-d-armor-22/page-2/
-/conseils/finistere-29/           les 16 du 29   (idem 35 et 56)
+/conseils/finistere-29/           les 20 du 29   (idem 35 et 56)
 ```
 
 Trois choix méritent d'être expliqués&nbsp;:
@@ -257,17 +305,17 @@ Trois choix méritent d'être expliqués&nbsp;:
   chaque changement de département&nbsp;: même coupée en tranches de douze, la
   page reste lisible.
 - **Chaque page a son propre `canonical` et son propre titre**, et les pages 2 à
-  6 portent « Page N sur 6 » en tête de description. Sans cela, Google verrait
-  six pages au résumé identique.
+  7 portent « Page N sur 7 » en tête de description. Sans cela, Google verrait
+  sept pages au résumé identique.
 
 Le découpage est générique&nbsp;: `url_conseils()`, `articles_tries()` et
 `nb_pages()` servent aussi bien à la liste complète qu'aux sous-catégories. Les
-pages départementales comptent aujourd'hui deux pages chacune (16 articles pour
+pages départementales comptent aujourd'hui deux pages chacune (20 articles pour
 12 par page)&nbsp;; la barre de numéros y est apparue d'elle-même, sans rien
 changer au code.
 
 **Maillage.** Chaque page métier affiche les **quatre premiers articles** de son
-département, sous un intertitre qui renvoie à la sous-catégorie complète — seize
+département, sous un intertitre qui renvoie à la sous-catégorie complète — vingt
 vignettes noieraient le bas de page. Le fil d'Ariane d'un article passe par son
 département&nbsp;: Accueil › Conseils d'urgence › Côtes-d'Armor (22) › WC bouché.
 
@@ -651,7 +699,7 @@ python3 tools/build.py
 
 - `tools/data.py` — contenus éditoriaux (activités, prestations, tarifs, FAQ,
   avis, départements et communes)
-- `tools/articles.py` — les 64 articles, un dictionnaire par article (la clé
+- `tools/articles.py` — les 80 articles, un dictionnaire par article (la clé
   `villes` fait d'un article un article de zone)
 - `tools/build.py` — templates, rendu HTML, JSON-LD, sitemap
 

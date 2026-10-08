@@ -7111,4 +7111,2235 @@ ARTICLES = [
  ],
 },
 
+{
+ "slug": "remplacement-ballon-eau-chaude-cotes-d-armor",
+ "court": "Remplacer un ballon d'eau chaude (22)",
+ "dept": "22", "act": "plomberie", "date": "2026-10-08",
+ "titre": "Remplacer un ballon d'eau chaude (22) — ETS-BZH",
+ "h1": "Remplacer un ballon d'eau chaude dans les Côtes-d'Armor&nbsp;: volume, délai, pose",
+ "meta": ("Ballon d'eau chaude à remplacer dans les Côtes-d'Armor : quel volume, "
+          "quel délai, ce que comprend la pose. Ville par ville. 02 20 06 00 75."),
+ "mots_cles": ("remplacement ballon eau chaude Côtes-d'Armor, installation "
+               "chauffe-eau Saint-Brieuc, pose cumulus Lannion, prix "
+               "remplacement chauffe-eau 22"),
+ "chapo": ("Un ballon ne se remplace presque jamais à froid&nbsp;: il se "
+           "remplace parce qu'il fuit, parce qu'il a lâché un dimanche, ou "
+           "parce que la cuve est percée. La décision se prend donc vite, et "
+           "souvent mal. Voici les trois points qui comptent, et ce que nous "
+           "posons concrètement dans les Côtes-d'Armor."),
+ "villes_titre": "Ce que nous posons, ville par ville",
+ "villes_intro": ("Le logement dicte l'appareil bien plus que le catalogue&nbsp;: "
+                  "place disponible, type de réseau, nombre d'occupants."),
+ "villes": [
+   ("Saint-Brieuc", "Beaucoup d'appartements avec ballon en placard "
+    "technique&nbsp;: la contrainte est la largeur de la porte et la hauteur "
+    "sous plafond, pas le volume souhaité. Nous mesurons avant de commander, "
+    "et nous proposons un modèle stable sur socle quand le mur ne reprend pas "
+    "la charge."),
+   ("Lannion", "Logements familiaux et maisons des années 1970&nbsp;: les "
+    "ballons de 200&nbsp;litres sur trépied y sont la règle. Le point à "
+    "vérifier est l'évacuation du groupe de sécurité, souvent absente ou "
+    "rejetée à même le sol du garage."),
+   ("Dinan", "Bâti ancien en pierre, combles et sous-pentes&nbsp;: "
+    "l'implantation prime. Un ballon horizontal au plafond règle bien des cas "
+    "où aucun mur ne convient, à condition de prévoir l'accès pour "
+    "l'entretien."),
+   ("Guingamp", "Maisons de bourg et logements loués. Les remplacements se "
+    "font fréquemment en urgence entre deux occupants&nbsp;: nous intervenons "
+    "sur accord écrit du propriétaire, avec photos avant et après."),
+   ("Paimpol", "Résidences secondaires fermées l'hiver&nbsp;: un ballon laissé "
+    "en eau dans une maison non chauffée se détériore vite. Nous posons "
+    "systématiquement une vanne d'isolement accessible pour permettre la "
+    "vidange de fin de saison."),
+   ("Loudéac", "Secteur rural, maisons spacieuses, familles de quatre à six "
+    "personnes&nbsp;: les volumes de 250 à 300&nbsp;litres sont courants. La "
+    "question n'est plus la place mais la puissance disponible au tableau."),
+ ],
+ "urgent": [
+   "Si le ballon fuit, coupez l'eau froide à l'entrée de l'appareil et "
+   "l'alimentation électrique au tableau — dans cet ordre.",
+   "Ne coupez pas seulement l'électricité&nbsp;: un ballon hors tension "
+   "continue de fuir, il contient entre 100 et 300&nbsp;litres.",
+   "Placez une bassine sous le groupe de sécurité et dégagez ce qui est au "
+   "sol, en particulier les prises et les rallonges.",
+   "Photographiez l'étiquette signalétique de l'appareil&nbsp;: volume, marque, "
+   "année, type de fixation. C'est ce qui nous permet d'arriver avec le bon "
+   "matériel du premier coup.",
+ ],
+ "danger": ("Un ballon est lourd&nbsp;: 200&nbsp;litres d'eau pèsent "
+            "200&nbsp;kilos, auxquels s'ajoute la cuve. Un appareil fixé sur "
+            "une cloison creuse, sur un mur en pierre sans cheville adaptée ou "
+            "sur une fixation corrodée peut descendre d'un coup. C'est rare, "
+            "mais c'est le seul accident réellement grave de ce type "
+            "d'installation. Le second risque est électrique&nbsp;: une cuve "
+            "percée arrose la résistance et le thermostat, et l'eau trouve le "
+            "chemin de la terre par la fixation murale."),
+ "sections": [
+  ("Le volume&nbsp;: la seule question qui se pose vraiment",
+   ["Le réflexe est de remplacer à l'identique. C'est souvent le bon choix, "
+    "mais pas toujours&nbsp;: un ballon posé il y a quinze ans l'a été pour le "
+    "foyer d'alors. Si les enfants sont partis, ou si une salle d'eau a été "
+    "ajoutée, le volume d'hier n'est plus le bon.",
+    "L'ordre de grandeur est simple&nbsp;: comptez environ 50&nbsp;litres par "
+    "personne pour un usage courant, et montez d'un cran si vous avez une "
+    "baignoire ou deux salles d'eau utilisées en même temps. Une personne "
+    "seule est à l'aise avec 100&nbsp;litres, un couple avec 150, une famille "
+    "de quatre avec 200 à 250.",
+    "Trop petit, l'appareil se vide chaque matin et fonctionne en permanence, "
+    "ce qui l'use et coûte cher. Trop grand, il maintient en température une "
+    "eau que personne n'utilise. L'écart de prix entre deux volumes voisins "
+    "étant faible, c'est la décision la plus rentable du chantier — et elle se "
+    "prend en deux minutes de conversation."],
+   None),
+  ("Ce que comprend réellement un remplacement",
+   [],
+   ["La vidange de l'ancien appareil, son décrochage et son évacuation en "
+    "déchetterie professionnelle.",
+    "La vérification du support&nbsp;: nature du mur, fixations, trépied ou "
+    "socle si le mur ne reprend pas la charge.",
+    "La pose d'un <strong>groupe de sécurité neuf</strong> — il ne se "
+    "réutilise jamais — et de son siphon d'évacuation raccordé aux eaux usées.",
+    "Un <strong>robinet d'arrêt dédié</strong> sur l'arrivée d'eau froide, "
+    "pour ne plus avoir à couper tout le logement.",
+    "Des raccords diélectriques entre cuivre et acier, qui évitent la "
+    "corrosion galvanique au point de raccordement.",
+    "Le raccordement électrique protégé, le remplissage, la purge et la mise "
+    "en chauffe contrôlée avant notre départ.",
+    "Le réglage du thermostat entre 55 et 60&nbsp;°C&nbsp;: au-delà le tartre "
+    "se dépose beaucoup plus vite, en deçà l'eau tiède pose un risque "
+    "sanitaire."],
+   ),
+  ("Réparer ou remplacer&nbsp;: comment on tranche",
+   ["Tout ne se remplace pas. Un ballon qui ne chauffe plus a souvent une "
+    "résistance entartrée ou un thermostat mort&nbsp;: les deux se changent, "
+    "pour une fraction du prix d'un appareil neuf, et l'opération se double "
+    "d'un détartrage qui redonne plusieurs années à la cuve.",
+    "En revanche, dès que la <strong>cuve</strong> est percée, il n'y a plus "
+    "de décision à prendre. Une cuve ne se répare pas. Le signe qui ne trompe "
+    "pas est un écoulement permanent qui ne vient ni du groupe de sécurité ni "
+    "d'un raccord, souvent accompagné de traces de rouille sous l'appareil.",
+    "Entre les deux, l'âge décide. Au-delà de douze à quinze ans, remplacer "
+    "une résistance sur une cuve dont l'anode est consommée revient à réparer "
+    "ce qui va lâcher ensuite. Nous ouvrons la bride, nous regardons l'anode, "
+    "et nous disons franchement laquelle des deux options a du sens. Un "
+    "diagnostic honnête coûte moins cher qu'une pose inutile."],
+   None),
+  ("Dans les Côtes-d'Armor, deux contraintes locales",
+   ["<strong>L'eau.</strong> Selon les secteurs, la dureté varie nettement d'un "
+    "réseau à l'autre dans le département. Là où elle est élevée, la "
+    "résistance stéatite — protégée dans un fourreau et donc jamais en contact "
+    "avec l'eau — se remplace sans vidanger et dure sensiblement plus "
+    "longtemps qu'une résistance blindée. C'est quelques dizaines d'euros de "
+    "plus à l'achat, et une intervention de moins dans cinq ans.",
+    "<strong>Le littoral.</strong> Sur la côte, l'air chargé en sel attaque "
+    "les éléments métalliques extérieurs à la cuve&nbsp;: fixations, raccords, "
+    "capot. Dans un garage ouvert ou une dépendance non chauffée, cela compte. "
+    "Nous privilégions alors l'inox et le laiton pour tout ce qui est visible "
+    "et accessible.",
+    "Nous intervenons sur l'ensemble du département, 24h/24 et 7j/7 pour une "
+    "fuite en cours, et sur rendez-vous pour un remplacement programmé — qui "
+    "coûte toujours moins cher qu'une urgence de week-end."],
+   None),
+ ],
+ "faq": [
+  ("Combien de temps dure un remplacement&nbsp;?",
+   "Entre deux et quatre heures dans la grande majorité des cas, accès normal "
+   "et volume équivalent. Comptez davantage s'il faut créer une évacuation de "
+   "groupe de sécurité ou reprendre la fixation."),
+  ("Puis-je garder mon ancien groupe de sécurité&nbsp;?",
+   "Non, et c'est non négociable. Un groupe de sécurité se remplace avec le "
+   "ballon&nbsp;: c'est la soupape qui empêche la cuve de monter en pression. "
+   "Un groupe entartré de douze ans sur un appareil neuf, c'est un appareil "
+   "neuf sans sécurité."),
+  ("Avez-vous le ballon en stock&nbsp;?",
+   "Pour les volumes courants, nous pouvons généralement intervenir "
+   "rapidement. Envoyez-nous une photo de l'étiquette signalétique par e-mail "
+   "ou décrivez-la au téléphone&nbsp;: nous partons avec le bon appareil."),
+  ("Intervenez-vous en urgence sur une fuite de ballon&nbsp;?",
+   "Oui, 24h/24 et 7j/7 dans les Côtes-d'Armor. Une cuve percée ne s'arrête "
+   "pas toute seule&nbsp;: appelez le 02 20 06 00 75 après avoir coupé l'eau "
+   "et l'électricité."),
+ ],
+},
+
+{
+ "slug": "installation-radiateurs-seche-serviettes-cotes-d-armor",
+ "court": "Poser radiateurs et sèche-serviettes (22)",
+ "dept": "22", "act": "plomberie", "date": "2026-10-08",
+ "titre": "Poser radiateurs et sèche-serviettes (22) — ETS-BZH",
+ "h1": "Installer des radiateurs et des sèche-serviettes dans les Côtes-d'Armor",
+ "meta": ("Remplacement de radiateurs et pose de sèche-serviettes dans les "
+          "Côtes-d'Armor : eau chaude ou électrique, dimensionnement, pose. "
+          "02 20 06 00 75."),
+ "mots_cles": ("remplacement radiateur Côtes-d'Armor, pose sèche-serviettes "
+               "Saint-Brieuc, radiateur eau chaude Dinan, changer radiateur "
+               "fonte 22"),
+ "chapo": ("Un radiateur se remplace rarement seul&nbsp;: il part avec une "
+           "fuite, un robinet grippé ou une rénovation de pièce. La vraie "
+           "question n'est pas le modèle, c'est le circuit sur lequel il se "
+           "greffe. Voici ce qui change entre un remplacement simple et un "
+           "chantier, et ce que nous rencontrons dans le département."),
+ "villes_titre": "Ce que nous remplaçons, ville par ville",
+ "villes_intro": ("L'âge du chauffage central local détermine la nature de "
+                  "l'intervention bien plus que la pièce concernée."),
+ "villes": [
+   ("Saint-Brieuc", "Appartements en collectif avec chauffage individuel ou "
+    "collectif&nbsp;: dans le second cas, toute intervention sur un radiateur "
+    "suppose la vidange d'une colonne et passe par le syndic. Nous le disons "
+    "avant le devis, pas après."),
+   ("Dinan", "Bâti ancien équipé de radiateurs en fonte, souvent encore "
+    "excellents. Nous conseillons fréquemment de les conserver et de ne "
+    "remplacer que les robinets et les tés de réglage&nbsp;: la fonte restitue "
+    "mieux la chaleur que l'acier et dure indéfiniment."),
+   ("Lannion", "Pavillons des années 1980 avec circuits en acier noir. Les "
+    "boues de circuit y sont la première cause de radiateurs froids en "
+    "bas&nbsp;: un désembouage vaut souvent mieux qu'un remplacement."),
+   ("Guingamp", "Maisons de bourg aux réseaux monotube, où l'on ne peut pas "
+    "isoler un seul émetteur. Le remplacement impose alors une vidange "
+    "partielle&nbsp;: c'est plus long, et il faut le prévoir."),
+   ("Lamballe-Armor", "Logements rénovés par étapes&nbsp;: radiateurs "
+    "d'origine et appareils récents cohabitent sur le même circuit. Nous "
+    "vérifions l'équilibrage, sinon le dernier posé prend toute l'eau chaude."),
+   ("Paimpol", "Salles d'eau de maisons de bord de mer, humides une bonne "
+    "partie de l'année. Le sèche-serviettes y a une vraie fonction, à "
+    "condition d'être alimenté par un circuit protégé et posé hors des volumes "
+    "interdits."),
+ ],
+ "urgent": [
+   "Si un radiateur fuit, fermez ses deux robinets — l'arrivée et le té de "
+   "réglage — avant toute autre chose.",
+   "Si les robinets sont grippés et que la fuite continue, coupez la chaudière "
+   "et fermez l'alimentation générale du circuit de chauffage.",
+   "Glissez une bassine et des serviettes sous la fuite&nbsp;: l'eau de "
+   "chauffage est noire et tache durablement un parquet ou une moquette.",
+   "Ne serrez pas un raccord qui fuit avec une pince sans savoir ce que vous "
+   "serrez&nbsp;: sur un circuit ancien, un écrou forcé casse net.",
+ ],
+ "danger": ("L'eau d'un circuit de chauffage est à 60 ou 70&nbsp;°C&nbsp;: une "
+            "purge ouverte en grand sur un radiateur chaud projette de l'eau "
+            "brûlante. C'est l'accident domestique le plus fréquent sur ce "
+            "type d'installation, et il touche souvent une personne qui "
+            "voulait simplement « purger un peu ». Purgez toujours chauffage "
+            "arrêté et circuit refroidi, molette ouverte lentement, chiffon "
+            "en main."),
+ "sections": [
+  ("Eau chaude ou électrique&nbsp;: la question ne se pose pas comme on croit",
+   ["Si le logement dispose d'un chauffage central, le radiateur remplacé "
+    "reste sur le circuit d'eau. Passer un seul émetteur à l'électrique pour "
+    "éviter un chantier est une fausse économie&nbsp;: on crée un point de "
+    "consommation coûteux et on déséquilibre le circuit.",
+    "L'électrique a sa place ailleurs&nbsp;: dans une pièce non desservie par "
+    "le réseau — une extension, un garage aménagé, une salle d'eau ajoutée — "
+    "ou dans un logement entièrement électrique. Dans ce cas, le sujet devient "
+    "électrique&nbsp;: section du câble, circuit dédié, protection au tableau.",
+    "Le <strong>sèche-serviettes</strong> est le seul appareil où le choix est "
+    "réellement ouvert, parce qu'il existe en version eau chaude, en version "
+    "électrique et en version mixte. La mixte est souvent la bonne réponse "
+    "dans une maison chauffée au central&nbsp;: elle suit le circuit l'hiver "
+    "et fonctionne seule hors saison de chauffe, quand on veut sécher une "
+    "serviette en juillet."],
+   None),
+  ("Le dimensionnement, en clair",
+   ["Un radiateur se choisit en puissance, pas en taille. L'ordre de grandeur "
+    "courant pour un logement correctement isolé tourne autour de 70 à "
+    "100&nbsp;watts par mètre carré, à moduler selon la hauteur sous plafond, "
+    "l'exposition et la qualité des menuiseries.",
+    "Deux erreurs reviennent sans cesse. La première est de remplacer un "
+    "grand radiateur en fonte par un petit appareil en acier de même "
+    "encombrement&nbsp;: la puissance n'y est pas, et la pièce ne chauffe plus "
+    "malgré un matériel neuf. La seconde est de surdimensionner en pensant "
+    "chauffer plus vite&nbsp;: le robinet thermostatique coupera plus tôt, "
+    "sans rien y gagner.",
+    "Dans une salle d'eau, raisonnez autrement&nbsp;: un sèche-serviettes "
+    "sèche le linge et appoint la pièce, mais il ne la chauffe pas seul si "
+    "elle est grande ou mal isolée. Nous le disons plutôt que de laisser "
+    "découvrir le problème au premier hiver."],
+   None),
+  ("Ce que nous faisons pendant la pose",
+   [],
+   ["L'isolement du radiateur ou, sur circuit monotube, la vidange partielle "
+    "nécessaire.",
+    "La dépose, et l'évacuation de l'ancien appareil — une fonte pèse lourd et "
+    "ne part pas avec les ordures ménagères.",
+    "La reprise des fixations murales, avec les chevilles adaptées au support "
+    "réel&nbsp;: pierre, brique, placo, béton cellulaire.",
+    "Le remplacement du <strong>robinet thermostatique</strong> et du "
+    "<strong>té de réglage</strong>, qui ne se réutilisent pas plus que le "
+    "groupe de sécurité d'un ballon.",
+    "Le remplissage, la purge complète de l'émetteur et le contrôle de la "
+    "pression du circuit.",
+    "Le rééquilibrage des autres radiateurs si le nouvel appareil change la "
+    "répartition&nbsp;: c'est l'étape que l'on saute, et c'est celle qui fait "
+    "les chambres froides."],
+   ),
+ ],
+ "faq": [
+  ("Faut-il vidanger toute l'installation&nbsp;?",
+   "Pas sur un circuit bitube correctement équipé&nbsp;: on isole le radiateur "
+   "par ses deux robinets et on ne vide que lui. Sur un monotube ancien ou "
+   "quand les robinets ne ferment plus, une vidange partielle devient "
+   "nécessaire."),
+  ("Mes radiateurs en fonte sont-ils à jeter&nbsp;?",
+   "Au contraire, le plus souvent. La fonte a une excellente inertie et ne "
+   "s'use pas. Si les corps sont sains, remplacer les robinets et désembouer "
+   "le circuit coûte bien moins cher et chauffe mieux qu'un parc neuf en "
+   "acier."),
+  ("Un radiateur froid en bas, chaud en haut&nbsp;: que faire&nbsp;?",
+   "C'est de la boue, pas de l'air. L'air se loge en haut, les boues se "
+   "déposent en bas. La réponse est un désembouage du circuit, pas une purge "
+   "ni un remplacement."),
+  ("Intervenez-vous en urgence sur une fuite de radiateur&nbsp;?",
+   "Oui, 24h/24 et 7j/7 dans les Côtes-d'Armor. Fermez les deux robinets si "
+   "vous le pouvez et appelez le 02 20 06 00 75."),
+ ],
+},
+{
+ "slug": "installation-electrique-cuisine-cotes-d-armor",
+ "court": "Électricité de cuisine (22)",
+ "dept": "22", "act": "electricite", "date": "2026-10-08",
+ "titre": "Installation électrique de cuisine (22) — ETS-BZH",
+ "h1": "Installation électrique d'une cuisine dans les Côtes-d'Armor&nbsp;: circuits dédiés et sécurité",
+ "meta": ("Cuisine à équiper dans les Côtes-d'Armor : circuits dédiés, plaque, "
+          "four, prises du plan de travail. Ville par ville. 02 20 06 00 75."),
+ "mots_cles": ("installation électrique cuisine Côtes-d'Armor, circuit dédié "
+               "plaque de cuisson, prises plan de travail Saint-Brieuc, "
+               "électricien cuisine Dinan"),
+ "chapo": ("La cuisine est la pièce qui consomme le plus et qui disjoncte le "
+           "plus. Ce n'est pas un hasard&nbsp;: on y branche cinq à six "
+           "appareils de forte puissance sur une installation souvent prévue "
+           "pour deux. Voici ce qu'il faut réellement, et ce que nous trouvons "
+           "en ouvrant les tableaux du département."),
+ "villes_titre": "Ce que nous rencontrons, ville par ville",
+ "villes_intro": ("L'âge de l'installation explique à lui seul la quasi-totalité "
+                  "des cuisines qui disjonctent."),
+ "villes": [
+   ("Saint-Brieuc", "Appartements rénovés par morceaux&nbsp;: cuisine neuve "
+    "raccordée sur les circuits d'origine. La plaque et le four partagent "
+    "alors une seule protection, et le disjoncteur tombe dès qu'on les utilise "
+    "ensemble."),
+   ("Dinan", "Bâti ancien en pierre&nbsp;: le passage des gaines est la "
+    "contrainte principale. Nous privilégions les cheminements en plinthe ou "
+    "en goulotte discrète plutôt que des saignées dans un mur porteur."),
+   ("Lannion", "Pavillons des années 1980 avec tableau d'origine à "
+    "fusibles&nbsp;: ajouter des circuits de cuisine suppose souvent de "
+    "reprendre le tableau d'abord. Nous chiffrons les deux séparément."),
+   ("Guingamp", "Logements loués et meublés&nbsp;: les occupants ajoutent "
+    "lave-vaisselle et four micro-ondes sur des multiprises. C'est la "
+    "situation que nous traitons le plus, et la plus facile à corriger "
+    "durablement."),
+   ("Plérin", "Maisons récentes correctement équipées&nbsp;: la demande porte "
+    "plutôt sur l'ajout de prises au plan de travail et l'éclairage sous "
+    "meuble, avec un circuit propre plutôt qu'un repiquage."),
+   ("Loudéac", "Cuisines spacieuses en secteur rural, souvent avec appareils "
+    "nombreux et parfois un congélateur en annexe. Le sujet devient la "
+    "puissance disponible au compteur autant que le nombre de circuits."),
+ ],
+ "urgent": [
+   "Un disjoncteur qui retombe dès que vous allumez la plaque&nbsp;: cessez de "
+   "le réarmer. Il protège un câble qui chauffe.",
+   "Une prise tiède au toucher, une odeur de plastique chaud ou une trace "
+   "brune autour d'un socle&nbsp;: coupez ce circuit au tableau et ne l'utilisez "
+   "plus.",
+   "Débranchez les appareils raccordés en multiprise ou en rallonge sur le "
+   "plan de travail&nbsp;: aucun appareil de cuisson ou de lavage ne doit y "
+   "être branché, même provisoirement.",
+   "N'approchez aucun appareil électrique d'un évier ou d'une plaque sans "
+   "avoir coupé&nbsp;: en cuisine, l'eau et la chaleur sont toujours à côté.",
+ ],
+ "danger": ("La cuisine réunit les trois conditions d'un départ de feu "
+            "électrique&nbsp;: de fortes puissances, des câbles anciens "
+            "souvent sous-dimensionnés, et des raccordements improvisés "
+            "derrière des meubles où personne ne regarde. Une plaque de "
+            "cuisson branchée sur un circuit de prises ordinaire tire plus que "
+            "ce que le câble peut évacuer&nbsp;: il ne disjoncte pas "
+            "forcément, il chauffe. Les incendies d'origine électrique partent "
+            "très majoritairement d'un conducteur surchargé, pas d'un "
+            "court-circuit spectaculaire."),
+ "sections": [
+  ("Ce qu'une cuisine demande vraiment",
+   ["Une cuisine correctement équipée ne se contente pas de « prises en "
+    "plus ». Elle repose sur des <strong>circuits dédiés</strong>, chacun "
+    "avec sa protection au tableau et sa section de câble propre.",
+    "La <strong>plaque de cuisson</strong> a son circuit à elle, "
+    "dimensionné selon qu'elle est mono ou triphasée&nbsp;: c'est de loin "
+    "l'appareil le plus gourmand du logement. Le <strong>four</strong> a "
+    "également le sien. Chaque <strong>gros appareil</strong> — lave-"
+    "vaisselle, lave-linge s'il est en cuisine — se raccorde sur un circuit "
+    "séparé, parce que leur résistance de chauffe se cumule mal avec le reste.",
+    "Restent les <strong>prises du plan de travail</strong>, qui méritent leur "
+    "propre circuit et un nombre suffisant de socles. C'est là que se branchent "
+    "bouilloire, grille-pain, robot&nbsp;: les appareils qu'on n'anticipe "
+    "jamais et qui finissent sur une multiprise quand il n'y a que deux prises.",
+    "Le tout est protégé par un dispositif différentiel 30&nbsp;mA, qui "
+    "protège les personnes, et par des disjoncteurs adaptés à la section des "
+    "conducteurs, qui protègent les câbles. Les deux sont nécessaires, et ils "
+    "ne font pas le même travail."],
+   None),
+  ("Les six erreurs que nous corrigeons le plus souvent",
+   [],
+   ["La plaque de cuisson repiquée sur le circuit des prises&nbsp;: le câble "
+    "chauffe sans que rien ne se déclenche.",
+    "Une multiprise permanente derrière un meuble, inaccessible et "
+    "poussiéreuse — la configuration la plus dangereuse du logement.",
+    "Un disjoncteur remplacé par un calibre supérieur pour « arrêter qu'il "
+    "saute », sans que le câble, lui, ait changé.",
+    "Des prises installées trop près de l'évier ou de la plaque, hors des "
+    "distances admises.",
+    "Une boîte de dérivation emmurée derrière la crédence, impossible à "
+    "atteindre le jour d'une panne.",
+    "Aucune liaison à la terre sur les socles d'une cuisine rénovée, parce que "
+    "le circuit d'origine n'en avait pas et que personne ne l'a vérifié."],
+   ),
+  ("Avant ou après la pose des meubles&nbsp;?",
+   ["C'est la question qui coûte le plus cher quand on y répond trop tard. "
+    "L'électricité se fait <strong>avant</strong> la pose des meubles, point. "
+    "Une fois la cuisine montée, chaque mètre de câble suppose de démonter, de "
+    "contourner, parfois de renoncer — et le résultat est toujours moins "
+    "propre pour un prix plus élevé.",
+    "L'ordre qui fonctionne&nbsp;: on arrête le plan d'implantation de la "
+    "cuisine, on en déduit la position de chaque appareil et de chaque prise, "
+    "on tire les circuits, on pose les boîtes, puis le cuisiniste intervient. "
+    "Les sorties de câble attendent les appareils, pas l'inverse.",
+    "Si la cuisine est déjà posée, tout n'est pas perdu&nbsp;: on travaille "
+    "alors en apparent soigné, en plinthe technique ou par le dessus des "
+    "meubles hauts. C'est une solution honnête, à condition de l'annoncer "
+    "avant et non de la découvrir en fin de chantier.",
+    "Nous intervenons sur l'ensemble des Côtes-d'Armor, du neuf comme de la "
+    "rénovation, et nous remettons un schéma des circuits créés&nbsp;: le jour "
+    "où un appareil change, on sait sur quoi il est branché."],
+   None),
+ ],
+ "faq": [
+  ("Pourquoi ma cuisine disjoncte-t-elle quand tout fonctionne en même temps&nbsp;?",
+   "Deux causes possibles, et elles n'ont pas la même réponse. Soit plusieurs "
+   "appareils partagent un circuit qui n'est pas prévu pour eux, et il faut "
+   "créer des circuits dédiés&nbsp;; soit c'est le disjoncteur général qui "
+   "tombe, et c'est la puissance souscrite qui est en cause."),
+  ("Peut-on ajouter des prises sans refaire le tableau&nbsp;?",
+   "Souvent oui, si le tableau est moderne et dispose d'emplacements libres. "
+   "Sur un tableau à fusibles ou saturé, la reprise du tableau devient le "
+   "préalable&nbsp;: nous le disons au devis, pas en cours de chantier."),
+  ("Faut-il une prise de terre dans une cuisine ancienne&nbsp;?",
+   "Oui, sans exception. C'est le point le plus souvent manquant dans les "
+   "rénovations partielles, et c'est celui qui protège les personnes quand un "
+   "appareil met sa carcasse sous tension."),
+  ("Intervenez-vous en urgence&nbsp;?",
+   "Oui, 24h/24 et 7j/7 dans le département. Une prise qui chauffe ou une "
+   "odeur de brûlé en cuisine se traite le jour même&nbsp;: 02 20 06 00 75."),
+ ],
+},
+
+{
+ "slug": "creation-remplacement-evacuations-cotes-d-armor",
+ "court": "Créer ou refaire des évacuations (22)",
+ "dept": "22", "act": "degorgement", "date": "2026-10-08",
+ "titre": "Créer ou refaire des évacuations (22) — ETS-BZH",
+ "h1": "Créer ou refaire des évacuations dans les Côtes-d'Armor&nbsp;: pente, diamètre, ventilation",
+ "meta": ("Évacuations à créer ou à refaire dans les Côtes-d'Armor : pente, "
+          "diamètre, ventilation primaire. Ville par ville. 02 20 06 00 75."),
+ "mots_cles": ("création évacuation Côtes-d'Armor, refaire évacuation salle de "
+               "bain, pente canalisation PVC, déplacer un WC Saint-Brieuc"),
+ "chapo": ("Une évacuation qui se bouche tous les six mois n'a pas un problème "
+           "d'usage&nbsp;: elle a un problème de conception. Pente, diamètre, "
+           "ventilation&nbsp;: trois paramètres, et presque tous les bouchons "
+           "chroniques viennent de l'un des trois. Voici comment on refait "
+           "cela correctement."),
+ "villes_titre": "Ce que nous refaisons, ville par ville",
+ "villes_intro": ("L'époque de construction détermine la nature du réseau, et "
+                  "donc le type de reprise."),
+ "villes": [
+   ("Saint-Brieuc", "Appartements où l'on déplace une salle d'eau ou une "
+    "cuisine&nbsp;: la contrainte absolue est la hauteur disponible sous le "
+    "sol fini pour obtenir la pente. Quand elle manque, un broyeur ou une "
+    "pompe devient la seule issue honnête."),
+   ("Dinan", "Bâti ancien en pierre avec planchers bois&nbsp;: les reprises se "
+    "font par le dessous quand un vide sanitaire ou une cave le permet. C'est "
+    "plus propre, plus rapide, et cela évite de casser un plancher ancien."),
+   ("Lannion", "Maisons des années 1970 aux réseaux en PVC collé de première "
+    "génération&nbsp;: les emboîtements sèchent et prennent du jeu. Le "
+    "remplacement d'une portion coûte moins cher que trois débouchages."),
+   ("Lamballe-Armor", "Extensions et garages transformés en pièce de vie&nbsp;: "
+    "il faut créer une évacuation là où il n'y en a jamais eu, et la "
+    "raccorder sans casser la pente de l'existant."),
+   ("Trégueux", "Pavillonnaire récent&nbsp;: réseaux sains, mais ventilation "
+    "primaire parfois absente ou bouchée. C'est la cause des glouglous et des "
+    "siphons qui se vident, pas un bouchon."),
+   ("Guingamp", "Logements de centre ancien aux colonnes partagées&nbsp;: toute "
+    "reprise d'évacuation touche potentiellement la partie commune. Nous "
+    "délimitons par écrit ce qui est privatif avant d'engager quoi que ce soit."),
+ ],
+ "urgent": [
+   "Si une évacuation refoule pendant des travaux, arrêtez tout usage d'eau "
+   "dans le logement et prévenez l'étage du dessous en collectif.",
+   "Ne raccordez jamais une évacuation provisoire sur un siphon "
+   "existant&nbsp;: c'est la cause la plus fréquente de refoulement dans le "
+   "meuble voisin.",
+   "Ne rejetez aucun gravat, plâtre ou résidu de ciment dans une "
+   "évacuation&nbsp;: ils prennent en masse dans le coude et ne s'en vont "
+   "plus.",
+   "Bouchez provisoirement toute attente laissée ouverte&nbsp;: les odeurs "
+   "d'égout remontent en quelques heures.",
+ ],
+ "danger": ("Une évacuation mal refaite ne se signale pas tout de suite. Elle "
+            "fonctionne quelques mois, puis se bouche, puis se bouche plus "
+            "souvent. Le vrai risque est ailleurs&nbsp;: une pente insuffisante "
+            "laisse stagner des eaux usées sous un plancher, et une fuite sur "
+            "un raccord enterré ou encastré détrempe une structure pendant des "
+            "années avant qu'on la découvre. En bâti ancien à plancher bois, "
+            "très présent dans le département, c'est la façon la plus discrète "
+            "d'abîmer durablement une maison."),
+ "sections": [
+  ("Les trois paramètres qui décident de tout",
+   ["<strong>La pente.</strong> Une évacuation horizontale descend d'environ "
+    "1 à 3&nbsp;centimètres par mètre. En dessous, l'eau n'entraîne plus les "
+    "matières et le dépôt s'installe. Au-dessus, et c'est contre-intuitif, "
+    "l'eau file trop vite et laisse les solides sur place&nbsp;: une pente "
+    "trop forte bouche autant qu'une pente trop faible.",
+    "<strong>Le diamètre.</strong> Il se choisit par appareil, puis se cumule "
+    "sur le collecteur. Un lavabo, un évier et une douche n'ont pas les mêmes "
+    "besoins, et un WC impose un diamètre que rien ne remplace. L'erreur "
+    "classique consiste à raccorder un WC sur une conduite prévue pour une "
+    "salle d'eau.",
+    "<strong>La ventilation.</strong> C'est l'oubli numéro un. Une évacuation "
+    "qui n'est pas ventilée se met en dépression quand une chasse part&nbsp;: "
+    "elle aspire l'eau des siphons voisins, qui se vident, et les odeurs "
+    "d'égout entrent dans le logement. Les glouglous à chaque chasse d'eau "
+    "sont exactement ce symptôme — et aucun débouchage ne les fera "
+    "disparaître.",
+    "La ventilation primaire se prolonge en toiture. Quand c'est impossible, "
+    "un clapet aérateur correctement posé et accessible fait l'affaire dans "
+    "beaucoup de configurations, à condition d'être placé assez haut."],
+   None),
+  ("Quand la pente est impossible",
+   ["C'est la situation la plus fréquente en rénovation&nbsp;: on veut une "
+    "salle d'eau dans une chambre, un WC sous un escalier, une cuisine à "
+    "l'autre bout du logement — et il n'y a pas la hauteur pour descendre "
+    "jusqu'au collecteur.",
+    "Trois réponses existent, et elles ne se valent pas. Le "
+    "<strong>rehaussement du sol</strong> est la meilleure quand on peut se "
+    "le permettre&nbsp;: aucun appareil mécanique, aucune maintenance, et "
+    "cela fonctionne encore dans trente ans. Le <strong>broyeur</strong> "
+    "convient à un WC isolé peu sollicité, à condition d'accepter ses "
+    "limites&nbsp;: bruit, entretien, et une intolérance totale aux lingettes. "
+    "La <strong>pompe de relevage</strong> traite les cas plus lourds — une "
+    "salle d'eau complète, un sous-sol — mais ajoute un point de défaillance "
+    "qu'il faut entretenir.",
+    "Notre règle est simple&nbsp;: on cherche la gravité d'abord. Un appareil "
+    "mécanique n'est jamais un premier choix, c'est une réponse à une "
+    "contrainte réelle. Quand nous en proposons un, nous disons aussi ce qu'il "
+    "demandera dans cinq ans."],
+   None),
+  ("Ce que comprend une reprise d'évacuation",
+   [],
+   ["Le relevé de l'existant&nbsp;: tracé, diamètres, point de raccordement, "
+    "hauteur disponible — avant tout chiffrage.",
+    "L'inspection caméra de la partie conservée, pour ne pas raccorder du neuf "
+    "sur un tronçon défectueux.",
+    "La dépose des portions à remplacer et la protection des sols et des "
+    "abords.",
+    "La pose en PVC d'évacuation avec pente contrôlée au niveau, et non à "
+    "l'œil.",
+    "Des <strong>tampons de visite</strong> aux changements de direction&nbsp;: "
+    "c'est ce qui permettra de déboucher sans casser, plus tard.",
+    "La reprise ou la création de la ventilation.",
+    "Un essai à l'eau sur chaque appareil avant refermeture, et un contrôle "
+    "d'étanchéité des raccords.",
+    "Un schéma du tracé remis au propriétaire."],
+   ),
+ ],
+ "faq": [
+  ("Peut-on déplacer un WC de quelques mètres&nbsp;?",
+   "Souvent oui, si la hauteur permet de tenir la pente sur la distance "
+   "voulue. Au-delà, il faut soit rehausser le sol, soit passer par un "
+   "broyeur. Le relevé sur place répond en quelques minutes."),
+  ("Pourquoi mes siphons se vident-ils tout seuls&nbsp;?",
+   "C'est un défaut de ventilation, pas un bouchon. L'évacuation se met en "
+   "dépression et aspire l'eau des siphons voisins. La solution est une "
+   "ventilation primaire ou un clapet aérateur, pas un débouchage."),
+  ("Faut-il tout casser pour refaire une évacuation&nbsp;?",
+   "Pas toujours. Quand une cave, un vide sanitaire ou un plancher accessible "
+   "existe, on reprend par le dessous. Nous regardons cette possibilité en "
+   "premier, parce qu'elle change le prix du simple au double."),
+  ("Intervenez-vous en urgence&nbsp;?",
+   "Oui, 24h/24 et 7j/7 dans les Côtes-d'Armor pour un refoulement en cours. "
+   "Une reprise d'évacuation, elle, se programme&nbsp;: 02 20 06 00 75."),
+ ],
+},
+{
+ "slug": "renovation-salle-de-bain-finistere",
+ "court": "Rénover une salle de bain (29)",
+ "dept": "29", "act": "plomberie", "date": "2026-10-08",
+ "titre": "Rénover une salle de bain (29) : plomberie — ETS-BZH",
+ "h1": "Rénover une salle de bain en Finistère&nbsp;: réseaux, évacuations, étanchéité",
+ "meta": ("Rénovation de salle de bain en Finistère : ordre des travaux, "
+          "réseaux, évacuations, étanchéité, délai réel. Ville par ville. "
+          "02 20 06 00 75."),
+ "mots_cles": ("rénovation salle de bain Finistère, plomberie salle d'eau "
+               "Brest, remplacer baignoire Quimper, étanchéité douche "
+               "italienne"),
+ "chapo": ("Dans une rénovation de salle de bain, le carrelage se voit et la "
+           "plomberie se paie. Tout ce qui coûte cher plus tard se joue avant "
+           "la pose du revêtement&nbsp;: les réseaux, les pentes et "
+           "l'étanchéité. Voici l'ordre qui fonctionne, et les pièges propres "
+           "au bâti finistérien."),
+ "villes_titre": "Ce que nous rencontrons, ville par ville",
+ "villes_intro": ("Le bâti local décide du chantier bien avant le "
+                  "catalogue&nbsp;: planchers, murs, réseaux existants."),
+ "villes": [
+   ("Brest", "Beaucoup d'immeubles de la reconstruction&nbsp;: colonnes "
+    "communes, gaines techniques étroites, hauteur sous plafond généreuse. On "
+    "travaille en reprenant les attentes existantes plutôt qu'en déplaçant "
+    "les points d'eau, ce qui divise le coût."),
+   ("Quimper", "Centre ancien à planchers bois&nbsp;: le poids est la "
+    "question. Une baignoire pleine représente plusieurs centaines de kilos "
+    "sur quelques appuis. Nous vérifions la structure avant de valider une "
+    "implantation."),
+   ("Morlaix", "Maisons de ville hautes et étroites, salles d'eau souvent à "
+    "l'étage&nbsp;: toute fuite va chez le voisin ou dans le plafond du "
+    "dessous. L'étanchéité sous carrelage n'y est pas une option de confort."),
+   ("Concarneau", "Logements et meublés de bord de mer&nbsp;: humidité "
+    "permanente et ventilation insuffisante. Une rénovation réussie sans VMC "
+    "correcte redevient une salle d'eau moisie en deux hivers."),
+   ("Landerneau", "Pavillons des années 1980 aux réseaux en cuivre encore "
+    "sains&nbsp;: on conserve l'alimentation et on refait les évacuations, qui "
+    "sont la vraie faiblesse de cette génération."),
+   ("Douarnenez", "Bâti ancien en pierre, murs épais et irréguliers&nbsp;: les "
+    "réseaux passent en apparent soigné ou en doublage. Chercher à tout "
+    "encastrer dans de la pierre coûte cher pour un résultat moins fiable."),
+ ],
+ "urgent": [
+   "Si une fuite apparaît en cours de chantier, coupez l'eau au robinet "
+   "d'arrêt de la pièce — et faites-en poser un s'il n'y en a pas.",
+   "N'habillez jamais un réseau neuf avant l'essai en eau sous "
+   "pression&nbsp;: une fois le carrelage posé, chaque reprise coûte dix fois "
+   "plus.",
+   "Si le plancher du dessous se tache pendant les travaux, arrêtez tout et "
+   "faites vérifier&nbsp;: une tache au plafond est déjà une structure "
+   "mouillée.",
+   "Ne laissez pas une attente d'évacuation ouverte entre deux journées de "
+   "chantier&nbsp;: les odeurs d'égout remontent et stagnent dans la maison.",
+ ],
+ "danger": ("Le vrai risque d'une salle de bain n'est pas la fuite "
+            "spectaculaire&nbsp;: c'est l'infiltration lente sous le "
+            "receveur ou derrière la paroi. L'eau passe par un joint "
+            "défaillant, s'installe dans la chape, et ne se voit qu'au "
+            "plafond du dessous ou au gonflement d'une plinthe — plusieurs "
+            "mois après. En Finistère, où beaucoup de salles d'eau sont à "
+            "l'étage sur plancher bois, c'est la première cause de "
+            "réfections lourdes que nous constatons. L'étanchéité sous "
+            "carrelage est ce qui l'empêche, et elle ne se rattrape pas "
+            "après coup."),
+ "sections": [
+  ("L'ordre des travaux, qui n'est pas négociable",
+   ["Une salle de bain se refait dans un ordre précis, et toute inversion se "
+    "paie. Dépose complète d'abord, y compris l'ancien revêtement, parce que "
+    "poser sur l'existant interdit de voir l'état du support.",
+    "Viennent ensuite les <strong>réseaux</strong>&nbsp;: alimentations en eau "
+    "chaude et froide, évacuations, et l'électricité en parallèle. C'est à ce "
+    "moment, et à ce moment seulement, qu'on peut déplacer un point d'eau sans "
+    "surcoût. Puis l'<strong>essai en eau sous pression</strong>, réseaux "
+    "apparents, avant toute refermeture.",
+    "Ensuite seulement&nbsp;: doublage et support, "
+    "<strong>étanchéité</strong> — le système sous carrelage, pas un joint "
+    "silicone —, carrelage, et enfin la pose des appareils et de la "
+    "robinetterie.",
+    "La raison de cet ordre est simple&nbsp;: chaque étape recouvre la "
+    "précédente. Un défaut laissé derrière soi devient inaccessible, et la "
+    "seule façon d'y revenir est de défaire ce qui a été posé par-dessus."],
+   None),
+  ("Les quatre décisions qui engagent",
+   [],
+   ["<strong>Baignoire ou douche&nbsp;?</strong> La douche libère de la place "
+    "et se franchit sans enjamber, ce qui compte avec l'âge. La baignoire "
+    "reste pertinente avec de jeunes enfants. Le choix se fait pour dix à "
+    "quinze ans, pas pour l'année en cours.",
+    "<strong>Receveur extra-plat ou douche de plain-pied&nbsp;?</strong> Le "
+    "plain-pied est plus beau et plus accessible, mais il exige une hauteur "
+    "sous chape et une étanchéité irréprochable. Le receveur extra-plat offre "
+    "80&nbsp;% du résultat pour une fraction du risque.",
+    "<strong>Déplacer les points d'eau ou non&nbsp;?</strong> C'est le poste "
+    "qui fait doubler un devis. Conserver l'implantation existante quand elle "
+    "est acceptable est la meilleure économie du chantier.",
+    "<strong>La ventilation.</strong> Elle ne se discute pas. Une salle d'eau "
+    "sans extraction efficace moisit, et le carrelage neuf n'y change rien.",
+    "<strong>Les robinets d'arrêt.</strong> Un par alimentation, accessible. "
+    "C'est quelques dizaines d'euros, et c'est ce qui permettra de réparer un "
+    "jour sans couper toute la maison."],
+   ),
+  ("Combien de temps, vraiment",
+   ["Une salle de bain complète de taille courante demande généralement une à "
+    "deux semaines de chantier, tous corps d'état confondus — et l'essentiel "
+    "de ce délai n'est pas du travail, c'est du séchage. La chape sèche, "
+    "l'étanchéité sèche, la colle à carrelage sèche, les joints sèchent. "
+    "Vouloir compresser ces temps est la façon la plus sûre de fissurer un "
+    "carrelage ou de piéger de l'humidité sous l'étanchéité.",
+    "Un remplacement simple — baignoire par douche, même emplacement, "
+    "évacuations conservées — se tient en deux à trois jours. C'est "
+    "l'intervention la plus demandée, et de loin la plus rentable.",
+    "Nous donnons un délai avec les temps de séchage dedans, et nous disons "
+    "quels jours la pièce est inutilisable. Un client qui sait qu'il n'aura "
+    "pas de douche pendant quatre jours s'organise&nbsp;; un client qui "
+    "l'apprend le matin même ne pardonne pas, et il a raison.",
+    "Nous intervenons sur l'ensemble du Finistère, de Brest et Quimper aux "
+    "communes rurales, en rénovation complète comme en remplacement d'appareil."],
+   None),
+ ],
+ "faq": [
+  ("Faut-il refaire les canalisations en même temps&nbsp;?",
+   "Si elles sont en cuivre sain, non. Si elles sont en acier galvanisé, en "
+   "plomb, ou si des fuites se sont déjà produites, oui — c'est le seul "
+   "moment où elles sont accessibles sans surcoût."),
+  ("Une douche de plain-pied est-elle possible chez moi&nbsp;?",
+   "Cela dépend de la hauteur disponible sous le sol fini et de la position du "
+   "collecteur. Le relevé sur place le dit en quelques minutes&nbsp;; quand "
+   "c'est trop juste, un receveur extra-plat donne un résultat très proche."),
+  ("Le silicone suffit-il à étanchéifier une douche&nbsp;?",
+   "Non. Le silicone ferme un joint visible&nbsp;; il ne protège pas le "
+   "support. L'étanchéité est un système posé sous le carrelage, avant lui. "
+   "C'est invisible une fois fini, et c'est pourtant le poste qui évite les "
+   "sinistres."),
+  ("Intervenez-vous en urgence pendant une rénovation&nbsp;?",
+   "Oui, 24h/24 et 7j/7 en Finistère. Une fuite en cours de chantier, sur le "
+   "nôtre ou sur celui d'un autre, se traite tout de suite&nbsp;: "
+   "02 20 06 00 75."),
+ ],
+},
+
+{
+ "slug": "remplacement-wc-suspendu-broyeur-finistere",
+ "court": "Remplacer un WC (29)",
+ "dept": "29", "act": "plomberie", "date": "2026-10-08",
+ "titre": "Remplacer un WC (29) : suspendu, broyeur — ETS-BZH",
+ "h1": "Remplacer un WC en Finistère&nbsp;: posé au sol, suspendu ou broyeur",
+ "meta": ("WC à remplacer en Finistère : au sol, suspendu ou broyeur, ce que "
+          "chaque solution impose. Ville par ville. 02 20 06 00 75."),
+ "mots_cles": ("remplacement WC Finistère, pose WC suspendu Brest, WC broyeur "
+               "Quimper, changer cuvette toilettes 29"),
+ "chapo": ("Remplacer un WC paraît simple, et ça l'est — tant qu'on reste sur "
+           "la même sortie. Dès qu'on change de type d'appareil, on change de "
+           "chantier. Voici ce que chaque solution impose réellement, et "
+           "comment choisir sans se retrouver avec un broyeur dont on ne "
+           "voulait pas."),
+ "villes_titre": "Ce que nous posons, ville par ville",
+ "villes_intro": ("La configuration du logement commande le type d'appareil "
+                  "bien plus que le goût."),
+ "villes": [
+   ("Brest", "Appartements en collectif&nbsp;: la sortie est le plus souvent "
+    "horizontale, vers une colonne commune. Un suspendu y est possible quand "
+    "le mur est porteur ou qu'un bâti-support peut être ancré au sol."),
+   ("Quimper", "Logements anciens à sortie verticale au sol&nbsp;: c'est la "
+    "configuration qui limite le plus les modèles disponibles. Une pipe "
+    "d'évacuation adaptée résout la plupart des cas sans toucher au réseau."),
+   ("Morlaix", "Maisons hautes avec WC d'étage ajoutés après coup&nbsp;: "
+    "beaucoup de broyeurs posés par nécessité il y a quinze ou vingt ans, "
+    "qu'on peut parfois remplacer par du gravitaire lors d'une rénovation."),
+   ("Landerneau", "Pavillonnaire récent&nbsp;: la demande porte surtout sur le "
+    "passage au suspendu, pour le nettoyage au sol et le gain de place. Le "
+    "bâti-support se choisit en fonction du mur, pas du catalogue."),
+   ("Plougastel-Daoulas", "Maisons avec WC en sous-sol ou en contrebas du "
+    "collecteur&nbsp;: le relevage est inévitable. Mieux vaut une pompe bien "
+    "dimensionnée qu'un broyeur poussé à bout."),
+   ("Quimperlé", "Bâti de bourg, pièces exiguës sous escalier&nbsp;: les "
+    "modèles compacts et les sorties orientables font la différence. Nous "
+    "mesurons avant de commander, systématiquement."),
+ ],
+ "urgent": [
+   "Si le WC fuit par la base ou par la pipe, fermez le robinet d'arrêt de la "
+   "chasse et n'actionnez plus la chasse.",
+   "Une fuite à la base traverse le sol&nbsp;: en étage, prévenez le voisin du "
+   "dessous le jour même, pas la semaine suivante.",
+   "Ne forcez pas sur une cuvette descellée&nbsp;: la céramique casse net et "
+   "les arêtes coupent profondément.",
+   "Photographiez la sortie — au sol ou au mur — et mesurez l'entraxe des "
+   "fixations&nbsp;: c'est ce qui détermine si le remplacement est simple.",
+ ],
+ "danger": ("Une cuvette qui bouge est une cuvette qui va casser. La "
+            "céramique ne plie pas&nbsp;: elle cède d'un coup, sous le poids "
+            "d'une personne assise, et les coupures qui en résultent sont "
+            "sérieuses — c'est l'un des rares accidents vraiment graves de la "
+            "plomberie domestique. Le second risque est plus discret&nbsp;: "
+            "une pipe d'évacuation mal emboîtée laisse passer des eaux usées "
+            "sous le sol à chaque chasse, sans que rien ne se voie jusqu'à ce "
+            "que le plancher soit atteint."),
+ "sections": [
+  ("Trois solutions, trois contraintes",
+   ["<strong>Le WC posé au sol</strong> reste la solution la plus simple, la "
+    "moins chère et la plus durable. Rien ne dépend d'un mur, rien n'est "
+    "caché, et une réparation future se fait en une heure. Son seul vrai "
+    "défaut est le nettoyage autour du pied.",
+    "<strong>Le WC suspendu</strong> libère le sol et allège visuellement une "
+    "petite pièce. Il impose un bâti-support, donc un coffrage, donc une "
+    "profondeur perdue d'une quinzaine de centimètres. Point important et "
+    "souvent passé sous silence&nbsp;: le bâti doit être ancré correctement, "
+    "et dans une cloison légère il se fixe au sol, pas seulement au mur. "
+    "Prévoyez aussi une trappe d'accès au réservoir — un mécanisme finit "
+    "toujours par se changer.",
+    "<strong>Le WC broyeur</strong> n'est pas un choix de confort, c'est une "
+    "réponse à une impossibilité de pente. Il permet un WC là où aucune "
+    "évacuation gravitaire ne peut arriver. En contrepartie&nbsp;: du bruit, "
+    "une alimentation électrique, un entretien, et une intolérance absolue aux "
+    "lingettes, au papier épais et aux produits agressifs.",
+    "Notre position est constante&nbsp;: on cherche le gravitaire d'abord. Un "
+    "broyeur posé par facilité devient un appel de dépannage dans deux ans."],
+   None),
+  ("Ce qui rend un remplacement simple — ou pas",
+   [],
+   ["<strong>Même type de sortie</strong> (horizontale ou verticale) et même "
+    "position&nbsp;: remplacement d'une à deux heures.",
+    "<strong>Sortie identique mais entraxe différent</strong>&nbsp;: nouveau "
+    "perçage et rebouchage, une demi-journée.",
+    "<strong>Passage du posé au suspendu</strong>&nbsp;: pose d'un "
+    "bâti-support, reprise de l'évacuation en hauteur, coffrage et "
+    "carrelage&nbsp;— un à deux jours, plusieurs corps de métier.",
+    "<strong>Sortie verticale vers horizontale</strong>&nbsp;: reprise du "
+    "réseau sous le sol. C'est un chantier, pas un remplacement.",
+    "<strong>Création d'un WC là où il n'y en avait pas</strong>&nbsp;: "
+    "alimentation, évacuation, ventilation. On regarde d'abord si la pente "
+    "passe&nbsp;; sinon, broyeur ou relevage.",
+    "Dans tous les cas, on remplace le robinet d'arrêt et le flexible "
+    "d'alimentation en même temps. Ce sont deux pièces à quelques euros, et "
+    "ce sont elles qui fuient."],
+   ),
+  ("Le mécanisme de chasse, celui qu'on oublie",
+   ["Beaucoup de WC que l'on croit « à changer » n'ont qu'un mécanisme "
+    "fatigué. Une chasse qui coule en continu, un bouton qui reste enfoncé, "
+    "un réservoir qui se remplit sans fin&nbsp;: c'est le mécanisme, pas la "
+    "cuvette.",
+    "L'enjeu n'est pas que du confort. Une chasse qui fuit en permanence "
+    "représente une consommation considérable sur une année, et c'est l'une "
+    "des premières causes de facture d'eau anormale que nous identifions. Le "
+    "test est simple&nbsp;: quelques gouttes de colorant alimentaire dans le "
+    "réservoir, on attend sans tirer la chasse, et si la cuvette se colore, "
+    "le joint de cloche est mort.",
+    "Un mécanisme se remplace en moins d'une heure pour une somme sans "
+    "rapport avec un WC neuf. Nous le vérifions avant de proposer un "
+    "remplacement&nbsp;: c'est le genre de diagnostic qui fait économiser, et "
+    "c'est aussi celui qui fait rappeler.",
+    "Nous intervenons sur l'ensemble du Finistère, 24h/24 et 7j/7 pour une "
+    "fuite en cours, et sur rendez-vous pour un remplacement programmé."],
+   None),
+ ],
+ "faq": [
+  ("Peut-on passer d'un WC au sol à un suspendu&nbsp;?",
+   "Techniquement presque toujours, mais ce n'est pas un simple remplacement : "
+   "il faut un bâti-support, reprendre l'évacuation en hauteur et refaire le "
+   "coffrage. Comptez un à deux jours plutôt que deux heures."),
+  ("Un broyeur est-il vraiment fragile&nbsp;?",
+   "Un broyeur bien utilisé dure des années. Ce qui le tue tient en un mot : "
+   "les lingettes — y compris celles vendues comme biodégradables. Papier "
+   "toilette uniquement, et rien d'autre."),
+  ("Ma chasse coule, faut-il changer le WC&nbsp;?",
+   "Presque jamais. C'est le mécanisme ou le joint de cloche, qui se "
+   "remplacent en moins d'une heure. Faites le test du colorant avant "
+   "d'envisager autre chose."),
+  ("Intervenez-vous en urgence&nbsp;?",
+   "Oui, 24h/24 et 7j/7 en Finistère. Une cuvette fêlée ou une fuite à la "
+   "base ne peut pas attendre en étage : 02 20 06 00 75."),
+ ],
+},
+{
+ "slug": "compteur-panneau-branchement-puissance-finistere",
+ "court": "Compteur et puissance (29)",
+ "dept": "29", "act": "electricite", "date": "2026-10-08",
+ "titre": "Compteur et panneau de branchement (29) — ETS-BZH",
+ "h1": "Compteur, panneau de branchement et puissance en Finistère&nbsp;: qui fait quoi",
+ "meta": ("Compteur, disjoncteur de branchement et puissance souscrite en "
+          "Finistère : ce qui relève du gestionnaire et ce qui vous revient. "
+          "02 20 06 00 75."),
+ "mots_cles": ("compteur électrique Finistère, panneau de contrôle Brest, "
+               "augmenter la puissance compteur, disjoncteur de branchement "
+               "Quimper"),
+ "chapo": ("C'est le point du logement où tout le monde se trompe de "
+           "prestataire. Le compteur ne vous appartient pas, le disjoncteur "
+           "juste en dessous non plus, et pourtant la moitié de ce qui se "
+           "passe à cet endroit est bien à votre charge. Voici la frontière "
+           "exacte, et à qui s'adresser pour quoi."),
+ "villes_titre": "Ce que nous trouvons, ville par ville",
+ "villes_intro": ("L'âge et l'emplacement du branchement expliquent la plupart "
+                  "des interventions sur ce poste."),
+ "villes": [
+   ("Brest", "Immeubles de la reconstruction avec colonne montante "
+    "ancienne&nbsp;: le compteur est souvent en gaine palière. Les travaux sur "
+    "la colonne relèvent du gestionnaire et de la copropriété, pas du "
+    "logement — nous le disons avant d'engager quoi que ce soit."),
+   ("Quimper", "Logements anciens où le panneau de contrôle et le tableau sont "
+    "côte à côte, parfois dans un placard fermé. L'accessibilité du "
+    "disjoncteur de branchement est une obligation que l'on découvre souvent "
+    "trop tard."),
+   ("Concarneau", "Maisons de bord de mer avec coffret en limite de "
+    "propriété&nbsp;: la corrosion saline attaque le coffret et son "
+    "étanchéité. La partie en aval nous revient, et elle se traite."),
+   ("Landerneau", "Pavillons des années 1980 en 6&nbsp;kVA d'origine&nbsp;: la "
+    "puissance suffisait pour l'époque, plus pour aujourd'hui. Le diagnostic "
+    "distingue un manque de puissance d'une mauvaise répartition des circuits."),
+   ("Guipavas", "Constructions récentes bien dimensionnées&nbsp;: la demande "
+    "porte plutôt sur l'ajout de forte puissance — plaque induction, pompe à "
+    "chaleur, recharge de véhicule — et sur la vérification de ce que "
+    "l'installation encaisse."),
+   ("Crozon", "Résidences secondaires souvent en puissance minimale, remises "
+    "en service l'été avec tous les appareils allumés. Le disjoncteur de "
+    "branchement tombe&nbsp;: c'est la puissance souscrite, pas une panne."),
+ ],
+ "urgent": [
+   "Si le disjoncteur général saute dès que vous le réarmez, ne le forcez "
+   "pas&nbsp;: coupez tous les départs du tableau et remontez-les un par un.",
+   "N'ouvrez jamais le capot plombé du compteur ni celui du disjoncteur de "
+   "branchement&nbsp;: c'est interdit, et c'est l'endroit le plus dangereux de "
+   "l'installation.",
+   "Odeur de brûlé, grésillement ou trace noire au niveau du panneau&nbsp;: "
+   "coupez si vous pouvez le faire sans ouvrir, et appelez immédiatement.",
+   "En cas de coupure générale, vérifiez d'abord si les voisins sont touchés. "
+   "Si oui, c'est le réseau — le gestionnaire est à appeler, pas un "
+   "électricien.",
+ ],
+ "danger": ("La partie amont du branchement est la seule de tout le logement "
+            "qui reste sous tension même disjoncteur général abaissé. On ne "
+            "coupe pas le câble d'arrivée&nbsp;: il vient du réseau. C'est "
+            "pourquoi les plombs sur les capots ne sont pas une formalité "
+            "administrative mais une barrière de sécurité, et pourquoi une "
+            "intervention à cet endroit ne s'improvise pas. Un contact à ce "
+            "niveau n'est pas une secousse désagréable&nbsp;: c'est un arc "
+            "électrique, avec des brûlures profondes."),
+ "sections": [
+  ("Qui fait quoi&nbsp;: la frontière, en clair",
+   ["<strong>Le compteur</strong> — Linky ou plus ancien — appartient à la "
+    "collectivité et est géré par le gestionnaire du réseau de distribution. "
+    "Vous ne l'achetez pas, vous ne le remplacez pas, et aucun électricien "
+    "privé n'intervient dessus. Sa pose, son remplacement et son déplacement "
+    "relèvent du gestionnaire, et se demandent via votre fournisseur "
+    "d'électricité.",
+    "<strong>Le disjoncteur de branchement</strong>, juste en dessous, est "
+    "également du domaine du gestionnaire. C'est lui qui limite la puissance "
+    "souscrite, et c'est lui qui tombe quand vous dépassez votre abonnement.",
+    "<strong>Tout ce qui est en aval</strong> est à vous&nbsp;: la liaison "
+    "jusqu'au tableau, le tableau lui-même, les dispositifs différentiels, les "
+    "disjoncteurs divisionnaires, les circuits, les prises. C'est là que nous "
+    "intervenons, et c'est là que se trouvent la quasi-totalité des problèmes "
+    "réels.",
+    "<strong>Changer de puissance souscrite</strong> se demande à votre "
+    "fournisseur, pas à un électricien&nbsp;: c'est un réglage de l'abonnement, "
+    "opéré à distance sur un compteur communicant dans la plupart des cas. En "
+    "revanche, savoir <em>s'il faut</em> changer de puissance, et si "
+    "l'installation en aval encaissera ce changement, c'est notre travail."],
+   None),
+  ("Manque de puissance ou mauvaise répartition&nbsp;?",
+   ["Les deux se ressemblent et n'ont rien à voir. Le symptôme qui les "
+    "distingue est l'endroit où ça tombe.",
+    "Si c'est le <strong>disjoncteur général</strong> qui coupe, et que tout "
+    "s'éteint d'un coup, vous dépassez la puissance souscrite. Cela arrive "
+    "quand plusieurs gros appareils fonctionnent ensemble&nbsp;: plaque, four, "
+    "ballon, lave-linge. La réponse est soit d'augmenter l'abonnement, soit de "
+    "décaler les usages — le ballon en heures creuses libère souvent ce qu'il "
+    "faut.",
+    "Si c'est un <strong>disjoncteur divisionnaire</strong> qui tombe, la "
+    "puissance globale n'est pas en cause&nbsp;: c'est ce circuit-là qui est "
+    "surchargé ou défectueux. Augmenter l'abonnement n'y changera "
+    "strictement rien, et c'est pourtant le conseil le plus souvent donné.",
+    "Avant de proposer une augmentation de puissance — qui augmente l'abonnement "
+    "tous les mois —, nous mesurons. Dans une bonne partie des cas, créer un "
+    "circuit dédié ou répartir autrement les appareils règle le problème sans "
+    "toucher au contrat."],
+   None),
+  ("Ce que nous contrôlons sur ce poste",
+   [],
+   ["L'état et l'accessibilité du disjoncteur de branchement&nbsp;: il doit "
+    "rester atteignable sans outil et sans déplacer de meuble.",
+    "La liaison entre le panneau de contrôle et le tableau&nbsp;: section, "
+    "état, protection mécanique.",
+    "La présence et le fonctionnement des dispositifs différentiels, testés un "
+    "par un au bouton de test.",
+    "La <strong>prise de terre</strong> et sa valeur réelle&nbsp;: c'est la "
+    "mesure la plus souvent absente, et la plus importante.",
+    "La cohérence entre la puissance souscrite, la section de la liaison et "
+    "les usages réels du logement.",
+    "L'état du coffret extérieur quand il y en a un&nbsp;: étanchéité, "
+    "corrosion, fermeture — un point sensible sur tout le littoral "
+    "finistérien.",
+    "Le repérage des circuits au tableau, remis sous forme de schéma."],
+   ),
+ ],
+ "faq": [
+  ("Pouvez-vous remplacer mon compteur&nbsp;?",
+   "Non, et personne d'autre qu'un intervenant mandaté par le gestionnaire de "
+   "réseau ne le peut. Le compteur et le disjoncteur de branchement sont hors "
+   "du domaine privé. Nous intervenons sur tout ce qui se trouve en aval."),
+  ("Comment augmenter la puissance de mon compteur&nbsp;?",
+   "La demande se fait auprès de votre fournisseur d'électricité, qui la "
+   "transmet au gestionnaire. Avant de la faire, faites vérifier que votre "
+   "installation encaisse la nouvelle puissance : c'est ce que nous "
+   "contrôlons."),
+  ("Mon tableau est loin du compteur, est-ce un problème&nbsp;?",
+   "Pas en soi, à condition que la liaison ait la bonne section et soit "
+   "protégée. Sur une longue distance, la section est le point à vérifier — "
+   "c'est elle qui chauffe si elle est sous-dimensionnée."),
+  ("Intervenez-vous en urgence&nbsp;?",
+   "Oui, 24h/24 et 7j/7 en Finistère, sur toute la partie en aval du "
+   "branchement. Si la coupure touche aussi vos voisins, c'est le réseau : "
+   "nous vous le dirons au téléphone plutôt que de nous déplacer pour rien."),
+ ],
+},
+
+{
+ "slug": "raccordement-tout-a-l-egout-finistere",
+ "court": "Raccordement au tout-à-l'égout (29)",
+ "dept": "29", "act": "degorgement", "date": "2026-10-08",
+ "titre": "Raccordement au tout-à-l'égout (29) — ETS-BZH",
+ "h1": "Raccordement au tout-à-l'égout en Finistère&nbsp;: obligations, étapes, contrôle",
+ "meta": ("Raccordement au réseau collectif en Finistère : délai légal, "
+          "étapes, contrôle de conformité, mise hors service de la fosse. "
+          "02 20 06 00 75."),
+ "mots_cles": ("raccordement tout-à-l'égout Finistère, branchement "
+               "assainissement collectif Brest, mise hors service fosse "
+               "septique, contrôle conformité branchement"),
+ "chapo": ("Quand le collectif arrive dans la rue, le raccordement n'est pas "
+           "une option&nbsp;: c'est une obligation, avec un délai. Mais entre "
+           "la boîte de branchement posée en limite et vos propres "
+           "évacuations, il y a un chantier que personne ne vous décrit "
+           "vraiment. Le voici, étape par étape."),
+ "villes_titre": "Où nous intervenons, ville par ville",
+ "villes_intro": ("L'extension du réseau collectif progresse de façon très "
+                  "inégale selon les communes du département."),
+ "villes": [
+   ("Brest", "Secteurs denses déjà entièrement raccordés&nbsp;: les "
+    "interventions portent surtout sur la mise en conformité de branchements "
+    "anciens et la séparation des eaux usées et des eaux pluviales."),
+   ("Quimper", "Extensions de réseau en périphérie&nbsp;: des maisons jusque-là "
+    "en fosse se raccordent. Le point sensible est la pente disponible entre "
+    "la maison et la boîte de branchement."),
+   ("Landerneau", "Lotissements en réseau séparatif&nbsp;: les mauvais "
+    "branchements — une gouttière raccordée sur l'eau usée — sont la première "
+    "cause de non-conformité relevée au contrôle."),
+   ("Plougastel-Daoulas", "Terrains en pente et habitat dispersé&nbsp;: "
+    "certaines parcelles sont en contrebas du collecteur, et le raccordement "
+    "gravitaire est impossible. Un poste de relevage devient alors "
+    "indispensable."),
+   ("Fouesnant", "Secteur littoral à forte pression réglementaire&nbsp;: les "
+    "contrôles de branchement sont fréquents, notamment lors des ventes. Un "
+    "dossier propre évite une décote au moment de la transaction."),
+   ("Crozon", "Presqu'île à habitat dispersé&nbsp;: beaucoup de parcelles "
+    "restent en assainissement non collectif, et le resteront. La question "
+    "n'est pas le raccordement mais la conformité de la filière existante."),
+ ],
+ "urgent": [
+   "Si vos évacuations refoulent après un raccordement récent, cessez tout "
+   "usage d'eau et vérifiez que l'ancienne fosse a bien été mise hors "
+   "service.",
+   "Ne comblez jamais une fosse sans l'avoir fait vidanger au "
+   "préalable&nbsp;: les gaz résiduels sont dangereux et la structure peut "
+   "s'effondrer.",
+   "N'entrez sous aucun prétexte dans une fosse, même vide, même "
+   "ouverte&nbsp;: l'atmosphère y est pauvre en oxygène et les accidents y "
+   "sont systématiquement graves.",
+   "Gardez toutes les factures et le rapport de contrôle&nbsp;: ils vous "
+   "seront demandés à la vente du bien.",
+ ],
+ "danger": ("Deux dangers, et ils ne concernent pas la même personne. Le "
+            "premier est immédiat&nbsp;: une fosse laissée en place sans "
+            "vidange ni comblement est un vide instable sous un terrain où "
+            "l'on marche, et les effondrements de couvercle anciens font des "
+            "victimes chaque année en France. Le second est "
+            "administratif&nbsp;: un branchement non conforme se découvre "
+            "presque toujours au pire moment, lors d'une vente, et la "
+            "régularisation en urgence coûte beaucoup plus cher qu'un "
+            "raccordement fait correctement au bon moment."),
+ "sections": [
+  ("Ce que la loi impose, et ce qu'elle n'impose pas",
+   ["Lorsqu'un réseau collectif est mis en service dans la rue, les immeubles "
+    "qui y ont accès doivent y être raccordés dans un délai de "
+    "<strong>deux ans</strong>. Ce n'est pas une recommandation&nbsp;: "
+    "au-delà, la collectivité peut majorer la redevance d'assainissement, "
+    "parfois dans des proportions significatives.",
+    "La répartition des travaux est constante&nbsp;: la collectivité réalise "
+    "la partie publique, généralement jusqu'à une <strong>boîte de "
+    "branchement</strong> posée en limite de propriété. Tout ce qui est "
+    "ensuite sur votre terrain — de vos évacuations jusqu'à cette boîte — est "
+    "à votre charge, travaux compris.",
+    "Des dérogations et des délais supplémentaires existent selon les "
+    "situations, et une participation financière au raccordement peut être "
+    "demandée par la collectivité. Le service d'assainissement de votre "
+    "commune est l'interlocuteur qui tranche&nbsp;: nous vous disons ce qui "
+    "est techniquement nécessaire, pas ce que votre règlement local prévoit.",
+    "Enfin, la mise hors service de l'ancienne installation n'est pas "
+    "facultative&nbsp;: la fosse doit être vidangée puis comblée ou retirée. "
+    "C'est une étape du chantier, pas une finition qu'on remet à plus tard."],
+   None),
+  ("Les étapes, dans l'ordre",
+   [],
+   ["<strong>Déclaration auprès du service d'assainissement</strong> et "
+    "demande de branchement&nbsp;: c'est le point de départ administratif.",
+    "<strong>Relevé sur place</strong>&nbsp;: position de la boîte de "
+    "branchement, altitude de vos sorties, pente disponible, nature du "
+    "terrain.",
+    "<strong>Tracé et terrassement</strong> entre la maison et la limite, avec "
+    "les regards de visite aux changements de direction.",
+    "<strong>Pose du réseau</strong> en diamètre et pente adaptés, avec lit de "
+    "pose et remblai soigné&nbsp;— un tuyau posé sur des cailloux se déforme "
+    "en quelques années.",
+    "<strong>Séparation stricte des eaux usées et des eaux pluviales</strong> "
+    "quand le réseau est séparatif&nbsp;: c'est le point le plus contrôlé.",
+    "<strong>Vidange et neutralisation de l'ancienne fosse</strong> par un "
+    "vidangeur agréé, avec bordereau de suivi des matières.",
+    "<strong>Essais et contrôle de conformité</strong> par le service "
+    "d'assainissement avant remblaiement définitif quand c'est exigé.",
+    "<strong>Plan de récolement</strong> remis au propriétaire&nbsp;: le tracé "
+    "exact, pour ne pas chercher dans dix ans."],
+   ),
+  ("Quand la gravité ne suffit pas",
+   ["Certaines parcelles sont en contrebas du collecteur, ou trop éloignées "
+    "pour tenir la pente sur la distance. Dans ce cas, le raccordement passe "
+    "par un <strong>poste de relevage</strong> installé sur votre terrain.",
+    "C'est une solution éprouvée, mais elle change la nature de "
+    "l'installation&nbsp;: elle devient électromécanique, donc elle demande "
+    "une alimentation électrique protégée, un entretien régulier et une "
+    "alarme en état de marche. Un poste sans alarme fonctionnelle, c'est une "
+    "panne qu'on découvre quand la bâche déborde.",
+    "Le dimensionnement compte autant que le matériel&nbsp;: une pompe trop "
+    "petite tourne en permanence et s'use, une pompe trop grande démarre et "
+    "s'arrête sans cesse. Nous calculons le volume à relever et la hauteur "
+    "manométrique avant de proposer un appareil, et nous prévoyons un accès "
+    "qui permette l'entretien sans démonter la moitié du jardin.",
+    "Nous intervenons sur l'ensemble du Finistère, en raccordement comme en "
+    "mise en conformité de branchement existant, avec inspection caméra et "
+    "rapport écrit exploitable par le service d'assainissement."],
+   None),
+ ],
+ "faq": [
+  ("Combien de temps ai-je pour me raccorder&nbsp;?",
+   "Deux ans à compter de la mise en service du réseau dans la rue. Au-delà, "
+   "la collectivité peut majorer votre redevance d'assainissement. Le service "
+   "assainissement de votre commune précise les modalités locales."),
+  ("Que faire de mon ancienne fosse&nbsp;?",
+   "Elle doit être vidangée par un professionnel agréé, puis comblée ou "
+   "retirée. La laisser en place pleine ou simplement couverte est interdit, "
+   "et c'est aussi un vrai danger d'effondrement."),
+  ("Qui paie les travaux&nbsp;?",
+   "La partie publique, jusqu'à la boîte de branchement, est réalisée par la "
+   "collectivité. Tout ce qui se trouve sur votre terrain est à votre charge. "
+   "Une participation au raccordement peut en outre être demandée."),
+  ("Mon terrain est plus bas que le collecteur, est-ce bloquant&nbsp;?",
+   "Non, mais le raccordement passera par un poste de relevage. Nous "
+   "dimensionnons la pompe sur le volume réel et la hauteur à franchir, et "
+   "nous prévoyons l'alarme — c'est elle qui évite le débordement."),
+ ],
+},
+{
+ "slug": "remplacement-baignoire-par-douche-ille-et-vilaine",
+ "court": "Baignoire remplacée par une douche (35)",
+ "dept": "35", "act": "plomberie", "date": "2026-10-08",
+ "titre": "Remplacer une baignoire par une douche (35) — ETS-BZH",
+ "h1": "Remplacer une baignoire par une douche en Ille-et-Vilaine&nbsp;: accès de plain-pied et sécurité",
+ "meta": ("Baignoire remplacée par une douche en Ille-et-Vilaine : délai, "
+          "accessibilité, barres d'appui, évacuation. Ville par ville. "
+          "02 20 06 00 75."),
+ "mots_cles": ("remplacer baignoire par douche Ille-et-Vilaine, douche senior "
+               "Rennes, douche plain-pied Saint-Malo, salle de bain PMR 35"),
+ "chapo": ("Enjamber une baignoire devient difficile bien avant qu'on se le "
+           "dise. C'est le remplacement le plus demandé que nous réalisons, et "
+           "le plus simple quand il est bien pensé&nbsp;: deux à trois jours, "
+           "même emplacement, même évacuation. Voici ce qui compte vraiment, "
+           "au-delà du receveur."),
+ "villes_titre": "Ce que nous réalisons, ville par ville",
+ "villes_intro": ("La configuration des salles de bain change d'un parc "
+                  "immobilier à l'autre, et avec elle la solution retenue."),
+ "villes": [
+   ("Rennes", "Appartements des années 1960 à 1980 avec baignoire en "
+    "niche&nbsp;: c'est la configuration idéale. Le receveur reprend "
+    "exactement l'emprise, l'évacuation existante est conservée, et le "
+    "chantier tient en deux jours."),
+   ("Saint-Malo", "Logements anciens et meublés&nbsp;: planchers irréguliers et "
+    "murs en pierre. La paroi se pose sur un support redressé, sinon elle ne "
+    "sera jamais étanche en pied."),
+   ("Vitré", "Maisons familiales avec salle de bain à l'étage&nbsp;: on "
+    "privilégie un receveur extra-plat à une douche de plain-pied, parce que "
+    "la hauteur sous chape ne le permet pas sans toucher au plancher."),
+   ("Redon", "Logements de plain-pied occupés par des personnes "
+    "âgées&nbsp;: la demande porte autant sur la sécurité — barres d'appui, "
+    "siège, sol antidérapant — que sur la douche elle-même."),
+   ("Combourg", "Bâti de bourg aux pièces exiguës&nbsp;: supprimer la "
+    "baignoire libère souvent la place d'un meuble vasque, et c'est ce gain "
+    "qui décide, plus que la douche."),
+   ("Betton", "Pavillonnaire récent&nbsp;: hauteur disponible correcte, "
+    "évacuations saines. C'est là que la douche de plain-pied est réellement "
+    "réalisable sans compromis."),
+ ],
+ "urgent": [
+   "Si la baignoire fuit en pied, cessez de l'utiliser&nbsp;: en étage, l'eau "
+   "part dans le plancher et chez le voisin du dessous.",
+   "Ne posez pas un tapis antidérapant sur un fond déjà glissant comme "
+   "solution d'attente&nbsp;: c'est l'enjambement qui fait chuter, pas le fond.",
+   "Si une personne âgée a déjà glissé une fois, traitez-le comme un "
+   "signal&nbsp;: la deuxième chute arrive, et elle est rarement sans "
+   "conséquence.",
+   "Photographiez la baignoire, ses dimensions et la position de "
+   "l'évacuation&nbsp;: cela suffit à préparer un devis précis.",
+ ],
+ "danger": ("La salle de bain est la pièce où l'on chute le plus à domicile, "
+            "et l'enjambement d'une baignoire en est la cause principale "
+            "après 70&nbsp;ans. Une fracture du col du fémur à cet âge "
+            "n'est pas un accident domestique comme un autre&nbsp;: elle "
+            "change une vie, souvent définitivement. C'est la raison pour "
+            "laquelle ce remplacement n'est pas un chantier de confort mais "
+            "une mesure de prévention — et pourquoi il vaut mieux le faire "
+            "un an trop tôt qu'un mois trop tard."),
+ "sections": [
+  ("Trois solutions selon la hauteur disponible",
+   ["<strong>Le receveur extra-plat</strong> est la réponse la plus "
+    "fréquente, et la plus raisonnable. Il se pose sur le sol existant, avec "
+    "un seuil de quelques centimètres seulement, et réutilise l'évacuation de "
+    "la baignoire. Deux à trois jours, pas de gros œuvre, un résultat propre.",
+    "<strong>La douche de plain-pied</strong> supprime totalement le "
+    "seuil&nbsp;: c'est l'idéal en termes d'accessibilité, y compris en "
+    "fauteuil. Elle exige en revanche une hauteur sous chape suffisante pour "
+    "encastrer le receveur et sa bonde, et une étanchéité sous carrelage "
+    "irréprochable. Quand la hauteur n'y est pas, il faut toucher au plancher "
+    "— et le chantier change de nature.",
+    "<strong>La douche sur mesure avec caniveau</strong> règle certains cas "
+    "intermédiaires en déportant l'évacuation. Plus technique, plus coûteuse, "
+    "mais parfois la seule façon d'obtenir le plain-pied dans une pièce "
+    "contrainte.",
+    "Nous relevons la hauteur disponible avant de promettre quoi que ce soit. "
+    "Annoncer un plain-pied puis découvrir en cours de chantier qu'il faut "
+    "casser la dalle est la façon la plus sûre de doubler une facture et de "
+    "perdre la confiance d'un client."],
+   None),
+  ("Ce qui fait vraiment la sécurité",
+   [],
+   ["<strong>Des barres d'appui fixées dans le dur</strong>, pas dans un "
+    "doublage. Une barre qui s'arrache est pire que pas de barre, parce qu'on "
+    "s'y fie.",
+    "<strong>Un sol antidérapant</strong> de classement adapté&nbsp;: c'est "
+    "une caractéristique technique du carrelage ou du receveur, pas une "
+    "impression au toucher en magasin.",
+    "<strong>Un siège</strong>, rabattable ou fixe. Beaucoup de personnes qui "
+    "tiennent debout aujourd'hui apprécieront de s'asseoir dans trois ans.",
+    "<strong>Un mitigeur thermostatique</strong> avec limiteur de "
+    "température&nbsp;: il supprime le réflexe de recul brutal sur une arrivée "
+    "d'eau trop chaude, qui est une cause de chute à part entière.",
+    "<strong>Une porte ou un rideau qui s'ouvre vers l'extérieur</strong>&nbsp;: "
+    "si quelqu'un tombe à l'intérieur, on doit pouvoir entrer.",
+    "<strong>Un éclairage suffisant</strong>, souvent le poste le plus "
+    "négligé&nbsp;: beaucoup de salles d'eau anciennes ont un seul point "
+    "lumineux faible au plafond."],
+   ),
+  ("Délai, aides et bon moment",
+   ["Un remplacement sur le même emplacement, évacuation conservée, demande "
+    "deux à trois jours&nbsp;: dépose de la baignoire, reprise du support et "
+    "de l'étanchéité, carrelage ou panneaux, pose du receveur, de la paroi et "
+    "de la robinetterie. L'essentiel du délai tient aux temps de séchage, pas "
+    "au travail lui-même.",
+    "Pendant ces deux à trois jours, la douche est inutilisable. Nous le "
+    "disons à la commande et nous calons les dates en conséquence&nbsp;: dans "
+    "un logement occupé par une personne seule et âgée, ce détail n'en est "
+    "pas un.",
+    "Des dispositifs d'aide existent pour l'adaptation du logement au "
+    "vieillissement, selon les ressources et la situation&nbsp;: ils relèvent "
+    "d'organismes publics, de la caisse de retraite ou du département, et les "
+    "conditions changent régulièrement. Renseignez-vous avant de faire "
+    "réaliser les travaux, car l'antériorité du devis compte presque toujours. "
+    "Nous fournissons un devis détaillé poste par poste, qui est ce que ces "
+    "dossiers demandent.",
+    "Nous intervenons sur l'ensemble de l'Ille-et-Vilaine, de Rennes et sa "
+    "couronne jusqu'à Saint-Malo, Fougères, Vitré et Redon."],
+   None),
+ ],
+ "faq": [
+  ("Combien de temps sans douche&nbsp;?",
+   "Deux à trois jours pour un remplacement sur le même emplacement. Nous "
+   "donnons les dates précises à la commande, parce que c'est une contrainte "
+   "réelle quand on vit seul."),
+  ("Faut-il refaire toute la salle de bain&nbsp;?",
+   "Non, dans la plupart des cas. On reprend l'emprise de la baignoire, le "
+   "mur attenant et le sol de la zone. Le reste de la pièce peut être "
+   "conservé si le carrelage existe encore en réserve ou si le raccord se "
+   "traite proprement."),
+  ("Peut-on garder l'évacuation existante&nbsp;?",
+   "Le plus souvent oui : une baignoire et un receveur évacuent au même "
+   "endroit, à la même hauteur. C'est précisément ce qui rend ce "
+   "remplacement rapide et abordable."),
+  ("Posez-vous les barres d'appui&nbsp;?",
+   "Oui, et nous les fixons dans un support capable de les tenir. Une barre "
+   "vissée dans un doublage creux donne une fausse sécurité, ce qui est pire "
+   "que son absence."),
+ ],
+},
+
+{
+ "slug": "remplacement-robinetterie-colonnes-ille-et-vilaine",
+ "court": "Robinetterie et colonnes (35)",
+ "dept": "35", "act": "plomberie", "date": "2026-10-08",
+ "titre": "Robinetterie et colonnes d'alimentation (35) — ETS-BZH",
+ "h1": "Remplacer robinetterie et colonnes d'alimentation en Ille-et-Vilaine",
+ "meta": ("Robinetterie qui fuit, pression faible, colonnes anciennes en "
+          "Ille-et-Vilaine : remplacement et reprise d'alimentation. Ville par "
+          "ville. 02 20 06 00 75."),
+ "mots_cles": ("remplacement robinetterie Ille-et-Vilaine, mitigeur "
+               "thermostatique Rennes, colonne alimentation plomb, pression "
+               "d'eau faible Fougères"),
+ "chapo": ("Un mitigeur qui goutte se change en vingt minutes. Une pression "
+           "qui baisse depuis trois ans, c'est autre chose&nbsp;: le problème "
+           "n'est pas au robinet, il est dans ce qui l'alimente. Savoir "
+           "distinguer les deux évite de remplacer trois fois la même pièce "
+           "sans rien régler."),
+ "villes_titre": "Ce que nous remplaçons, ville par ville",
+ "villes_intro": ("L'âge des réseaux d'alimentation explique la plupart des "
+                  "problèmes de débit du département."),
+ "villes": [
+   ("Rennes", "Immeubles d'après-guerre aux colonnes montantes "
+    "anciennes&nbsp;: quand la pression est faible dans tout l'appartement, la "
+    "cause est souvent commune et relève du syndic. Nous le vérifions avant de "
+    "faire engager des frais privatifs inutiles."),
+   ("Fougères", "Centre ancien avec portions en acier galvanisé&nbsp;: la "
+    "corrosion interne réduit le diamètre année après année. Le symptôme est "
+    "une pression qui baisse lentement, jamais d'un coup."),
+   ("Saint-Malo", "Logements de bord de mer&nbsp;: la robinetterie extérieure "
+    "et les raccords métalliques souffrent du sel. L'inox et le laiton tiennent, "
+    "l'acier ordinaire ne tient pas trois hivers."),
+   ("Vitré", "Parc locatif à robinetterie d'entrée de gamme&nbsp;: les "
+    "cartouches céramiques lâchent en série. Remplacer la cartouche plutôt que "
+    "le mitigeur entier suffit dans une bonne moitié des cas."),
+   ("Bruz", "Pavillonnaire des années 1980 en cuivre sain&nbsp;: les "
+    "interventions portent sur les points de puisage et les robinets d'arrêt "
+    "grippés, pas sur le réseau lui-même."),
+   ("Janzé", "Habitat rural parfois alimenté par de longs branchements&nbsp;: "
+    "une pression faible peut venir du branchement public autant que de "
+    "l'installation privée. La mesure au manomètre tranche en cinq minutes."),
+ ],
+ "urgent": [
+   "Une fuite au corps d'un mitigeur, et non au bec&nbsp;: fermez le robinet "
+   "d'arrêt sous l'appareil, le corps ne se répare pas.",
+   "Si aucun robinet d'arrêt n'existe sous l'appareil, coupez l'arrivée "
+   "générale — et faites-en poser un, c'est la pièce qui manque le plus "
+   "souvent.",
+   "Ne forcez jamais un robinet d'arrêt grippé&nbsp;: la tige casse et vous "
+   "vous retrouvez avec une fuite ouverte au lieu d'une fuite lente.",
+   "Une eau qui sort brune ou trouble après des travaux sur le réseau&nbsp;: "
+   "laissez couler quelques minutes, et si cela persiste, ne la consommez pas "
+   "et appelez.",
+ ],
+ "danger": ("Le danger ici n'est pas spectaculaire, il est "
+            "cumulatif&nbsp;: une alimentation en acier galvanisé corrodée de "
+            "l'intérieur finit par percer, et elle perce généralement dans une "
+            "cloison ou sous une chape, là où personne ne voit rien pendant "
+            "des mois. Le second point mérite d'être dit clairement&nbsp;: "
+            "s'il reste des <strong>canalisations en plomb</strong> dans "
+            "l'installation, elles n'ont plus leur place sur un réseau d'eau "
+            "potable et leur remplacement n'est pas un sujet de confort."),
+ "sections": [
+  ("Le robinet, ou ce qui l'alimente&nbsp;: le test en trente secondes",
+   ["La question se règle sans outil. Ouvrez en grand un robinet, puis un "
+    "autre dans une autre pièce, puis observez.",
+    "<strong>Un seul point d'eau est faible&nbsp;:</strong> c'est le robinet, "
+    "son mousseur ou son flexible. Un mousseur entartré se dévisse et se "
+    "nettoie dans un verre de vinaigre — c'est de loin la première cause, et "
+    "elle ne coûte rien.",
+    "<strong>Toute l'eau chaude est faible, la froide est normale&nbsp;:</strong> "
+    "le problème est au chauffe-eau ou sur sa sortie. Souvent le groupe de "
+    "sécurité entartré, parfois un filtre encrassé.",
+    "<strong>Tout le logement est faible&nbsp;:</strong> c'est l'alimentation "
+    "générale. Réducteur de pression déréglé, filtre colmaté, vanne "
+    "partiellement fermée, ou colonne corrodée. En appartement, c'est souvent "
+    "une partie commune.",
+    "<strong>La pression baisse quand les voisins consomment&nbsp;:</strong> "
+    "la colonne ou le branchement sont sous-dimensionnés pour les usages "
+    "actuels. C'est un sujet de copropriété, pas de logement."],
+   None),
+  ("Ce qui vaut la peine d'être remplacé, et ce qui vaut la peine d'être réparé",
+   [],
+   ["<strong>Une cartouche de mitigeur</strong> se remplace&nbsp;: quelques "
+    "euros, vingt minutes, et le robinet repart pour des années. Inutile de "
+    "changer l'appareil entier s'il est de bonne facture.",
+    "<strong>Un corps de robinet qui fuit</strong> se remplace, lui&nbsp;: "
+    "il n'y a rien à réparer à l'intérieur.",
+    "<strong>Un robinet d'arrêt grippé</strong> se remplace sans hésiter. "
+    "C'est la pièce la moins chère de l'installation et celle dont la "
+    "défaillance coûte le plus cher, le jour où il faut couper vite.",
+    "<strong>Un flexible d'alimentation</strong> vieillit mal&nbsp;: il se "
+    "change à chaque intervention sur l'appareil, pas quand il lâche.",
+    "<strong>Une portion en acier galvanisé</strong> se remplace par du cuivre "
+    "ou du multicouche. Réparer une portion corrodée, c'est différer de "
+    "quelques mois.",
+    "<strong>Un mitigeur thermostatique</strong> dans une douche vaut son "
+    "surcoût&nbsp;: température stable, limiteur anti-brûlure, et un confort "
+    "qui compte avec des enfants ou des personnes âgées."],
+   ),
+  ("Reprendre une colonne d'alimentation",
+   ["Quand le diagnostic conclut à une alimentation corrodée, la bonne "
+    "nouvelle est qu'on ne refait presque jamais tout. On reprend la portion "
+    "en cause, du point d'entrée jusqu'au premier tronçon sain, et on raccorde "
+    "proprement.",
+    "Le matériau se choisit selon la configuration. Le <strong>cuivre</strong> "
+    "reste la référence en durabilité et se travaille bien en apparent. Le "
+    "<strong>multicouche</strong> passe en gaine, se cintre, et limite le "
+    "nombre de raccords — donc le nombre de fuites potentielles. Dans les deux "
+    "cas, des raccords diélectriques s'imposent au contact entre métaux "
+    "différents, sinon la corrosion galvanique reprend au point de jonction.",
+    "Un principe guide tout le chantier&nbsp;: <strong>aucun raccord "
+    "inaccessible</strong>. Un raccord encastré derrière un doublage, sans "
+    "trappe, est une fuite programmée que personne ne pourra atteindre. Quand "
+    "l'encastrement est inévitable, on passe en gaine, et la gaine permet de "
+    "retirer le tube sans casser.",
+    "Nous intervenons sur l'ensemble de l'Ille-et-Vilaine, pour des "
+    "particuliers comme pour des bailleurs et des syndics, avec une mesure de "
+    "pression avant et après — c'est ce qui prouve que l'intervention a servi."],
+   None),
+ ],
+ "faq": [
+  ("Ma pression baisse depuis des années, pourquoi&nbsp;?",
+   "Une baisse lente et progressive signe presque toujours une corrosion "
+   "interne sur de l'acier galvanisé, fréquent avant 1970. Une baisse "
+   "soudaine, elle, oriente vers un filtre, un réducteur de pression ou une "
+   "vanne."),
+  ("Faut-il remplacer tout le réseau&nbsp;?",
+   "Rarement. On remplace la portion dégradée jusqu'au premier tronçon sain. "
+   "Le diagnostic — mesure de pression, état des points de raccordement — dit "
+   "où s'arrêter."),
+  ("Un mitigeur thermostatique en vaut-il la peine&nbsp;?",
+   "Dans une douche, oui : température stable malgré les variations du "
+   "réseau et limiteur anti-brûlure. C'est particulièrement utile avec de "
+   "jeunes enfants ou des personnes âgées."),
+  ("Intervenez-vous en urgence sur une fuite de robinetterie&nbsp;?",
+   "Oui, 24h/24 et 7j/7 en Ille-et-Vilaine. Fermez le robinet d'arrêt de "
+   "l'appareil si vous en avez un, et appelez le 02 20 06 00 75."),
+ ],
+},
+{
+ "slug": "remplacement-tableau-electrique-ille-et-vilaine",
+ "court": "Remplacer un tableau électrique (35)",
+ "dept": "35", "act": "electricite", "date": "2026-10-08",
+ "titre": "Remplacer un tableau électrique (35) — ETS-BZH",
+ "h1": "Remplacer un tableau électrique en Ille-et-Vilaine&nbsp;: dépose, pose, remise en service",
+ "meta": ("Tableau électrique à remplacer en Ille-et-Vilaine : déroulé de la "
+          "journée, coupure, repérage, remise en service. Ville par ville. "
+          "02 20 06 00 75."),
+ "mots_cles": ("remplacement tableau électrique Ille-et-Vilaine, changer "
+               "tableau Rennes, différentiel 30 mA, repérage circuits "
+               "Saint-Malo"),
+ "chapo": ("Remplacer un tableau, c'est remplacer l'organe qui protège les "
+           "personnes et les câbles de tout le logement. L'opération tient "
+           "dans une journée, coupure comprise, à condition d'être préparée. "
+           "Voici comment elle se déroule réellement, heure par heure."),
+ "villes_titre": "Ce que nous déposons, ville par ville",
+ "villes_intro": ("La génération du tableau existant détermine la durée et le "
+                  "contenu de l'intervention."),
+ "villes": [
+   ("Rennes", "Appartements où le tableau se trouve en entrée, parfois dans un "
+    "placard fermé. La contrainte est l'espace disponible&nbsp;: un tableau "
+    "moderne occupe plus de place qu'un ancien, parce qu'il porte plus de "
+    "protections."),
+   ("Saint-Malo", "Logements anciens et locatifs où les circuits n'ont jamais "
+    "été repérés. Le repérage prend alors une bonne partie de la journée — et "
+    "c'est du temps bien employé, pas du remplissage."),
+   ("Fougères", "Centre ancien avec tableaux à fusibles encore en "
+    "service&nbsp;: aucune protection différentielle 30&nbsp;mA. C'est le cas "
+    "où le remplacement change réellement le niveau de sécurité du logement."),
+   ("Vitré", "Pavillons des années 1980 à tableau d'origine saturé&nbsp;: plus "
+    "un emplacement libre, des circuits ajoutés en repiquage. On repart d'un "
+    "tableau dimensionné pour les usages d'aujourd'hui."),
+   ("Cesson-Sévigné", "Résidences récentes&nbsp;: le tableau est sain, la "
+    "demande porte sur l'ajout de circuits dédiés et le remplacement d'un "
+    "différentiel vieillissant. Ce n'est pas un remplacement complet."),
+   ("Redon", "Maisons parfois humides en rez-de-chaussée&nbsp;: nous "
+    "contrôlons la prise de terre avant de reposer un tableau. Un différentiel "
+    "neuf sur une terre absente ne protège pas comme on le croit."),
+ ],
+ "urgent": [
+   "Odeur de brûlé, grésillement ou plastique fondu au tableau&nbsp;: coupez "
+   "le disjoncteur général et n'y touchez plus.",
+   "Un différentiel qui ne se réarme plus détecte un défaut réel. Ne cherchez "
+   "pas à le contourner et n'enlevez aucun fil.",
+   "N'ouvrez pas le capot d'un tableau sous tension, et ne travaillez jamais "
+   "dedans sans avoir coupé et vérifié l'absence de tension.",
+   "Photographiez votre tableau ouvert, capot déposé si vous l'avez déjà "
+   "ouvert en sécurité&nbsp;: cela nous permet de préparer le matériel exact.",
+ ],
+ "danger": ("Un tableau à fusibles ou un tableau sans dispositif différentiel "
+            "30&nbsp;mA ne protège pas les personnes&nbsp;: il protège les "
+            "câbles, et encore. Entre un fusible et un différentiel, la "
+            "différence n'est pas une génération de matériel, c'est la "
+            "fonction&nbsp;: le premier coupe quand le câble chauffe, le "
+            "second coupe quand le courant part à la terre — c'est-à-dire "
+            "quand il passe par quelqu'un. C'est la seule protection qui "
+            "intervienne assez vite pour empêcher une électrocution."),
+ "sections": [
+  ("Une journée, dans l'ordre",
+   ["<strong>Avant la coupure.</strong> On relève l'existant, on identifie "
+    "autant de circuits que possible appareils allumés, et on prépare le "
+    "nouveau tableau au sol. Plus cette phase est soignée, plus la coupure est "
+    "courte.",
+    "<strong>La coupure.</strong> Disjoncteur général abaissé, absence de "
+    "tension vérifiée au vérificateur — pas au tournevis testeur. Puis dépose "
+    "de l'ancien tableau en conservant les arrivées de chaque circuit, "
+    "étiquetées une par une au fur et à mesure.",
+    "<strong>La pose.</strong> Fixation du nouveau coffret, câblage des "
+    "peignes, mise en place du ou des dispositifs différentiels et des "
+    "disjoncteurs divisionnaires, raccordement circuit par circuit avec "
+    "serrage au couple.",
+    "<strong>La remise en service.</strong> On remonte les protections une à "
+    "une, en vérifiant chaque circuit. Puis on teste chaque différentiel au "
+    "bouton de test, on mesure la terre, et on contrôle l'isolement.",
+    "<strong>La remise des documents.</strong> Schéma du tableau, étiquetage "
+    "clair sur la porte, et liste de ce qui a été fait. Un tableau non repéré "
+    "est un tableau qu'on ne saura pas manœuvrer un soir de panne."],
+   None),
+  ("Ce qu'un tableau moderne apporte vraiment",
+   [],
+   ["<strong>Un ou plusieurs différentiels 30&nbsp;mA</strong>, qui coupent "
+    "avant qu'un courant de fuite ne devienne dangereux pour une personne.",
+    "<strong>Des protections adaptées à la section des câbles</strong>&nbsp;: "
+    "un disjoncteur trop fort sur un fil trop fin est un départ d'incendie "
+    "en attente.",
+    "<strong>Une répartition sur plusieurs différentiels</strong>&nbsp;: un "
+    "défaut dans la salle d'eau ne plonge plus toute la maison dans le noir.",
+    "<strong>Des circuits séparés et identifiés</strong>, donc une panne qui "
+    "se localise en trente secondes au lieu d'une soirée.",
+    "<strong>Des emplacements libres</strong> pour ce qui viendra&nbsp;: "
+    "extension, nouvel appareil, circuit extérieur.",
+    "<strong>Un repérage lisible</strong>, qui sert à l'occupant et à tout "
+    "intervenant futur.",
+    "Et un point de méthode&nbsp;: le remplacement est le seul moment où l'on "
+    "voit l'état réel de chaque circuit. Les défauts d'isolement qui dormaient "
+    "depuis des années apparaissent à la mesure."],
+   ),
+  ("Mise en sécurité ou tableau neuf&nbsp;: ne pas confondre",
+   ["Les deux réponses existent et ne coûtent pas la même chose. La "
+    "<strong>mise en sécurité</strong> consiste à ajouter ce qui manque "
+    "vraiment — typiquement un différentiel 30&nbsp;mA et une terre — sur un "
+    "tableau par ailleurs utilisable. Elle lève le danger immédiat, se réalise "
+    "souvent en quelques heures, et suffit dans bien des logements.",
+    "Le <strong>remplacement complet</strong> s'impose quand le tableau est à "
+    "fusibles, saturé, ou quand les protections ne correspondent plus aux "
+    "sections. Il refait l'ensemble du dispositif de protection et laisse de "
+    "la place pour la suite.",
+    "Nous chiffrons les deux séparément quand les deux sont envisageables, et "
+    "nous disons laquelle a du sens. Un tableau neuf posé sur une installation "
+    "dont la terre est absente ne protège pas davantage&nbsp;: la terre vient "
+    "d'abord, le tableau ensuite. C'est l'ordre que nous respectons, même "
+    "quand il n'est pas celui qu'on espérait.",
+    "Nous intervenons sur l'ensemble de l'Ille-et-Vilaine, pour des "
+    "particuliers, des bailleurs et des syndics, avec un devis détaillé poste "
+    "par poste et une attestation de fin de travaux."],
+   None),
+ ],
+ "faq": [
+  ("Combien de temps sans électricité&nbsp;?",
+   "La coupure dure généralement trois à six heures pour un logement courant. "
+   "Nous la calons avec vous et nous prévenons si un congélateur ou un "
+   "appareil médical impose une organisation particulière."),
+  ("Faut-il refaire toute l'installation&nbsp;?",
+   "Non. Le tableau se remplace sans toucher aux circuits existants, qui sont "
+   "simplement raccordés sur les nouvelles protections. Si un circuit se "
+   "révèle défectueux à la mesure, nous le signalons et le chiffrons à part."),
+  ("Mon tableau à fusibles est-il vraiment dangereux&nbsp;?",
+   "Il ne protège pas les personnes : sans différentiel 30 mA, un courant de "
+   "fuite passant par quelqu'un ne déclenche rien. C'est la raison principale "
+   "de le remplacer, bien avant le confort d'usage."),
+  ("Intervenez-vous en urgence&nbsp;?",
+   "Oui, 24h/24 et 7j/7 en Ille-et-Vilaine. Une odeur de brûlé au tableau ou "
+   "un différentiel qui ne tient plus se traite le jour même : 02 20 06 00 75."),
+ ],
+},
+
+{
+ "slug": "installation-poste-de-relevage-ille-et-vilaine",
+ "court": "Installer un poste de relevage (35)",
+ "dept": "35", "act": "degorgement", "date": "2026-10-08",
+ "titre": "Installer un poste de relevage (35) — ETS-BZH",
+ "h1": "Installer un poste de relevage en Ille-et-Vilaine&nbsp;: sous-sol, cave, pièce en contrebas",
+ "meta": ("Poste de relevage à installer en Ille-et-Vilaine : dimensionnement, "
+          "alarme, entretien, sous-sol aménagé. Ville par ville. "
+          "02 20 06 00 75."),
+ "mots_cles": ("installation poste de relevage Ille-et-Vilaine, pompe eaux "
+               "usées sous-sol Rennes, WC en contrebas, broyeur ou relevage"),
+ "chapo": ("Dès qu'une pièce d'eau se trouve plus bas que le collecteur, la "
+           "gravité ne suffit plus et tout repose sur une pompe. C'est une "
+           "solution fiable — à condition d'être dimensionnée, alarmée et "
+           "entretenue. Les trois conditions, dans l'ordre, sont ce qui "
+           "sépare une installation tranquille d'un sous-sol inondé."),
+ "villes_titre": "Où nous installons, ville par ville",
+ "villes_intro": ("Le type de sous-sol et la raison de l'aménagement orientent "
+                  "le dimensionnement."),
+ "villes": [
+   ("Rennes", "Sous-sols d'immeubles et caves aménagées en buanderie ou en "
+    "studio&nbsp;: les volumes sont modestes mais l'usage est quotidien. Une "
+    "pompe fiable et une alarme reportée à l'étage valent mieux qu'un gros "
+    "matériel sans surveillance."),
+   ("Bruz", "Maisons avec sous-sol total, fréquentes dans le secteur&nbsp;: "
+    "buanderie, douche et parfois WC en bas. Le poste doit encaisser une "
+    "machine à laver, dont la vidange arrive d'un coup."),
+   ("Betton", "Terrains plats et nappe proche&nbsp;: en plus des eaux usées, "
+    "les infiltrations chargent le poste. Nous distinguons toujours le relevage "
+    "des eaux usées du pompage des eaux claires — ce ne sont pas les mêmes "
+    "appareils."),
+   ("Saint-Grégoire", "Maisons récentes avec pièces en demi-niveau&nbsp;: les "
+    "petits postes compacts suffisent, à condition d'être accessibles pour "
+    "l'entretien et non coffrés définitivement."),
+   ("Chantepie", "Aménagements de garage en pièce de vie&nbsp;: on crée une "
+    "évacuation là où il n'y en avait pas. La question est d'abord de savoir "
+    "si la gravité passe&nbsp;; le relevage vient après."),
+   ("Montfort-sur-Meu", "Secteur partiellement en assainissement non "
+    "collectif&nbsp;: un poste de relevage y alimente parfois une filière de "
+    "traitement. Le dimensionnement et le réglage des flotteurs ne sont alors "
+    "pas les mêmes."),
+ ],
+ "urgent": [
+   "Si l'alarme du poste sonne, arrêtez immédiatement tout rejet d'eau&nbsp;: "
+   "machine, douche, WC. La bâche se remplit.",
+   "Vérifiez si le disjoncteur du poste a sauté au tableau&nbsp;: c'est la "
+   "première cause, et parfois la seule chose à faire.",
+   "N'entrez jamais dans une bâche de relevage, même petite, même "
+   "vide&nbsp;: les gaz et le manque d'oxygène y sont mortels.",
+   "Ne jetez rien dans les appareils raccordés en attendant "
+   "l'intervention&nbsp;: une pompe bloquée par une lingette ne redémarrera "
+   "pas toute seule.",
+ ],
+ "danger": ("Un poste de relevage est un point unique de défaillance&nbsp;: "
+            "quand il s'arrête, plus rien ne part, et le délai avant "
+            "débordement se compte en heures. Le débordement se produit "
+            "toujours au point le plus bas, c'est-à-dire dans la pièce "
+            "aménagée que l'on a voulu créer. Un poste sans alarme en état de "
+            "marche transforme une panne banale en sinistre, et c'est "
+            "précisément l'équipement que l'on supprime pour économiser "
+            "quelques dizaines d'euros à l'installation."),
+ "sections": [
+  ("D'abord&nbsp;: la gravité est-elle vraiment impossible&nbsp;?",
+   ["C'est la première question, et elle est trop souvent sautée. Un poste de "
+    "relevage ajoute une pompe, une alimentation électrique, un entretien et "
+    "une panne possible. Chaque fois que la gravité passe, elle gagne.",
+    "Le relevé est simple&nbsp;: on mesure l'altitude de la sortie de "
+    "l'appareil, celle du point de raccordement, et la distance entre les "
+    "deux. Avec une pente de l'ordre de 1 à 3&nbsp;centimètres par mètre, on "
+    "sait immédiatement si cela passe. Parfois, rehausser le sol de quelques "
+    "centimètres suffit à tout changer — et c'est une dépense unique, sans "
+    "maintenance.",
+    "Quand la gravité ne passe réellement pas, le relevage est la bonne "
+    "réponse, et il n'y a pas à s'en excuser&nbsp;: des millions "
+    "d'installations fonctionnent ainsi sans incident. Mais le choix doit "
+    "être subi, pas préféré par facilité de chantier."],
+   None),
+  ("Dimensionner correctement",
+   [],
+   ["<strong>Le type d'effluent</strong>&nbsp;: eaux usées seules — lavabo, "
+    "douche, machine — ou eaux-vannes avec WC. Ce n'est pas la même pompe, et "
+    "le passage libre n'est pas le même.",
+    "<strong>Le volume de la bâche</strong>&nbsp;: assez grande pour ne pas "
+    "faire démarrer la pompe en continu, assez petite pour que l'effluent ne "
+    "stagne pas et ne fermente pas.",
+    "<strong>La hauteur manométrique</strong>&nbsp;: la hauteur réelle à "
+    "franchir, plus les pertes de charge du parcours. Une pompe choisie sur la "
+    "seule hauteur verticale est systématiquement sous-dimensionnée.",
+    "<strong>Le débit de pointe</strong>&nbsp;: une machine à laver vide "
+    "plusieurs dizaines de litres en quelques secondes. C'est ce pic qui "
+    "dimensionne, pas la consommation moyenne.",
+    "<strong>Un clapet anti-retour</strong> sur le refoulement, sinon ce qui "
+    "est monté redescend à chaque arrêt de la pompe.",
+    "<strong>Une alarme sonore et visuelle</strong>, reportée là où quelqu'un "
+    "l'entendra — pas dans le sous-sol que personne ne visite.",
+    "<strong>Un accès d'entretien</strong> prévu dès l'installation&nbsp;: un "
+    "poste coffré sans trappe est un poste qu'on ne nettoiera jamais."],
+   ),
+  ("Ce qu'il demandera, et qu'il faut savoir avant",
+   ["Un poste de relevage n'est pas un équipement qu'on installe et qu'on "
+    "oublie. Deux contrôles par an suffisent, mais ils ne sont pas "
+    "optionnels&nbsp;: nettoyage de la bâche, vérification des flotteurs et de "
+    "leur course libre, test de l'alarme, contrôle du clapet et de l'armoire "
+    "électrique.",
+    "L'ennemi numéro un est connu et toujours le même&nbsp;: les lingettes. "
+    "Y compris celles vendues comme biodégradables, qui ne se délitent pas "
+    "dans l'eau froide d'une bâche. Elles s'enroulent sur la turbine et "
+    "bloquent la pompe. Viennent ensuite les textiles, les graisses de "
+    "cuisson et les objets tombés dans une cuvette.",
+    "Un poste correctement installé et entretenu dure des années sans faire "
+    "parler de lui. Un poste installé sans alarme, sans accès et sans "
+    "entretien finit par déborder — et il déborde dans la pièce qu'on avait "
+    "aménagée.",
+    "Nous installons, remplaçons et entretenons des postes de relevage sur "
+    "l'ensemble de l'Ille-et-Vilaine, chez des particuliers comme en "
+    "copropriété, avec un contrôle programmé plutôt qu'une urgence subie."],
+   None),
+ ],
+ "faq": [
+  ("Broyeur ou poste de relevage&nbsp;?",
+   "Un broyeur convient à un WC isolé peu sollicité. Dès qu'il y a plusieurs "
+   "appareils — douche, lavabo, machine — ou un usage quotidien, le poste de "
+   "relevage est la solution dimensionnée pour durer."),
+  ("Faut-il une alimentation électrique dédiée&nbsp;?",
+   "Oui : un circuit propre, protégé par son différentiel, et repéré au "
+   "tableau. Un poste branché sur une prise partagée s'arrête le jour où "
+   "quelqu'un coupe ce circuit sans savoir ce qu'il alimente."),
+  ("Que se passe-t-il en cas de coupure de courant&nbsp;?",
+   "La pompe s'arrête et la bâche se remplit. C'est exactement le rôle de "
+   "l'alarme : prévenir à temps pour cesser les rejets. Sur une installation "
+   "sensible, une alarme autonome sur pile est un vrai plus."),
+  ("Intervenez-vous en urgence sur un poste en panne&nbsp;?",
+   "Oui, 24h/24 et 7j/7 en Ille-et-Vilaine. Un poste à l'arrêt déborde en "
+   "quelques heures : arrêtez les rejets et appelez le 02 20 06 00 75."),
+ ],
+},
+{
+ "slug": "remplacement-chauffe-eau-thermodynamique-morbihan",
+ "court": "Chauffe-eau thermodynamique (56)",
+ "dept": "56", "act": "plomberie", "date": "2026-10-08",
+ "titre": "Chauffe-eau thermodynamique ou électrique (56) — ETS-BZH",
+ "h1": "Chauffe-eau thermodynamique ou électrique dans le Morbihan&nbsp;: comment choisir au moment du remplacement",
+ "meta": ("Remplacer un chauffe-eau dans le Morbihan : électrique ou "
+          "thermodynamique, conditions de pose, ce que ça change. Ville par "
+          "ville. 02 20 06 00 75."),
+ "mots_cles": ("chauffe-eau thermodynamique Morbihan, remplacement ballon "
+               "Vannes, pompe à chaleur eau chaude Lorient, choisir "
+               "chauffe-eau 56"),
+ "chapo": ("Le jour où le ballon lâche, on a deux heures pour décider ce "
+           "qu'on gardera quinze ans. Le thermodynamique consomme nettement "
+           "moins, mais il ne va pas partout — et posé au mauvais endroit, il "
+           "déçoit. Voici les conditions réelles, sans promesse de "
+           "catalogue."),
+ "villes_titre": "Où le thermodynamique a du sens, ville par ville",
+ "villes_intro": ("Le volume du local technique et son exposition décident "
+                  "plus sûrement que le budget."),
+ "villes": [
+   ("Vannes", "Appartements et maisons de ville sans garage&nbsp;: le ballon "
+    "est en placard, souvent dans le volume chauffé. C'est la configuration où "
+    "le thermodynamique sur air ambiant est à éviter&nbsp;— il refroidit la "
+    "pièce qu'on chauffe par ailleurs."),
+   ("Lorient", "Maisons avec garage attenant non chauffé&nbsp;: le cas "
+    "favorable. Le volume est suffisant, la température reste correcte toute "
+    "l'année, et l'appareil travaille dans de bonnes conditions."),
+   ("Pontivy", "Intérieur du département, hivers plus marqués&nbsp;: la "
+    "performance d'un thermodynamique baisse quand l'air se refroidit. Un "
+    "modèle sur air extrait ou sur air extérieur reste pertinent, à condition "
+    "d'être choisi pour cela."),
+   ("Ploemeur", "Pavillons avec cellier ou buanderie&nbsp;: volume souvent "
+    "juste. Nous mesurons le local avant toute proposition&nbsp;; en dessous "
+    "du volume minimal, l'appareil ne tiendra pas ses performances."),
+   ("Sarzeau", "Résidences secondaires à usage intermittent&nbsp;: un "
+    "thermodynamique monte en température lentement. Pour une maison occupée "
+    "quelques week-ends, un électrique bien dimensionné est souvent plus "
+    "adapté."),
+   ("Hennebont", "Logements familiaux à consommation d'eau chaude "
+    "élevée&nbsp;: c'est là que l'écart de consommation se rentabilise le plus "
+    "vite, parce qu'il porte sur de gros volumes quotidiens."),
+ ],
+ "urgent": [
+   "Ballon qui fuit&nbsp;: coupez l'eau froide à l'entrée de l'appareil, puis "
+   "l'alimentation électrique au tableau.",
+   "Ne décidez pas du modèle dans la panique. Nous pouvons poser un appareil "
+   "de remplacement rapidement et parler du reste à tête reposée.",
+   "Relevez la place disponible et le volume du local&nbsp;: un "
+   "thermodynamique est plus haut et plus large qu'un ballon classique.",
+   "Si le ballon est dans le volume habitable, dites-le au téléphone&nbsp;: "
+   "cela écarte d'emblée certaines solutions et évite un devis inadapté.",
+ ],
+ "danger": ("Le risque spécifique du remplacement en urgence n'est pas "
+            "technique, il est économique&nbsp;: on choisit sous pression, "
+            "souvent sur le seul critère du prix affiché, et on vit avec le "
+            "résultat pendant quinze ans. Le piège inverse existe "
+            "aussi&nbsp;: un thermodynamique installé dans un local trop "
+            "petit ou trop froid ne tiendra pas les performances annoncées, "
+            "basculera en appoint électrique une bonne partie de l'année, et "
+            "aura coûté deux à trois fois le prix d'un ballon classique pour "
+            "une économie qui ne viendra jamais."),
+ "sections": [
+  ("Ce qui sépare réellement les deux appareils",
+   ["Un <strong>chauffe-eau électrique</strong> chauffe l'eau par une "
+    "résistance&nbsp;: un kilowattheure consommé donne un kilowattheure de "
+    "chaleur. C'est simple, robuste, peu encombrant, bon marché à l'achat, et "
+    "cela fonctionne partout.",
+    "Un <strong>chauffe-eau thermodynamique</strong> ne chauffe pas l'eau "
+    "directement&nbsp;: il prélève des calories dans l'air et les transfère à "
+    "l'eau, à la manière d'un réfrigérateur fonctionnant à l'envers. Il "
+    "consomme donc nettement moins d'électricité pour le même volume d'eau "
+    "chaude — c'est tout son intérêt, et il est réel.",
+    "Mais il a besoin d'<strong>air</strong>, et c'est là que tout se joue. Un "
+    "modèle sur air ambiant demande un local non chauffé d'un volume minimal "
+    "— de l'ordre d'une vingtaine de mètres cubes selon les appareils —, "
+    "faute de quoi il refroidit son propre environnement et perd son avantage. "
+    "Il est aussi plus haut, plus lourd, plus bruyant qu'un ballon classique, "
+    "et il demande une évacuation des condensats.",
+    "Les variantes <strong>sur air extrait</strong> (couplé à la ventilation) "
+    "et <strong>sur air extérieur</strong> (gainé) lèvent la contrainte de "
+    "volume, au prix d'une installation plus technique."],
+   None),
+  ("Le tableau de décision, en six lignes",
+   [],
+   ["<strong>Garage ou cellier non chauffé de volume suffisant, famille, "
+    "usage quotidien</strong> → le thermodynamique est pertinent, et il se "
+    "rentabilise.",
+    "<strong>Ballon en placard dans le volume chauffé</strong> → "
+    "électrique, sans hésitation. Un thermodynamique y refroidirait la pièce "
+    "que le chauffage réchauffe.",
+    "<strong>Local trop petit</strong> → électrique, ou thermodynamique gainé "
+    "si la configuration le permet et si le surcoût se justifie.",
+    "<strong>Résidence secondaire, usage intermittent</strong> → électrique. "
+    "La montée en température lente du thermodynamique est un défaut quand on "
+    "arrive le vendredi soir.",
+    "<strong>Une à deux personnes, petite consommation</strong> → électrique. "
+    "L'économie annuelle ne rembourse pas le surcoût sur la durée de vie de "
+    "l'appareil.",
+    "<strong>Contrainte de bruit — chambre mitoyenne</strong> → attention. "
+    "Un thermodynamique fonctionne avec un compresseur&nbsp;: ce n'est pas "
+    "silencieux, et cela s'entend la nuit."],
+   ),
+  ("Ce que nous faisons concrètement",
+   ["Dans les deux cas, le remplacement comprend la vidange et l'évacuation de "
+    "l'ancien appareil, la vérification du support, un groupe de sécurité neuf "
+    "avec son évacuation raccordée, un robinet d'arrêt dédié, des raccords "
+    "diélectriques, le raccordement électrique protégé, le remplissage et la "
+    "mise en chauffe contrôlée.",
+    "Pour un thermodynamique s'ajoutent le contrôle du volume et de la "
+    "ventilation du local, l'évacuation des condensats, le réglage des plages "
+    "de fonctionnement, et le dégagement nécessaire autour de l'appareil pour "
+    "que l'air circule. Un thermodynamique collé dans un angle derrière des "
+    "cartons ne fonctionne pas comme sur la fiche technique.",
+    "Nous mesurons le local avant de proposer, et nous disons franchement "
+    "quand l'électrique reste le bon choix. Vendre un appareil trois fois plus "
+    "cher qui ne tiendra pas ses promesses rapporte une fois et coûte une "
+    "réputation&nbsp;: dans un département où le bouche-à-oreille fait "
+    "l'essentiel de notre activité, le calcul est vite fait.",
+    "Nous intervenons sur l'ensemble du Morbihan, 24h/24 et 7j/7 pour une "
+    "fuite en cours, et sur rendez-vous pour un remplacement réfléchi."],
+   None),
+ ],
+ "faq": [
+  ("Le thermodynamique est-il toujours plus économique&nbsp;?",
+   "Non. Il l'est dans un local non chauffé de volume suffisant avec une "
+   "consommation d'eau chaude régulière. Mal implanté ou sur une petite "
+   "consommation, le surcoût d'achat ne se rembourse pas."),
+  ("Peut-on le mettre dans un placard&nbsp;?",
+   "Un modèle sur air ambiant, non : il lui faut du volume d'air. Un modèle "
+   "gainé sur air extérieur, parfois oui. C'est la mesure du local qui "
+   "répond, pas le commercial."),
+  ("Est-ce bruyant&nbsp;?",
+   "Un thermodynamique comporte un compresseur et un ventilateur : ce n'est "
+   "pas silencieux. À éviter contre une cloison de chambre, surtout si "
+   "l'appareil fonctionne la nuit en heures creuses."),
+  ("Pouvez-vous remplacer en urgence&nbsp;?",
+   "Oui, 24h/24 et 7j/7 dans le Morbihan. Si le ballon a lâché, nous "
+   "rétablissons l'eau chaude d'abord — la réflexion sur le thermodynamique "
+   "mérite mieux qu'une décision prise dans la panique."),
+ ],
+},
+
+{
+ "slug": "remplacement-canalisations-plomb-acier-morbihan",
+ "court": "Remplacer des canalisations anciennes (56)",
+ "dept": "56", "act": "plomberie", "date": "2026-10-08",
+ "titre": "Remplacer des canalisations anciennes (56) — ETS-BZH",
+ "h1": "Remplacer des canalisations anciennes dans le Morbihan&nbsp;: plomb, acier galvanisé, cuivre fatigué",
+ "meta": ("Canalisations en plomb ou en acier galvanisé dans le Morbihan : "
+          "reconnaître, remplacer, par quoi. Ville par ville. 02 20 06 00 75."),
+ "mots_cles": ("remplacement canalisation plomb Morbihan, acier galvanisé "
+               "corrodé, refaire plomberie maison ancienne Pontivy, tuyau "
+               "multicouche Vannes"),
+ "chapo": ("Dans une maison d'avant 1960, les canalisations d'origine sont "
+           "encore là plus souvent qu'on ne le croit. Elles ne lâchent pas du "
+           "jour au lendemain&nbsp;: elles se rétrécissent, elles rouillent de "
+           "l'intérieur, et un jour elles percent dans une cloison. Voici "
+           "comment les reconnaître et par quoi les remplacer."),
+ "villes_titre": "Ce que nous trouvons, ville par ville",
+ "villes_intro": ("L'époque de construction du bâti local prédit assez bien le "
+                  "matériau que nous allons rencontrer."),
+ "villes": [
+   ("Pontivy", "Bâti ancien de centre-ville&nbsp;: beaucoup d'acier galvanisé "
+    "posé dans les années 1950 et 1960. Le symptôme est toujours le même, une "
+    "pression qui baisse lentement sur plusieurs années."),
+   ("Lorient", "Immeubles de la reconstruction&nbsp;: colonnes montantes "
+    "parfois d'origine. La partie privative se traite dans le logement, la "
+    "colonne relève de la copropriété — nous délimitons par écrit."),
+   ("Baud", "Habitat rural ancien&nbsp;: réseaux longs, portions enterrées "
+    "entre un puits ou un compteur éloigné et la maison. Une fuite enterrée "
+    "s'y repère au compteur avant de se voir au sol."),
+   ("Locminé", "Maisons de bourg rénovées par morceaux&nbsp;: cuivre récent "
+    "raccordé directement sur de l'acier ancien, sans raccord diélectrique. "
+    "La corrosion galvanique reprend exactement au point de jonction."),
+   ("Questembert", "Secteur mixte&nbsp;: les remplacements se font le plus "
+    "souvent à l'occasion d'une rénovation de salle d'eau, quand les réseaux "
+    "sont enfin accessibles. C'est le bon moment, et le moins coûteux."),
+   ("Auray", "Maisons de ville en centre ancien&nbsp;: murs épais, encastrements "
+    "difficiles. Nous passons en apparent soigné ou en doublage plutôt que de "
+    "saigner de la pierre, pour un résultat plus fiable et moins destructeur."),
+ ],
+ "urgent": [
+   "Fuite sur une canalisation ancienne&nbsp;: fermez l'arrivée générale et "
+   "n'essayez pas de resserrer un raccord corrodé, il cassera.",
+   "Ne posez pas de collier de réparation sur de l'acier rouillé comme "
+   "solution durable&nbsp;: la portion voisine est dans le même état.",
+   "Eau rouille ou brune au robinet après une coupure&nbsp;: laissez couler, "
+   "et si la couleur persiste, ne la buvez pas et faites examiner le réseau.",
+   "Si vous soupçonnez du plomb sur l'eau potable, n'utilisez pas l'eau "
+   "chaude pour la boisson ou la cuisson, et faites vérifier.",
+ ],
+ "danger": ("Deux risques distincts. Le premier est structurel&nbsp;: une "
+            "canalisation corrodée de l'intérieur perce sans prévenir, et "
+            "généralement là où elle est encastrée — dans une cloison, sous "
+            "une chape, derrière un doublage. L'eau travaille des semaines "
+            "avant qu'une tache n'apparaisse. Le second est "
+            "sanitaire&nbsp;: les canalisations en <strong>plomb</strong> "
+            "n'ont plus leur place sur un réseau d'eau destinée à la "
+            "consommation. Leur présence n'est pas un défaut d'esthétique à "
+            "traiter un jour, c'est un remplacement à programmer."),
+ "sections": [
+  ("Reconnaître ce qu'on a chez soi",
+   ["Trois tests simples, faisables sans outil, suffisent à identifier "
+    "l'essentiel.",
+    "<strong>Le plomb</strong> est gris mat, très tendre, et se raye à "
+    "l'ongle ou avec une pièce de monnaie — la rayure apparaît brillante. Les "
+    "tuyaux sont souvent de section irrégulière, avec des coudes arrondis "
+    "formés à la main plutôt que des raccords. L'aimant n'y tient pas.",
+    "<strong>L'acier galvanisé</strong> est gris clair, dur, et "
+    "l'<strong>aimant y tient</strong> — c'est le test décisif. Les raccords "
+    "sont vissés, souvent avec de la filasse, et présentent fréquemment des "
+    "traces de rouille brune aux jonctions.",
+    "<strong>Le cuivre</strong> est reconnaissable à sa couleur, et il peut "
+    "durer très longtemps. Il se remplace quand il a été mal posé, quand les "
+    "soudures fuient en série, ou quand il a été raccordé directement à de "
+    "l'acier sans raccord diélectrique.",
+    "Un quatrième cas mérite attention&nbsp;: les <strong>mélanges</strong>. "
+    "Une maison rénovée par morceaux cumule souvent trois matériaux. Les "
+    "points de jonction entre métaux différents sont exactement là où la "
+    "corrosion s'installe."],
+   None),
+  ("Par quoi remplacer",
+   [],
+   ["<strong>Le cuivre</strong>&nbsp;: la référence en durabilité, excellent "
+    "en apparent, se cintre et se soude. Plus long à poser, donc plus cher en "
+    "main-d'œuvre, mais imbattable sur la durée.",
+    "<strong>Le multicouche</strong>&nbsp;: tube souple à âme aluminium, "
+    "posé en gaine, peu de raccords — donc peu de points de fuite potentiels. "
+    "C'est le choix le plus courant en rénovation, et le plus rapide.",
+    "<strong>Le PER</strong>&nbsp;: souple et économique, adapté aux "
+    "alimentations en distribution depuis un collecteur. À poser "
+    "systématiquement sous gaine.",
+    "<strong>Des raccords diélectriques</strong> à chaque jonction entre deux "
+    "métaux différents&nbsp;: c'est la pièce qu'on omet et qui fait repartir "
+    "la corrosion.",
+    "<strong>Aucun raccord inaccessible</strong>&nbsp;: tout ce qui est "
+    "encastré passe en gaine, et les points de raccordement restent "
+    "atteignables par une trappe.",
+    "<strong>Un robinet d'arrêt par pièce humide</strong> pendant qu'on y "
+    "est&nbsp;: c'est le bon moment, et cela ne se représentera pas."],
+   ),
+  ("Tout refaire, ou par étapes&nbsp;?",
+   ["On nous demande souvent un chiffre global pour « refaire la plomberie ». "
+    "Dans la majorité des maisons que nous voyons dans le Morbihan, ce n'est "
+    "pas la bonne approche.",
+    "Le réseau se traite par <strong>tronçons</strong>, en commençant par ce "
+    "qui est accessible et par ce qui pose problème&nbsp;: la portion en "
+    "acier qui étrangle le débit, la colonne qui dessert la salle d'eau, le "
+    "passage enterré qui fuit. Chaque étape améliore réellement quelque chose, "
+    "et l'ensemble s'étale sur plusieurs années sans jamais laisser le "
+    "logement dans un état intermédiaire gênant.",
+    "Deux exceptions à cette logique. Le <strong>plomb</strong> sur l'eau "
+    "potable se traite en priorité, indépendamment du reste. Et quand une "
+    "pièce est ouverte pour une rénovation, on refait tout ce qui passe "
+    "dedans, même ce qui tient encore&nbsp;: rouvrir un mur dans trois ans "
+    "coûte plus cher que quelques mètres de tube aujourd'hui.",
+    "Nous relevons l'existant, nous établissons un ordre de priorité motivé, "
+    "et nous chiffrons chaque tronçon séparément. Vous décidez du rythme&nbsp;; "
+    "nous disons ce qui est urgent et ce qui peut attendre. Nous intervenons "
+    "sur tout le Morbihan, de Vannes et Lorient aux communes rurales."],
+   None),
+ ],
+ "faq": [
+  ("Comment savoir si j'ai du plomb&nbsp;?",
+   "Le plomb est gris mat et très tendre : il se raye à l'ongle et la rayure "
+   "brille. L'aimant n'y tient pas, contrairement à l'acier galvanisé. En cas "
+   "de doute, nous l'identifions sur place en quelques secondes."),
+  ("Faut-il refaire toute la maison d'un coup&nbsp;?",
+   "Non, sauf pour le plomb sur l'eau potable. Le reste se traite par "
+   "tronçons, en commençant par ce qui est accessible et par ce qui pose "
+   "réellement problème."),
+  ("Cuivre ou multicouche&nbsp;?",
+   "Le cuivre dure plus longtemps et se pose magnifiquement en apparent. Le "
+   "multicouche va plus vite, comporte moins de raccords et passe en gaine. "
+   "Les deux sont de bonnes réponses — le choix dépend de la configuration."),
+  ("Intervenez-vous en urgence sur une fuite&nbsp;?",
+   "Oui, 24h/24 et 7j/7 dans le Morbihan. Nous arrêtons la fuite d'abord ; "
+   "le remplacement du tronçon se programme ensuite, à froid et au bon prix."),
+ ],
+},
+{
+ "slug": "installation-vmc-salle-de-bain-morbihan",
+ "court": "Installer une VMC (56)",
+ "dept": "56", "act": "electricite", "date": "2026-10-08",
+ "titre": "Installer une VMC ou un extracteur (56) — ETS-BZH",
+ "h1": "Installer une VMC ou un extracteur dans le Morbihan&nbsp;: humidité, condensation, moisissures",
+ "meta": ("Humidité et moisissures dans le Morbihan : VMC, extracteur, "
+          "raccordement électrique et débits. Ville par ville. "
+          "02 20 06 00 75."),
+ "mots_cles": ("installation VMC Morbihan, extracteur salle de bain Vannes, "
+               "moisissures condensation Lorient, VMC hygroréglable 56"),
+ "chapo": ("Dans un département où l'air est humide une grande partie de "
+           "l'année, une maison qui ne ventile pas ne sèche jamais. Les "
+           "moisissures au plafond de la salle d'eau ne sont pas un problème "
+           "de nettoyage&nbsp;: c'est un problème d'extraction. Voici ce qui "
+           "marche, et ce qui ne marche pas."),
+ "villes_titre": "Ce que nous installons, ville par ville",
+ "villes_intro": ("L'exposition et le type de bâti déterminent le système "
+                  "adapté bien plus que la surface du logement."),
+ "villes": [
+   ("Vannes", "Appartements et maisons de ville&nbsp;: beaucoup de salles "
+    "d'eau aveugles, sans ouvrant. L'extraction mécanique n'y est pas un "
+    "confort, c'est le seul moyen d'évacuer la vapeur."),
+   ("Lorient", "Immeubles de la reconstruction équipés de conduits "
+    "collectifs&nbsp;: on raccorde sur l'existant plutôt que de percer une "
+    "façade. Encore faut-il que le conduit soit libre — nous le vérifions "
+    "avant."),
+   ("Guidel", "Maisons de bord de mer fermées une partie de l'année&nbsp;: "
+    "l'humidité s'installe pendant la vacance. Une VMC qui tourne en continu "
+    "au petit débit coûte quelques euros par an et évite la remise en état "
+    "d'un plafond."),
+   ("Saint-Avé", "Pavillonnaire récent déjà équipé&nbsp;: la demande porte "
+    "sur le remplacement d'un groupe bruyant ou en fin de vie, et sur le "
+    "nettoyage de bouches jamais démontées depuis la construction."),
+   ("Caudan", "Maisons des années 1970 et 1980 sans aucune ventilation "
+    "mécanique&nbsp;: grilles hautes et basses obstruées par les occupants "
+    "pour éviter les courants d'air. C'est exactement ce qui crée la "
+    "condensation."),
+   ("Questembert", "Bâti ancien en pierre&nbsp;: les murs respirent "
+    "différemment, et une extraction mal placée déplace le problème sans le "
+    "régler. Le diagnostic précède toujours la pose."),
+ ],
+ "urgent": [
+   "Moisissures noires sur un plafond ou derrière un meuble&nbsp;: ne les "
+   "recouvrez pas de peinture, elles reviendront en quelques semaines.",
+   "Si un groupe de VMC fait un bruit anormal ou chauffe, coupez son circuit "
+   "au tableau&nbsp;: un moteur bloqué dans un comble est un risque "
+   "d'échauffement.",
+   "N'obstruez jamais une grille d'entrée d'air pour supprimer un courant "
+   "d'air&nbsp;: sans entrée d'air, aucune extraction ne fonctionne.",
+   "Une odeur persistante accompagnée d'humidité dans une pièce sans "
+   "ouvrant&nbsp;: aérez manuellement en attendant, portes ouvertes.",
+ ],
+ "danger": ("L'humidité chronique n'est pas qu'une question de taches au "
+            "plafond. Les moisissures dégradent la qualité de l'air "
+            "intérieur et aggravent les troubles respiratoires, en premier "
+            "lieu chez les enfants et les personnes âgées. Elles attaquent "
+            "aussi la structure&nbsp;: en bâti ancien à planchers bois, très "
+            "présent dans le Morbihan, une salle d'eau mal ventilée pendant "
+            "dix ans abîme les solives bien avant que le plafond du dessous "
+            "ne le montre. Et plus prosaïquement, une pièce humide est une "
+            "pièce froide&nbsp;: l'air chargé d'eau se chauffe beaucoup plus "
+            "mal."),
+ "sections": [
+  ("Ventiler, c'est entrer autant que sortir",
+   ["C'est le principe que l'on oublie le plus souvent, et c'est celui qui "
+    "explique la majorité des installations qui ne fonctionnent pas. Une "
+    "extraction ne peut évacuer que l'air qu'on lui permet de remplacer.",
+    "Le schéma est simple&nbsp;: l'air <strong>entre</strong> par les pièces "
+    "sèches — séjour, chambres —, généralement par des entrées d'air en "
+    "menuiserie. Il <strong>traverse</strong> le logement par le détalonnage "
+    "des portes, c'est-à-dire l'espace laissé sous le battant. Il "
+    "<strong>sort</strong> par les pièces humides&nbsp;: salle d'eau, WC, "
+    "cuisine.",
+    "Rompez un maillon et tout s'arrête. Une entrée d'air bouchée par un "
+    "occupant qui avait froid, une porte posée au ras du sol lors du "
+    "remplacement d'un revêtement, une bouche d'extraction encrassée&nbsp;: "
+    "dans les trois cas, le groupe tourne, consomme, fait du bruit, et "
+    "n'extrait plus rien.",
+    "Avant de proposer un matériel, nous vérifions ces trois points. Il "
+    "arrive régulièrement que le problème se règle en débouchant des entrées "
+    "d'air et en détalonnant deux portes — pour le prix d'une visite."],
+   None),
+  ("Quel système pour quelle situation",
+   [],
+   ["<strong>L'extracteur simple</strong>, commandé avec la lumière ou par "
+    "détection d'humidité, convient à une salle d'eau isolée, surtout en "
+    "appartement. Le modèle hygroréglable, qui se déclenche sur l'humidité "
+    "réelle, est nettement plus efficace qu'un modèle temporisé.",
+    "<strong>La VMC simple flux autoréglable</strong> extrait un débit "
+    "constant dans toutes les pièces humides. C'est la solution de référence, "
+    "robuste et peu coûteuse, adaptée à la grande majorité des maisons.",
+    "<strong>La VMC simple flux hygroréglable</strong> module le débit selon "
+    "l'humidité&nbsp;: elle extrait fort après une douche et peu le reste du "
+    "temps. Elle consomme et déperd moins, et c'est le bon choix dans un "
+    "logement correctement isolé.",
+    "<strong>La VMC double flux</strong> récupère la chaleur de l'air "
+    "extrait. Performante, mais elle suppose un réseau de gaines dans les "
+    "deux sens, de la place, et un entretien régulier des filtres. Elle a du "
+    "sens en rénovation lourde ou en construction, rarement en ajout simple.",
+    "<strong>Le conduit collectif existant</strong>, en immeuble&nbsp;: on "
+    "raccorde dessus si le tirage est bon. Y brancher un extracteur "
+    "individuel sans vérifier peut perturber la ventilation des voisins."],
+   ),
+  ("La partie électrique, qui décide de la fiabilité",
+   ["Une VMC est un appareil électrique installé dans un comble ou un faux "
+    "plafond, qui fonctionne en continu pendant quinze ans. Son raccordement "
+    "mérite mieux qu'un repiquage sur le circuit d'éclairage.",
+    "Ce que nous posons&nbsp;: une <strong>alimentation dédiée</strong> "
+    "protégée au tableau et repérée, un <strong>dispositif de coupure "
+    "accessible</strong> — indispensable pour l'entretien, et trop souvent "
+    "absent —, et un raccordement dans une boîte accessible, pas enfouie "
+    "sous l'isolant.",
+    "Dans les pièces d'eau, la position de l'appareil et des boîtiers "
+    "respecte les volumes&nbsp;: c'est la règle qui tient compte du fait "
+    "qu'une salle d'eau est un local mouillé, et elle ne souffre pas "
+    "d'arrangement. Dans un comble, le groupe est fixé en suspension "
+    "antivibratile&nbsp;: posé à même une solive, il transmet son "
+    "bourdonnement dans toute la maison, et c'est la première cause de VMC "
+    "débranchée par les occupants eux-mêmes.",
+    "Enfin, l'entretien se prévoit dès la pose&nbsp;: un groupe accessible, "
+    "des bouches démontables, et une trappe. Un caisson inaccessible ne sera "
+    "jamais nettoyé, et une VMC encrassée extrait deux fois moins. Nous "
+    "intervenons sur tout le Morbihan, en installation comme en remplacement "
+    "de groupe existant."],
+   None),
+ ],
+ "faq": [
+  ("Faut-il laisser la VMC tourner en permanence&nbsp;?",
+   "Oui. Une VMC est conçue pour fonctionner en continu, et sa consommation "
+   "est faible. L'arrêter la nuit ou pendant une absence laisse l'humidité "
+   "s'installer, pour une économie dérisoire."),
+  ("Un extracteur suffit-il dans une salle de bain&nbsp;?",
+   "Souvent oui, en appartement ou pour une pièce isolée — à condition qu'il "
+   "y ait une entrée d'air ailleurs dans le logement et un passage sous la "
+   "porte. Sans cela, il tourne dans le vide."),
+  ("Mes moisissures peuvent-elles venir d'autre chose&nbsp;?",
+   "Oui : une infiltration, un pont thermique ou une remontée capillaire "
+   "donnent les mêmes taches. Le diagnostic distingue les deux, car la "
+   "réponse n'est pas la même — ventiler ne règle pas une infiltration."),
+  ("Intervenez-vous en urgence&nbsp;?",
+   "Oui, 24h/24 et 7j/7 dans le Morbihan pour une panne électrique. Une "
+   "installation de VMC, elle, se programme : appelez le 02 20 06 00 75 pour "
+   "un diagnostic."),
+ ],
+},
+
+{
+ "slug": "installation-clapet-anti-retour-morbihan",
+ "court": "Poser un clapet anti-retour (56)",
+ "dept": "56", "act": "degorgement", "date": "2026-10-08",
+ "titre": "Poser un clapet anti-retour (56) — ETS-BZH",
+ "h1": "Installer un clapet anti-retour dans le Morbihan&nbsp;: se protéger des refoulements",
+ "meta": ("Refoulement d'eaux usées dans le Morbihan : clapet anti-retour, "
+          "pose, entretien, limites. Ville par ville. 02 20 06 00 75."),
+ "mots_cles": ("clapet anti-retour Morbihan, refoulement eaux usées Vannes, "
+               "protection sous-sol inondé Lorient, clapet assainissement "
+               "marée"),
+ "chapo": ("Quand le réseau public sature, l'eau cherche la première sortie "
+           "disponible — et c'est le point le plus bas raccordé, "
+           "c'est-à-dire chez quelqu'un. Un clapet anti-retour est la seule "
+           "parade côté particulier. Encore faut-il le poser au bon endroit "
+           "et l'entretenir, sinon il donne une fausse sécurité."),
+ "villes_titre": "Pourquoi ça refoule, ville par ville",
+ "villes_intro": ("Les causes de refoulement varient fortement entre fond de "
+                  "golfe, estuaire et intérieur du département."),
+ "villes": [
+   ("Lorient", "Zone urbaine dense à réseau parfois unitaire&nbsp;: en orage "
+    "violent, le collecteur sature et refoule vers les points bas. Les caves "
+    "et sous-sols raccordés sont les premiers touchés."),
+   ("Hennebont", "Secteur d'estuaire soumis au marnage&nbsp;: certains "
+    "exutoires sont contraints par la marée. Un refoulement qui revient "
+    "toujours aux mêmes heures suit le coefficient, pas la pluie — et cette "
+    "information change le diagnostic."),
+   ("Vannes", "Fond de golfe, terrains bas&nbsp;: nappe proche et réseaux peu "
+    "profonds. Le clapet protège, mais il faut aussi vérifier que les eaux "
+    "pluviales ne sont pas branchées sur les eaux usées."),
+   ("Séné", "Habitat de bord de golfe en terrain bas&nbsp;: plusieurs "
+    "maisons y combinent clapet et poste de relevage. L'ordre des deux "
+    "équipements sur le réseau n'est pas indifférent."),
+   ("Quiberon", "Presqu'île à forte affluence estivale&nbsp;: le réseau "
+    "encaisse en juillet et août dix fois sa charge d'hiver. Les refoulements "
+    "y sont saisonniers, et c'est au printemps qu'on les prévient."),
+   ("Sarzeau", "Presqu'île de Rhuys, nombreuses résidences en contrebas du "
+    "collecteur&nbsp;: le clapet est un complément du relevage, pas un "
+    "substitut. Nous expliquons la différence avant de chiffrer."),
+ ],
+ "urgent": [
+   "Refoulement en cours&nbsp;: arrêtez tout usage d'eau dans le logement. "
+   "Chaque litre rejeté aggrave ce qui remonte.",
+   "Ne descendez pas dans un sous-sol où l'eau monte si des prises, une "
+   "chaudière ou un tableau s'y trouvent&nbsp;: coupez l'électricité de la "
+   "zone depuis l'étage.",
+   "Notez l'heure exacte du refoulement. S'il suit la marée plutôt que la "
+   "pluie, c'est l'indice le plus utile que vous puissiez nous donner.",
+   "Photographiez le niveau atteint avant de nettoyer&nbsp;: c'est la pièce "
+   "qui compte pour une déclaration d'assurance.",
+ ],
+ "danger": ("Un refoulement d'eaux usées dans un logement n'est pas un dégât "
+            "des eaux ordinaire&nbsp;: c'est une contamination. Tout ce que "
+            "l'eau a touché — sol, bas de cloison, mobilier, isolant — doit "
+            "être traité, désinfecté ou remplacé, et le simple séchage ne "
+            "suffit pas. Le second point est juridique autant que "
+            "technique&nbsp;: un clapet mal posé ou jamais entretenu donne un "
+            "sentiment de protection qui pousse à aménager un sous-sol qu'on "
+            "n'aurait pas aménagé autrement. La fausse sécurité coûte plus "
+            "cher que l'absence de protection."),
+ "sections": [
+  ("Ce qu'un clapet fait, et ce qu'il ne fait pas",
+   ["Un clapet anti-retour est un dispositif mécanique posé sur une "
+    "canalisation d'évacuation. Il laisse passer l'eau dans le sens normal et "
+    "se referme quand elle tente de revenir. C'est tout — et c'est déjà "
+    "beaucoup quand le réseau public sature.",
+    "<strong>Ce qu'il protège&nbsp;:</strong> votre installation contre un "
+    "refoulement venu du collecteur, qu'il soit dû à un orage, à une marée "
+    "haute, à un bouchon en aval ou à une surcharge saisonnière.",
+    "<strong>Ce qu'il ne protège pas&nbsp;:</strong> contre un bouchon situé "
+    "chez vous, en amont du clapet. Dans ce cas, le clapet est même un "
+    "inconvénient supplémentaire s'il est encrassé.",
+    "Point essentiel, et rarement dit&nbsp;: <strong>clapet fermé, vous ne "
+    "pouvez plus évacuer</strong>. Tant que le réseau refoule, vos propres "
+    "eaux usées restent chez vous. C'est pourquoi un clapet n'est jamais une "
+    "autorisation à continuer d'utiliser l'eau pendant un épisode de "
+    "refoulement&nbsp;: il empêche l'eau d'entrer, il ne fait pas sortir la "
+    "vôtre."],
+   None),
+  ("Poser au bon endroit, et dans le bon ordre",
+   [],
+   ["<strong>En aval de tous les appareils à protéger</strong>, mais en amont "
+    "du point de refoulement&nbsp;: typiquement sur le collecteur privatif, "
+    "avant la limite de propriété.",
+    "<strong>Dans un regard accessible</strong>, jamais enterré nu ni noyé "
+    "dans une dalle. Un clapet se visite, se nettoie et se remplace&nbsp;: "
+    "s'il est inaccessible, il ne sera fait ni l'un ni l'autre.",
+    "<strong>Avec un dispositif de manœuvre</strong> permettant la fermeture "
+    "manuelle quand le modèle le prévoit&nbsp;: utile avant un épisode "
+    "annoncé.",
+    "<strong>Au bon diamètre</strong>&nbsp;: un clapet sous-dimensionné crée "
+    "une perte de charge et devient lui-même un point d'accumulation.",
+    "<strong>Avec un poste de relevage, si les deux cohabitent</strong>&nbsp;: "
+    "le clapet se place sur la conduite de refoulement, et l'ordre des deux "
+    "équipements se décide au relevé, pas au catalogue.",
+    "<strong>Après vérification des branchements</strong>&nbsp;: un "
+    "refoulement provoqué par des eaux pluviales branchées sur les eaux usées "
+    "se corrige à la source, pas avec un clapet."],
+   ),
+  ("Avant de poser&nbsp;: le diagnostic qui évite l'erreur",
+   ["Un clapet répond à un refoulement venu de l'extérieur. Avant d'en poser "
+    "un, encore faut-il être sûr que c'est bien le cas — et ce n'est pas "
+    "toujours vrai.",
+    "Nous commençons par l'inspection caméra du réseau privatif. Elle dit "
+    "s'il y a un bouchon, un affaissement ou une contre-pente chez vous, "
+    "auquel cas le refoulement est interne et un clapet n'y changerait rien. "
+    "Elle montre aussi l'état réel des canalisations, parce qu'il est inutile "
+    "d'équiper un réseau qui doit être repris.",
+    "Nous vérifions ensuite la <strong>séparation des réseaux</strong>. Une "
+    "gouttière raccordée par erreur sur les eaux usées fait refouler les "
+    "sanitaires à chaque gros orage, et cette cause-là se corrige "
+    "définitivement. C'est un défaut fréquent dans les lotissements des "
+    "années 1980, et il est bien plus répandu qu'on ne le croit.",
+    "Enfin, nous demandons l'<strong>historique</strong>&nbsp;: à quelle "
+    "heure, par quel temps, à quelle fréquence. Un refoulement rythmé par la "
+    "marée, un refoulement d'orage et un refoulement saisonnier n'appellent "
+    "pas la même réponse. Nous intervenons sur l'ensemble du Morbihan, "
+    "diagnostic, pose et entretien compris."],
+   None),
+ ],
+ "faq": [
+  ("Un clapet se pose-t-il n'importe où&nbsp;?",
+   "Non : en aval des appareils à protéger, en amont du point de refoulement, "
+   "et toujours dans un regard accessible. Un clapet enterré sans visite ne "
+   "sera jamais entretenu, et un clapet encrassé ne ferme plus."),
+  ("Faut-il l'entretenir&nbsp;?",
+   "Oui, au moins une fois par an. Le battant s'encrasse, les joints "
+   "vieillissent, et un clapet bloqué en position ouverte ne protège plus — "
+   "sans que rien ne le signale."),
+  ("Puis-je utiliser l'eau pendant un refoulement&nbsp;?",
+   "Non. Clapet fermé, vos propres eaux usées ne partent plus. Il faut cesser "
+   "tout rejet jusqu'à ce que le réseau se désature."),
+  ("Qui paie, moi ou la collectivité&nbsp;?",
+   "Le clapet est posé sur votre réseau privatif : il est à votre charge. En "
+   "revanche, si le refoulement vient d'un défaut du réseau public, signalez-"
+   "le au service d'assainissement — notre rapport écrit vous y aidera."),
+ ],
+},
+
 ]
