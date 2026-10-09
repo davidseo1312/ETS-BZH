@@ -2476,6 +2476,33 @@ def form_ads(idp, titre, soustitre, bouton, dept):
 </div>"""
 
 
+def bloc_assurances_ads():
+    """Qualifications et assurance, repris du site et posé sur chaque page Ads.
+
+    Sur une page payante, c'est la réponse à l'objection que personne ne
+    formule mais que tout le monde a : « si ça se passe mal, qui couvre ? ».
+    Fond clair obligatoire — les logos comportent du texte noir.
+    """
+    logos = "".join(
+        '<img class="confiance__logo" src="/assets/img/%s" alt="%s" '
+        'style="--h:%dpx;--dy:%s" width="%d" height="%d" loading="lazy">'
+        % ((f, alt, h, dy) + taille_png("assets/img/" + f))
+        for f, alt, h, dy in LOGOS)
+    return f"""
+<section class="ads-assur" aria-label="Qualifications et assurance">
+  <div class="container">
+    <div class="ads-assur__txt">
+      <h2>Une entreprise assurée, déclarée et couverte</h2>
+      <p>ETS-BZH intervient en <strong>responsabilité civile
+        professionnelle</strong> et en <strong>garantie décennale</strong> pour
+        les travaux qui l'exigent. Vous pouvez demander les attestations avant
+        l'intervention&nbsp;: nous les transmettons sans discuter.</p>
+    </div>
+    <div class="ads-assur__logos">{logos}</div>
+  </div>
+</section>"""
+
+
 def page_ads(dept):
     d = ADS.DEPTS[dept["num"]]
     nom, num = dept["nom"], dept["num"]
@@ -2519,6 +2546,19 @@ def page_ads(dept):
     etapes = "".join(
         '<div class="step"><span class="step__pastille">%d</span><h3>%s</h3><p>%s</p></div>'
         % (i + 1, t, p) for i, (t, p) in enumerate(ADS.ETAPES))
+
+    # Avis : ceux de la page métier Électricité, rattachés à trois communes du
+    # département. Contenus d'exemple tant qu'ils n'ont pas été remplacés par
+    # de vrais avis vérifiés — voir l'avertissement du README.
+    villes_avis = [dept["villes"][0], dept["villes"][1], dept["villes"][3]]
+    avis = "".join(
+        '<article class="avis"><div class="avis__stars" aria-label="%d étoiles sur 5">'
+        '%s</div><p class="avis__txt">« %s »</p><div class="avis__auteur">'
+        '<span class="avis__ini" aria-hidden="true">%s</span><span>'
+        '<span class="avis__nom">%s</span><br>'
+        '<span class="avis__ville">%s (%s)</span></span></div></article>'
+        % (note, picto("etoile", 15) * note, txt, nom[0], nom, ville, num)
+        for (txt, nom, note), ville in zip(ACT["electricite"]["avis"], villes_avis))
 
     engagements = "".join(
         '<div class="ads-engagement"><h3>%s</h3><p>%s</p></div>' % (t, p)
@@ -2642,6 +2682,21 @@ def page_ads(dept):
   </div>
 </section>
 
+<section class="section section--pale">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Avis clients</span>
+      <h2>Ils nous ont appelés {art} {nom}</h2>
+      <p class="lead">Ce que disent les clients que nous avons dépannés.</p>
+    </div>
+    <div class="grid grid--3">{avis}</div>
+    <div class="center">
+      {bandeau_avis("Note moyenne des interventions ETS-BZH en Bretagne")}
+    </div>
+    <div style="margin-top:30px;text-align:center">{bouton_tel % "apres-avis"}</div>
+  </div>
+</section>
+
 <section class="section section--fond">
   <div class="container">
     <span class="eyebrow">Nos engagements</span>
@@ -2680,6 +2735,8 @@ def page_ads(dept):
 </section>
 
 </main>
+
+{bloc_assurances_ads()}
 
 <footer class="ads-foot">
   <div class="container">

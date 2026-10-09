@@ -330,3 +330,28 @@
   .ads-photos { grid-template-columns: 1fr; }
   .ads-julien__sceau { left: 0; bottom: -10px; font-size: 1rem; padding: 10px 14px; }
 }
+
+/* ------------------------------------------------- avis et assurances */
+/* Les étoiles du site (#f5a623) tombent à 2,1:1 sur blanc : sous le seuil de
+   3:1 des éléments d'interface. On les assombrit sans leur faire perdre leur
+   or — la note reste lisible, y compris pour un œil âgé. */
+:root { --or: #b07400; }
+
+.ads-assur {
+  background: #fff; border-top: 4px solid var(--jaune);
+  border-bottom: 1px solid var(--bordure); padding: 34px 0;
+}
+.ads-assur .container {
+  display: grid; grid-template-columns: 1.25fr .75fr; gap: 36px; align-items: center;
+}
+.ads-assur h2 { font-size: 1.5rem; margin: 0 0 10px; }
+.ads-assur p { margin: 0; color: var(--gris); line-height: 1.65; }
+.ads-assur__logos {
+  display: flex; align-items: center; justify-content: flex-end;
+  flex-wrap: wrap; gap: 26px 34px;
+}
+
+@media (max-width: 860px) {
+  .ads-assur .container { grid-template-columns: 1fr; gap: 24px; text-align: center; }
+  .ads-assur__logos { justify-content: center; }
+}

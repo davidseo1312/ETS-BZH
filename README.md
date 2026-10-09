@@ -365,10 +365,15 @@ payants se distinguent au premier coup d'œil dans la boîte de réception.
 7. **Bloc commune par commune**&nbsp;: contexte départemental puis douze
    communes, chacune avec une note propre.
 8. Les trois étapes.
-9. **Engagements** — aucun prix, voir ci-dessous.
-10. FAQ de levée d'objection.
-11. CTA final, second formulaire, pied léger.
-12. Barre d'appel fixe en bas sur mobile, là où se trouve le pouce.
+9. **Avis clients** — ceux de la page métier Électricité, rattachés à trois
+   communes du département, avec le bandeau de note (voir l'avertissement).
+10. **Engagements** — aucun prix, voir ci-dessous.
+11. FAQ de levée d'objection.
+12. CTA final, second formulaire.
+13. **Bandeau assurances**&nbsp;: RC professionnelle, garantie décennale et les
+    trois logos (Artisan de France, CMA, MIC Insurance).
+14. Pied léger.
+15. Barre d'appel fixe en bas sur mobile, là où se trouve le pouce.
 
 ### Palette propre aux pages Ads
 
@@ -425,12 +430,40 @@ léger côté image (.58). Le contraste du titre ne dépend donc jamais de la
 photo&nbsp;; mesuré sur les pixels rendus, il va de 13,7:1 à 14,8:1. Sur
 mobile le voile devient quasi plein, la photo n'y étant plus qu'une texture.
 
-**Pas de faux avis.** Ces pages ne comportent aucun témoignage ni note
-chiffrée. Sur une page financée par de la publicité, des avis inventés
-cumulent le risque commercial (pratique trompeuse) et le risque publicitaire
-(règles de la régie sur les affirmations invérifiables). La réassurance y
-repose sur ce qui est vérifiable&nbsp;: délai annoncé, tarifs affichés, devis
-avant travaux.
+### ⚠ Avis clients
+
+Les pages Ads affichent, à la demande du client, **les trois témoignages de la
+page métier Électricité** et le **bandeau « 4,8/5 » estampillé Google
+Reviews**. Les noms changent de commune selon le département.
+
+Ces contenus sont des **exemples**, pas de vrais avis. Les publier en l'état
+sur une page financée par de la publicité cumule deux risques&nbsp;: la
+pratique commerciale trompeuse (articles L121-2 et suivants du Code de la
+consommation, l'affichage d'avis fictifs étant expressément visé) et le refus
+en régie, la plupart interdisant les témoignages et notes invérifiables.
+Le badge Google Reviews aggrave le cas&nbsp;: il attribue la note à une
+plateforme tierce qui ne l'a pas produite.
+
+**À remplacer par de vrais avis vérifiés avant de lancer les campagnes.** Ils
+vivent dans `ACTIVITES[…]["avis"]` de `tools/data.py` — les modifier met à
+jour le site public et les pages Ads en même temps. Le bandeau de note se
+retire en supprimant l'appel à `bandeau_avis()` dans `page_ads`.
+
+**Étoiles.** Celles du site (`--or: #f5a623`) tombent à 2,03:1 sur blanc,
+sous le seuil de 3:1 des éléments d'interface. Les pages Ads les assombrissent
+à `#b07400` — 3,93:1, sans leur faire perdre leur or.
+
+### Assurances
+
+Un bandeau sur **les quatre pages**, juste avant le pied&nbsp;: responsabilité
+civile professionnelle, garantie décennale, et les trois logos du site
+(Artisan de France, CMA, MIC Insurance) servis depuis `LOGOS` de
+`tools/data.py`. C'est la réponse à l'objection que personne ne formule mais
+que tout le monde a&nbsp;: «&nbsp;si ça se passe mal, qui couvre&nbsp;?&nbsp;»
+
+Les réserves déjà notées plus bas valent ici aussi&nbsp;: l'entitlement aux
+logos Artisan de France et CMA reste à confirmer, et le code NAF déclaré ne
+couvre pas l'activité électrique.
 
 Le contenu éditorial est dans `tools/ads.py` (numéro, urgences, étapes,
 tarifs, FAQ, et pour chaque département son contexte et ses douze communes).
