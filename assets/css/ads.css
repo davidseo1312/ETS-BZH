@@ -1,21 +1,80 @@
 /* ===========================================================================
    ETS-BZH — pages d'atterrissage Google Ads (électricité)
    ---------------------------------------------------------------------------
-   Chargée APRÈS style.css, dont elle réutilise la palette, les fontes et les
-   composants (.btn, .form-card, .container, .faq…). Elle n'ajoute que ce qui
-   est propre à une page payante : aucune navigation, un numéro mis en avant
-   partout, et une barre d'appel permanente.
+   Chargée APRÈS style.css, dont elle réutilise les fontes et les composants
+   (.btn, .form-card, .container, .faq…). Elle n'ajoute que ce qui est propre à
+   une page payante : aucune navigation, un numéro mis en avant partout, et une
+   barre d'appel permanente.
 
-   Principe de conversion : à tout moment de la page, le visiteur doit avoir
-   un bouton d'appel dans le champ de vision. D'où une barre collante en haut
-   sur grand écran, et en bas sur mobile — là où se trouve le pouce.
+   Principe de conversion : à tout moment de la page, le visiteur doit avoir un
+   bouton d'appel dans le champ de vision. D'où une barre collante en haut sur
+   grand écran, et en bas sur mobile — là où se trouve le pouce.
+
+   PALETTE PROPRE AUX PAGES ADS
+   ----------------------------
+   Bleu nuit + jaune, et rien d'autre. Le partage des rôles est strict, parce
+   que c'est lui qui fait la lisibilité : le BLEU NUIT porte la structure et le
+   sérieux (en-têtes, bandeaux, titres, texte), le JAUNE ne sert qu'à UNE
+   chose — l'action. Tout ce qui est jaune se clique ou désigne ce qu'il faut
+   cliquer. Du jaune partout ne ferait ressortir plus rien.
+
+   Le jaune ne reçoit jamais de texte blanc : #ffc400 sous du blanc tombe à
+   1,9:1, illisible. Il porte toujours le bleu nuit (9,8:1). C'est pourquoi
+   --sur-jaune existe et qu'aucune règle ne l'outrepasse.
+
+   Ces variables redéfinissent celles de style.css. Le fichier n'étant chargé
+   que par les quatre pages Ads, le site public n'en voit rien.
    ========================================================================= */
+
+:root {
+  /* Le jaune — réservé à l'action */
+  --jaune: #ffc400;
+  --jaune-f: #e8ae00;          /* survol */
+  --jaune-pale: #fff6d9;       /* aplats légers */
+  --sur-jaune: #0d2237;        /* le SEUL texte admis sur du jaune */
+
+  /* Le bleu nuit — structure, sérieux, lisibilité */
+  --bleu: #10395c;
+  --bleu-clair: #1a5080;
+  --bleu-ciel: #2f73a8;
+  --bleu-hover: #0a2a46;
+  --bleu-pale: #eef3f8;
+  --bleu-pale-2: #f6f9fc;
+  --bleu-voile: #f1f5f9;
+
+  --nuit: #0d2237;
+  --nuit-2: #17364f;
+  --gris: #4a5a68;
+  --gris-clair: #5d6e7c;
+
+  /* Fonds chauds : ils tirent la page vers le jaune sans en mettre partout */
+  --fond: #fffaef;
+  --ivoire: #fffbf0;
+  --ivoire-2: #fff4da;
+  --bordure: #e8ddc4;
+  --bordure-forte: #d6c69f;
+
+  --ombre: 0 2px 14px rgba(13, 34, 55, .10);
+  --ombre-forte: 0 10px 30px rgba(13, 34, 55, .17);
+}
+
+/* L'œil d'accroche des sections passe en jaune : c'est lui qui scande la page. */
+.eyebrow { background: var(--jaune); color: var(--sur-jaune); }
+
+/* Le bouton de formulaire reste bleu nuit : le jaune est déjà pris par
+   l'appel, et deux boutons jaunes se concurrenceraient. */
+.btn--primary { background: var(--bleu); border-color: var(--bleu); color: #fff; }
+.btn--primary:hover, .btn--primary:focus-visible {
+  background: var(--bleu-hover); border-color: var(--bleu-hover);
+}
+.btn--ghost { color: var(--bleu); border-color: var(--bleu); }
+.btn--ghost:hover, .btn--ghost:focus-visible { background: var(--bleu); color: #fff; }
 
 /* --------------------------------------------------------- barre collante */
 .ads-bar {
   position: sticky; top: 0; z-index: 60;
   background: var(--nuit); color: #fff;
-  border-bottom: 3px solid var(--urgence);
+  border-bottom: 4px solid var(--jaune);
 }
 .ads-bar__in {
   display: flex; align-items: center; justify-content: space-between;
@@ -29,16 +88,16 @@
 }
 .ads-bar__dispo {
   display: block; font-size: .8rem; font-weight: 600; letter-spacing: .06em;
-  text-transform: uppercase; color: #bfe2f5; margin-top: 3px;
+  text-transform: uppercase; color: var(--jaune); margin-top: 3px;
 }
 .ads-bar__tel {
   display: inline-flex; align-items: center; gap: 10px;
-  background: var(--urgence); color: #fff; text-decoration: none;
+  background: var(--jaune); color: var(--sur-jaune); text-decoration: none;
   font-family: "Barlow Condensed", "Barlow", sans-serif;
   font-size: 1.6rem; font-weight: 700; letter-spacing: .02em;
   padding: 12px 24px; min-height: 56px; white-space: nowrap;
 }
-.ads-bar__tel:hover, .ads-bar__tel:focus-visible { background: var(--urgence-hover); color: #fff; }
+.ads-bar__tel:hover, .ads-bar__tel:focus-visible { background: var(--jaune-f); color: var(--sur-jaune); }
 .ads-bar__tel svg { width: 22px; height: 22px; flex: none; }
 
 /* ------------------------------------------------------------------- hero */
@@ -55,7 +114,7 @@
 
 .ads-eyebrow {
   display: inline-flex; align-items: center; gap: 9px;
-  background: var(--urgence); color: #fff;
+  background: var(--jaune); color: var(--sur-jaune);
   font-size: .82rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
   padding: 7px 14px;
 }
@@ -65,18 +124,18 @@
   display: grid; grid-template-columns: 24px 1fr; gap: 11px; align-items: start;
   font-size: 1.04rem; color: var(--nuit); font-weight: 600;
 }
-.ads-points svg { width: 19px; height: 19px; color: var(--succes); margin-top: 3px; }
+.ads-points svg { width: 19px; height: 19px; color: var(--bleu); margin-top: 3px; }
 
 .ads-cta { display: flex; flex-wrap: wrap; gap: 13px; }
 .ads-tel-btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 12px;
-  background: var(--urgence); color: #fff; text-decoration: none;
+  background: var(--jaune); color: var(--sur-jaune); text-decoration: none;
   font-family: "Barlow Condensed", "Barlow", sans-serif;
   font-size: 1.75rem; font-weight: 700; letter-spacing: .02em;
   padding: 16px 30px; min-height: 70px; text-align: center;
-  box-shadow: 0 12px 30px rgba(197, 48, 23, .26);
+  box-shadow: 0 12px 30px rgba(232, 174, 0, .42);
 }
-.ads-tel-btn:hover, .ads-tel-btn:focus-visible { background: var(--urgence-hover); color: #fff; }
+.ads-tel-btn:hover, .ads-tel-btn:focus-visible { background: var(--jaune-f); color: var(--sur-jaune); }
 .ads-tel-btn svg { width: 26px; height: 26px; flex: none; }
 .ads-tel-btn__sur {
   display: block; font-family: "Barlow", sans-serif; font-size: .78rem;
@@ -92,20 +151,20 @@
 }
 .ads-preuve { padding: 24px 16px; border-left: 1px solid rgba(255, 255, 255, .17); }
 .ads-preuve:first-child { border-left: none; }
-.ads-preuve__num {
+.ads-preuve__num { color: var(--jaune);
   font-family: "Barlow Condensed", "Barlow", sans-serif;
   font-size: 2.1rem; font-weight: 700; line-height: 1;
 }
 .ads-preuve__lbl {
   font-size: .86rem; font-weight: 600; letter-spacing: .07em;
-  text-transform: uppercase; margin-top: 7px; color: #d6ecf8;
+  text-transform: uppercase; margin-top: 7px; color: #e3ecf4;
 }
 
 /* ------------------------------------------------------ urgences traitées */
 .ads-grille { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
 .ads-case {
   background: #fff; border: 1px solid var(--bordure);
-  border-top: 4px solid var(--urgence);
+  border-top: 4px solid var(--jaune);
   padding: 26px 26px 24px;
   box-shadow: 0 10px 30px rgba(12, 74, 112, .07);
 }
@@ -144,7 +203,7 @@
 /* ------------------------------------------------------------- CTA final  */
 .ads-final { background: var(--nuit); color: #fff; text-align: center; }
 .ads-final h2 { color: #fff; font-size: clamp(1.8rem, 3.6vw, 2.6rem); margin: 0 0 14px; }
-.ads-final p { color: #cfe4f1; font-size: 1.1rem; max-width: 640px; margin: 0 auto 28px; }
+.ads-final p { color: #dbe6ef; font-size: 1.1rem; max-width: 640px; margin: 0 auto 28px; }
 
 /* ------------------------------------------------------------- pied léger */
 .ads-foot {
@@ -167,7 +226,7 @@
   font-family: "Barlow Condensed", "Barlow", sans-serif; font-size: 1.3rem;
   letter-spacing: .02em;
 }
-.ads-mob__tel { background: var(--urgence); color: #fff; }
+.ads-mob__tel { background: var(--jaune); color: var(--sur-jaune); }
 .ads-mob__form { background: #fff; color: var(--bleu); border-top: 1px solid var(--bordure); }
 .ads-mob svg { width: 20px; height: 20px; flex: none; }
 
@@ -199,4 +258,54 @@
 @media (max-width: 460px) {
   .ads-bar__nom { font-size: 1.2rem; }
   .ads-bar__id img { height: 32px; }
+}
+
+/* ------------------------------------------- « qui vous répond » : Julien  */
+/* La seule section de la page où l'on parle de personnes plutôt que de
+   prestations. Elle est volontairement placée tôt : sur une page payante, le
+   visiteur ne connaît pas l'entreprise, et un visage lève plus d'objections
+   qu'un argument de plus. */
+.ads-julien { background: var(--nuit); color: #fff; }
+.ads-julien__grid {
+  display: grid; grid-template-columns: .85fr 1.15fr; gap: 44px; align-items: center;
+}
+.ads-julien__photo { position: relative; }
+.ads-julien__photo .photo { margin: 0; }
+.ads-julien__photo .photo__legende { display: none; }
+.ads-julien__sceau {
+  position: absolute; left: -14px; bottom: -14px; z-index: 2;
+  background: var(--jaune); color: var(--sur-jaune);
+  font-family: "Barlow Condensed", "Barlow", sans-serif;
+  font-size: 1.1rem; font-weight: 700; line-height: 1.15; letter-spacing: .02em;
+  text-transform: uppercase; padding: 12px 18px; max-width: 200px;
+}
+.ads-julien h2 { color: #fff; font-size: clamp(1.75rem, 3.4vw, 2.5rem); margin: 14px 0 18px; }
+.ads-julien p { color: #dbe6ef; font-size: 1.08rem; line-height: 1.72; margin: 0 0 16px; }
+.ads-julien p strong { color: #fff; }
+.ads-julien__sign {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px;
+  margin: 26px 0 0; padding: 20px 0 0; border-top: 1px solid rgba(255, 255, 255, .18);
+}
+.ads-julien__nom {
+  font-family: "Barlow Condensed", "Barlow", sans-serif;
+  font-size: 1.5rem; font-weight: 700; color: var(--jaune); line-height: 1.1;
+}
+.ads-julien__role {
+  display: block; font-family: "Barlow", sans-serif; font-size: .86rem;
+  font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: #c3d4e1;
+}
+
+/* --------------------------------------------------- galerie d'interventions */
+.ads-photos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.ads-photos .photo { margin: 0; }
+.ads-photos .photo__titre { font-size: 1.02rem; }
+.ads-photos .photo__texte { display: none; }   /* sur une page payante, la légende courte suffit */
+
+@media (max-width: 980px) {
+  .ads-julien__grid { grid-template-columns: 1fr; gap: 30px; }
+  .ads-photos { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .ads-photos { grid-template-columns: 1fr; }
+  .ads-julien__sceau { left: 0; bottom: -10px; font-size: 1rem; padding: 10px 14px; }
 }

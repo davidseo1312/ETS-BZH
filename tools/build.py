@@ -2529,6 +2529,14 @@ def page_ads(dept):
         '<div class="faq__body"><p>%s</p></div></details>' % (q, r)
         for q, r in ADS.FAQ)
 
+    # Photos : celles de la page métier Électricité, sans leur description
+    # longue (masquée en CSS) — sur une page payante, la légende courte suffit.
+    elec = ACT["electricite"]
+    photos = "".join(photo(f, alt, leg) for f, alt, leg, _ in elec["photos"])
+    t = ADS.TECHNICIEN
+    paras = "".join("<p>%s</p>" % x.format(tel=tel) for x in t["paras"])
+    pf, palt, pleg, _ = elec["photo_equipe"]
+
     return (
         head_ads(titre, desc, dept) + f"""
 <header class="ads-bar">
@@ -2580,6 +2588,35 @@ def page_ads(dept):
       plutôt que d'attendre&nbsp;: la plupart se règlent en une intervention.</p>
     <div class="ads-grille">{cases}</div>
     <div style="margin-top:34px;text-align:center">{bouton_tel % "apres-urgences"}</div>
+  </div>
+</section>
+
+<section class="section ads-julien">
+  <div class="container ads-julien__grid">
+    <div class="ads-julien__photo">
+      {photo(pf, palt, pleg)}
+      <span class="ads-julien__sceau">{t['sceau']}</span>
+    </div>
+    <div>
+      <span class="ads-eyebrow">Qui vous répond</span>
+      <h2>{t['titre']}</h2>
+      {paras}
+      <div class="ads-julien__sign">
+        <span class="ads-julien__nom">{t['prenom']}
+          <span class="ads-julien__role">{t['role']}</span></span>
+        {bouton_tel % "julien"}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <span class="eyebrow">Nos interventions</span>
+    <h2>Le travail que nous livrons</h2>
+    <p class="lead">Tableaux, recherche de panne, mise aux normes, bornes de
+      recharge&nbsp;: des chantiers réalisés par nos électriciens.</p>
+    <div class="ads-photos">{photos}</div>
   </div>
 </section>
 

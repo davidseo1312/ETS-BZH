@@ -41,6 +41,36 @@ URGENCES = [
      "d'alimentation du problème d'appareil — ce n'est pas le même dépannage."),
 ]
 
+# Le technicien mis en avant sur les pages payantes. Un prénom et un visage
+# lèvent plus d'objections qu'un argument de plus : le visiteur d'une annonce
+# ne connaît pas l'entreprise, et il hésite à composer un numéro inconnu.
+#
+# ATTENTION — ce bloc affirme des faits sur l'entreprise : l'existence du
+# technicien nommé et la transmission familiale. Sur une page publicitaire,
+# une affirmation inexacte relève de la pratique commerciale trompeuse
+# (art. L121-2 du Code de la consommation) et expose au refus en régie.
+# À ne publier que si c'est exact.
+TECHNICIEN = {
+    "prenom": "Julien",
+    "role": "Électricien — ETS-BZH",
+    "sceau": "De père en fils",
+    "titre": "Demandez Julien",
+    "paras": [
+        "Quand vous composez le {tel}, vous ne tombez pas sur une plateforme "
+        "qui prend votre adresse et vous rappelle plus tard. <strong>C'est un "
+        "électricien qui décroche</strong>, et c'est souvent Julien.",
+        "Il vous demande ce qui se passe, ce que vous voyez au tableau, ce qui "
+        "fonctionne encore. En deux minutes, il sait s'il faut venir tout de "
+        "suite, si vous pouvez attendre demain, ou si le problème se règle au "
+        "téléphone — et dans ce dernier cas, il vous le dit.",
+        "<strong>Le métier s'est transmis de père en fils.</strong> On ne "
+        "travaille pas de la même façon quand on a appris sur les chantiers de "
+        "son père, dans les mêmes communes, auprès des mêmes clients. Un "
+        "devis clair avant d'intervenir, un prix annoncé avant de se "
+        "déplacer, et un travail qu'on assume parce qu'on recroisera les gens.",
+    ],
+}
+
 ETAPES = [
     ("Vous appelez",
      "Un électricien décroche, pas un standard. Il vous demande ce qui se "

@@ -358,13 +358,54 @@ payants se distinguent au premier coup d'œil dans la boîte de réception.
    deux champs (téléphone, commune).
 3. Bandeau de chiffres.
 4. Les six urgences traitées, suivies d'un rappel d'appel.
-5. **Bloc commune par commune**&nbsp;: contexte départemental puis douze
+5. **« Demandez Julien »**&nbsp;: le technicien, la transmission familiale, une
+   photo et un bouton d'appel (voir l'avertissement plus bas).
+6. **Galerie**&nbsp;: les quatre photos de la page métier Électricité,
+   réduites à leur légende courte.
+7. **Bloc commune par commune**&nbsp;: contexte départemental puis douze
    communes, chacune avec une note propre.
-6. Les trois étapes.
-7. Tarifs indicatifs en fourchettes.
-8. FAQ de levée d'objection.
-9. CTA final, second formulaire, pied léger.
-10. Barre d'appel fixe en bas sur mobile, là où se trouve le pouce.
+8. Les trois étapes.
+9. Tarifs indicatifs en fourchettes.
+10. FAQ de levée d'objection.
+11. CTA final, second formulaire, pied léger.
+12. Barre d'appel fixe en bas sur mobile, là où se trouve le pouce.
+
+### Palette propre aux pages Ads
+
+Ces quatre pages ne portent **ni le bleu ni l'orange du site**&nbsp;: elles
+sont en **bleu nuit et jaune**, et rien d'autre. `assets/css/ads.css`
+redéfinit les variables de `style.css`&nbsp;; comme le fichier n'est chargé
+que par ces pages, le site public n'en voit rien — vérifié au build.
+
+Le partage des rôles est strict, et c'est lui qui fait la lisibilité&nbsp;:
+
+| Couleur | Rôle |
+| --- | --- |
+| **Bleu nuit** `#0d2237` / `#10395c` | structure et sérieux&nbsp;: en-têtes, bandeaux, titres, texte, bouton de formulaire |
+| **Jaune** `#ffc400` | l'action, et elle seule&nbsp;: boutons d'appel, œils d'accroche, chiffres clés, sceau |
+
+Tout ce qui est jaune se clique ou désigne ce qu'il faut cliquer. Du jaune
+partout ne ferait plus rien ressortir.
+
+**Le jaune ne reçoit jamais de texte blanc**&nbsp;: `#ffc400` sous du blanc
+tombe à 1,9:1, illisible. Il porte toujours le bleu nuit (9,8:1), d'où la
+variable `--sur-jaune` qu'aucune règle n'outrepasse. Contrôle sur les pixels
+rendus, 48 zones sur deux pages et deux largeurs&nbsp;: pire cas
+**5,56:1** — la page est plus lisible qu'avec l'ancienne palette (4,64:1).
+
+### ⚠ « Demandez Julien » et « de père en fils »
+
+Ce bloc (`TECHNICIEN` dans `tools/ads.py`) **affirme des faits sur
+l'entreprise**&nbsp;: qu'un technicien nommé Julien y travaille et répond au
+téléphone, et que le métier s'est transmis de père en fils.
+
+Sur une page publicitaire, une affirmation inexacte sur la nature ou
+l'ancienneté de l'entreprise relève de la **pratique commerciale trompeuse**
+(article L121-2 du Code de la consommation), et c'est également un motif de
+refus en régie. **À ne publier que si c'est exact.** Si la transmission
+familiale ne correspond pas à la réalité, retirez `sceau` et le troisième
+paragraphe de `TECHNICIEN`&nbsp;: le reste du bloc — un électricien décroche,
+il vous dit s'il faut venir — fonctionne sans cette affirmation.
 
 Aucune navigation, aucun lien vers le site hormis les trois liens légaux du
 pied&nbsp;: sur une page payante, chaque lien sortant est une fuite.
