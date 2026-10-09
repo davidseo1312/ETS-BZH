@@ -1,0 +1,202 @@
+/* ===========================================================================
+   ETS-BZH — pages d'atterrissage Google Ads (électricité)
+   ---------------------------------------------------------------------------
+   Chargée APRÈS style.css, dont elle réutilise la palette, les fontes et les
+   composants (.btn, .form-card, .container, .faq…). Elle n'ajoute que ce qui
+   est propre à une page payante : aucune navigation, un numéro mis en avant
+   partout, et une barre d'appel permanente.
+
+   Principe de conversion : à tout moment de la page, le visiteur doit avoir
+   un bouton d'appel dans le champ de vision. D'où une barre collante en haut
+   sur grand écran, et en bas sur mobile — là où se trouve le pouce.
+   ========================================================================= */
+
+/* --------------------------------------------------------- barre collante */
+.ads-bar {
+  position: sticky; top: 0; z-index: 60;
+  background: var(--nuit); color: #fff;
+  border-bottom: 3px solid var(--urgence);
+}
+.ads-bar__in {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 18px; min-height: 64px; padding: 8px 0;
+}
+.ads-bar__id { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.ads-bar__id img { height: 40px; width: auto; display: block; }
+.ads-bar__nom {
+  font-family: "Barlow Condensed", "Barlow", sans-serif;
+  font-size: 1.45rem; font-weight: 700; letter-spacing: .03em; line-height: 1;
+}
+.ads-bar__dispo {
+  display: block; font-size: .8rem; font-weight: 600; letter-spacing: .06em;
+  text-transform: uppercase; color: #bfe2f5; margin-top: 3px;
+}
+.ads-bar__tel {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--urgence); color: #fff; text-decoration: none;
+  font-family: "Barlow Condensed", "Barlow", sans-serif;
+  font-size: 1.6rem; font-weight: 700; letter-spacing: .02em;
+  padding: 12px 24px; min-height: 56px; white-space: nowrap;
+}
+.ads-bar__tel:hover, .ads-bar__tel:focus-visible { background: var(--urgence-hover); color: #fff; }
+.ads-bar__tel svg { width: 22px; height: 22px; flex: none; }
+
+/* ------------------------------------------------------------------- hero */
+.ads-hero { background: var(--ivoire); border-bottom: 1px solid var(--bordure); }
+.ads-hero__grid {
+  display: grid; grid-template-columns: 1.15fr .85fr; gap: 46px;
+  align-items: start; padding: 54px 0 58px;
+}
+.ads-hero h1 {
+  font-size: clamp(2.1rem, 4.4vw, 3.15rem); line-height: 1.08; margin: 14px 0 18px;
+}
+.ads-hero__sub { font-size: 1.16rem; line-height: 1.68; color: var(--gris); margin: 0 0 26px; }
+.ads-hero__sub strong { color: var(--nuit); }
+
+.ads-eyebrow {
+  display: inline-flex; align-items: center; gap: 9px;
+  background: var(--urgence); color: #fff;
+  font-size: .82rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  padding: 7px 14px;
+}
+
+.ads-points { list-style: none; margin: 0 0 28px; padding: 0; display: grid; gap: 11px; }
+.ads-points li {
+  display: grid; grid-template-columns: 24px 1fr; gap: 11px; align-items: start;
+  font-size: 1.04rem; color: var(--nuit); font-weight: 600;
+}
+.ads-points svg { width: 19px; height: 19px; color: var(--succes); margin-top: 3px; }
+
+.ads-cta { display: flex; flex-wrap: wrap; gap: 13px; }
+.ads-tel-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+  background: var(--urgence); color: #fff; text-decoration: none;
+  font-family: "Barlow Condensed", "Barlow", sans-serif;
+  font-size: 1.75rem; font-weight: 700; letter-spacing: .02em;
+  padding: 16px 30px; min-height: 70px; text-align: center;
+  box-shadow: 0 12px 30px rgba(197, 48, 23, .26);
+}
+.ads-tel-btn:hover, .ads-tel-btn:focus-visible { background: var(--urgence-hover); color: #fff; }
+.ads-tel-btn svg { width: 26px; height: 26px; flex: none; }
+.ads-tel-btn__sur {
+  display: block; font-family: "Barlow", sans-serif; font-size: .78rem;
+  font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
+  opacity: .92; margin-top: 2px;
+}
+
+/* ------------------------------------------------------- bande de preuves */
+.ads-preuves { background: var(--bleu); color: #fff; }
+.ads-preuves__grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+}
+.ads-preuve { padding: 24px 16px; border-left: 1px solid rgba(255, 255, 255, .17); }
+.ads-preuve:first-child { border-left: none; }
+.ads-preuve__num {
+  font-family: "Barlow Condensed", "Barlow", sans-serif;
+  font-size: 2.1rem; font-weight: 700; line-height: 1;
+}
+.ads-preuve__lbl {
+  font-size: .86rem; font-weight: 600; letter-spacing: .07em;
+  text-transform: uppercase; margin-top: 7px; color: #d6ecf8;
+}
+
+/* ------------------------------------------------------ urgences traitées */
+.ads-grille { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.ads-case {
+  background: #fff; border: 1px solid var(--bordure);
+  border-top: 4px solid var(--urgence);
+  padding: 26px 26px 24px;
+  box-shadow: 0 10px 30px rgba(12, 74, 112, .07);
+}
+.ads-case h3 { font-size: 1.24rem; margin: 0 0 10px; }
+.ads-case p { margin: 0; color: var(--gris); line-height: 1.65; }
+
+/* ------------------------------------------------------- commune par commune */
+.ads-villes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 34px; }
+.ads-ville {
+  display: grid; grid-template-columns: 170px 1fr; gap: 4px 18px;
+  padding: 15px 0; border-top: 1px solid var(--bordure);
+}
+.ads-ville__nom {
+  font-family: "Barlow Condensed", "Barlow", sans-serif;
+  font-size: 1.28rem; font-weight: 700; color: var(--nuit); line-height: 1.25;
+}
+.ads-ville__note { color: var(--gris); font-size: 1rem; line-height: 1.6; }
+.ads-villes-pied { margin: 26px 0 0; color: var(--gris); }
+
+/* ----------------------------------------------------------------- tarifs */
+.ads-tarifs { width: 100%; border-collapse: collapse; background: #fff; }
+.ads-tarifs th, .ads-tarifs td {
+  text-align: left; padding: 16px 18px; border-bottom: 1px solid var(--bordure);
+  vertical-align: top;
+}
+.ads-tarifs thead th {
+  background: var(--bleu); color: #fff; font-size: .86rem;
+  letter-spacing: .07em; text-transform: uppercase;
+}
+.ads-tarifs td.ads-prix {
+  font-family: "Barlow Condensed", "Barlow", sans-serif;
+  font-size: 1.32rem; font-weight: 700; color: var(--bleu); white-space: nowrap;
+}
+.ads-tarifs__note { margin: 16px 0 0; font-size: .96rem; color: var(--gris); }
+
+/* ------------------------------------------------------------- CTA final  */
+.ads-final { background: var(--nuit); color: #fff; text-align: center; }
+.ads-final h2 { color: #fff; font-size: clamp(1.8rem, 3.6vw, 2.6rem); margin: 0 0 14px; }
+.ads-final p { color: #cfe4f1; font-size: 1.1rem; max-width: 640px; margin: 0 auto 28px; }
+
+/* ------------------------------------------------------------- pied léger */
+.ads-foot {
+  background: var(--fond); border-top: 1px solid var(--bordure);
+  padding: 26px 0 34px; font-size: .93rem; color: var(--gris);
+}
+.ads-foot a { color: var(--bleu); }
+.ads-foot__liens { margin: 10px 0 0; }
+.ads-foot__liens a { margin-right: 18px; }
+
+/* ------------------------------------------- barre d'appel mobile (pouce) */
+.ads-mob {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 70;
+  display: none; grid-template-columns: 1.35fr 1fr;
+  box-shadow: 0 -6px 22px rgba(12, 74, 112, .22);
+}
+.ads-mob a {
+  display: flex; align-items: center; justify-content: center; gap: 9px;
+  min-height: 62px; text-decoration: none; font-weight: 700;
+  font-family: "Barlow Condensed", "Barlow", sans-serif; font-size: 1.3rem;
+  letter-spacing: .02em;
+}
+.ads-mob__tel { background: var(--urgence); color: #fff; }
+.ads-mob__form { background: #fff; color: var(--bleu); border-top: 1px solid var(--bordure); }
+.ads-mob svg { width: 20px; height: 20px; flex: none; }
+
+/* -------------------------------------------------------------- responsive */
+@media (max-width: 980px) {
+  .ads-hero__grid { grid-template-columns: 1fr; gap: 34px; padding: 34px 0 40px; }
+  .ads-grille { grid-template-columns: repeat(2, 1fr); }
+  .ads-villes { grid-template-columns: 1fr; gap: 0; }
+  .ads-preuves__grid { grid-template-columns: repeat(2, 1fr); }
+  .ads-preuve:nth-child(3) { border-left: none; }
+  .ads-preuve:nth-child(n+3) { border-top: 1px solid rgba(255, 255, 255, .17); }
+}
+@media (max-width: 760px) {
+  .ads-bar__tel { font-size: 1.25rem; padding: 10px 16px; min-height: 48px; }
+  .ads-bar__tel span.ads-bar__num { display: none; }
+  .ads-bar__dispo { display: none; }
+  .ads-grille { grid-template-columns: 1fr; }
+  .ads-ville { grid-template-columns: 1fr; gap: 2px; }
+  .ads-tel-btn { width: 100%; font-size: 1.5rem; }
+  .ads-mob { display: grid; }
+  body { padding-bottom: 62px; }   /* la barre fixe ne masque pas le pied */
+  .ads-tarifs th, .ads-tarifs td { padding: 13px 12px; }
+  .ads-tarifs thead { display: none; }
+  .ads-tarifs tr { display: grid; grid-template-columns: 1fr auto; gap: 0 12px;
+                   border-bottom: 1px solid var(--bordure); padding: 13px 0; }
+  .ads-tarifs td { border: none; padding: 2px 0; }
+  .ads-tarifs td.ads-detail { grid-column: 1 / -1; font-size: .94rem; color: var(--gris); }
+}
+@media (max-width: 460px) {
+  .ads-bar__nom { font-size: 1.2rem; }
+  .ads-bar__id img { height: 32px; }
+}

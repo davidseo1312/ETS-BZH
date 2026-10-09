@@ -52,6 +52,7 @@ def taille_png(chemin):
 
 
 CSS = "/assets/css/style.css?v=" + empreinte("assets/css/style.css")
+CSS_ADS = "/assets/css/ads.css?v=" + empreinte("assets/css/ads.css")
 JS = "/assets/js/main.js?v=" + empreinte("assets/js/main.js")
 
 # « des Côtes-d'Armor », « du Finistère », …
@@ -60,6 +61,7 @@ DE = {"22": "des Côtes-d'Armor", "29": "du Finistère",
 
 ACT = {a["key"]: a for a in ACTIVITES}
 from articles import ARTICLES
+import ads as ADS
 DEPT = {d["num"]: d for d in DEPARTEMENTS}
 DEPT = {d["num"]: d for d in DEPARTEMENTS}
 
@@ -2394,6 +2396,283 @@ def sitemap(pages):
             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">%s\n</urlset>' % urls)
 
 
+
+# ====================================================== PAGES ADS (payantes)
+# Ces pages ne sont liées depuis aucune page du site, n'apparaissent pas au
+# sitemap et portent « noindex, nofollow ». Elles vivent au bout d'une annonce
+# et nulle part ailleurs. Le numéro y est distinct de celui du site : un appel
+# sur ce numéro vient forcément d'une annonce.
+
+def url_ads(dept):
+    return "/ads/electricite-%s-%s/" % (dept["slug"], dept["num"])
+
+
+def head_ads(titre, description, dept):
+    """En-tête d'une page payante : noindex, pas de canonique, CSS dédiée."""
+    return f"""<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{titre}</title>
+  <meta name="description" content="{description}">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#16303f">
+  <meta name="format-detection" content="telephone=yes">
+  <link rel="icon" href="/assets/img/favicon.png" type="image/png">
+  <link rel="preload" href="/assets/fonts/barlow-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="{CSS}">
+  <link rel="stylesheet" href="{CSS_ADS}">
+</head>
+<body>
+<a class="sr-only" href="#contenu">Aller au contenu principal</a>"""
+
+
+def form_ads(idp, titre, soustitre, bouton, dept):
+    """Formulaire court : téléphone et commune. Deux champs, pas davantage.
+
+    Le reste du contexte — département, métier, page d'origine — part en champs
+    masqués. « source » permet de distinguer un prospect Ads d'un prospect
+    naturel dans la boîte de réception.
+    """
+    return f"""
+<div class="form-card">
+  <div class="form-card__head">
+    <h2>{titre}</h2>
+    <p>{soustitre}</p>
+  </div>
+  <div class="form-card__body">
+    <form data-devis data-endpoint="{FORM_ENDPOINT}" id="{idp}" novalidate>
+      <p class="form-msg" aria-live="polite"></p>
+      <div class="field-row">
+        <div class="field">
+          <label for="{idp}-tel">Votre téléphone <span class="req">*</span></label>
+          <input id="{idp}-tel" name="telephone" type="tel" autocomplete="tel"
+                 inputmode="tel" pattern="[0-9 +().-]{{9,}}" placeholder="06 00 00 00 00" required>
+        </div>
+        <div class="field">
+          <label for="{idp}-ville">Votre commune <span class="req">*</span></label>
+          <input id="{idp}-ville" name="ville" type="text" autocomplete="address-level2"
+                 placeholder="{dept['prefecture']}" required>
+        </div>
+      </div>
+      <input type="hidden" name="departement" value="{dept['nom']} ({dept['num']})">
+      <input type="hidden" name="prestation" value="Électricité">
+      <input type="hidden" name="source" value="ADS Électricité {dept['num']}">
+      <input type="hidden" name="page" value="{url_ads(dept)}">
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"
+             aria-hidden="true" style="position:absolute;left:-9999px;opacity:0">
+      <label class="consent">
+        <input type="checkbox" name="consentement" required>
+        <span>J'accepte d'être rappelé par ETS-BZH au sujet de ma demande
+          (<a href="/politique-de-confidentialite/">politique de confidentialité</a>).</span>
+      </label>
+      <button class="btn btn--primary btn--bloc" type="submit">{bouton}</button>
+      <p class="form-note">Une urgence&nbsp;? Appelez directement le
+        <a href="tel:{ADS.ADS_TEL_LIEN}" data-cta="sous-formulaire">{ADS.ADS_TEL}</a></p>
+    </form>
+  </div>
+</div>"""
+
+
+def page_ads(dept):
+    d = ADS.DEPTS[dept["num"]]
+    nom, num = dept["nom"], dept["num"]
+    art = dept["article"]                      # « dans les », « dans le »…
+    tel_lien, tel = ADS.ADS_TEL_LIEN, ADS.ADS_TEL
+
+    titre = "Électricien d'urgence %s (%s) — 24h/24 — %s" % (nom, num, tel)
+    desc = ("Électricien d'urgence %s %s : panne, disjoncteur, odeur de brûlé. "
+            "Intervention 24h/24 et 7j/7, délai annoncé avant déplacement. %s."
+            % (art, nom, tel))
+
+    bouton_tel = (f'<a class="ads-tel-btn" href="tel:{tel_lien}" data-cta="%s">'
+                  f'{SVG["tel"]}<span>{tel}'
+                  f'<span class="ads-tel-btn__sur">Un électricien vous répond</span>'
+                  f'</span></a>')
+
+    points = "".join(
+        '<li>%s<span>%s</span></li>' % (picto("check", 19), t) for t in (
+            "Intervention 24h/24, 7j/7 — y compris dimanches et jours fériés",
+            "Délai et tarif annoncés au téléphone, avant tout déplacement",
+            "Mise en sécurité immédiate, devis avant toute réparation",
+            "Tout le département&nbsp;: %s, et les communes rurales" % ", ".join(
+                v for v, _ in d["villes"][:4]),
+        ))
+
+    preuves = "".join(
+        '<div class="ads-preuve"><div class="ads-preuve__num">%s</div>'
+        '<div class="ads-preuve__lbl">%s</div></div>' % (n, l)
+        for n, l in (("24/7", "Astreinte urgence"), ("&lt; 1 h", "Délai visé en urgence"),
+                     ("100 %", "Devis gratuits"), (num, "Département couvert")))
+
+    cases = "".join(
+        '<div class="ads-case"><h3>%s</h3><p>%s</p></div>' % (t, p)
+        for t, p in ADS.URGENCES)
+
+    villes = "".join(
+        '<div class="ads-ville"><span class="ads-ville__nom">%s</span>'
+        '<span class="ads-ville__note">%s</span></div>' % (v, n)
+        for v, n in d["villes"])
+
+    etapes = "".join(
+        '<div class="step"><span class="step__pastille">%d</span><h3>%s</h3><p>%s</p></div>'
+        % (i + 1, t, p) for i, (t, p) in enumerate(ADS.ETAPES))
+
+    lignes_tarifs = "".join(
+        '<tr><td>%s</td><td class="ads-prix">%s</td><td class="ads-detail">%s</td></tr>'
+        % (lib, prix, det) for lib, prix, det in ADS.TARIFS)
+
+    faq = "".join(
+        '<details><summary>%s</summary>'
+        '<div class="faq__body"><p>%s</p></div></details>' % (q, r)
+        for q, r in ADS.FAQ)
+
+    return (
+        head_ads(titre, desc, dept) + f"""
+<header class="ads-bar">
+  <div class="container ads-bar__in">
+    <div class="ads-bar__id">
+      <img src="/assets/img/logo-emblem.png" alt="" width="40" height="40">
+      <div>
+        <div class="ads-bar__nom">ETS-BZH</div>
+        <span class="ads-bar__dispo">Électricien d'urgence · {nom} ({num})</span>
+      </div>
+    </div>
+    <a class="ads-bar__tel" href="tel:{tel_lien}" data-cta="barre-haut">
+      {SVG['tel']}<span class="ads-bar__num">{tel}</span>
+      <span class="ads-bar__court" hidden>Appeler</span></a>
+  </div>
+</header>
+
+<main id="contenu">
+
+<section class="ads-hero">
+  <div class="container ads-hero__grid">
+    <div>
+      <span class="ads-eyebrow">Urgence électrique · {nom} ({num})</span>
+      <h1>Électricien d'urgence {art} {nom}</h1>
+      <p class="ads-hero__sub">Panne de courant, disjoncteur qui saute, odeur de
+        brûlé au tableau&nbsp;: <strong>un électricien vous répond maintenant</strong>
+        et vous annonce un délai et un prix avant de se déplacer.</p>
+      <ul class="ads-points">{points}</ul>
+      <div class="ads-cta">
+        {bouton_tel % "hero"}
+        <a class="btn btn--ghost btn--xl" href="#rappel">Être rappelé en 30 min</a>
+      </div>
+    </div>
+    <div id="rappel">{form_ads("f-haut", "Rappel sous 30 minutes",
+        "Deux champs suffisent. Nous vous rappelons pour fixer un créneau.",
+        "Demander un rappel", dept)}</div>
+  </div>
+</section>
+
+<section class="ads-preuves" aria-label="ETS-BZH en chiffres">
+  <div class="container"><div class="ads-preuves__grid">{preuves}</div></div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <span class="eyebrow">Ce pour quoi on nous appelle</span>
+    <h2>Les urgences électriques que nous traitons {art} {nom}</h2>
+    <p class="lead">Si votre situation figure ci-dessous, appelez
+      plutôt que d'attendre&nbsp;: la plupart se règlent en une intervention.</p>
+    <div class="ads-grille">{cases}</div>
+    <div style="margin-top:34px;text-align:center">{bouton_tel % "apres-urgences"}</div>
+  </div>
+</section>
+
+<section class="section section--fond">
+  <div class="container">
+    <span class="eyebrow">Notre zone</span>
+    <h2>Nous intervenons commune par commune</h2>
+    <p class="lead">{d['contexte']}</p>
+    <div class="ads-villes">{villes}</div>
+    <p class="ads-villes-pied">Votre commune n'est pas dans la liste&nbsp;? Nous
+      couvrons tout le département&nbsp;({num}), communes rurales comprises. Le
+      délai est toujours annoncé au téléphone avant le déplacement&nbsp;:
+      <a href="tel:{tel_lien}" data-cta="villes">appelez le {tel}</a> pour
+      connaître le nôtre chez vous.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <span class="eyebrow">Comment ça se passe</span>
+    <h2>Trois étapes, et vous savez à quoi vous en tenir</h2>
+    <div class="steps">{etapes}</div>
+  </div>
+</section>
+
+<section class="section section--fond">
+  <div class="container">
+    <span class="eyebrow">Nos tarifs</span>
+    <h2>Ce que coûte une intervention</h2>
+    <p class="lead">Fourchettes indicatives hors pièces, pour une
+      intervention courante. Le montant exact vous est annoncé au téléphone, et
+      le devis est validé avant tout travail.</p>
+    <table class="ads-tarifs">
+      <thead><tr><th>Intervention</th><th>Tarif indicatif</th><th>Précision</th></tr></thead>
+      <tbody>{lignes_tarifs}</tbody>
+    </table>
+    <p class="ads-tarifs__note">Aucun travail n'est engagé sans votre accord.
+      Si nous ne pouvons rien faire, nous le disons et nous ne facturons pas une
+      réparation inutile.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <span class="eyebrow">Questions fréquentes</span>
+    <h2>Avant d'appeler</h2>
+    <div class="faq">{faq}</div>
+  </div>
+</section>
+
+<section class="section ads-final">
+  <div class="container">
+    <h2>Un électricien peut partir maintenant</h2>
+    <p>Décrivez-nous la situation en deux minutes. Nous vous annonçons un
+      créneau et un tarif avant de raccrocher.</p>
+    <div class="ads-cta" style="justify-content:center">{bouton_tel % "final"}</div>
+  </div>
+</section>
+
+<section class="section section--fond">
+  <div class="container" style="max-width:620px">
+    {form_ads("f-bas", "Être rappelé",
+      "Si vous préférez ne pas appeler, laissez-nous votre numéro.",
+      "Demander un rappel", dept)}
+  </div>
+</section>
+
+</main>
+
+<footer class="ads-foot">
+  <div class="container">
+    <p><strong>ETS-BZH</strong> — dépannage électrique d'urgence {art} {nom} ({num}),
+      24h/24 et 7j/7. Téléphone&nbsp;:
+      <a href="tel:{tel_lien}">{tel}</a> — e-mail&nbsp;:
+      <a href="mailto:{EMAIL}">{EMAIL}</a></p>
+    <p class="ads-foot__liens">
+      <a href="/mentions-legales/">Mentions légales</a>
+      <a href="/politique-de-confidentialite/">Politique de confidentialité</a>
+      <a href="/cgu/">CGU</a></p>
+  </div>
+</footer>
+
+<div class="ads-mob">
+  <a class="ads-mob__tel" href="tel:{tel_lien}" data-cta="barre-mobile">
+    {SVG['tel']} {tel}</a>
+  <a class="ads-mob__form" href="#rappel">{SVG['form']} Être rappelé</a>
+</div>
+
+<script src="/assets/js/main.js" defer></script>
+</body>
+</html>""")
+
+
 # ================================================================= BUILD
 def main():
     print("\nETS-BZH — génération du site\n" + "-" * 62)
@@ -2429,6 +2708,11 @@ def main():
               ("/politique-de-confidentialite/", "0.3", "yearly"),
               ("/cgu/", "0.3", "yearly")]
 
+    # Pages payantes : écrites, mais volontairement absentes de `pages` — donc
+    # du sitemap — et liées depuis aucune page du site.
+    for dept in DEPARTEMENTS:
+        ecrire(url_ads(dept).strip("/") + "/index.html", page_ads(dept))
+
     ecrire("sitemap.xml", sitemap(pages))
     ecrire("robots.txt",
            "User-agent: *\nAllow: /\n\nSitemap: %s/sitemap.xml\n" % BASE)
@@ -2436,9 +2720,10 @@ def main():
     print("-" * 62)
     listes = nb_pages() + sum(nb_pages(d) for d in DEPARTEMENTS)
     print("%d pages HTML générées : 12 pages métier, %d articles d'urgence, "
-          "%d pages de rubrique, %d pages annexes.\n"
+          "%d pages de rubrique, %d pages annexes,\n"
+          "   + %d pages Ads hors site (noindex, absentes du sitemap).\n"
           % (len(pages) + 1, len(ARTICLES), listes,
-             len(pages) + 1 - 13 - len(ARTICLES) - listes))
+             len(pages) + 1 - 13 - len(ARTICLES) - listes, len(DEPARTEMENTS)))
 
 
 if __name__ == "__main__":

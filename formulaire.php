@@ -77,7 +77,7 @@ $libelles = [
     'nom' => 'Nom', 'telephone' => 'Téléphone', 'email' => 'E-mail',
     'ville' => 'Ville', 'departement' => 'Département',
     'prestation' => 'Type d’intervention', 'urgence' => 'Degré d’urgence',
-    'message' => 'Message', 'page' => 'Page d’origine',
+    'message' => 'Message', 'source' => 'Origine', 'page' => 'Page d’origine',
 ];
 
 // sprintf('%-20s') compte les octets : « Téléphone » et « Département »
@@ -96,7 +96,11 @@ $corps = "Nouvelle demande de rappel depuis le site ETS-BZH\n"
        . str_repeat('-', 58) . "\n"
        . 'Reçue le ' . date('d/m/Y à H:i') . "\n";
 
-$sujet = 'Demande de rappel — ' . $tel . ' — ' . $ville;
+// Les pages Ads renseignent « source » : le sujet le reprend, pour distinguer
+// d'un coup d'œil un prospect payant d'un prospect venu du site.
+$source = propre($d['source'] ?? '', 60);
+$prefixe = $source !== '' ? '[' . $source . '] ' : '';
+$sujet = $prefixe . 'Demande de rappel — ' . $tel . ' — ' . $ville;
 
 $entetes = [
     'From: ETS-BZH <' . EXPEDITEUR . '>',

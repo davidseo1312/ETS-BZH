@@ -319,6 +319,68 @@ département, sous un intertitre qui renvoie à la sous-catégorie complète —
 vignettes noieraient le bas de page. Le fil d'Ariane d'un article passe par son
 département&nbsp;: Accueil › Conseils d'urgence › Côtes-d'Armor (22) › WC bouché.
 
+## Pages Google Ads (hors site)
+
+Quatre pages d'atterrissage **électricité**, une par département, conçues pour
+le trafic payant et rien d'autre.
+
+| Département | URL |
+| --- | --- |
+| Côtes-d'Armor (22) | `/ads/electricite-cotes-d-armor-22/` |
+| Finistère (29) | `/ads/electricite-finistere-29/` |
+| Ille-et-Vilaine (35) | `/ads/electricite-ille-et-vilaine-35/` |
+| Morbihan (56) | `/ads/electricite-morbihan-56/` |
+
+**Elles sont étanches par construction**, et c'est vérifié à chaque build&nbsp;:
+
+- **aucun lien** depuis une page du site ne pointe vers elles&nbsp;;
+- elles sont **absentes du sitemap** — dans `main()`, elles sont écrites sans
+  être ajoutées à la liste `pages` qui alimente `sitemap.xml`&nbsp;;
+- elles portent `<meta name="robots" content="noindex, nofollow">` et **aucune
+  balise canonique**.
+
+`robots.txt` n'interdit volontairement rien. Un `Disallow: /ads/` empêcherait
+Googlebot de lire le `noindex`, et l'URL pourrait alors apparaître en résultat
+sans description — l'inverse de l'effet recherché. Le `noindex` seul fait le
+travail, et AdsBot garde l'accès dont la régie a besoin pour contrôler la page.
+
+**Un numéro distinct.** Ces pages portent le **06 20 06 01 96**, et lui seul —
+le numéro du site n'y figure nulle part. Tout appel sur ce numéro vient donc
+d'une annonce, sans dépendre du suivi d'appel de la régie. Le formulaire
+transmet en plus un champ masqué `source` (« ADS Électricité 22 »), que
+`formulaire.php` reprend en préfixe du sujet du courriel&nbsp;: les prospects
+payants se distinguent au premier coup d'œil dans la boîte de réception.
+
+**Structure de la page** (`page_ads` dans `tools/build.py`)&nbsp;:
+
+1. Barre collante haute&nbsp;: identité, département, bouton d'appel.
+2. Hero&nbsp;: promesse, quatre preuves, bouton d'appel géant + formulaire à
+   deux champs (téléphone, commune).
+3. Bandeau de chiffres.
+4. Les six urgences traitées, suivies d'un rappel d'appel.
+5. **Bloc commune par commune**&nbsp;: contexte départemental puis douze
+   communes, chacune avec une note propre.
+6. Les trois étapes.
+7. Tarifs indicatifs en fourchettes.
+8. FAQ de levée d'objection.
+9. CTA final, second formulaire, pied léger.
+10. Barre d'appel fixe en bas sur mobile, là où se trouve le pouce.
+
+Aucune navigation, aucun lien vers le site hormis les trois liens légaux du
+pied&nbsp;: sur une page payante, chaque lien sortant est une fuite.
+
+**Pas de faux avis.** Ces pages ne comportent aucun témoignage ni note
+chiffrée. Sur une page financée par de la publicité, des avis inventés
+cumulent le risque commercial (pratique trompeuse) et le risque publicitaire
+(règles de la régie sur les affirmations invérifiables). La réassurance y
+repose sur ce qui est vérifiable&nbsp;: délai annoncé, tarifs affichés, devis
+avant travaux.
+
+Le contenu éditorial est dans `tools/ads.py` (numéro, urgences, étapes,
+tarifs, FAQ, et pour chaque département son contexte et ses douze communes).
+La mise en page est dans `page_ads`, le style dans `assets/css/ads.css`,
+chargée après `style.css` dont elle réutilise la palette et les composants.
+
 ## Logo
 
 Le logo officiel fourni par le client est utilisé **tel quel** — aucune
@@ -791,6 +853,11 @@ dans les champs.
       (voir « Emplacements photo »). N'utilisez que des visuels dont vous
       détenez les droits : présenter des images de banque comme vos
       réalisations est trompeur et juridiquement risqué
+- [ ] **Pages Ads et identité de l'annonceur** — les régies publicitaires
+      exigent que l'annonceur soit identifiable sur la page de destination.
+      Tant que les mentions légales ne portent ni nom, ni SIREN, ni adresse
+      (voir ci-dessus), une annonce renvoyant vers `/ads/…` risque le refus
+      à la validation. À régler avant de lancer les campagnes, pas après
 - [ ] **Essai réel du formulaire** — une fois en ligne, envoyez une demande et
       vérifiez qu'elle arrive bien dans la boîte `contact@etablissement-breizh.fr`
       (voir « Réception des formulaires »). Tant que cet essai n'est pas fait,
