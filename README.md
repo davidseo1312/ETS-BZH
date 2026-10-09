@@ -354,8 +354,8 @@ payants se distinguent au premier coup d'œil dans la boîte de réception.
 **Structure de la page** (`page_ads` dans `tools/build.py`)&nbsp;:
 
 1. Barre collante haute&nbsp;: identité, département, bouton d'appel.
-2. Hero&nbsp;: promesse, quatre preuves, bouton d'appel géant + formulaire à
-   deux champs (téléphone, commune).
+2. Hero&nbsp;: **photo d'intervention en fond**, promesse, quatre preuves,
+   bouton d'appel géant + formulaire à deux champs (téléphone, commune).
 3. Bandeau de chiffres.
 4. Les six urgences traitées, suivies d'un rappel d'appel.
 5. **« Demandez Julien »**&nbsp;: le technicien, la transmission familiale, une
@@ -365,7 +365,7 @@ payants se distinguent au premier coup d'œil dans la boîte de réception.
 7. **Bloc commune par commune**&nbsp;: contexte départemental puis douze
    communes, chacune avec une note propre.
 8. Les trois étapes.
-9. Tarifs indicatifs en fourchettes.
+9. **Engagements** — aucun prix, voir ci-dessous.
 10. FAQ de levée d'objection.
 11. CTA final, second formulaire, pied léger.
 12. Barre d'appel fixe en bas sur mobile, là où se trouve le pouce.
@@ -409,6 +409,21 @@ il vous dit s'il faut venir — fonctionne sans cette affirmation.
 
 Aucune navigation, aucun lien vers le site hormis les trois liens légaux du
 pied&nbsp;: sur une page payante, chaque lien sortant est une fuite.
+
+**Aucun prix affiché.** Ces pages n'avancent aucun montant. Un chiffre posé
+sur une page payante est lu comme un engagement, et il se retourne contre
+l'entreprise dès que l'intervention se révèle plus lourde que prévu. Le bloc
+`ENGAGEMENTS` le remplace&nbsp;: il tient la promesse de transparence — c'est
+elle qui lève l'objection, pas le montant — en annonçant que le prix est
+donné avant le déplacement, que le devis est gratuit et que rien n'est engagé
+sans accord. Vérifié au build&nbsp;: aucune occurrence de montant dans les
+quatre pages.
+
+**Photo de hero.** Le hero porte `photos/electricite-1.jpg` en fond, sous un
+voile bleu nuit en dégradé — presque opaque du côté du texte (.96), plus
+léger côté image (.58). Le contraste du titre ne dépend donc jamais de la
+photo&nbsp;; mesuré sur les pixels rendus, il va de 13,7:1 à 14,8:1. Sur
+mobile le voile devient quasi plein, la photo n'y étant plus qu'une texture.
 
 **Pas de faux avis.** Ces pages ne comportent aucun témoignage ni note
 chiffrée. Sur une page financée par de la publicité, des avis inventés

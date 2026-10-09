@@ -101,7 +101,31 @@
 .ads-bar__tel svg { width: 22px; height: 22px; flex: none; }
 
 /* ------------------------------------------------------------------- hero */
-.ads-hero { background: var(--ivoire); border-bottom: 1px solid var(--bordure); }
+/* Une photo d'intervention en fond : le visiteur d'une annonce doit voir en
+   une seconde que des gens se déplacent vraiment. Le voile bleu nuit est
+   presque opaque du côté du texte (.96) et s'éclaircit vers la photo (.70),
+   de sorte que le contraste du titre ne dépend jamais de l'image — mesuré sur
+   les pixels rendus, pas estimé. */
+.ads-hero {
+  background-color: var(--nuit);
+  background-image:
+    linear-gradient(100deg, rgba(13,34,55,.96) 0%, rgba(13,34,55,.93) 40%,
+                            rgba(13,34,55,.58) 100%),
+    url("../img/photos/electricite-1.jpg");
+  background-size: cover;
+  background-position: center right;
+  border-bottom: 4px solid var(--jaune);
+}
+.ads-hero h1 { color: #fff; }
+.ads-hero__sub { color: #dbe6ef; }
+.ads-hero__sub strong { color: #fff; }
+.ads-hero .ads-points li { color: #fff; }
+.ads-hero .ads-points svg { color: var(--jaune); }
+/* Sur fond sombre, le bouton secondaire passe en contour blanc. */
+.ads-hero .btn--ghost { color: #fff; border-color: rgba(255, 255, 255, .72); }
+.ads-hero .btn--ghost:hover, .ads-hero .btn--ghost:focus-visible {
+  background: #fff; color: var(--nuit); border-color: #fff;
+}
 .ads-hero__grid {
   display: grid; grid-template-columns: 1.15fr .85fr; gap: 46px;
   align-items: start; padding: 54px 0 58px;
@@ -109,8 +133,8 @@
 .ads-hero h1 {
   font-size: clamp(2.1rem, 4.4vw, 3.15rem); line-height: 1.08; margin: 14px 0 18px;
 }
-.ads-hero__sub { font-size: 1.16rem; line-height: 1.68; color: var(--gris); margin: 0 0 26px; }
-.ads-hero__sub strong { color: var(--nuit); }
+.ads-hero__sub { font-size: 1.16rem; line-height: 1.68; margin: 0 0 26px; }
+
 
 .ads-eyebrow {
   display: inline-flex; align-items: center; gap: 9px;
@@ -122,9 +146,9 @@
 .ads-points { list-style: none; margin: 0 0 28px; padding: 0; display: grid; gap: 11px; }
 .ads-points li {
   display: grid; grid-template-columns: 24px 1fr; gap: 11px; align-items: start;
-  font-size: 1.04rem; color: var(--nuit); font-weight: 600;
+  font-size: 1.04rem; font-weight: 600;
 }
-.ads-points svg { width: 19px; height: 19px; color: var(--bleu); margin-top: 3px; }
+.ads-points svg { width: 19px; height: 19px; margin-top: 3px; }
 
 .ads-cta { display: flex; flex-wrap: wrap; gap: 13px; }
 .ads-tel-btn {
@@ -184,21 +208,20 @@
 .ads-ville__note { color: var(--gris); font-size: 1rem; line-height: 1.6; }
 .ads-villes-pied { margin: 26px 0 0; color: var(--gris); }
 
-/* ----------------------------------------------------------------- tarifs */
-.ads-tarifs { width: 100%; border-collapse: collapse; background: #fff; }
-.ads-tarifs th, .ads-tarifs td {
-  text-align: left; padding: 16px 18px; border-bottom: 1px solid var(--bordure);
-  vertical-align: top;
+/* ------------------------------------------------------------ engagements */
+/* Remplace l'ancien tableau de tarifs : aucun chiffre, mais la même promesse
+   de transparence — c'est elle qui lève l'objection, pas le montant. */
+.ads-engagements { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+                   background: var(--bordure); border: 1px solid var(--bordure); }
+.ads-engagement { background: #fff; padding: 24px 24px 22px; }
+.ads-engagement h3 {
+  font-size: 1.14rem; margin: 0 0 8px; padding-left: 16px; position: relative;
 }
-.ads-tarifs thead th {
-  background: var(--bleu); color: #fff; font-size: .86rem;
-  letter-spacing: .07em; text-transform: uppercase;
+.ads-engagement h3::before {
+  content: ""; position: absolute; left: 0; top: .18em;
+  width: 5px; height: 1em; background: var(--jaune);
 }
-.ads-tarifs td.ads-prix {
-  font-family: "Barlow Condensed", "Barlow", sans-serif;
-  font-size: 1.32rem; font-weight: 700; color: var(--bleu); white-space: nowrap;
-}
-.ads-tarifs__note { margin: 16px 0 0; font-size: .96rem; color: var(--gris); }
+.ads-engagement p { margin: 0; color: var(--gris); line-height: 1.6; font-size: 1rem; }
 
 /* ------------------------------------------------------------- CTA final  */
 .ads-final { background: var(--nuit); color: #fff; text-align: center; }
@@ -238,22 +261,20 @@
   .ads-preuves__grid { grid-template-columns: repeat(2, 1fr); }
   .ads-preuve:nth-child(3) { border-left: none; }
   .ads-preuve:nth-child(n+3) { border-top: 1px solid rgba(255, 255, 255, .17); }
+  .ads-engagements { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 760px) {
+  .ads-hero { background-image:
+      linear-gradient(170deg, rgba(13,34,55,.97) 0%, rgba(13,34,55,.90) 100%),
+      url("../img/photos/electricite-1.jpg"); }
   .ads-bar__tel { font-size: 1.25rem; padding: 10px 16px; min-height: 48px; }
   .ads-bar__tel span.ads-bar__num { display: none; }
   .ads-bar__dispo { display: none; }
-  .ads-grille { grid-template-columns: 1fr; }
+  .ads-grille, .ads-engagements { grid-template-columns: 1fr; }
   .ads-ville { grid-template-columns: 1fr; gap: 2px; }
   .ads-tel-btn { width: 100%; font-size: 1.5rem; }
   .ads-mob { display: grid; }
   body { padding-bottom: 62px; }   /* la barre fixe ne masque pas le pied */
-  .ads-tarifs th, .ads-tarifs td { padding: 13px 12px; }
-  .ads-tarifs thead { display: none; }
-  .ads-tarifs tr { display: grid; grid-template-columns: 1fr auto; gap: 0 12px;
-                   border-bottom: 1px solid var(--bordure); padding: 13px 0; }
-  .ads-tarifs td { border: none; padding: 2px 0; }
-  .ads-tarifs td.ads-detail { grid-column: 1 / -1; font-size: .94rem; color: var(--gris); }
 }
 @media (max-width: 460px) {
   .ads-bar__nom { font-size: 1.2rem; }

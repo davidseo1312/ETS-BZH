@@ -83,20 +83,30 @@ ETAPES = [
      "avant tout travail qui dépasse le dépannage."),
 ]
 
-# Fourchettes indicatives, hors pièces, pour une intervention courante. Elles
-# sont volontairement données en fourchette : annoncer un prix unique sur une
-# page Ads expose à une réclamation le jour où la situation est plus lourde.
-TARIFS = [
-    ("Déplacement et diagnostic", "à partir de 49 €",
-     "Offert si l'intervention est réalisée dans la foulée."),
-    ("Dépannage électrique courant", "90 € à 180 €",
-     "Recherche de panne, remise en service d'un circuit."),
-    ("Remplacement d'un disjoncteur ou d'un différentiel", "110 € à 220 €",
-     "Pièce comprise pour les calibres courants."),
-    ("Mise en sécurité après sinistre", "sur devis",
-     "Contrôle d'isolement, consignation, remise en service par étapes."),
-    ("Majoration nuit, dimanche et jours fériés", "annoncée au téléphone",
-     "Jamais découverte sur la facture."),
+# Aucun prix n'est affiché sur ces pages : le tarif se donne au téléphone,
+# une fois la situation connue. Un chiffre posé sur une page payante est lu
+# comme un engagement, et il se retourne contre nous dès que l'intervention
+# est plus lourde que prévu. Ce bloc le remplace : il tient la promesse de
+# transparence — ce qui convertit — sans avancer de montant.
+ENGAGEMENTS = [
+    ("Le prix avant le déplacement",
+     "Vous connaissez le tarif applicable avant que nous prenions la route. "
+     "Rien ne se découvre sur le pas de la porte."),
+    ("Devis gratuit et sans engagement",
+     "Le devis ne vous coûte rien et ne vous oblige à rien. Vous pouvez dire "
+     "non après l'avoir lu."),
+    ("Aucun travail sans votre accord",
+     "Au-delà du dépannage, rien n'est engagé tant que vous n'avez pas "
+     "validé. Pas de supplément décidé sans vous."),
+    ("La majoration annoncée, jamais subie",
+     "Nuit, dimanche, jour férié&nbsp;: la majoration éventuelle vous est dite "
+     "au téléphone, pas découverte sur la facture."),
+    ("Si on ne peut rien faire, on le dit",
+     "Nous ne facturons pas une réparation inutile. Quand le problème relève "
+     "d'un autre métier ou du réseau public, nous vous l'indiquons."),
+    ("Un compte rendu écrit",
+     "Ce qui a été constaté, ce qui a été fait, ce qui reste à faire. "
+     "Exploitable pour une assurance, un bailleur ou un syndic."),
 ]
 
 FAQ = [

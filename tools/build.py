@@ -2520,9 +2520,9 @@ def page_ads(dept):
         '<div class="step"><span class="step__pastille">%d</span><h3>%s</h3><p>%s</p></div>'
         % (i + 1, t, p) for i, (t, p) in enumerate(ADS.ETAPES))
 
-    lignes_tarifs = "".join(
-        '<tr><td>%s</td><td class="ads-prix">%s</td><td class="ads-detail">%s</td></tr>'
-        % (lib, prix, det) for lib, prix, det in ADS.TARIFS)
+    engagements = "".join(
+        '<div class="ads-engagement"><h3>%s</h3><p>%s</p></div>' % (t, p)
+        for t, p in ADS.ENGAGEMENTS)
 
     faq = "".join(
         '<details><summary>%s</summary>'
@@ -2644,18 +2644,13 @@ def page_ads(dept):
 
 <section class="section section--fond">
   <div class="container">
-    <span class="eyebrow">Nos tarifs</span>
-    <h2>Ce que coûte une intervention</h2>
-    <p class="lead">Fourchettes indicatives hors pièces, pour une
-      intervention courante. Le montant exact vous est annoncé au téléphone, et
-      le devis est validé avant tout travail.</p>
-    <table class="ads-tarifs">
-      <thead><tr><th>Intervention</th><th>Tarif indicatif</th><th>Précision</th></tr></thead>
-      <tbody>{lignes_tarifs}</tbody>
-    </table>
-    <p class="ads-tarifs__note">Aucun travail n'est engagé sans votre accord.
-      Si nous ne pouvons rien faire, nous le disons et nous ne facturons pas une
-      réparation inutile.</p>
+    <span class="eyebrow">Nos engagements</span>
+    <h2>Ce sur quoi vous pouvez compter</h2>
+    <p class="lead">Nous n'affichons pas de prix ici&nbsp;: un tarif juste se
+      donne une fois la situation connue, pas avant. En revanche, voici ce qui
+      ne change jamais.</p>
+    <div class="ads-engagements">{engagements}</div>
+    <div style="margin-top:34px;text-align:center">{bouton_tel % "apres-engagements"}</div>
   </div>
 </section>
 
