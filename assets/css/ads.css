@@ -388,3 +388,22 @@
   .steps--3 { grid-template-columns: 1fr; gap: 28px; }
   .steps--3::before { display: none; }
 }
+
+/* ------------------------------------------- communes : des liens visibles */
+/* Un lien qui ne se voit pas n'est pas cliqué. Le nom garde sa couleur — le
+   bleu nuit du titre — et reçoit un soulignement jaune : l'affordance est
+   lisible sans transformer le bloc en liste de liens bleus. */
+a.ads-ville__nom {
+  text-decoration: underline;
+  text-decoration-color: var(--jaune);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+a.ads-ville__nom:hover, a.ads-ville__nom:focus-visible {
+  color: var(--bleu);
+  text-decoration-color: var(--bleu);
+}
+/* Toute la ligne réagit : sur mobile, viser un nom de commune au pouce est
+   plus facile quand la zone entière s'éclaire. */
+.ads-ville:hover { background: var(--jaune-pale); }
+.ads-ville { transition: background .15s ease; }

@@ -2403,8 +2403,37 @@ def sitemap(pages):
 # et nulle part ailleurs. Le numéro y est distinct de celui du site : un appel
 # sur ce numéro vient forcément d'une annonce.
 
-def url_ads(dept):
-    return "/ads/electricite-%s-%s/" % (dept["slug"], dept["num"])
+def slug_ville(v):
+    """« Le Relecq-Kerhuon » → « le-relecq-kerhuon »."""
+    t = clean(v).lower().translate(_ACCENTS)
+    return _re.sub(r"[^a-z0-9]+", "-", t).strip("-")
+
+
+def a_ville(v):
+    """« à Saint-Brieuc », mais « au Relecq-Kerhuon ».
+
+    L'article qui fait partie du nom de la commune se contracte avec la
+    préposition. Sans cela, la moitié des pages annoncerait « électricien
+    d'urgence à Le Relecq-Kerhuon ».
+    """
+    for prefixe, forme in (("Le ", "au "), ("Les ", "aux "), ("La ", "à la ")):
+        if v.startswith(prefixe):
+            return forme + v[len(prefixe):]
+    return "à " + v
+
+
+def de_ville(v):
+    """« de Saint-Brieuc », mais « du Relecq-Kerhuon »."""
+    for prefixe, forme in (("Le ", "du "), ("Les ", "des "), ("La ", "de la ")):
+        if v.startswith(prefixe):
+            return forme + v[len(prefixe):]
+    return "de " + v
+
+
+def url_ads(dept, ville=None):
+    """Page payante d'un département, ou de l'une de ses communes."""
+    cle = slug_ville(ville) if ville else dept["slug"]
+    return "/ads/electricite-%s-%s/" % (cle, dept["num"])
 
 
 def head_ads(titre, description, dept):
@@ -2429,7 +2458,7 @@ def head_ads(titre, description, dept):
 <a class="sr-only" href="#contenu">Aller au contenu principal</a>"""
 
 
-def form_ads(idp, titre, soustitre, bouton, dept):
+def form_ads(idp, titre, soustitre, bouton, dept, ville=None):
     """Formulaire court : téléphone et commune. Deux champs, pas davantage.
 
     Le reste du contexte — département, métier, page d'origine — part en champs
@@ -2454,13 +2483,13 @@ def form_ads(idp, titre, soustitre, bouton, dept):
         <div class="field">
           <label for="{idp}-ville">Votre commune <span class="req">*</span></label>
           <input id="{idp}-ville" name="ville" type="text" autocomplete="address-level2"
-                 placeholder="{dept['prefecture']}" required>
+                 placeholder="{ville or dept['prefecture']}" required>
         </div>
       </div>
       <input type="hidden" name="departement" value="{dept['nom']} ({dept['num']})">
       <input type="hidden" name="prestation" value="Électricité">
-      <input type="hidden" name="source" value="ADS Électricité {dept['num']}">
-      <input type="hidden" name="page" value="{url_ads(dept)}">
+      <input type="hidden" name="source" value="ADS Électricité {ville or dept['nom']} ({dept['num']})">
+      <input type="hidden" name="page" value="{url_ads(dept, ville)}">
       <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"
              aria-hidden="true" style="position:absolute;left:-9999px;opacity:0">
       <label class="consent">
@@ -2503,16 +2532,34 @@ def bloc_assurances_ads():
 </section>"""
 
 
-def page_ads(dept):
+def page_ads(dept, ville=None):
+    """Page payante d'un département, ou de l'une de ses communes.
+
+    Une seule fabrique pour les deux : la page commune reprend exactement la
+    page départementale, en substituant le lieu partout où il apparaît. Ce qui
+    change réellement d'une commune à l'autre, c'est la note locale, les
+    communes voisines proposées et celles qui signent les avis.
+    """
     d = ADS.DEPTS[dept["num"]]
     nom, num = dept["nom"], dept["num"]
     art = dept["article"]                      # « dans les », « dans le »…
     tel_lien, tel = ADS.ADS_TEL_LIEN, ADS.ADS_TEL
 
-    titre = "Électricien d'urgence %s (%s) — 24h/24 — %s" % (nom, num, tel)
-    desc = ("Électricien d'urgence %s %s : panne, disjoncteur, odeur de brûlé. "
+    notes = dict(d["villes"])
+    autres = [v for v, _ in d["villes"] if v != ville]
+
+    if ville:
+        lieu = ville                           # « Saint-Brieuc »
+        au_lieu = a_ville(ville)               # « à Saint-Brieuc »
+    else:
+        lieu = nom                             # « Côtes-d'Armor »
+        au_lieu = "%s %s" % (art, nom)         # « dans les Côtes-d'Armor »
+    situe = "%s (%s)" % (lieu, num)
+
+    titre = "Électricien d'urgence %s (%s) — 24h/24 — %s" % (lieu, num, tel)
+    desc = ("Électricien d'urgence %s : panne, disjoncteur, odeur de brûlé. "
             "Intervention 24h/24 et 7j/7, délai annoncé avant déplacement. %s."
-            % (art, nom, tel))
+            % (au_lieu, tel))
 
     bouton_tel = (f'<a class="ads-tel-btn" href="tel:{tel_lien}" data-cta="%s">'
                   f'{SVG["tel"]}<span>{tel}'
@@ -2524,8 +2571,10 @@ def page_ads(dept):
             "Intervention 24h/24, 7j/7 — y compris dimanches et jours fériés",
             "Délai et tarif annoncés au téléphone, avant tout déplacement",
             "Mise en sécurité immédiate, devis avant toute réparation",
-            "Tout le département&nbsp;: %s, et les communes rurales" % ", ".join(
-                v for v, _ in d["villes"][:4]),
+            ("%s et ses environs, et tout le département&nbsp;(%s)" % (ville, num))
+            if ville else
+            ("Tout le département&nbsp;: %s, et les communes rurales"
+             % ", ".join(v for v, _ in d["villes"][:4])),
         ))
 
     preuves = "".join(
@@ -2538,10 +2587,37 @@ def page_ads(dept):
         '<div class="ads-case"><h3>%s</h3><p>%s</p></div>' % (t, p)
         for t, p in ADS.URGENCES)
 
+    # Chaque commune mène à sa propre page payante. Sur une page de commune,
+    # on liste les onze autres : le visiteur qui s'est trompé de ville trouve
+    # la sienne au lieu de repartir.
     villes = "".join(
-        '<div class="ads-ville"><span class="ads-ville__nom">%s</span>'
-        '<span class="ads-ville__note">%s</span></div>' % (v, n)
-        for v, n in d["villes"])
+        '<div class="ads-ville">'
+        '<a class="ads-ville__nom" href="%s">%s</a>'
+        '<span class="ads-ville__note">%s</span></div>'
+        % (url_ads(dept, v), v, notes[v])
+        for v in autres)
+
+    if ville:
+        villes_titre = "Nous intervenons %s et autour" % au_lieu
+        villes_intro = "%s Voici les communes voisines que nous desservons." % notes[ville]
+        villes_pied = (
+            "Votre commune n'est pas dans la liste&nbsp;? Nous couvrons tout le "
+            "département&nbsp;(%s), communes rurales comprises — "
+            "<a href=\"%s\">voir la page %s</a>. Le délai est toujours annoncé "
+            "au téléphone avant le déplacement&nbsp;: "
+            "<a href=\"tel:%s\" data-cta=\"villes\">appelez le %s</a> pour "
+            "connaître le nôtre chez vous."
+            % (num, url_ads(dept), nom, tel_lien, tel))
+    else:
+        villes_titre = "Nous intervenons commune par commune"
+        villes_intro = d["contexte"]
+        villes_pied = (
+            "Votre commune n'est pas dans la liste&nbsp;? Nous couvrons tout le "
+            "département&nbsp;(%s), communes rurales comprises. Le délai est "
+            "toujours annoncé au téléphone avant le déplacement&nbsp;: "
+            "<a href=\"tel:%s\" data-cta=\"villes\">appelez le %s</a> pour "
+            "connaître le nôtre sur votre commune."
+            % (num, tel_lien, tel))
 
     etapes = "".join(
         '<div class="step"><span class="step__pastille">%d</span><h3>%s</h3><p>%s</p></div>'
@@ -2553,7 +2629,8 @@ def page_ads(dept):
     # Six témoignages : les trois de la page métier Électricité, puis trois
     # propres aux pages Ads. Six communes distinctes du département, pour
     # qu'aucune ne revienne deux fois sur la même page.
-    villes_avis = [dept["villes"][i] for i in (0, 1, 3, 5, 2, 7)]
+    villes_avis = ([ville] + autres[:5] if ville
+                   else [dept["villes"][i] for i in (0, 1, 3, 5, 2, 7)])
     tous_avis = list(ACT["electricite"]["avis"]) + list(ADS.AVIS_SUP)
     etoile_vide = ('<svg viewBox="0 0 24 24" width="15" height="15" fill="none" '
                    'stroke="currentColor" stroke-width="1.7" aria-hidden="true">'
@@ -2598,7 +2675,7 @@ def page_ads(dept):
       <img src="/assets/img/logo-emblem.png" alt="" width="40" height="40">
       <div>
         <div class="ads-bar__nom">ETS-BZH</div>
-        <span class="ads-bar__dispo">Électricien d'urgence · {nom} ({num})</span>
+        <span class="ads-bar__dispo">Électricien d'urgence · {situe}</span>
       </div>
     </div>
     <a class="ads-bar__tel" href="tel:{tel_lien}" data-cta="barre-haut">
@@ -2612,8 +2689,8 @@ def page_ads(dept):
 <section class="ads-hero">
   <div class="container ads-hero__grid">
     <div>
-      <span class="ads-eyebrow">Urgence électrique · {nom} ({num})</span>
-      <h1>Électricien d'urgence {art} {nom}</h1>
+      <span class="ads-eyebrow">Urgence électrique · {situe}</span>
+      <h1>Électricien d'urgence {au_lieu}</h1>
       <p class="ads-hero__sub">Panne de courant, disjoncteur qui saute, odeur de
         brûlé au tableau&nbsp;: <strong>un électricien vous répond maintenant</strong>
         et vous annonce un délai et un prix avant de se déplacer.</p>
@@ -2625,7 +2702,7 @@ def page_ads(dept):
     </div>
     <div id="rappel">{form_ads("f-haut", "Rappel sous 30 minutes",
         "Deux champs suffisent. Nous vous rappelons pour fixer un créneau.",
-        "Demander un rappel", dept)}</div>
+        "Demander un rappel", dept, ville)}</div>
   </div>
 </section>
 
@@ -2636,7 +2713,7 @@ def page_ads(dept):
 <section class="section">
   <div class="container">
     <span class="eyebrow">Ce pour quoi on nous appelle</span>
-    <h2>Les urgences électriques que nous traitons {art} {nom}</h2>
+    <h2>Les urgences électriques que nous traitons {au_lieu}</h2>
     <p class="lead">Si votre situation figure ci-dessous, appelez
       plutôt que d'attendre&nbsp;: la plupart se règlent en une intervention.</p>
     <div class="ads-grille">{cases}</div>
@@ -2676,14 +2753,10 @@ def page_ads(dept):
 <section class="section section--fond">
   <div class="container">
     <span class="eyebrow">Notre zone</span>
-    <h2>Nous intervenons commune par commune</h2>
-    <p class="lead">{d['contexte']}</p>
+    <h2>{villes_titre}</h2>
+    <p class="lead">{villes_intro}</p>
     <div class="ads-villes">{villes}</div>
-    <p class="ads-villes-pied">Votre commune n'est pas dans la liste&nbsp;? Nous
-      couvrons tout le département&nbsp;({num}), communes rurales comprises. Le
-      délai est toujours annoncé au téléphone avant le déplacement&nbsp;:
-      <a href="tel:{tel_lien}" data-cta="villes">appelez le {tel}</a> pour
-      connaître le nôtre chez vous.</p>
+    <p class="ads-villes-pied">{villes_pied}</p>
   </div>
 </section>
 
@@ -2702,7 +2775,7 @@ def page_ads(dept):
   <div class="container">
     <div class="section-head center">
       <span class="eyebrow">Avis clients</span>
-      <h2>Ils nous ont appelés {art} {nom}</h2>
+      <h2>Ils nous ont appelés {au_lieu}</h2>
       <p class="lead">Ce que disent les clients que nous avons dépannés.</p>
     </div>
     <div class="grid grid--3">{avis}</div>
@@ -2753,7 +2826,7 @@ def page_ads(dept):
   <div class="container" style="max-width:620px">
     {form_ads("f-bas", "Être rappelé",
       "Si vous préférez ne pas appeler, laissez-nous votre numéro.",
-      "Demander un rappel", dept)}
+      "Demander un rappel", dept, ville)}
   </div>
 </section>
 
@@ -2763,7 +2836,7 @@ def page_ads(dept):
 
 <footer class="ads-foot">
   <div class="container">
-    <p><strong>ETS-BZH</strong> — dépannage électrique d'urgence {art} {nom} ({num}),
+    <p><strong>ETS-BZH</strong> — dépannage électrique d'urgence {au_lieu} ({num}),
       24h/24 et 7j/7. Téléphone&nbsp;:
       <a href="tel:{tel_lien}">{tel}</a> — e-mail&nbsp;:
       <a href="mailto:{EMAIL}">{EMAIL}</a></p>
@@ -2822,8 +2895,13 @@ def main():
 
     # Pages payantes : écrites, mais volontairement absentes de `pages` — donc
     # du sitemap — et liées depuis aucune page du site.
+    ads_n = 0
     for dept in DEPARTEMENTS:
         ecrire(url_ads(dept).strip("/") + "/index.html", page_ads(dept))
+        ads_n += 1
+        for v, _ in ADS.DEPTS[dept["num"]]["villes"]:
+            ecrire(url_ads(dept, v).strip("/") + "/index.html", page_ads(dept, v))
+            ads_n += 1
 
     ecrire("sitemap.xml", sitemap(pages))
     ecrire("robots.txt",
@@ -2835,7 +2913,7 @@ def main():
           "%d pages de rubrique, %d pages annexes,\n"
           "   + %d pages Ads hors site (noindex, absentes du sitemap).\n"
           % (len(pages) + 1, len(ARTICLES), listes,
-             len(pages) + 1 - 13 - len(ARTICLES) - listes, len(DEPARTEMENTS)))
+             len(pages) + 1 - 13 - len(ARTICLES) - listes, ads_n))
 
 
 if __name__ == "__main__":

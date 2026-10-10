@@ -321,15 +321,31 @@ département&nbsp;: Accueil › Conseils d'urgence › Côtes-d'Armor (22) › W
 
 ## Pages Google Ads (hors site)
 
-Quatre pages d'atterrissage **électricité**, une par département, conçues pour
-le trafic payant et rien d'autre.
+**52 pages d'atterrissage électricité** conçues pour le trafic payant et rien
+d'autre&nbsp;: une par département, et une par commune citée.
 
-| Département | URL |
-| --- | --- |
-| Côtes-d'Armor (22) | `/ads/electricite-cotes-d-armor-22/` |
-| Finistère (29) | `/ads/electricite-finistere-29/` |
-| Ille-et-Vilaine (35) | `/ads/electricite-ille-et-vilaine-35/` |
-| Morbihan (56) | `/ads/electricite-morbihan-56/` |
+| Niveau | Nombre | URL |
+| --- | --- | --- |
+| Département | 4 | `/ads/electricite-cotes-d-armor-22/`, `…-finistere-29/`, `…-ille-et-vilaine-35/`, `…-morbihan-56/` |
+| Commune | 48 | `/ads/electricite-{commune}-{num}/` — par exemple `…-saint-brieuc-22/`, `…-le-relecq-kerhuon-29/` |
+
+**Une seule fabrique pour les deux.** `page_ads(dept, ville=None)` produit la
+page départementale ou la page commune&nbsp;; la seconde reprend exactement la
+première en substituant le lieu partout où il apparaît. Ce qui change
+réellement d'une commune à l'autre&nbsp;: la note locale en chapeau de la
+section zone, les onze communes voisines proposées, et les communes qui
+signent les avis.
+
+**Le maillage.** Sur une page départementale, les douze communes sont des
+liens vers leur propre page. Sur une page commune, les onze autres le sont, et
+un lien ramène à la page départementale. Un visiteur arrivé sur la mauvaise
+commune trouve la sienne au lieu de repartir. Les noms portent un
+soulignement jaune&nbsp;: un lien qui ne se voit pas n'est pas cliqué.
+
+**Les prépositions sont calculées**, pas concaténées&nbsp;: `a_ville()` et
+`de_ville()` contractent l'article qui fait partie du nom de la commune. Sans
+elles, une page annoncerait «&nbsp;électricien d'urgence à Le
+Relecq-Kerhuon&nbsp;»&nbsp;; elle annonce «&nbsp;au Relecq-Kerhuon&nbsp;».
 
 **Elles sont étanches par construction**, et c'est vérifié à chaque build&nbsp;:
 
@@ -344,10 +360,11 @@ Googlebot de lire le `noindex`, et l'URL pourrait alors apparaître en résultat
 sans description — l'inverse de l'effet recherché. Le `noindex` seul fait le
 travail, et AdsBot garde l'accès dont la régie a besoin pour contrôler la page.
 
-**Un numéro distinct.** Ces pages portent le **06 20 06 01 96**, et lui seul —
+**Un numéro distinct.** Ces 52 pages portent le **06 20 06 01 96**, et lui seul —
 le numéro du site n'y figure nulle part. Tout appel sur ce numéro vient donc
 d'une annonce, sans dépendre du suivi d'appel de la régie. Le formulaire
-transmet en plus un champ masqué `source` (« ADS Électricité 22 »), que
+transmet en plus un champ masqué `source` (« ADS Électricité Saint-Brieuc
+(22) »), que
 `formulaire.php` reprend en préfixe du sujet du courriel&nbsp;: les prospects
 payants se distinguent au premier coup d'œil dans la boîte de réception.
 
