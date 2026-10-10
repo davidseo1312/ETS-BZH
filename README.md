@@ -364,7 +364,7 @@ payants se distinguent au premier coup d'œil dans la boîte de réception.
    réduites à leur légende courte.
 7. **Bloc commune par commune**&nbsp;: contexte départemental puis douze
    communes, chacune avec une note propre.
-8. Les trois étapes.
+8. Les trois étapes (grille `steps--3`, voir ci-dessous).
 9. **Avis clients** — ceux de la page métier Électricité, rattachés à trois
    communes du département, avec le bandeau de note (voir l'avertissement).
 10. **Engagements** — aucun prix, voir ci-dessous.
@@ -452,6 +452,19 @@ retire en supprimant l'appel à `bandeau_avis()` dans `page_ads`.
 **Étoiles.** Celles du site (`--or: #f5a623`) tombent à 2,03:1 sur blanc,
 sous le seuil de 3:1 des éléments d'interface. Les pages Ads les assombrissent
 à `#b07400` — 3,93:1, sans leur faire perdre leur or.
+
+### Les trois étapes
+
+`.steps` du site est une grille de **quatre** colonnes — le site a quatre
+étapes, les pages Ads n'en ont que trois. Sans correction, la quatrième
+colonne restait vide&nbsp;: le bloc paraissait collé à gauche et le fil de
+liaison filait vers le vide. D'où `steps--3`, qui repasse à trois colonnes et
+recale le fil sur le centre des pastilles extrêmes (1/6 et 5/6 de la
+largeur).
+
+Les pastilles suivent une progression vers l'action&nbsp;: bleu nuit, bleu
+intermédiaire, puis **jaune** pour la dernière — celle où l'on arrive —, dans
+la même couleur que les boutons d'appel.
 
 ### La FAQ
 

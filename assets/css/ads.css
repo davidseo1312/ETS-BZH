@@ -367,3 +367,24 @@
   color: var(--gris); font-size: 1.04rem;
 }
 .ads-faq__relance a { font-weight: 700; }
+
+/* ---------------------------------------------------------------- étapes */
+/* .steps du site est une grille de QUATRE colonnes : le site a quatre étapes,
+   les pages Ads n'en ont que trois. Sans correction, la quatrième colonne
+   reste vide et le bloc paraît collé à gauche, le fil de liaison filant vers
+   le vide. On repasse donc à trois colonnes, et on recale le fil sur le
+   centre des pastilles extrêmes (1/6 et 5/6 de la largeur). */
+.steps--3 { grid-template-columns: repeat(3, 1fr); }
+.steps--3::before { left: 16.67%; right: 16.67%; background: var(--bordure-forte); }
+
+/* Progression de couleur vers l'action : la dernière étape — celle où l'on
+   arrive — porte le jaune, comme les boutons d'appel. */
+.steps--3 .step:nth-child(2) .step__pastille { background: var(--bleu-clair); }
+.steps--3 .step:nth-child(3) .step__pastille {
+  background: var(--jaune); color: var(--sur-jaune);
+}
+
+@media (max-width: 860px) {
+  .steps--3 { grid-template-columns: 1fr; gap: 28px; }
+  .steps--3::before { display: none; }
+}

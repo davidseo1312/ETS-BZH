@@ -2680,9 +2680,12 @@ def page_ads(dept):
 
 <section class="section">
   <div class="container">
-    <span class="eyebrow">Comment ça se passe</span>
-    <h2>Trois étapes, et vous savez à quoi vous en tenir</h2>
-    <div class="steps">{etapes}</div>
+    <div class="section-head center">
+      <span class="eyebrow">Comment ça se passe</span>
+      <h2>Trois étapes, et vous savez à quoi vous en tenir</h2>
+      <p class="lead">Pas de zone d'ombre entre votre appel et notre départ.</p>
+    </div>
+    <div class="steps steps--3">{etapes}</div>
   </div>
 </section>
 
