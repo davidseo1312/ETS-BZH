@@ -391,8 +391,9 @@ modèle de fiche métier locale fourni par le client&nbsp;:
 
 1. **Barre de contact** bleu nuit&nbsp;: commune, e-mail, numéro d'urgence.
 2. **En-tête blanc collant**&nbsp;: logo, menu d'ancres, bouton « Devis en ligne ».
-3. **Bandeau de titre** sur photo&nbsp;: « Électricien {Commune} » et fil
-   d'Ariane.
+3. **Bandeau de titre** sur photo&nbsp;: œil d'accroche, accroche nommant le
+   technicien, texte de rassurance, bouton « Appeler Julien » et « ou être
+   rappelé », puis fil d'Ariane (voir ci-dessous).
 4. **Corps en deux colonnes.** Barre latérale collante&nbsp;: carte d'appel
    bleu nuit, liste des interventions, formulaire de rappel, bloc assurances.
    Contenu&nbsp;: accroche, encadré de citation, photo, contexte local,
@@ -461,6 +462,34 @@ tombe à 1,9:1, illisible. Il porte toujours le bleu nuit (9,8:1), d'où la
 variable `--sur-jaune` qu'aucune règle n'outrepasse. Contrôle sur les pixels
 rendus, 48 zones sur deux pages et deux largeurs&nbsp;: pire cas
 **5,56:1** — la page est plus lisible qu'avec l'ancienne palette (4,64:1).
+
+### L'accroche du bandeau
+
+Reprise d'un modèle fourni par le client. Elle tient en quatre temps&nbsp;:
+œil d'accroche («&nbsp;Électricien Quimper · joignable 24h/24&nbsp;»), titre
+qui pose l'urgence et nomme le technicien, texte qui dit ce qu'il fait et que
+le prix est annoncé avant, puis le bouton d'appel et le repli «&nbsp;ou être
+rappelé&nbsp;».
+
+Le nom et la promesse passent en **jaune dans le titre**&nbsp;: c'est la seule
+chose que le visiteur doit retenir s'il ne lit qu'une ligne. Le reste du titre
+reste blanc. La commune figure dans le titre, pas seulement dans l'œil
+d'accroche&nbsp;: la régie mesure la correspondance entre le mot-clé de
+l'annonce et la page de destination.
+
+**Pas de délai chiffré**, contrairement au modèle qui annonce «&nbsp;sur place
+sous 2&nbsp;h&nbsp;». La FAQ de ces mêmes pages promet «&nbsp;un créneau
+réaliste annoncé au téléphone, pas une promesse large&nbsp;»&nbsp;: un chiffre
+en tête de page contredirait la page elle-même, et engagerait l'entreprise sur
+chaque appel. «&nbsp;Se déplace rapidement&nbsp;» tient la promesse sans la
+chiffrer. Si un délai ferme est souhaité, il se pose dans `hero_titre`
+(`TECHNICIEN`, `tools/ads.py`) — à condition qu'il soit tenable.
+
+**Note sur la mesure de contraste.** Le harnais déclare `.lp-hero h1 strong`
+à 1,02:1&nbsp;: c'est un artefact. En masquant le `<strong>` pour photographier
+son fond, la capture récupère le texte blanc du `<h1>` voisin, sur la même
+ligne. Mesuré directement — pixels clairs du glyphe contre pixels sombres du
+fond — le jaune est à **10,51:1** en 1340&nbsp;px et **9,01:1** en 390&nbsp;px.
 
 ### ⚠ « Julien, c'est lui qui décroche » et « de père en fils »
 

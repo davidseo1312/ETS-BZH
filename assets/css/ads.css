@@ -101,8 +101,43 @@ body { background: #fff; }
   background-size: cover; background-position: center 35%;
   padding: 72px 0 66px; color: #fff;
 }
-.lp-hero h1 { color: #fff; font-size: clamp(2.1rem, 5.2vw, 3.4rem);
-              line-height: 1.06; margin: 0 0 14px; }
+.lp-hero__in { max-width: 820px; }
+.lp-hero__oeil {
+  display: inline-flex; align-items: center; gap: 8px; margin: 0 0 16px;
+  color: var(--jaune); font-size: .95rem; font-weight: 700;
+  letter-spacing: .04em;
+}
+.lp-hero h1 {
+  color: #fff; font-size: clamp(1.95rem, 4.6vw, 3.1rem);
+  line-height: 1.12; margin: 0 0 18px;
+}
+/* Le nom et la promesse ressortent en jaune : c'est la seule chose que le
+   visiteur doit retenir s'il ne lit qu'une ligne. */
+.lp-hero h1 strong { color: var(--jaune); }
+.lp-hero__txt {
+  color: #dbe6ef; font-size: 1.12rem; line-height: 1.7;
+  margin: 0 0 26px; max-width: 640px;
+}
+.lp-hero__cta { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px;
+                margin-bottom: 26px; }
+.lp-hero__appel {
+  display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+  background: var(--jaune); color: var(--sur-jaune); text-decoration: none;
+  font-family: "Barlow Condensed", "Barlow", sans-serif;
+  font-size: 1.55rem; font-weight: 700; letter-spacing: .02em;
+  padding: 15px 30px; min-height: 66px;
+  box-shadow: 0 12px 30px rgba(232, 174, 0, .32);
+}
+.lp-hero__appel:hover, .lp-hero__appel:focus-visible {
+  background: var(--jaune-f); color: var(--sur-jaune);
+}
+.lp-hero__appel svg { width: 24px; height: 24px; flex: none; }
+.lp-hero__sec {
+  color: #fff; font-weight: 700; font-size: 1.05rem;
+  text-decoration: underline; text-decoration-color: var(--jaune);
+  text-decoration-thickness: 2px; text-underline-offset: 5px;
+}
+.lp-hero__sec:hover { color: var(--jaune); text-decoration-color: var(--jaune); }
 .lp-fil { margin: 0; color: #cfdeea; font-size: .97rem; }
 .lp-fil span { color: var(--jaune); margin: 0 6px; }
 .lp-fil strong { color: #fff; }
@@ -405,6 +440,9 @@ body { background: #fff; }
      rogner. On repasse en flux centré qui revient à la ligne. */
   .lp-top__in { justify-content: center; text-align: center; }
   .lp-top__tel { margin-left: 0; }
+  .lp-hero__appel { width: 100%; font-size: 1.35rem; padding: 14px 20px; }
+  .lp-hero__cta { gap: 12px; }
+  .lp-hero__txt { font-size: 1.05rem; }
   .lp-hero { padding: 46px 0 42px;
     background-image: linear-gradient(170deg, rgba(13,34,55,.96) 0%,
                                               rgba(13,34,55,.88) 100%),

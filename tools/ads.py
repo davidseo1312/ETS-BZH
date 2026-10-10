@@ -54,6 +54,22 @@ TECHNICIEN = {
     "prenom": "Julien",
     "role": "Électricien — ETS-BZH",
     "sceau": "De père en fils",
+    # L'accroche du bandeau de titre. {lieu} et {tel} sont substitués.
+    #
+    # Pas de délai chiffré : la FAQ promet « un créneau réaliste annoncé au
+    # téléphone, pas une promesse large ». Écrire « sur place sous 2 h » en
+    # tête de page contredirait la page elle-même, et engagerait l'entreprise
+    # sur chaque appel. « Rapidement » tient la promesse sans la chiffrer.
+    "hero_eyebrow": "Électricien {lieu} · joignable 24h/24",
+    "hero_titre": "Urgence électrique {au_lieu}&nbsp;? "
+                  "<strong>Julien se déplace rapidement</strong>, "
+                  "7j/7 et jours fériés.",
+    "hero_texte": "Électricien de père en fils, Julien intervient vite&nbsp;: "
+                  "panne de courant, disjoncteur qui saute, odeur de brûlé au "
+                  "tableau. Le prix est annoncé avant les travaux, toujours.",
+    "hero_bouton": "Appeler Julien",
+    "hero_second": "ou être rappelé",
+
     "titre": "Julien, c'est lui qui décroche",
     "badge": "Votre électricien",
     "accroche": "Quand vous appelez le {tel}, vous n'avez ni standard, ni "

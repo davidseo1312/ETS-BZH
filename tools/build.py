@@ -112,6 +112,8 @@ def clean(txt):
 
 
 SVG = {
+    "eclair": '<svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" '
+              'aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg>',
     "tel": '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg>',
     "mail": '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M2 5h20v14H2z" opacity=".25"/><path d="M2 5h20v14H2V5zm2 2v.5l8 5 8-5V7H4zm16 10V9.9l-8 5-8-5V17h16z"/></svg>',
     "pin": '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>',
@@ -2674,8 +2676,16 @@ def page_ads(dept, ville=None):
 </header>
 
 <section class="lp-hero" id="haut">
-  <div class="container">
-    <h1>Électricien {lieu}</h1>
+  <div class="container lp-hero__in">
+    <p class="lp-hero__oeil">{SVG['eclair']}
+      {t['hero_eyebrow'].format(lieu=lieu)}</p>
+    <h1>{t['hero_titre'].format(au_lieu=au_lieu)}</h1>
+    <p class="lp-hero__txt">{t['hero_texte']}</p>
+    <div class="lp-hero__cta">
+      <a class="lp-hero__appel" href="tel:{tel_lien}" data-cta="hero">
+        {SVG['tel']}<span>{t['hero_bouton']} — {tel}</span></a>
+      <a class="lp-hero__sec" href="#rappel">{t['hero_second']} ›</a>
+    </div>
     <p class="lp-fil">Dépannage électrique <span>›</span> {nom} ({num})
       <span>›</span> <strong>Électricien {lieu}</strong></p>
   </div>
