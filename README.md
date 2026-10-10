@@ -451,7 +451,8 @@ Le partage des rôles est strict, et c'est lui qui fait la lisibilité&nbsp;:
 
 | Couleur | Rôle |
 | --- | --- |
-| **Bleu nuit** `#0d2237` / `#10395c` | structure et sérieux&nbsp;: en-têtes, bandeaux, titres, texte, bouton de formulaire |
+| **Bleu** `#14507d` / `#10395c` | structure et sérieux&nbsp;: en-têtes, bandeaux, titres, texte, bouton de formulaire |
+| **Bleu ciel** `#e7f3fb` | fonds de section clairs qui portent du texte foncé&nbsp;: chiffres clés, respirations |
 | **Jaune** `#ffc400` | l'action, et elle seule&nbsp;: boutons d'appel, œils d'accroche, chiffres clés, sceau |
 
 Tout ce qui est jaune se clique ou désigne ce qu'il faut cliquer. Du jaune
@@ -462,6 +463,53 @@ tombe à 1,9:1, illisible. Il porte toujours le bleu nuit (9,8:1), d'où la
 variable `--sur-jaune` qu'aucune règle n'outrepasse. Contrôle sur les pixels
 rendus, 48 zones sur deux pages et deux largeurs&nbsp;: pire cas
 **5,56:1** — la page est plus lisible qu'avec l'ancienne palette (4,64:1).
+
+### Lisibilité pour un lecteur âgé
+
+Ces pages sont achetées sur des requêtes d'urgence&nbsp;: une part des
+appelants a soixante-dix ans passés, lit sur un téléphone, souvent mal
+éclairé, et n'a pas deux minutes à consacrer à une mise en page. Trois
+décisions en découlent.
+
+**Le bandeau est centré.** Texte, bouton d'appel et fil d'Ariane sont alignés
+sur l'axe de la page. L'œil n'a plus à chercher où commence chaque ligne&nbsp;:
+il descend tout droit de l'œil d'accroche au bouton. Le velours posé sur la
+photo est passé d'un dégradé latéral à un **dégradé vertical uniforme**
+(`rgba(14,55,88,.94)` → `.90`)&nbsp;: un texte centré occupe toute la largeur,
+un velours qui s'éclaircit sur un bord laisserait les fins de ligne sur le
+clair de la photo.
+
+**Le bleu presque noir a disparu.** Les fonds sombres étaient en `#0d2237`,
+à deux doigts du noir&nbsp;: très contrasté sur le papier, mais dur à l'œil et
+sans relief, tout se confond en une masse. Ils sont désormais en **`#14507d`**,
+un bleu franc&nbsp;: **8,49:1** avec le blanc (niveau AAA, le seuil AA étant
+à 4,5:1) et **5,32:1** avec le jaune, donc on gagne en douceur sans rien perdre
+en lisibilité.
+
+**Le bleu ciel sert là où il est utile.** Un vrai bleu ciel (`#33a9dc`) sous du
+texte blanc tombe à **2,68:1**&nbsp;: inutilisable, et d'autant plus pour une
+vue fatiguée. Il est donc introduit en **fond clair** (`--ciel: #e7f3fb`) sous
+du texte foncé — la bande de chiffres clés —, où il donne la respiration
+demandée tout en tenant **9,53:1**.
+
+### Chiffres clés et garanties
+
+Deux sections s'intercalent entre le bandeau et le corps, pour que la page
+tienne ses promesses avant qu'on ait à faire défiler.
+
+**La bande de chiffres** (`CHIFFRES`, `tools/ads.py`) donne quatre repères en
+une ligne, deux par deux sur téléphone&nbsp;: 24h/24, la note moyenne, «&nbsp;de
+père en fils&nbsp;», «&nbsp;prix annoncé&nbsp;». La note est libellée
+«&nbsp;moyenne des avis publiés ici&nbsp;» et **n'est attribuée à aucune
+plateforme**&nbsp;: elle est vérifiable sur la page même (5+5+5+5+5+4 sur six
+avis, soit 4,83). L'annoncer comme une note Google serait invérifiable, et
+faux tant que le compte n'existe pas.
+
+**La liste des garanties** (`GARANTIES`) reprend les six engagements sous forme
+de coches, sur deux colonnes. Deux d'entre eux **engagent l'entreprise et
+restent à confirmer**&nbsp;: la décennale auprès de MIC Insurance (le numéro de
+contrat est encore `[à compléter]` dans les mentions légales) et les moyens de
+paiement acceptés. Un commentaire les signale dans `tools/ads.py`.
 
 ### L'accroche du bandeau
 
@@ -488,8 +536,9 @@ chiffrer. Si un délai ferme est souhaité, il se pose dans `hero_titre`
 **Note sur la mesure de contraste.** Le harnais déclare `.lp-hero h1 strong`
 à 1,02:1&nbsp;: c'est un artefact. En masquant le `<strong>` pour photographier
 son fond, la capture récupère le texte blanc du `<h1>` voisin, sur la même
-ligne. Mesuré directement — pixels clairs du glyphe contre pixels sombres du
-fond — le jaune est à **10,51:1** en 1340&nbsp;px et **9,01:1** en 390&nbsp;px.
+ligne. Il faut masquer **tout le texte du `<h1>`**, pas seulement le
+`<strong>`&nbsp;: le jaune est alors à **6,47:1** sur le velours du bandeau
+(pire cas sur quatre pages et deux largeurs).
 
 ### ⚠ « Julien, c'est lui qui décroche » et « de père en fils »
 

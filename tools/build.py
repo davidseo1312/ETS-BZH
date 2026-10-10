@@ -2645,6 +2645,14 @@ def page_ads(dept, ville=None):
         % (coche, url_ads(dept, v), v, ADS.CP.get(v, num))
         for v, _ in d["villes"])
 
+    garanties = "".join(
+        '<li>%s<span><strong>%s</strong> %s</span></li>'
+        % (coche, g, d_.format(tel=tel)) for g, d_ in ADS.GARANTIES)
+    chiffres = "".join(
+        '<div class="lp-chiffre"><span class="lp-chiffre__n">%s</span>'
+        '<span class="lp-chiffre__l">%s</span></div>' % (n, l)
+        for n, l in ADS.CHIFFRES)
+
     t = ADS.TECHNICIEN
     paras = "".join("<p>%s</p>" % x.format(tel=tel) for x in t["paras"])
     pf, palt, _, _ = elec["photo_equipe"]
@@ -2688,6 +2696,17 @@ def page_ads(dept, ville=None):
     </div>
     <p class="lp-fil">Dépannage électrique <span>›</span> {nom} ({num})
       <span>›</span> <strong>Électricien {lieu}</strong></p>
+  </div>
+</section>
+
+<section class="lp-chiffres" aria-label="ETS-BZH en bref">
+  <div class="container lp-chiffres__grille">{chiffres}</div>
+</section>
+
+<section class="lp-garanties">
+  <div class="container">
+    <h2>Ce qui est garanti, à chaque intervention</h2>
+    <ul class="lp-garanties__liste">{garanties}</ul>
   </div>
 </section>
 

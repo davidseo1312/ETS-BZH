@@ -22,28 +22,36 @@
   --jaune: #ffc400;
   --jaune-f: #e8ae00;
   --jaune-pale: #fff6d9;
-  --sur-jaune: #0d2237;
+  --sur-jaune: #11354f;
 
-  --bleu: #10395c;
-  --bleu-clair: #1a5080;
-  --bleu-ciel: #2f73a8;
-  --bleu-hover: #0a2a46;
-  --bleu-pale: #eef3f8;
-  --bleu-pale-2: #f6f9fc;
-  --bleu-voile: #f1f5f9;
+  /* Le bleu des aplats sombres était un presque-noir (#0d2237). Il passe à
+     un bleu franc : plus chaleureux, et encore à 8,49:1 sous du texte blanc,
+     soit AAA. Un vrai bleu ciel (#33a9dc) tomberait à 2,68:1 — illisible.
+     Le bleu ciel sert donc en FOND CLAIR (--ciel), là où il porte du texte
+     foncé et où il aide réellement une vue fatiguée. */
+  --bleu: #0f4068;
+  --bleu-clair: #1b6195;
+  --bleu-ciel: #2f7fb8;
+  --bleu-hover: #0a3252;
+  --bleu-pale: #eaf3fa;
+  --bleu-pale-2: #f4fafd;
+  --bleu-voile: #eef6fb;
 
-  --nuit: #0d2237;
-  --nuit-2: #17364f;
+  --ciel: #e7f3fb;
+  --ciel-bord: #c3dff2;
+
+  --nuit: #14507d;
+  --nuit-2: #1b6195;
   --gris: #4a5a68;
   --gris-clair: #5d6e7c;
 
   --fond: #fffaef;
   --ivoire: #fffbf0;
-  --bordure: #e2e8ee;
-  --bordure-forte: #c6d3de;
+  --bordure: #dde7ef;
+  --bordure-forte: #bed2e0;
 
   --or: #b07400;          /* étoiles : 3,9:1 sur blanc, au-dessus du seuil */
-  --ombre: 0 2px 14px rgba(13, 34, 55, .09);
+  --ombre: 0 2px 14px rgba(20, 80, 125, .11);
 }
 
 body { background: #fff; }
@@ -94,14 +102,19 @@ body { background: #fff; }
    de ce qui se trouve sur la photo. */
 .lp-hero {
   background-color: var(--nuit);
+  /* Centré, le texte traverse toute la largeur : le voile doit être uniforme
+     et plus dense qu'un dégradé latéral, sinon la fin des lignes retombe sur
+     la partie claire de la photo. */
   background-image:
-    linear-gradient(100deg, rgba(13,34,55,.95) 0%, rgba(13,34,55,.88) 45%,
-                            rgba(13,34,55,.55) 100%),
+    linear-gradient(180deg, rgba(14,55,88,.94) 0%, rgba(14,55,88,.90) 100%),
     url("../img/photos/electricite-equipe.jpg");
   background-size: cover; background-position: center 35%;
   padding: 72px 0 66px; color: #fff;
 }
-.lp-hero__in { max-width: 820px; }
+.lp-hero__in { max-width: 820px; margin: 0 auto; text-align: center; }
+.lp-hero__txt { margin-left: auto; margin-right: auto; }
+.lp-hero__cta { justify-content: center; }
+.lp-fil { justify-content: center; }
 .lp-hero__oeil {
   display: inline-flex; align-items: center; gap: 8px; margin: 0 0 16px;
   color: var(--jaune); font-size: .95rem; font-weight: 700;
@@ -141,6 +154,42 @@ body { background: #fff; }
 .lp-fil { margin: 0; color: #cfdeea; font-size: .97rem; }
 .lp-fil span { color: var(--jaune); margin: 0 6px; }
 .lp-fil strong { color: #fff; }
+
+/* --------------------------------------------- les quatre chiffres */
+/* Fond bleu ciel et texte foncé : c'est dans ce sens que le bleu ciel sert
+   une vue fatiguée. L'inverse — blanc sur bleu ciel — serait illisible. */
+.lp-chiffres { background: var(--ciel); border-bottom: 1px solid var(--ciel-bord); }
+.lp-chiffres__grille {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+}
+.lp-chiffre { padding: 26px 16px; border-left: 1px solid var(--ciel-bord); }
+.lp-chiffre:first-child { border-left: none; }
+.lp-chiffre__n {
+  display: block; font-family: "Barlow Condensed", "Barlow", sans-serif;
+  font-size: clamp(1.7rem, 3.2vw, 2.3rem); font-weight: 700; line-height: 1.05;
+  color: var(--bleu);
+}
+.lp-chiffre__l { display: block; margin-top: 7px; font-size: .97rem; color: var(--gris); }
+
+/* ------------------------------------------------ ce qui est garanti */
+.lp-garanties { background: #fff; border-bottom: 1px solid var(--bordure);
+                padding: 42px 0 44px; }
+.lp-garanties h2 {
+  font-size: clamp(1.45rem, 2.8vw, 1.95rem); margin: 0 0 26px; text-align: center;
+}
+.lp-garanties__liste {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 18px 40px;
+}
+.lp-garanties__liste li {
+  display: grid; grid-template-columns: 26px 1fr; gap: 13px; align-items: start;
+  font-size: 1.08rem; line-height: 1.6; color: var(--gris);
+  padding-bottom: 16px; border-bottom: 1px solid var(--bordure);
+}
+.lp-garanties__liste svg { color: var(--succes); margin-top: 4px; width: 20px; height: 20px; }
+.lp-garanties__liste strong { color: var(--nuit); }
+.lp-garanties__liste a { font-weight: 700; }
 
 /* ------------------------------------------------------ corps 2 colonnes */
 .lp-corps {
@@ -408,7 +457,7 @@ body { background: #fff; }
 /* ----------------------------------- barre d'appel mobile (le pouce) */
 .ads-mob { position: fixed; left: 0; right: 0; bottom: 0; z-index: 70;
            display: none; grid-template-columns: 1.35fr 1fr;
-           box-shadow: 0 -6px 22px rgba(13, 34, 55, .22); }
+           box-shadow: 0 -6px 22px rgba(20, 80, 125, .26); }
 .ads-mob a { display: flex; align-items: center; justify-content: center; gap: 9px;
              min-height: 62px; text-decoration: none; font-weight: 700;
              font-family: "Barlow Condensed", "Barlow", sans-serif;
@@ -423,10 +472,13 @@ body { background: #fff; }
   .lp-side { position: static; grid-template-columns: 1fr 1fr; }
   .lp-card--form { grid-column: 1 / -1; }
   .lp-zones__liste { columns: 2; }
+  .lp-chiffres__grille { grid-template-columns: repeat(2, 1fr); }
+  .lp-chiffre:nth-child(3) { border-left: none; }
+  .lp-chiffre:nth-child(n+3) { border-top: 1px solid var(--ciel-bord); }
 }
 @media (max-width: 860px) {
   .lp-nav { display: none; }                 /* le menu ancre cède la place au CTA */
-  .lp-check--2 { grid-template-columns: 1fr; }
+  .lp-check--2, .lp-garanties__liste { grid-template-columns: 1fr; }
   .lp-srv__corps { grid-template-columns: 1fr; }
   .lp-srv__corps img { max-width: 320px; }
   .lp-avis__grille { grid-template-columns: 1fr; }
@@ -444,8 +496,8 @@ body { background: #fff; }
   .lp-hero__cta { gap: 12px; }
   .lp-hero__txt { font-size: 1.05rem; }
   .lp-hero { padding: 46px 0 42px;
-    background-image: linear-gradient(170deg, rgba(13,34,55,.96) 0%,
-                                              rgba(13,34,55,.88) 100%),
+    background-image: linear-gradient(180deg, rgba(14,55,88,.96) 0%,
+                                              rgba(14,55,88,.92) 100%),
                       url("../img/photos/electricite-equipe.jpg"); }
   .lp-side { grid-template-columns: 1fr; }
   .lp-top__mail { display: none; }

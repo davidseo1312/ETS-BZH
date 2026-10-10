@@ -252,6 +252,40 @@ FAQ = [
      "ou une assemblée générale."),
 ]
 
+# Les garanties, en tête de page. Chaque ligne lève une objection précise et
+# se vérifie : rien qui tienne de la formule.
+#
+# ATTENTION — deux affirmations engagent l'entreprise et doivent être
+# confirmées avant mise en ligne : la décennale auprès de MIC Insurance (le
+# numéro de contrat est encore « à compléter » dans les mentions légales) et
+# les moyens de paiement acceptés.
+GARANTIES = [
+    ("C'est lui qui décroche",
+     "quand vous appelez le {tel}. Pas de standard, pas de centre d'appels."),
+    ("Intervention rapide",
+     "24h/24 et 7j/7, week-ends et jours fériés compris."),
+    ("Prix annoncé avant les travaux.",
+     "Rien n'est engagé sans votre accord."),
+    ("Assuré en décennale",
+     "auprès de MIC Insurance. Attestation transmise sur demande."),
+    ("Le camion part équipé&nbsp;:",
+     "testeur d'isolement, pince ampèremétrique, caméra thermique, matériel "
+     "de consignation."),
+    ("Paiement",
+     "par carte bancaire, virement ou espèces."),
+]
+
+# Les quatre chiffres du bandeau. « 4,8/5 » est la moyenne réelle des six avis
+# affichés plus bas (5+5+5+5+5+4 sur 6 = 4,83) : c'est pour cela qu'il est
+# présenté comme « moyenne des avis publiés ici » et non attribué à une
+# plateforme tierce, ce qui serait invérifiable.
+CHIFFRES = [
+    ("24h/24", "joignable, 7j/7"),
+    ("4,8/5", "moyenne des avis publiés ici"),
+    ("Père en fils", "artisan électricien"),
+    ("Prix annoncé", "avant les travaux"),
+]
+
 # Codes postaux des communes citées. Ils servent au bloc « Zones
 # d'intervention » : un nom de commune suivi de son code postal lève le doute
 # sur les homonymes et fait local là où une simple liste fait remplissage.
