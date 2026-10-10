@@ -396,7 +396,8 @@ modèle de fiche métier locale fourni par le client&nbsp;:
 4. **Corps en deux colonnes.** Barre latérale collante&nbsp;: carte d'appel
    bleu nuit, liste des interventions, formulaire de rappel, bloc assurances.
    Contenu&nbsp;: accroche, encadré de citation, photo, contexte local,
-   **trois services numérotés** illustrés, « pourquoi nous choisir »,
+   **bloc « Julien, c'est lui qui décroche »**, **trois services numérotés**
+   illustrés, « pourquoi nous choisir »,
    les trois étapes, **six avis en piste horizontale**, bloc « Demandez
    Julien », **FAQ en texte courant** (dix questions), encadré tarifs.
 5. **Zones d'intervention** pleine largeur&nbsp;: les douze communes avec leur
@@ -461,19 +462,40 @@ variable `--sur-jaune` qu'aucune règle n'outrepasse. Contrôle sur les pixels
 rendus, 48 zones sur deux pages et deux largeurs&nbsp;: pire cas
 **5,56:1** — la page est plus lisible qu'avec l'ancienne palette (4,64:1).
 
-### ⚠ « Demandez Julien » et « de père en fils »
+### ⚠ « Julien, c'est lui qui décroche » et « de père en fils »
 
-Ce bloc (`TECHNICIEN` dans `tools/ads.py`) **affirme des faits sur
-l'entreprise**&nbsp;: qu'un technicien nommé Julien y travaille et répond au
-téléphone, et que le métier s'est transmis de père en fils.
+Ce bloc (`TECHNICIEN` dans `tools/ads.py`) est la **pièce maîtresse** des
+pages&nbsp;: il répond à la question que personne ne pose mais que tout le
+monde se fait avant de composer un numéro inconnu — «&nbsp;qui va me
+répondre&nbsp;?&nbsp;». Il est placé haut, juste après la présentation et
+avant les services, à 19&nbsp;% de la hauteur de page&nbsp;: un visage lève
+plus d'objections qu'un argument de plus.
+
+Le message est repris à six endroits, sans jamais être répété mot pour
+mot&nbsp;: carte d'appel de la barre latérale («&nbsp;Julien vous répond en
+personne&nbsp;»), encadré de citation, le bloc lui-même, la relance après
+«&nbsp;pourquoi nous choisir&nbsp;», la première étape
+(«&nbsp;Vous appelez, Julien décroche&nbsp;») et le CTA final.
+
+Ce bloc **affirme des faits sur l'entreprise**&nbsp;: qu'un technicien nommé
+Julien y travaille et répond lui-même au téléphone, et que le métier s'est
+transmis de père en fils.
 
 Sur une page publicitaire, une affirmation inexacte sur la nature ou
 l'ancienneté de l'entreprise relève de la **pratique commerciale trompeuse**
 (article L121-2 du Code de la consommation), et c'est également un motif de
-refus en régie. **À ne publier que si c'est exact.** Si la transmission
-familiale ne correspond pas à la réalité, retirez `sceau` et le troisième
-paragraphe de `TECHNICIEN`&nbsp;: le reste du bloc — un électricien décroche,
-il vous dit s'il faut venir — fonctionne sans cette affirmation.
+refus en régie. **À ne publier que si c'est exact**, et l'enjeu a grandi avec la mise en
+avant&nbsp;: ce n'est plus une mention au bas d'une page, c'est la promesse
+centrale. Si Julien ne décroche pas réellement, le premier appelant le
+constate.
+
+Deux retraits possibles sans défaire la page&nbsp;:
+
+- **la filiation seule**&nbsp;: retirez `sceau` et le dernier paragraphe de
+  `TECHNICIEN`. Le reste — l'électricien décroche lui-même — tient debout ;
+- **le prénom**&nbsp;: remplacez-le dans `TECHNICIEN["prenom"]`, `["titre"]`
+  et `["accroche"]`, puis dans `ETAPES[0]` et les trois reprises de
+  `page_ads`. Un `grep -rn "Julien" tools/` les liste toutes.
 
 Aucune navigation, aucun lien vers le site hormis les trois liens légaux du
 pied&nbsp;: sur une page payante, chaque lien sortant est une fuite.

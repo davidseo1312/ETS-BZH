@@ -54,11 +54,16 @@ TECHNICIEN = {
     "prenom": "Julien",
     "role": "Électricien — ETS-BZH",
     "sceau": "De père en fils",
-    "titre": "Demandez Julien",
+    "titre": "Julien, c'est lui qui décroche",
+    "badge": "Votre électricien",
+    "accroche": "Quand vous appelez le {tel}, vous n'avez ni standard, ni "
+                "centre d'appels, ni formulaire à remplir&nbsp;: "
+                "<strong>vous avez Julien, l'électricien qui viendra</strong>.",
     "paras": [
-        "Quand vous composez le {tel}, vous ne tombez pas sur une plateforme "
-        "qui prend votre adresse et vous rappelle plus tard. <strong>C'est un "
-        "électricien qui décroche</strong>, et c'est souvent Julien.",
+        "C'est la différence que personne ne voit avant d'appeler, et que "
+        "tout le monde constate ensuite&nbsp;: la personne au bout du fil est "
+        "celle qui montera dans le véhicule. Elle sait déjà ce qu'elle va "
+        "trouver, parce qu'elle vous a écouté.",
         "Il vous demande ce qui se passe, ce que vous voyez au tableau, ce qui "
         "fonctionne encore. En deux minutes, il sait s'il faut venir tout de "
         "suite, si vous pouvez attendre demain, ou si le problème se règle au "
@@ -101,9 +106,9 @@ AVIS_SUP = [
 ]
 
 ETAPES = [
-    ("Vous appelez",
-     "Un électricien décroche, pas un standard. Il vous demande ce qui se "
-     "passe et ce que vous voyez."),
+    ("Vous appelez, Julien décroche",
+     "Pas un standard, pas un centre d'appels&nbsp;: l'électricien lui-même. "
+     "Il vous demande ce qui se passe et ce que vous voyez."),
     ("On vous annonce un délai et un prix",
      "Avant de raccrocher. Pas de déplacement surprise, pas de tarif "
      "découvert sur le pas de la porte."),

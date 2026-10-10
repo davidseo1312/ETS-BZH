@@ -2687,7 +2687,7 @@ def page_ads(dept, ville=None):
     <div class="lp-card lp-urg">
       <img src="/assets/img/logo-emblem.png" alt="" width="54" height="54">
       <p class="lp-urg__t">URGENCE {au_lieu}&nbsp;?</p>
-      <p class="lp-urg__s">Un électricien vous répond</p>
+      <p class="lp-urg__s">Julien vous répond en personne</p>
       {tel_btn % "side"}
       <a class="lp-urg__dev" href="#rappel">Être rappelé</a>
       <p class="lp-urg__d">24h/24 · 7j/7 · jours fériés compris</p>
@@ -2714,9 +2714,10 @@ def page_ads(dept, ville=None):
   <div class="lp-main">
     <h2>Électricien {lieu} — dépannage rapide 24h/24</h2>
     <blockquote class="lp-cite">
-      <p><strong>Besoin d'un électricien {au_lieu}&nbsp;?</strong> Appelez ETS-BZH
-        au <a href="tel:{tel_lien}" data-cta="citation">{tel}</a> pour un
-        diagnostic au téléphone et une intervention rapide.</p>
+      <p><strong>Besoin d'un électricien {au_lieu}&nbsp;?</strong> Appelez le
+        <a href="tel:{tel_lien}" data-cta="citation">{tel}</a>&nbsp;:
+        <strong>c'est Julien, l'électricien, qui décroche</strong> — pas un
+        standard. Diagnostic au téléphone, puis intervention.</p>
     </blockquote>
 
     <figure class="lp-img">
@@ -2732,13 +2733,31 @@ def page_ads(dept, ville=None):
       téléphone, <strong>avant tout déplacement</strong>&nbsp;: rien ne se
       découvre sur le pas de la porte.</p>
 
+    <div class="lp-julien">
+      <div class="lp-julien__photo">
+        <img src="/assets/img/photos/{pf}" alt="{palt}" loading="lazy" decoding="async">
+        <span class="lp-sceau">{t['sceau']}</span>
+      </div>
+      <div class="lp-julien__txt">
+        <span class="lp-julien__badge">{t['badge']}</span>
+        <h2>{t['titre']}</h2>
+        <p class="lp-julien__accroche">{t['accroche'].format(tel=tel)}</p>
+        {paras}
+        <div class="lp-julien__pied">
+          <span class="lp-julien__nom">{t['prenom']}
+            <small>{t['role']}</small></span>
+          {tel_btn % "julien"}
+        </div>
+      </div>
+    </div>
+
     <h2 id="services">Nos services d'électricité {au_lieu}</h2>
     {services}
 
     <h2>Pourquoi choisir ETS-BZH&nbsp;?</h2>
     <ul class="lp-check lp-check--2">{pourquoi}</ul>
     <div class="lp-cta">{tel_btn % "apres-pourquoi"}
-      <span>Un électricien décroche, pas un standard.</span></div>
+      <span>Julien décroche, vous parlez directement à l'électricien.</span></div>
 
     <h2>Comment ça se passe</h2>
     <ol class="lp-etapes">{etapes}</ol>
@@ -2758,16 +2777,6 @@ def page_ads(dept, ville=None):
           <svg viewBox="0 0 24 24" width="22" height="22" fill="none"
                stroke="currentColor" stroke-width="2.4" aria-hidden="true">
             <path d="M9 5l7 7-7 7"/></svg></button>
-      </div>
-    </div>
-
-    <div class="lp-julien">
-      <img src="/assets/img/photos/{pf}" alt="{palt}" loading="lazy" decoding="async">
-      <div>
-        <span class="lp-sceau">{t['sceau']}</span>
-        <h3>{t['titre']}</h3>
-        {paras}
-        <p class="lp-julien__sign"><strong>{t['prenom']}</strong> — {t['role']}</p>
       </div>
     </div>
 
@@ -2804,8 +2813,8 @@ def page_ads(dept, ville=None):
 <section class="lp-final">
   <div class="container">
     <h2>Un électricien peut partir maintenant</h2>
-    <p>Décrivez-nous la situation en deux minutes. Créneau et tarif annoncés
-      avant de raccrocher.</p>
+    <p>Décrivez la situation à Julien en deux minutes. Créneau et tarif
+      annoncés avant de raccrocher.</p>
     <div class="lp-cta lp-cta--centre">{tel_btn % "final"}
       <a class="lp-devis lp-devis--grand" href="#rappel">Être rappelé</a></div>
   </div>
