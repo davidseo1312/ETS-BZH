@@ -365,8 +365,8 @@ payants se distinguent au premier coup d'œil dans la boîte de réception.
 7. **Bloc commune par commune**&nbsp;: contexte départemental puis douze
    communes, chacune avec une note propre.
 8. Les trois étapes (grille `steps--3`, voir ci-dessous).
-9. **Avis clients** — ceux de la page métier Électricité, rattachés à trois
-   communes du département, avec le bandeau de note (voir l'avertissement).
+9. **Avis clients** — six témoignages rattachés à six communes du
+   département, avec le bandeau de note (voir l'avertissement).
 10. **Engagements** — aucun prix, voir ci-dessous.
 11. **FAQ de levée d'objection** — dix questions, voir ci-dessous.
 12. CTA final, second formulaire.
@@ -432,9 +432,18 @@ mobile le voile devient quasi plein, la photo n'y étant plus qu'une texture.
 
 ### ⚠ Avis clients
 
-Les pages Ads affichent, à la demande du client, **les trois témoignages de la
-page métier Électricité** et le **bandeau « 4,8/5 » estampillé Google
-Reviews**. Les noms changent de commune selon le département.
+Les pages Ads affichent, à la demande du client, **six témoignages** et le
+**bandeau « 4,8/5 » estampillé Google Reviews**. Les trois premiers viennent
+de la page métier Électricité (`ACTIVITES` dans `tools/data.py`), les trois
+suivants n'existent que sur ces pages (`AVIS_SUP` dans `tools/ads.py`). Six
+communes distinctes par page, prises dans le département&nbsp;: un avis signé
+«&nbsp;Brest&nbsp;» sur une annonce ciblée Morbihan décrédibilise la page
+entière.
+
+Le sixième porte **quatre étoiles et un reproche léger**. Ce n'est pas une
+maladresse&nbsp;: six avis à cinq étoiles d'affilée se lisent comme un décor,
+et ils contredisent la moyenne de 4,8/5 affichée juste en dessous. Les
+étoiles manquantes sont dessinées en contour, pas simplement omises.
 
 Ces contenus sont des **exemples**, pas de vrais avis. Les publier en l'état
 sur une page financée par de la publicité cumule deux risques&nbsp;: la
@@ -444,9 +453,10 @@ en régie, la plupart interdisant les témoignages et notes invérifiables.
 Le badge Google Reviews aggrave le cas&nbsp;: il attribue la note à une
 plateforme tierce qui ne l'a pas produite.
 
-**À remplacer par de vrais avis vérifiés avant de lancer les campagnes.** Ils
-vivent dans `ACTIVITES[…]["avis"]` de `tools/data.py` — les modifier met à
-jour le site public et les pages Ads en même temps. Le bandeau de note se
+**À remplacer par de vrais avis vérifiés avant de lancer les campagnes.** Les
+trois premiers vivent dans `ACTIVITES[…]["avis"]` de `tools/data.py` — les
+modifier met à jour le site public et les pages Ads en même temps&nbsp;; les
+trois autres dans `AVIS_SUP` de `tools/ads.py`, sans effet sur le site. Le bandeau de note se
 retire en supprimant l'appel à `bandeau_avis()` dans `page_ads`.
 
 **Étoiles.** Celles du site (`--or: #f5a623`) tombent à 2,03:1 sur blanc,

@@ -2550,15 +2550,24 @@ def page_ads(dept):
     # Avis : ceux de la page métier Électricité, rattachés à trois communes du
     # département. Contenus d'exemple tant qu'ils n'ont pas été remplacés par
     # de vrais avis vérifiés — voir l'avertissement du README.
-    villes_avis = [dept["villes"][0], dept["villes"][1], dept["villes"][3]]
+    # Six témoignages : les trois de la page métier Électricité, puis trois
+    # propres aux pages Ads. Six communes distinctes du département, pour
+    # qu'aucune ne revienne deux fois sur la même page.
+    villes_avis = [dept["villes"][i] for i in (0, 1, 3, 5, 2, 7)]
+    tous_avis = list(ACT["electricite"]["avis"]) + list(ADS.AVIS_SUP)
+    etoile_vide = ('<svg viewBox="0 0 24 24" width="15" height="15" fill="none" '
+                   'stroke="currentColor" stroke-width="1.7" aria-hidden="true">'
+                   '<path d="M12 3.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8-5.3-2.8-5.3 2.8 '
+                   '1-5.8L3.5 9.7l5.9-.9z"/></svg>')
     avis = "".join(
         '<article class="avis"><div class="avis__stars" aria-label="%d étoiles sur 5">'
         '%s</div><p class="avis__txt">« %s »</p><div class="avis__auteur">'
         '<span class="avis__ini" aria-hidden="true">%s</span><span>'
         '<span class="avis__nom">%s</span><br>'
         '<span class="avis__ville">%s (%s)</span></span></div></article>'
-        % (note, picto("etoile", 15) * note, txt, nom[0], nom, ville, num)
-        for (txt, nom, note), ville in zip(ACT["electricite"]["avis"], villes_avis))
+        % (note, picto("etoile", 15) * note + etoile_vide * (5 - note),
+           txt, nom[0], nom, ville, num)
+        for (txt, nom, note), ville in zip(tous_avis, villes_avis))
 
     engagements = "".join(
         '<div class="ads-engagement"><h3>%s</h3><p>%s</p></div>' % (t, p)

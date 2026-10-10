@@ -71,6 +71,35 @@ TECHNICIEN = {
     ],
 }
 
+# Trois avis supplémentaires, propres aux pages Ads : les trois premiers
+# viennent de la page métier Électricité (ACTIVITES, data.py), ceux-ci
+# n'apparaissent nulle part ailleurs. Six témoignages remplissent deux
+# rangées de trois sans trou.
+#
+# Le dernier porte QUATRE étoiles et un reproche léger. Ce n'est pas une
+# maladresse : six avis à cinq étoiles d'affilée se lisent comme un décor, et
+# ils contredisent la moyenne de 4,8/5 affichée juste en dessous. Un bémol
+# assumé fait plus pour la crédibilité que la perfection.
+#
+# ATTENTION — comme les trois autres, ce sont des contenus d'exemple. Les
+# publier tels quels sur une page payante relève de la pratique commerciale
+# trompeuse (art. L121-2, qui vise expressément les avis fictifs) et du motif
+# de refus en régie. À remplacer par de vrais avis vérifiés.
+AVIS_SUP = [
+    ("Prise qui chauffait et odeur de brûlé un vendredi soir. Technicien sur "
+     "place en moins de deux heures, circuit coupé et connexion refaite. Il a "
+     "pris le temps de vérifier le reste du tableau avant de repartir.",
+     "Nathalie P.", 5),
+    ("Après la tempête, plus rien ne fonctionnait au rez-de-chaussée. Contrôle "
+     "complet avant de remettre le courant, pièce par pièce. Rassurant de voir "
+     "quelqu'un qui ne se précipite pas.",
+     "Hervé L.", 5),
+    ("Deux logements que je loue, intervention sur les deux. Travail sérieux "
+     "et compte rendu écrit à chaque fois, ce qui m'arrange pour mes dossiers. "
+     "Seul bémol&nbsp;: j'ai dû relancer pour recevoir la facture.",
+     "Sylvie M.", 4),
+]
+
 ETAPES = [
     ("Vous appelez",
      "Un électricien décroche, pas un standard. Il vous demande ce qui se "
