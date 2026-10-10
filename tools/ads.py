@@ -231,6 +231,54 @@ FAQ = [
      "ou une assemblée générale."),
 ]
 
+# Codes postaux des communes citées. Ils servent au bloc « Zones
+# d'intervention » : un nom de commune suivi de son code postal lève le doute
+# sur les homonymes et fait local là où une simple liste fait remplissage.
+# À faire vérifier par le client avant mise en ligne — un code postal faux est
+# une petite erreur qui coûte cher en crédibilité.
+CP = {
+    "Saint-Brieuc": "22000", "Lannion": "22300", "Dinan": "22100",
+    "Guingamp": "22200", "Lamballe-Armor": "22400", "Plérin": "22190",
+    "Ploufragan": "22440", "Paimpol": "22500", "Trégueux": "22950",
+    "Loudéac": "22600", "Perros-Guirec": "22700", "Saint-Quay-Portrieux": "22410",
+
+    "Brest": "29200", "Quimper": "29000", "Concarneau": "29900",
+    "Morlaix": "29600", "Douarnenez": "29100", "Landerneau": "29800",
+    "Quimperlé": "29300", "Plougastel-Daoulas": "29470", "Guipavas": "29490",
+    "Le Relecq-Kerhuon": "29480", "Crozon": "29160", "Carhaix-Plouguer": "29270",
+
+    "Rennes": "35000", "Saint-Malo": "35400", "Fougères": "35300",
+    "Vitré": "35500", "Cesson-Sévigné": "35510", "Bruz": "35170",
+    "Redon": "35600", "Dinard": "35800", "Betton": "35830",
+    "Chantepie": "35135", "Saint-Grégoire": "35760",
+    "Saint-Jacques-de-la-Lande": "35136",
+
+    "Vannes": "56000", "Lorient": "56100", "Lanester": "56600",
+    "Pontivy": "56300", "Ploemeur": "56270", "Hennebont": "56700",
+    "Auray": "56400", "Guidel": "56520", "Quiberon": "56170",
+    "Séné": "56860", "Saint-Avé": "56890", "Sarzeau": "56370",
+}
+
+# Les trois familles d'intervention, numérotées comme sur une fiche métier.
+# (titre, photo, [points])
+SERVICES = [
+    ("Dépannage et recherche de panne", "electricite-3.jpg", [
+        "Panne totale ou partielle, localisée circuit par circuit.",
+        "Disjoncteur qui saute&nbsp;: on trouve le défaut, on ne le contourne pas.",
+        "Remise en service dès le premier passage chaque fois que c'est possible.",
+    ]),
+    ("Mise en sécurité et tableau électrique", "electricite-1.jpg", [
+        "Odeur de brûlé, prise qui chauffe&nbsp;: coupure et reprise de la connexion.",
+        "Remplacement de tableau, pose d'un différentiel 30&nbsp;mA.",
+        "Contrôle de la prise de terre et mesure d'isolement.",
+    ]),
+    ("Installation et mise aux normes", "electricite-2.jpg", [
+        "Création de circuits dédiés&nbsp;: cuisine, chauffe-eau, forte puissance.",
+        "Reprise d'installation ancienne, repérage et étiquetage des circuits.",
+        "Remise en service après dégât des eaux, orage ou tempête.",
+    ]),
+]
+
 DEPTS = {
  "22": {
   "contexte":

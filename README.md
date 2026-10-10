@@ -386,29 +386,40 @@ transmet en plus un champ masqué `source` (« ADS Électricité Saint-Brieuc
 `formulaire.php` reprend en préfixe du sujet du courriel&nbsp;: les prospects
 payants se distinguent au premier coup d'œil dans la boîte de réception.
 
-**Structure de la page** (`page_ads` dans `tools/build.py`)&nbsp;:
+**Structure de la page** (`page_ads` dans `tools/build.py`), reprise du
+modèle de fiche métier locale fourni par le client&nbsp;:
 
-1. Barre collante haute&nbsp;: identité, département, bouton d'appel.
-2. Hero&nbsp;: **photo d'intervention en fond**, promesse, quatre preuves,
-   bouton d'appel géant + formulaire à deux champs (téléphone, commune).
-3. Bandeau de chiffres.
-4. Les six urgences traitées, suivies d'un rappel d'appel.
-5. **« Demandez Julien »**&nbsp;: le technicien, la transmission familiale, une
-   photo et un bouton d'appel (voir l'avertissement plus bas).
-6. **Galerie**&nbsp;: les quatre photos de la page métier Électricité,
-   réduites à leur légende courte.
-7. **Bloc commune par commune**&nbsp;: contexte départemental puis douze
-   communes, chacune avec une note propre.
-8. Les trois étapes (grille `steps--3`, voir ci-dessous).
-9. **Avis clients** — six témoignages rattachés à six communes du
-   département, avec le bandeau de note (voir l'avertissement).
-10. **Engagements** — aucun prix, voir ci-dessous.
-11. **FAQ de levée d'objection** — dix questions, voir ci-dessous.
-12. CTA final, second formulaire.
-13. **Bandeau assurances**&nbsp;: RC professionnelle, garantie décennale et les
-    trois logos (Artisan de France, CMA, MIC Insurance).
-14. Pied léger.
-15. Barre d'appel fixe en bas sur mobile, là où se trouve le pouce.
+1. **Barre de contact** bleu nuit&nbsp;: commune, e-mail, numéro d'urgence.
+2. **En-tête blanc collant**&nbsp;: logo, menu d'ancres, bouton « Devis en ligne ».
+3. **Bandeau de titre** sur photo&nbsp;: « Électricien {Commune} » et fil
+   d'Ariane.
+4. **Corps en deux colonnes.** Barre latérale collante&nbsp;: carte d'appel
+   bleu nuit, liste des interventions, formulaire de rappel, bloc assurances.
+   Contenu&nbsp;: accroche, encadré de citation, photo, contexte local,
+   **trois services numérotés** illustrés, « pourquoi nous choisir »,
+   les trois étapes, six avis, bloc « Demandez Julien », **FAQ en texte
+   courant** (dix questions), encadré tarifs.
+5. **Zones d'intervention** pleine largeur&nbsp;: les douze communes avec leur
+   code postal, en trois colonnes, chacune liée à sa page.
+6. **CTA final**, pied léger, et barre d'appel fixe en bas sur mobile.
+
+Le menu de l'en-tête ne contient que des **ancres internes**&nbsp;: sur une
+page payante, un lien sortant est une fuite. Les seuls liens hors page sont
+les trois liens légaux du pied et les communes voisines.
+
+**Pas de carte interactive.** Le modèle en affiche une&nbsp;; une carte Google
+ou Leaflet exposerait les visiteurs à un service tiers, ce que tout le site
+s'interdit. Le bloc « zones d'intervention » avec codes postaux remplit la
+même fonction — dire qu'on couvre vraiment le secteur — sans requête externe.
+
+**Codes postaux**&nbsp;: `CP` dans `tools/ads.py`. À faire vérifier par le
+client avant mise en ligne — un code postal faux est une petite erreur qui
+coûte cher en crédibilité.
+
+**Pas de prix, malgré le modèle.** Le modèle affiche « à partir de 79&nbsp;€ ».
+L'encadré tarifs des pages ETS-BZH garde la place et la fonction, sans
+montant&nbsp;: le tarif se donne au téléphone, une fois la situation connue.
+Contrôlé au build&nbsp;: aucun caractère « € » dans les 52 pages.
 
 ### Palette propre aux pages Ads
 

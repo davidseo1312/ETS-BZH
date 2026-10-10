@@ -2547,312 +2547,261 @@ def bloc_assurances_ads():
 def page_ads(dept, ville=None):
     """Page payante d'un département, ou de l'une de ses communes.
 
-    Une seule fabrique pour les deux : la page commune reprend exactement la
-    page départementale, en substituant le lieu partout où il apparaît. Ce qui
-    change réellement d'une commune à l'autre, c'est la note locale, les
-    communes voisines proposées et celles qui signent les avis.
+    Mise en page de fiche métier locale, reprise du modèle fourni par le
+    client&nbsp;: barre de contact, en-tête blanc, bandeau titre sur photo,
+    corps en deux colonnes avec barre latérale d'appel, services numérotés,
+    FAQ en texte courant, et un grand bloc « zones d'intervention ».
+
+    Une seule fabrique pour les deux niveaux&nbsp;: la page commune reprend la
+    page départementale en substituant le lieu partout où il apparaît.
     """
     d = ADS.DEPTS[dept["num"]]
     nom, num = dept["nom"], dept["num"]
-    art = dept["article"]                      # « dans les », « dans le »…
+    art = dept["article"]
     tel_lien, tel = ADS.ADS_TEL_LIEN, ADS.ADS_TEL
+    elec = ACT["electricite"]
 
     notes = dict(d["villes"])
     autres = [v for v, _ in d["villes"] if v != ville]
 
     if ville:
-        lieu = ville                           # « Saint-Brieuc »
-        au_lieu = a_ville(ville)               # « à Saint-Brieuc »
+        lieu, au_lieu = ville, a_ville(ville)
+        contexte = notes[ville]
     else:
-        lieu = nom                             # « Côtes-d'Armor »
-        au_lieu = "%s %s" % (art, nom)         # « dans les Côtes-d'Armor »
+        lieu, au_lieu = nom, "%s %s" % (art, nom)
+        contexte = d["contexte"]
     situe = "%s (%s)" % (lieu, num)
 
-    titre = "Électricien d'urgence %s (%s) — 24h/24 — %s" % (lieu, num, tel)
+    titre = "Électricien %s — dépannage 24h/24 — %s" % (lieu, tel)
     desc = ("Électricien d'urgence %s : panne, disjoncteur, odeur de brûlé. "
             "Intervention 24h/24 et 7j/7, délai annoncé avant déplacement. %s."
             % (au_lieu, tel))
 
-    bouton_tel = (f'<a class="ads-tel-btn" href="tel:{tel_lien}" data-cta="%s">'
-                  f'{SVG["tel"]}<span>{tel}'
-                  f'<span class="ads-tel-btn__sur">Un électricien vous répond</span>'
-                  f'</span></a>')
+    tel_btn = (f'<a class="lp-tel" href="tel:{tel_lien}" data-cta="%s">'
+               f'{SVG["tel"]}<span>{tel}</span></a>')
+    coche = picto("check", 17)
 
-    points = "".join(
-        '<li>%s<span>%s</span></li>' % (picto("check", 19), t) for t in (
-            "Intervention 24h/24, 7j/7 — y compris dimanches et jours fériés",
-            "Délai et tarif annoncés au téléphone, avant tout déplacement",
-            "Mise en sécurité immédiate, devis avant toute réparation",
-            ("%s et ses environs, et tout le département&nbsp;(%s)" % (ville, num))
-            if ville else
-            ("Tout le département&nbsp;: %s, et les communes rurales"
-             % ", ".join(v for v, _ in d["villes"][:4])),
-        ))
+    # ---- barre latérale : ce qu'on traite, l'appel, le rappel, l'assurance
+    side_srv = "".join('<li>%s<a href="#services">%s</a></li>' % (coche, t)
+                       for t, _ in ADS.URGENCES)
+    logos = "".join(
+        '<img class="confiance__logo" src="/assets/img/%s" alt="%s" '
+        'style="--h:%dpx;--dy:%s" width="%d" height="%d" loading="lazy">'
+        % ((f, alt, h, dy) + taille_png("assets/img/" + f))
+        for f, alt, h, dy in LOGOS)
 
-    preuves = "".join(
-        '<div class="ads-preuve"><div class="ads-preuve__num">%s</div>'
-        '<div class="ads-preuve__lbl">%s</div></div>' % (n, l)
-        for n, l in (("24/7", "Astreinte urgence"), ("&lt; 1 h", "Délai visé en urgence"),
-                     ("100 %", "Devis gratuits"), (num, "Département couvert")))
+    # ---- services numérotés
+    services = ""
+    for i, (t, img, pts) in enumerate(ADS.SERVICES, 1):
+        lis = "".join("<li>%s<span>%s</span></li>" % (coche, x) for x in pts)
+        services += f"""
+<div class="lp-srv">
+  <h3><span class="lp-srv__n">{i}</span>{t} {au_lieu}</h3>
+  <div class="lp-srv__corps">
+    <ul class="lp-check">{lis}</ul>
+    <img src="/assets/img/photos/{img}" alt="Électricien ETS-BZH&nbsp;: {clean(t).lower()}"
+         loading="lazy" decoding="async">
+  </div>
+</div>"""
 
-    cases = "".join(
-        '<div class="ads-case"><h3>%s</h3><p>%s</p></div>' % (t, p)
-        for t, p in ADS.URGENCES)
-
-    # Chaque commune mène à sa propre page payante. Sur une page de commune,
-    # on liste les onze autres : le visiteur qui s'est trompé de ville trouve
-    # la sienne au lieu de repartir.
-    villes = "".join(
-        '<div class="ads-ville">'
-        '<a class="ads-ville__nom" href="%s">%s</a>'
-        '<span class="ads-ville__note">%s</span></div>'
-        % (url_ads(dept, v), v, notes[v])
-        for v in autres)
-
-    if ville:
-        villes_titre = "Nous intervenons %s et autour" % au_lieu
-        villes_intro = "%s Voici les communes voisines que nous desservons." % notes[ville]
-        villes_pied = (
-            "Votre commune n'est pas dans la liste&nbsp;? Nous couvrons tout le "
-            "département&nbsp;(%s), communes rurales comprises — "
-            "<a href=\"%s\">voir la page %s</a>. Le délai est toujours annoncé "
-            "au téléphone avant le déplacement&nbsp;: "
-            "<a href=\"tel:%s\" data-cta=\"villes\">appelez le %s</a> pour "
-            "connaître le nôtre chez vous."
-            % (num, url_ads(dept), nom, tel_lien, tel))
-    else:
-        villes_titre = "Nous intervenons commune par commune"
-        villes_intro = d["contexte"]
-        villes_pied = (
-            "Votre commune n'est pas dans la liste&nbsp;? Nous couvrons tout le "
-            "département&nbsp;(%s), communes rurales comprises. Le délai est "
-            "toujours annoncé au téléphone avant le déplacement&nbsp;: "
-            "<a href=\"tel:%s\" data-cta=\"villes\">appelez le %s</a> pour "
-            "connaître le nôtre sur votre commune."
-            % (num, tel_lien, tel))
+    pourquoi = "".join(
+        "<li>%s<span><strong>%s.</strong> %s</span></li>" % (coche, t, p)
+        for t, p in ADS.ENGAGEMENTS)
 
     etapes = "".join(
-        '<div class="step"><span class="step__pastille">%d</span><h3>%s</h3><p>%s</p></div>'
+        '<li><span class="lp-etape__n">%d</span><span><strong>%s.</strong> %s</span></li>'
         % (i + 1, t, p) for i, (t, p) in enumerate(ADS.ETAPES))
 
-    # Avis : ceux de la page métier Électricité, rattachés à trois communes du
-    # département. Contenus d'exemple tant qu'ils n'ont pas été remplacés par
-    # de vrais avis vérifiés — voir l'avertissement du README.
-    # Six témoignages : les trois de la page métier Électricité, puis trois
-    # propres aux pages Ads. Six communes distinctes du département, pour
-    # qu'aucune ne revienne deux fois sur la même page.
+    # ---- avis
     villes_avis = ([ville] + autres[:5] if ville
                    else [dept["villes"][i] for i in (0, 1, 3, 5, 2, 7)])
-    tous_avis = list(ACT["electricite"]["avis"]) + list(ADS.AVIS_SUP)
+    tous_avis = list(elec["avis"]) + list(ADS.AVIS_SUP)
     etoile_vide = ('<svg viewBox="0 0 24 24" width="15" height="15" fill="none" '
                    'stroke="currentColor" stroke-width="1.7" aria-hidden="true">'
                    '<path d="M12 3.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8-5.3-2.8-5.3 2.8 '
                    '1-5.8L3.5 9.7l5.9-.9z"/></svg>')
     avis = "".join(
-        '<article class="avis"><div class="avis__stars" aria-label="%d étoiles sur 5">'
-        '%s</div><p class="avis__txt">« %s »</p><div class="avis__auteur">'
-        '<span class="avis__ini" aria-hidden="true">%s</span><span>'
-        '<span class="avis__nom">%s</span><br>'
-        '<span class="avis__ville">%s (%s)</span></span></div></article>'
+        '<article class="lp-avis"><div class="lp-avis__stars" '
+        'aria-label="%d étoiles sur 5">%s</div><p>« %s »</p>'
+        '<footer><strong>%s</strong> — %s (%s)</footer></article>'
         % (note, picto("etoile", 15) * note + etoile_vide * (5 - note),
-           txt, nom[0], nom, ville, num)
-        for (txt, nom, note), ville in zip(tous_avis, villes_avis))
+           txt, nm, vl, num)
+        for (txt, nm, note), vl in zip(tous_avis, villes_avis))
 
-    engagements = "".join(
-        '<div class="ads-engagement"><h3>%s</h3><p>%s</p></div>' % (t, p)
-        for t, p in ADS.ENGAGEMENTS)
-
-    # La première est ouverte : un accordéon entièrement fermé se lit comme
-    # une page vide, surtout sur mobile.
+    # ---- FAQ en texte courant, comme sur le modèle
     faq = "".join(
-        '<details%s><summary>%s</summary>'
-        '<div class="faq__body"><p>%s</p></div></details>'
-        % (" open" if i == 0 else "", q,
-           r.replace("{deptnum}", "&nbsp;(%s)" % num))
-        for i, (q, r) in enumerate(ADS.FAQ))
+        '<div class="lp-q"><h3>%s</h3><p>%s</p></div>'
+        % (q, r.replace("{deptnum}", "&nbsp;(%s)" % num))
+        for q, r in ADS.FAQ)
 
-    # Photos : celles de la page métier Électricité, sans leur description
-    # longue (masquée en CSS) — sur une page payante, la légende courte suffit.
-    elec = ACT["electricite"]
-    photos = "".join(photo(f, alt, leg) for f, alt, leg, _ in elec["photos"])
+    # ---- zones d'intervention : toutes les communes, code postal à l'appui
+    # Nom et code postal tiennent dans UNE cellule de la grille : séparés, le
+    # code postal retombe à la ligne suivante.
+    zones = "".join(
+        '<li>%s<span><a href="%s">%s</a> '
+        '<span class="lp-cp">(%s)</span></span></li>'
+        % (coche, url_ads(dept, v), v, ADS.CP.get(v, num))
+        for v, _ in d["villes"])
+
     t = ADS.TECHNICIEN
     paras = "".join("<p>%s</p>" % x.format(tel=tel) for x in t["paras"])
-    pf, palt, pleg, _ = elec["photo_equipe"]
+    pf, palt, _, _ = elec["photo_equipe"]
 
     return (
         head_ads(titre, desc, dept) + f"""
-<header class="ads-bar">
-  <div class="container ads-bar__in">
-    <div class="ads-bar__id">
-      <img src="/assets/img/logo-emblem.png" alt="" width="40" height="40">
-      <div>
-        <div class="ads-bar__nom">ETS-BZH</div>
-        <span class="ads-bar__dispo">Électricien d'urgence · {situe}</span>
-      </div>
-    </div>
-    <a class="ads-bar__tel" href="tel:{tel_lien}" data-cta="barre-haut">
-      {SVG['tel']}<span class="ads-bar__num">{tel}</span>
-      <span class="ads-bar__court" hidden>Appeler</span></a>
+<div class="lp-top">
+  <div class="container lp-top__in">
+    <span>{SVG['pin']} {situe}</span>
+    <span class="lp-top__mail">{SVG['mail']} <a href="mailto:{EMAIL}">{EMAIL}</a></span>
+    <span class="lp-top__tel">{SVG['tel']} Urgence&nbsp;:
+      <a href="tel:{tel_lien}" data-cta="barre-contact">{tel}</a></span>
+  </div>
+</div>
+
+<header class="lp-head">
+  <div class="container lp-head__in">
+    <a class="lp-logo" href="#haut">
+      <img src="/assets/img/logo-emblem.png" alt="" width="46" height="46">
+      <span>ETS-BZH<small>Électricien · {situe}</small></span></a>
+    <nav class="lp-nav" aria-label="Sections de la page">
+      <a href="#services">Nos services</a>
+      <a href="#avis">Avis</a>
+      <a href="#zones">Zones</a>
+      <a href="#faq">Questions</a>
+    </nav>
+    <a class="lp-devis" href="#rappel">Devis en ligne</a>
   </div>
 </header>
 
-<main id="contenu">
+<section class="lp-hero" id="haut">
+  <div class="container">
+    <h1>Électricien {lieu}</h1>
+    <p class="lp-fil">Dépannage électrique <span>›</span> {nom} ({num})
+      <span>›</span> <strong>Électricien {lieu}</strong></p>
+  </div>
+</section>
 
-<section class="ads-hero">
-  <div class="container ads-hero__grid">
-    <div>
-      <span class="ads-eyebrow">Urgence électrique · {situe}</span>
-      <h1>Électricien d'urgence {au_lieu}</h1>
-      <p class="ads-hero__sub">Panne de courant, disjoncteur qui saute, odeur de
-        brûlé au tableau&nbsp;: <strong>un électricien vous répond maintenant</strong>
-        et vous annonce un délai et un prix avant de se déplacer.</p>
-      <ul class="ads-points">{points}</ul>
-      <div class="ads-cta">
-        {bouton_tel % "hero"}
-        <a class="btn btn--ghost btn--xl" href="#rappel">Être rappelé en 30 min</a>
-      </div>
+<main class="lp-corps container">
+
+  <aside class="lp-side">
+    <div class="lp-card lp-urg">
+      <img src="/assets/img/logo-emblem.png" alt="" width="54" height="54">
+      <p class="lp-urg__t">URGENCE {au_lieu}&nbsp;?</p>
+      <p class="lp-urg__s">Un électricien vous répond</p>
+      {tel_btn % "side"}
+      <a class="lp-urg__dev" href="#rappel">Être rappelé</a>
+      <p class="lp-urg__d">24h/24 · 7j/7 · jours fériés compris</p>
     </div>
-    <div id="rappel">{form_ads("f-haut", "Rappel sous 30 minutes",
-        "Deux champs suffisent. Nous vous rappelons pour fixer un créneau.",
+
+    <div class="lp-card">
+      <h2>Nos interventions {au_lieu}</h2>
+      <ul class="lp-side__srv">{side_srv}</ul>
+    </div>
+
+    <div class="lp-card lp-card--form" id="rappel">{form_ads(
+        "f-side", "Être rappelé",
+        "Deux champs. Nous vous rappelons pour fixer un créneau.",
         "Demander un rappel", dept, ville)}</div>
-  </div>
-</section>
 
-<section class="ads-preuves" aria-label="ETS-BZH en chiffres">
-  <div class="container"><div class="ads-preuves__grid">{preuves}</div></div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <span class="eyebrow">Ce pour quoi on nous appelle</span>
-    <h2>Les urgences électriques que nous traitons {au_lieu}</h2>
-    <p class="lead">Si votre situation figure ci-dessous, appelez
-      plutôt que d'attendre&nbsp;: la plupart se règlent en une intervention.</p>
-    <div class="ads-grille">{cases}</div>
-    <div style="margin-top:34px;text-align:center">{bouton_tel % "apres-urgences"}</div>
-  </div>
-</section>
-
-<section class="section ads-julien">
-  <div class="container ads-julien__grid">
-    <div class="ads-julien__photo">
-      {photo(pf, palt, pleg)}
-      <span class="ads-julien__sceau">{t['sceau']}</span>
+    <div class="lp-card lp-assur">
+      <h2>Assurés et couverts</h2>
+      <p>Responsabilité civile professionnelle et garantie décennale pour les
+        travaux qui l'exigent. Attestations transmises sur demande.</p>
+      <div class="lp-assur__logos">{logos}</div>
     </div>
-    <div>
-      <span class="ads-eyebrow">Qui vous répond</span>
-      <h2>{t['titre']}</h2>
-      {paras}
-      <div class="ads-julien__sign">
-        <span class="ads-julien__nom">{t['prenom']}
-          <span class="ads-julien__role">{t['role']}</span></span>
-        {bouton_tel % "julien"}
+  </aside>
+
+  <div class="lp-main">
+    <h2>Électricien {lieu} — dépannage rapide 24h/24</h2>
+    <blockquote class="lp-cite">
+      <p><strong>Besoin d'un électricien {au_lieu}&nbsp;?</strong> Appelez ETS-BZH
+        au <a href="tel:{tel_lien}" data-cta="citation">{tel}</a> pour un
+        diagnostic au téléphone et une intervention rapide.</p>
+    </blockquote>
+
+    <figure class="lp-img">
+      <img src="/assets/img/photos/{elec['photos'][0][0]}"
+           alt="Électricien ETS-BZH sur un tableau électrique {au_lieu}"
+           loading="lazy" decoding="async">
+    </figure>
+
+    <h2>Votre électricien {au_lieu}</h2>
+    <p>{contexte}</p>
+    <p>Nous intervenons <strong>24h/24 et 7j/7</strong>, y compris les
+      dimanches et les jours fériés. Le délai et le tarif vous sont annoncés au
+      téléphone, <strong>avant tout déplacement</strong>&nbsp;: rien ne se
+      découvre sur le pas de la porte.</p>
+
+    <h2 id="services">Nos services d'électricité {au_lieu}</h2>
+    {services}
+
+    <h2>Pourquoi choisir ETS-BZH&nbsp;?</h2>
+    <ul class="lp-check lp-check--2">{pourquoi}</ul>
+    <div class="lp-cta">{tel_btn % "apres-pourquoi"}
+      <span>Un électricien décroche, pas un standard.</span></div>
+
+    <h2>Comment ça se passe</h2>
+    <ol class="lp-etapes">{etapes}</ol>
+
+    <h2 id="avis">Avis clients {au_lieu}</h2>
+    <div class="lp-avis__grille">{avis}</div>
+
+    <div class="lp-julien">
+      <img src="/assets/img/photos/{pf}" alt="{palt}" loading="lazy" decoding="async">
+      <div>
+        <span class="lp-sceau">{t['sceau']}</span>
+        <h3>{t['titre']}</h3>
+        {paras}
+        <p class="lp-julien__sign"><strong>{t['prenom']}</strong> — {t['role']}</p>
       </div>
     </div>
-  </div>
-</section>
 
-<section class="section">
-  <div class="container">
-    <span class="eyebrow">Nos interventions</span>
-    <h2>Le travail que nous livrons</h2>
-    <p class="lead">Tableaux, recherche de panne, mise aux normes, bornes de
-      recharge&nbsp;: des chantiers réalisés par nos électriciens.</p>
-    <div class="ads-photos">{photos}</div>
-  </div>
-</section>
+    <h2 id="faq">FAQ — Électricien {lieu}</h2>
+    <div class="lp-faq">{faq}</div>
 
-<section class="section section--fond">
-  <div class="container">
-    <span class="eyebrow">Notre zone</span>
-    <h2>{villes_titre}</h2>
-    <p class="lead">{villes_intro}</p>
-    <div class="ads-villes">{villes}</div>
-    <p class="ads-villes-pied">{villes_pied}</p>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="section-head center">
-      <span class="eyebrow">Comment ça se passe</span>
-      <h2>Trois étapes, et vous savez à quoi vous en tenir</h2>
-      <p class="lead">Pas de zone d'ombre entre votre appel et notre départ.</p>
+    <h2>Tarifs électricien {au_lieu}</h2>
+    <div class="lp-tarif">
+      <p><strong>Nous n'affichons pas de prix sur cette page.</strong> Un tarif
+        juste se donne une fois la situation connue, pas avant. Décrivez-nous
+        le problème au téléphone&nbsp;: nous vous annonçons le montant
+        applicable et la majoration éventuelle <strong>avant de prendre la
+        route</strong>. Le devis est gratuit, sans engagement, et rien n'est
+        engagé sans votre accord.</p>
+      <div class="lp-cta">{tel_btn % "tarifs"}</div>
     </div>
-    <div class="steps steps--3">{etapes}</div>
   </div>
-</section>
-
-<section class="section section--pale">
-  <div class="container">
-    <div class="section-head center">
-      <span class="eyebrow">Avis clients</span>
-      <h2>Ils nous ont appelés {au_lieu}</h2>
-      <p class="lead">Ce que disent les clients que nous avons dépannés.</p>
-    </div>
-    <div class="grid grid--3">{avis}</div>
-    <div class="center">
-      {bandeau_avis("Note moyenne des interventions ETS-BZH en Bretagne")}
-    </div>
-    <div style="margin-top:30px;text-align:center">{bouton_tel % "apres-avis"}</div>
-  </div>
-</section>
-
-<section class="section section--fond">
-  <div class="container">
-    <span class="eyebrow">Nos engagements</span>
-    <h2>Ce sur quoi vous pouvez compter</h2>
-    <p class="lead">Nous n'affichons pas de prix ici&nbsp;: un tarif juste se
-      donne une fois la situation connue, pas avant. En revanche, voici ce qui
-      ne change jamais.</p>
-    <div class="ads-engagements">{engagements}</div>
-    <div style="margin-top:34px;text-align:center">{bouton_tel % "apres-engagements"}</div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="section-head center">
-      <span class="eyebrow">Questions fréquentes</span>
-      <h2>Ce que les gens nous demandent avant d'appeler</h2>
-      <p class="lead">Délai, prix, assurance&nbsp;: les réponses franches, y
-        compris quand elles ne nous arrangent pas.</p>
-    </div>
-    <div class="faq">{faq}</div>
-    <p class="ads-faq__relance">Votre question n'est pas là&nbsp;?
-      <a href="tel:{tel_lien}" data-cta="faq">Posez-la au {tel}</a> — un
-      électricien répond, et répondre ne vous engage à rien.</p>
-  </div>
-</section>
-
-<section class="section ads-final">
-  <div class="container">
-    <h2>Un électricien peut partir maintenant</h2>
-    <p>Décrivez-nous la situation en deux minutes. Nous vous annonçons un
-      créneau et un tarif avant de raccrocher.</p>
-    <div class="ads-cta" style="justify-content:center">{bouton_tel % "final"}</div>
-  </div>
-</section>
-
-<section class="section section--fond">
-  <div class="container" style="max-width:620px">
-    {form_ads("f-bas", "Être rappelé",
-      "Si vous préférez ne pas appeler, laissez-nous votre numéro.",
-      "Demander un rappel", dept, ville)}
-  </div>
-</section>
-
 </main>
 
-{bloc_assurances_ads()}
+<section class="lp-zones" id="zones">
+  <div class="container">
+    <span class="lp-zones__eyebrow">Électricien</span>
+    <h2>Zones d'intervention — {nom} ({num})</h2>
+    <p>Nous intervenons dans <strong>toutes les communes {art} {nom}</strong>,
+      notamment&nbsp;:</p>
+    <ul class="lp-zones__liste">{zones}</ul>
+    <p class="lp-zones__pied">Votre commune n'est pas citée&nbsp;? Elle est
+      couverte. Le délai est toujours annoncé au téléphone avant le
+      déplacement&nbsp;: <a href="tel:{tel_lien}" data-cta="zones">appelez le
+      {tel}</a> pour connaître le nôtre chez vous.</p>
+  </div>
+</section>
 
-<footer class="ads-foot">
+<section class="lp-final">
+  <div class="container">
+    <h2>Un électricien peut partir maintenant</h2>
+    <p>Décrivez-nous la situation en deux minutes. Créneau et tarif annoncés
+      avant de raccrocher.</p>
+    <div class="lp-cta lp-cta--centre">{tel_btn % "final"}
+      <a class="lp-devis lp-devis--grand" href="#rappel">Être rappelé</a></div>
+  </div>
+</section>
+
+<footer class="lp-foot">
   <div class="container">
     <p><strong>ETS-BZH</strong> — dépannage électrique d'urgence {au_lieu} ({num}),
-      24h/24 et 7j/7. Téléphone&nbsp;:
-      <a href="tel:{tel_lien}">{tel}</a> — e-mail&nbsp;:
-      <a href="mailto:{EMAIL}">{EMAIL}</a></p>
-    <p class="ads-foot__liens">
+      24h/24 et 7j/7. Téléphone&nbsp;: <a href="tel:{tel_lien}">{tel}</a> —
+      e-mail&nbsp;: <a href="mailto:{EMAIL}">{EMAIL}</a></p>
+    <p class="lp-foot__liens">
       <a href="/mentions-legales/">Mentions légales</a>
       <a href="/politique-de-confidentialite/">Politique de confidentialité</a>
       <a href="/cgu/">CGU</a></p>

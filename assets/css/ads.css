@@ -1,39 +1,29 @@
 /* ===========================================================================
-   ETS-BZH — pages d'atterrissage Google Ads (électricité)
+   ETS-BZH — pages d'atterrissage payantes (électricité)
    ---------------------------------------------------------------------------
-   Chargée APRÈS style.css, dont elle réutilise les fontes et les composants
-   (.btn, .form-card, .container, .faq…). Elle n'ajoute que ce qui est propre à
-   une page payante : aucune navigation, un numéro mis en avant partout, et une
-   barre d'appel permanente.
+   Chargée APRÈS style.css, dont elle réutilise les fontes et quelques
+   composants. Elle décrit une mise en page de fiche métier locale : barre de
+   contact, en-tête blanc, bandeau titre, corps en deux colonnes avec barre
+   latérale d'appel, puis zones d'intervention.
 
-   Principe de conversion : à tout moment de la page, le visiteur doit avoir un
-   bouton d'appel dans le champ de vision. D'où une barre collante en haut sur
-   grand écran, et en bas sur mobile — là où se trouve le pouce.
-
-   PALETTE PROPRE AUX PAGES ADS
-   ----------------------------
+   PALETTE
+   -------
    Bleu nuit + jaune, et rien d'autre. Le partage des rôles est strict, parce
    que c'est lui qui fait la lisibilité : le BLEU NUIT porte la structure et le
-   sérieux (en-têtes, bandeaux, titres, texte), le JAUNE ne sert qu'à UNE
-   chose — l'action. Tout ce qui est jaune se clique ou désigne ce qu'il faut
-   cliquer. Du jaune partout ne ferait ressortir plus rien.
+   sérieux, le JAUNE ne sert qu'à l'action. Tout ce qui est jaune se clique ou
+   désigne ce qu'il faut cliquer.
 
    Le jaune ne reçoit jamais de texte blanc : #ffc400 sous du blanc tombe à
-   1,9:1, illisible. Il porte toujours le bleu nuit (9,8:1). C'est pourquoi
-   --sur-jaune existe et qu'aucune règle ne l'outrepasse.
-
-   Ces variables redéfinissent celles de style.css. Le fichier n'étant chargé
-   que par les quatre pages Ads, le site public n'en voit rien.
+   1,6:1, illisible. Il porte toujours le bleu nuit (10,1:1). D'où
+   --sur-jaune, qu'aucune règle n'outrepasse.
    ========================================================================= */
 
 :root {
-  /* Le jaune — réservé à l'action */
   --jaune: #ffc400;
-  --jaune-f: #e8ae00;          /* survol */
-  --jaune-pale: #fff6d9;       /* aplats légers */
-  --sur-jaune: #0d2237;        /* le SEUL texte admis sur du jaune */
+  --jaune-f: #e8ae00;
+  --jaune-pale: #fff6d9;
+  --sur-jaune: #0d2237;
 
-  /* Le bleu nuit — structure, sérieux, lisibilité */
   --bleu: #10395c;
   --bleu-clair: #1a5080;
   --bleu-ciel: #2f73a8;
@@ -47,363 +37,308 @@
   --gris: #4a5a68;
   --gris-clair: #5d6e7c;
 
-  /* Fonds chauds : ils tirent la page vers le jaune sans en mettre partout */
   --fond: #fffaef;
   --ivoire: #fffbf0;
-  --ivoire-2: #fff4da;
-  --bordure: #e8ddc4;
-  --bordure-forte: #d6c69f;
+  --bordure: #e2e8ee;
+  --bordure-forte: #c6d3de;
 
-  --ombre: 0 2px 14px rgba(13, 34, 55, .10);
-  --ombre-forte: 0 10px 30px rgba(13, 34, 55, .17);
+  --or: #b07400;          /* étoiles : 3,9:1 sur blanc, au-dessus du seuil */
+  --ombre: 0 2px 14px rgba(13, 34, 55, .09);
 }
 
-/* L'œil d'accroche des sections passe en jaune : c'est lui qui scande la page. */
-.eyebrow { background: var(--jaune); color: var(--sur-jaune); }
+body { background: #fff; }
+.lp-corps, .lp-zones, .lp-final, .lp-foot { font-size: 1.04rem; }
 
-/* Le bouton de formulaire reste bleu nuit : le jaune est déjà pris par
-   l'appel, et deux boutons jaunes se concurrenceraient. */
-.btn--primary { background: var(--bleu); border-color: var(--bleu); color: #fff; }
-.btn--primary:hover, .btn--primary:focus-visible {
-  background: var(--bleu-hover); border-color: var(--bleu-hover);
+/* ---------------------------------------------------- barre de contact */
+.lp-top { background: var(--nuit); color: #dbe6ef; font-size: .93rem; }
+.lp-top__in {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px 26px;
+  min-height: 44px; padding: 7px 0;
 }
-.btn--ghost { color: var(--bleu); border-color: var(--bleu); }
-.btn--ghost:hover, .btn--ghost:focus-visible { background: var(--bleu); color: #fff; }
+.lp-top a { color: #dbe6ef; text-decoration: none; }
+.lp-top a:hover { color: var(--jaune); }
+.lp-top svg { width: 15px; height: 15px; vertical-align: -2px; margin-right: 5px;
+              color: var(--jaune); }
+.lp-top__in > span { min-width: 0; }
+.lp-top__tel { margin-left: auto; font-weight: 700; color: #fff; }
+.lp-top__tel a { color: var(--jaune); }
 
-/* --------------------------------------------------------- barre collante */
-.ads-bar {
-  position: sticky; top: 0; z-index: 60;
-  background: var(--nuit); color: #fff;
-  border-bottom: 4px solid var(--jaune);
+/* ------------------------------------------------------- en-tête blanc */
+.lp-head { background: #fff; border-bottom: 3px solid var(--jaune);
+           position: sticky; top: 0; z-index: 60; box-shadow: var(--ombre); }
+.lp-head__in {
+  display: flex; align-items: center; gap: 18px; min-height: 76px; padding: 10px 0;
 }
-.ads-bar__in {
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 18px; min-height: 64px; padding: 8px 0;
-}
-.ads-bar__id { display: flex; align-items: center; gap: 12px; min-width: 0; }
-.ads-bar__id img { height: 40px; width: auto; display: block; }
-.ads-bar__nom {
-  font-family: "Barlow Condensed", "Barlow", sans-serif;
-  font-size: 1.45rem; font-weight: 700; letter-spacing: .03em; line-height: 1;
-}
-.ads-bar__dispo {
-  display: block; font-size: .8rem; font-weight: 600; letter-spacing: .06em;
-  text-transform: uppercase; color: var(--jaune); margin-top: 3px;
-}
-.ads-bar__tel {
-  display: inline-flex; align-items: center; gap: 10px;
+.lp-logo { display: flex; align-items: center; gap: 11px; text-decoration: none;
+           color: var(--nuit); }
+.lp-logo img { display: block; }
+.lp-logo span { font-family: "Barlow Condensed", "Barlow", sans-serif;
+                font-size: 1.5rem; font-weight: 700; line-height: 1; letter-spacing: .02em; }
+.lp-logo small { display: block; font-family: "Barlow", sans-serif;
+                 font-size: .76rem; font-weight: 600; letter-spacing: .05em;
+                 text-transform: uppercase; color: var(--gris); margin-top: 4px; }
+.lp-nav { margin-left: auto; display: flex; gap: 24px; }
+.lp-nav a { color: var(--nuit); text-decoration: none; font-weight: 700; font-size: 1rem; }
+.lp-nav a:hover { color: var(--bleu); text-decoration: underline;
+                  text-decoration-color: var(--jaune); text-decoration-thickness: 2px;
+                  text-underline-offset: 5px; }
+.lp-devis {
   background: var(--jaune); color: var(--sur-jaune); text-decoration: none;
-  font-family: "Barlow Condensed", "Barlow", sans-serif;
-  font-size: 1.6rem; font-weight: 700; letter-spacing: .02em;
-  padding: 12px 24px; min-height: 56px; white-space: nowrap;
+  font-weight: 700; padding: 13px 24px; min-height: 48px;
+  display: inline-flex; align-items: center; white-space: nowrap;
 }
-.ads-bar__tel:hover, .ads-bar__tel:focus-visible { background: var(--jaune-f); color: var(--sur-jaune); }
-.ads-bar__tel svg { width: 22px; height: 22px; flex: none; }
+.lp-devis:hover, .lp-devis:focus-visible { background: var(--jaune-f); color: var(--sur-jaune); }
 
-/* ------------------------------------------------------------------- hero */
-/* Une photo d'intervention en fond : le visiteur d'une annonce doit voir en
-   une seconde que des gens se déplacent vraiment. Le voile bleu nuit est
-   presque opaque du côté du texte (.96) et s'éclaircit vers la photo (.70),
-   de sorte que le contraste du titre ne dépend jamais de l'image — mesuré sur
-   les pixels rendus, pas estimé. */
-.ads-hero {
+/* ---------------------------------------------------- bandeau de titre */
+/* Le voile est presque opaque : le contraste du titre ne doit jamais dépendre
+   de ce qui se trouve sur la photo. */
+.lp-hero {
   background-color: var(--nuit);
   background-image:
-    linear-gradient(100deg, rgba(13,34,55,.96) 0%, rgba(13,34,55,.93) 40%,
-                            rgba(13,34,55,.58) 100%),
-    url("../img/photos/electricite-1.jpg");
-  background-size: cover;
-  background-position: center right;
-  border-bottom: 4px solid var(--jaune);
+    linear-gradient(100deg, rgba(13,34,55,.95) 0%, rgba(13,34,55,.88) 45%,
+                            rgba(13,34,55,.55) 100%),
+    url("../img/photos/electricite-equipe.jpg");
+  background-size: cover; background-position: center 35%;
+  padding: 72px 0 66px; color: #fff;
 }
-.ads-hero h1 { color: #fff; }
-.ads-hero__sub { color: #dbe6ef; }
-.ads-hero__sub strong { color: #fff; }
-.ads-hero .ads-points li { color: #fff; }
-.ads-hero .ads-points svg { color: var(--jaune); }
-/* Sur fond sombre, le bouton secondaire passe en contour blanc. */
-.ads-hero .btn--ghost { color: #fff; border-color: rgba(255, 255, 255, .72); }
-.ads-hero .btn--ghost:hover, .ads-hero .btn--ghost:focus-visible {
-  background: #fff; color: var(--nuit); border-color: #fff;
-}
-.ads-hero__grid {
-  display: grid; grid-template-columns: 1.15fr .85fr; gap: 46px;
-  align-items: start; padding: 54px 0 58px;
-}
-.ads-hero h1 {
-  font-size: clamp(2.1rem, 4.4vw, 3.15rem); line-height: 1.08; margin: 14px 0 18px;
-}
-.ads-hero__sub { font-size: 1.16rem; line-height: 1.68; margin: 0 0 26px; }
+.lp-hero h1 { color: #fff; font-size: clamp(2.1rem, 5.2vw, 3.4rem);
+              line-height: 1.06; margin: 0 0 14px; }
+.lp-fil { margin: 0; color: #cfdeea; font-size: .97rem; }
+.lp-fil span { color: var(--jaune); margin: 0 6px; }
+.lp-fil strong { color: #fff; }
 
-
-.ads-eyebrow {
-  display: inline-flex; align-items: center; gap: 9px;
-  background: var(--jaune); color: var(--sur-jaune);
-  font-size: .82rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
-  padding: 7px 14px;
+/* ------------------------------------------------------ corps 2 colonnes */
+.lp-corps {
+  display: grid; grid-template-columns: 320px 1fr; gap: 40px;
+  align-items: start; padding: 48px 16px 56px;
 }
+.lp-side { display: grid; gap: 20px; position: sticky; top: 96px; }
+.lp-card { background: #fff; border: 1px solid var(--bordure); padding: 22px 22px 20px; }
+.lp-card h2 { font-size: 1.22rem; margin: 0 0 14px; padding-left: 13px;
+              position: relative; }
+.lp-card h2::before { content: ""; position: absolute; left: 0; top: .16em;
+                      width: 5px; height: 1em; background: var(--jaune); }
+.lp-card p { margin: 0; color: var(--gris); line-height: 1.6; font-size: .98rem; }
 
-.ads-points { list-style: none; margin: 0 0 28px; padding: 0; display: grid; gap: 11px; }
-.ads-points li {
-  display: grid; grid-template-columns: 24px 1fr; gap: 11px; align-items: start;
-  font-size: 1.04rem; font-weight: 600;
+.lp-side__srv { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
+.lp-side__srv li { display: grid; grid-template-columns: 22px 1fr; gap: 10px;
+                   align-items: start; border: 1px solid var(--bordure);
+                   padding: 11px 13px; }
+.lp-side__srv svg { color: var(--bleu); margin-top: 3px; }
+.lp-side__srv a { color: var(--nuit); text-decoration: none; font-weight: 600;
+                  font-size: .98rem; }
+.lp-side__srv li:hover { background: var(--jaune-pale); border-color: var(--jaune); }
+
+.lp-urg { background: var(--nuit); border-color: var(--nuit); text-align: center;
+          padding: 26px 22px 24px; }
+.lp-urg img { margin: 0 auto 12px; display: block; }
+/* .lp-card p (0,2,0) l'emporterait sur .lp-urg__t (0,1,0) : les trois lignes
+   de la carte passeraient en gris sur fond bleu nuit. On scope sur la carte. */
+.lp-card.lp-urg .lp-urg__t {
+  font-family: "Barlow Condensed", "Barlow", sans-serif;
+  font-size: 1.6rem; font-weight: 700; color: #fff; line-height: 1.1;
+  margin: 0 0 4px; text-transform: uppercase;
 }
-.ads-points svg { width: 19px; height: 19px; margin-top: 3px; }
+.lp-card.lp-urg .lp-urg__s { color: var(--jaune); font-weight: 600;
+                             font-size: .95rem; margin: 0 0 16px; }
+.lp-card.lp-urg .lp-urg__d { color: #c6d8e5; font-size: .86rem; margin: 14px 0 0; }
+.lp-urg__dev { display: block; margin-top: 10px; padding: 12px; min-height: 46px;
+               border: 2px solid rgba(255,255,255,.65); color: #fff;
+               text-decoration: none; font-weight: 700; }
+.lp-urg__dev:hover { background: #fff; color: var(--nuit); border-color: #fff; }
 
-.ads-cta { display: flex; flex-wrap: wrap; gap: 13px; }
-.ads-tel-btn {
-  display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+.lp-tel {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
   background: var(--jaune); color: var(--sur-jaune); text-decoration: none;
   font-family: "Barlow Condensed", "Barlow", sans-serif;
-  font-size: 1.75rem; font-weight: 700; letter-spacing: .02em;
-  padding: 16px 30px; min-height: 70px; text-align: center;
-  box-shadow: 0 12px 30px rgba(232, 174, 0, .42);
+  font-size: 1.62rem; font-weight: 700; letter-spacing: .02em;
+  padding: 13px 22px; min-height: 60px;
 }
-.ads-tel-btn:hover, .ads-tel-btn:focus-visible { background: var(--jaune-f); color: var(--sur-jaune); }
-.ads-tel-btn svg { width: 26px; height: 26px; flex: none; }
-.ads-tel-btn__sur {
-  display: block; font-family: "Barlow", sans-serif; font-size: .78rem;
-  font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
-  opacity: .92; margin-top: 2px;
-}
+.lp-tel:hover, .lp-tel:focus-visible { background: var(--jaune-f); color: var(--sur-jaune); }
+.lp-tel svg { width: 22px; height: 22px; flex: none; }
 
-/* ------------------------------------------------------- bande de preuves */
-.ads-preuves { background: var(--bleu); color: #fff; }
-.ads-preuves__grid {
-  display: grid; grid-template-columns: repeat(4, 1fr);
-  text-align: center;
-}
-.ads-preuve { padding: 24px 16px; border-left: 1px solid rgba(255, 255, 255, .17); }
-.ads-preuve:first-child { border-left: none; }
-.ads-preuve__num { color: var(--jaune);
-  font-family: "Barlow Condensed", "Barlow", sans-serif;
-  font-size: 2.1rem; font-weight: 700; line-height: 1;
-}
-.ads-preuve__lbl {
-  font-size: .86rem; font-weight: 600; letter-spacing: .07em;
-  text-transform: uppercase; margin-top: 7px; color: #e3ecf4;
-}
+.lp-card--form { padding: 0; border: none; }
+.lp-card--form .form-card { box-shadow: var(--ombre); }
+.lp-assur__logos { display: flex; flex-wrap: wrap; align-items: center;
+                   gap: 16px 20px; margin-top: 16px; }
 
-/* ------------------------------------------------------ urgences traitées */
-.ads-grille { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-.ads-case {
-  background: #fff; border: 1px solid var(--bordure);
-  border-top: 4px solid var(--jaune);
-  padding: 26px 26px 24px;
-  box-shadow: 0 10px 30px rgba(12, 74, 112, .07);
-}
-.ads-case h3 { font-size: 1.24rem; margin: 0 0 10px; }
-.ads-case p { margin: 0; color: var(--gris); line-height: 1.65; }
+/* ------------------------------------------------------------ contenu */
+.lp-main h2 { font-size: clamp(1.5rem, 2.9vw, 2.05rem); line-height: 1.18;
+              margin: 42px 0 16px; }
+.lp-main > h2:first-child { margin-top: 0; }
+.lp-main p { color: var(--gris); line-height: 1.75; margin: 0 0 16px; }
+.lp-main p strong { color: var(--nuit); }
 
-/* ------------------------------------------------------- commune par commune */
-.ads-villes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 34px; }
-.ads-ville {
-  display: grid; grid-template-columns: 170px 1fr; gap: 4px 18px;
-  padding: 15px 0; border-top: 1px solid var(--bordure);
-}
-.ads-ville__nom {
-  font-family: "Barlow Condensed", "Barlow", sans-serif;
-  font-size: 1.28rem; font-weight: 700; color: var(--nuit); line-height: 1.25;
-}
-.ads-ville__note { color: var(--gris); font-size: 1rem; line-height: 1.6; }
-.ads-villes-pied { margin: 26px 0 0; color: var(--gris); }
+.lp-cite { margin: 0 0 26px; padding: 20px 24px; background: var(--bleu-pale-2);
+           border-left: 5px solid var(--jaune); }
+.lp-cite p { margin: 0; font-size: 1.08rem; color: var(--nuit-2); }
+.lp-cite a { font-weight: 700; }
 
-/* ------------------------------------------------------------ engagements */
-/* Remplace l'ancien tableau de tarifs : aucun chiffre, mais la même promesse
-   de transparence — c'est elle qui lève l'objection, pas le montant. */
-.ads-engagements { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
-                   background: var(--bordure); border: 1px solid var(--bordure); }
-.ads-engagement { background: #fff; padding: 24px 24px 22px; }
-.ads-engagement h3 {
-  font-size: 1.14rem; margin: 0 0 8px; padding-left: 16px; position: relative;
-}
-.ads-engagement h3::before {
-  content: ""; position: absolute; left: 0; top: .18em;
-  width: 5px; height: 1em; background: var(--jaune);
-}
-.ads-engagement p { margin: 0; color: var(--gris); line-height: 1.6; font-size: 1rem; }
+.lp-img { margin: 0 0 30px; }
+.lp-img img { width: 100%; height: auto; display: block; border: 1px solid var(--bordure); }
 
-/* ------------------------------------------------------------- CTA final  */
-.ads-final { background: var(--nuit); color: #fff; text-align: center; }
-.ads-final h2 { color: #fff; font-size: clamp(1.8rem, 3.6vw, 2.6rem); margin: 0 0 14px; }
-.ads-final p { color: #dbe6ef; font-size: 1.1rem; max-width: 640px; margin: 0 auto 28px; }
+.lp-check { list-style: none; margin: 0 0 20px; padding: 0; display: grid; gap: 11px; }
+.lp-check li { display: grid; grid-template-columns: 22px 1fr; gap: 11px;
+               align-items: start; color: var(--gris); line-height: 1.6; }
+.lp-check svg { color: var(--bleu); margin-top: 4px; }
+.lp-check strong { color: var(--nuit); }
+.lp-check--2 { grid-template-columns: 1fr 1fr; gap: 14px 28px; }
 
-/* ------------------------------------------------------------- pied léger */
-.ads-foot {
-  background: var(--fond); border-top: 1px solid var(--bordure);
-  padding: 26px 0 34px; font-size: .93rem; color: var(--gris);
-}
-.ads-foot a { color: var(--bleu); }
-.ads-foot__liens { margin: 10px 0 0; }
-.ads-foot__liens a { margin-right: 18px; }
+.lp-srv { margin: 0 0 30px; }
+.lp-srv h3 { font-size: 1.28rem; margin: 0 0 14px; display: flex;
+             align-items: center; gap: 12px; }
+.lp-srv__n { display: inline-flex; align-items: center; justify-content: center;
+             width: 34px; height: 34px; flex: none; background: var(--bleu);
+             color: #fff; font-family: "Barlow Condensed", "Barlow", sans-serif;
+             font-size: 1.3rem; font-weight: 700; }
+.lp-srv:nth-of-type(2) .lp-srv__n { background: var(--bleu-clair); }
+.lp-srv:nth-of-type(3) .lp-srv__n { background: var(--jaune); color: var(--sur-jaune); }
+.lp-srv__corps { display: grid; grid-template-columns: 1fr 230px; gap: 24px;
+                 align-items: start; }
+.lp-srv__corps img { width: 100%; height: auto; display: block;
+                     border: 1px solid var(--bordure); }
+.lp-srv .lp-check { margin: 0; }
 
-/* ------------------------------------------- barre d'appel mobile (pouce) */
-.ads-mob {
-  position: fixed; left: 0; right: 0; bottom: 0; z-index: 70;
-  display: none; grid-template-columns: 1.35fr 1fr;
-  box-shadow: 0 -6px 22px rgba(12, 74, 112, .22);
-}
-.ads-mob a {
-  display: flex; align-items: center; justify-content: center; gap: 9px;
-  min-height: 62px; text-decoration: none; font-weight: 700;
-  font-family: "Barlow Condensed", "Barlow", sans-serif; font-size: 1.3rem;
-  letter-spacing: .02em;
-}
+.lp-etapes { list-style: none; margin: 0 0 24px; padding: 0; display: grid; gap: 14px; }
+.lp-etapes li { display: grid; grid-template-columns: 38px 1fr; gap: 14px;
+                align-items: start; color: var(--gris); line-height: 1.65; }
+.lp-etapes strong { color: var(--nuit); }
+.lp-etape__n { display: inline-flex; align-items: center; justify-content: center;
+               width: 38px; height: 38px; background: var(--bleu); color: #fff;
+               font-family: "Barlow Condensed", "Barlow", sans-serif;
+               font-size: 1.3rem; font-weight: 700; }
+.lp-etapes li:nth-child(2) .lp-etape__n { background: var(--bleu-clair); }
+.lp-etapes li:nth-child(3) .lp-etape__n { background: var(--jaune); color: var(--sur-jaune); }
+
+.lp-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px;
+          margin: 22px 0 10px; }
+.lp-cta span { color: var(--gris); font-size: 1rem; }
+.lp-cta--centre { justify-content: center; }
+
+/* -------------------------------------------------------------- avis */
+.lp-avis__grille { display: grid; grid-template-columns: 1fr 1fr; gap: 18px;
+                   margin-bottom: 22px; }
+.lp-avis { background: #fff; border: 1px solid var(--bordure);
+           border-top: 3px solid var(--or); padding: 20px 22px 18px; }
+.lp-avis__stars { display: flex; gap: 3px; color: var(--or); margin-bottom: 10px; }
+.lp-avis p { font-style: italic; color: var(--nuit-2); margin: 0 0 14px; font-size: 1rem; }
+.lp-avis footer { font-size: .92rem; color: var(--gris); padding-top: 12px;
+                  border-top: 1px solid var(--bordure); }
+.lp-avis footer strong { color: var(--nuit); }
+
+/* ------------------------------------------------------------ Julien */
+.lp-julien { display: grid; grid-template-columns: 250px 1fr; gap: 26px;
+             background: var(--nuit); color: #dbe6ef; padding: 26px;
+             margin: 32px 0; align-items: start; }
+.lp-julien img { width: 100%; height: auto; display: block; }
+.lp-julien h3 { color: #fff; font-size: 1.5rem; margin: 10px 0 12px; }
+.lp-julien p { color: #dbe6ef; line-height: 1.7; margin: 0 0 12px; font-size: 1rem; }
+.lp-julien p strong { color: #fff; }
+.lp-sceau { display: inline-block; background: var(--jaune); color: var(--sur-jaune);
+            font-family: "Barlow Condensed", "Barlow", sans-serif; font-size: 1rem;
+            font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+            padding: 7px 13px; }
+.lp-julien__sign { color: var(--jaune) !important; font-weight: 700; margin: 0 !important; }
+
+/* --------------------------------------------------------------- FAQ */
+.lp-faq { margin-bottom: 10px; }
+.lp-q { padding: 16px 0; border-top: 1px solid var(--bordure); }
+.lp-q:first-child { border-top: none; padding-top: 0; }
+.lp-q h3 { font-size: 1.08rem; margin: 0 0 7px; }
+.lp-q p { margin: 0; font-size: 1rem; }
+
+/* ------------------------------------------------------------ tarifs */
+.lp-tarif { background: var(--bleu-pale-2); border: 1px solid var(--bordure);
+            padding: 22px 24px 18px; }
+.lp-tarif p { margin: 0; }
+
+/* -------------------------------------------- zones d'intervention */
+.lp-zones { background: var(--fond); border-top: 1px solid var(--bordure);
+            padding: 52px 0 56px; }
+.lp-zones__eyebrow { display: inline-block; background: var(--jaune);
+                     color: var(--sur-jaune); font-size: .78rem; font-weight: 700;
+                     letter-spacing: .1em; text-transform: uppercase;
+                     padding: 6px 12px; margin-bottom: 12px; }
+.lp-zones h2 { font-size: clamp(1.6rem, 3.2vw, 2.2rem); margin: 0 0 12px; }
+.lp-zones > .container > p { color: var(--gris); margin: 0 0 22px; }
+.lp-zones__liste { list-style: none; margin: 0; padding: 0;
+                   columns: 3; column-gap: 32px; }
+.lp-zones__liste li { display: grid; grid-template-columns: 22px 1fr; gap: 9px;
+                      align-items: baseline; padding: 8px 0;
+                      break-inside: avoid; }
+.lp-zones__liste svg { color: var(--bleu); transform: translateY(2px); }
+.lp-zones__liste a { color: var(--nuit); text-decoration: underline;
+                     text-decoration-color: var(--jaune); text-decoration-thickness: 2px;
+                     text-underline-offset: 4px; font-weight: 600; }
+.lp-zones__liste a:hover { color: var(--bleu); text-decoration-color: var(--bleu); }
+.lp-cp { color: var(--gris); font-size: .92rem; }
+.lp-zones__pied { margin: 26px 0 0; color: var(--gris); }
+
+/* ---------------------------------------------------------- CTA final */
+.lp-final { background: var(--nuit); color: #fff; text-align: center; padding: 52px 0 56px; }
+.lp-final h2 { color: #fff; font-size: clamp(1.7rem, 3.4vw, 2.4rem); margin: 0 0 12px; }
+.lp-final p { color: #dbe6ef; max-width: 620px; margin: 0 auto 24px; }
+.lp-final .lp-tel { font-size: 1.8rem; min-height: 68px; padding: 15px 30px; }
+.lp-devis--grand { min-height: 68px; padding: 15px 28px; font-size: 1.1rem;
+                   background: transparent; color: #fff;
+                   border: 2px solid rgba(255,255,255,.7); }
+.lp-devis--grand:hover { background: #fff; color: var(--nuit); border-color: #fff; }
+
+/* --------------------------------------------------------------- pied */
+.lp-foot { background: var(--bleu-pale-2); border-top: 1px solid var(--bordure);
+           padding: 26px 0 34px; font-size: .95rem; color: var(--gris); }
+.lp-foot a { color: var(--bleu); }
+.lp-foot__liens { margin: 10px 0 0; }
+.lp-foot__liens a { margin-right: 18px; }
+
+/* ----------------------------------- barre d'appel mobile (le pouce) */
+.ads-mob { position: fixed; left: 0; right: 0; bottom: 0; z-index: 70;
+           display: none; grid-template-columns: 1.35fr 1fr;
+           box-shadow: 0 -6px 22px rgba(13, 34, 55, .22); }
+.ads-mob a { display: flex; align-items: center; justify-content: center; gap: 9px;
+             min-height: 62px; text-decoration: none; font-weight: 700;
+             font-family: "Barlow Condensed", "Barlow", sans-serif;
+             font-size: 1.3rem; letter-spacing: .02em; }
 .ads-mob__tel { background: var(--jaune); color: var(--sur-jaune); }
 .ads-mob__form { background: #fff; color: var(--bleu); border-top: 1px solid var(--bordure); }
 .ads-mob svg { width: 20px; height: 20px; flex: none; }
 
-/* -------------------------------------------------------------- responsive */
-@media (max-width: 980px) {
-  .ads-hero__grid { grid-template-columns: 1fr; gap: 34px; padding: 34px 0 40px; }
-  .ads-grille { grid-template-columns: repeat(2, 1fr); }
-  .ads-villes { grid-template-columns: 1fr; gap: 0; }
-  .ads-preuves__grid { grid-template-columns: repeat(2, 1fr); }
-  .ads-preuve:nth-child(3) { border-left: none; }
-  .ads-preuve:nth-child(n+3) { border-top: 1px solid rgba(255, 255, 255, .17); }
-  .ads-engagements { grid-template-columns: repeat(2, 1fr); }
+/* --------------------------------------------------------- responsive */
+@media (max-width: 1040px) {
+  .lp-corps { grid-template-columns: 1fr; gap: 34px; }
+  .lp-side { position: static; grid-template-columns: 1fr 1fr; }
+  .lp-card--form { grid-column: 1 / -1; }
+  .lp-zones__liste { columns: 2; }
+}
+@media (max-width: 860px) {
+  .lp-nav { display: none; }                 /* le menu ancre cède la place au CTA */
+  .lp-check--2 { grid-template-columns: 1fr; }
+  .lp-srv__corps { grid-template-columns: 1fr; }
+  .lp-srv__corps img { max-width: 320px; }
+  .lp-avis__grille { grid-template-columns: 1fr; }
+  .lp-julien { grid-template-columns: 1fr; }
+  .lp-julien img { max-width: 280px; }
 }
 @media (max-width: 760px) {
-  .ads-hero { background-image:
-      linear-gradient(170deg, rgba(13,34,55,.97) 0%, rgba(13,34,55,.90) 100%),
-      url("../img/photos/electricite-1.jpg"); }
-  .ads-bar__tel { font-size: 1.25rem; padding: 10px 16px; min-height: 48px; }
-  .ads-bar__tel span.ads-bar__num { display: none; }
-  .ads-bar__dispo { display: none; }
-  .ads-grille, .ads-engagements { grid-template-columns: 1fr; }
-  .ads-ville { grid-template-columns: 1fr; gap: 2px; }
-  .ads-tel-btn { width: 100%; font-size: 1.5rem; }
+  /* « margin-left: auto » garde les deux blocs sur une seule ligne : en
+     dessous de cette largeur ils ne tiennent plus et le premier se fait
+     rogner. On repasse en flux centré qui revient à la ligne. */
+  .lp-top__in { justify-content: center; text-align: center; }
+  .lp-top__tel { margin-left: 0; }
+  .lp-hero { padding: 46px 0 42px;
+    background-image: linear-gradient(170deg, rgba(13,34,55,.96) 0%,
+                                              rgba(13,34,55,.88) 100%),
+                      url("../img/photos/electricite-equipe.jpg"); }
+  .lp-side { grid-template-columns: 1fr; }
+  .lp-top__mail { display: none; }
+  .lp-zones__liste { columns: 1; }
   .ads-mob { display: grid; }
-  body { padding-bottom: 62px; }   /* la barre fixe ne masque pas le pied */
+  body { padding-bottom: 62px; }
 }
-@media (max-width: 460px) {
-  .ads-bar__nom { font-size: 1.2rem; }
-  .ads-bar__id img { height: 32px; }
+@media (max-width: 520px) {
+  .lp-head__in { min-height: 64px; gap: 10px; }
+  .lp-logo small { display: none; }
+  .lp-devis { padding: 11px 16px; font-size: .95rem; }
+  .lp-top__in { font-size: .86rem; gap: 4px 14px; }
+  .lp-tel { font-size: 1.4rem; }
 }
-
-/* ------------------------------------------- « qui vous répond » : Julien  */
-/* La seule section de la page où l'on parle de personnes plutôt que de
-   prestations. Elle est volontairement placée tôt : sur une page payante, le
-   visiteur ne connaît pas l'entreprise, et un visage lève plus d'objections
-   qu'un argument de plus. */
-.ads-julien { background: var(--nuit); color: #fff; }
-.ads-julien__grid {
-  display: grid; grid-template-columns: .85fr 1.15fr; gap: 44px; align-items: center;
-}
-.ads-julien__photo { position: relative; }
-.ads-julien__photo .photo { margin: 0; }
-.ads-julien__photo .photo__legende { display: none; }
-.ads-julien__sceau {
-  position: absolute; left: -14px; bottom: -14px; z-index: 2;
-  background: var(--jaune); color: var(--sur-jaune);
-  font-family: "Barlow Condensed", "Barlow", sans-serif;
-  font-size: 1.1rem; font-weight: 700; line-height: 1.15; letter-spacing: .02em;
-  text-transform: uppercase; padding: 12px 18px; max-width: 200px;
-}
-.ads-julien h2 { color: #fff; font-size: clamp(1.75rem, 3.4vw, 2.5rem); margin: 14px 0 18px; }
-.ads-julien p { color: #dbe6ef; font-size: 1.08rem; line-height: 1.72; margin: 0 0 16px; }
-.ads-julien p strong { color: #fff; }
-.ads-julien__sign {
-  display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px;
-  margin: 26px 0 0; padding: 20px 0 0; border-top: 1px solid rgba(255, 255, 255, .18);
-}
-.ads-julien__nom {
-  font-family: "Barlow Condensed", "Barlow", sans-serif;
-  font-size: 1.5rem; font-weight: 700; color: var(--jaune); line-height: 1.1;
-}
-.ads-julien__role {
-  display: block; font-family: "Barlow", sans-serif; font-size: .86rem;
-  font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: #c3d4e1;
-}
-
-/* --------------------------------------------------- galerie d'interventions */
-.ads-photos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-.ads-photos .photo { margin: 0; }
-.ads-photos .photo__titre { font-size: 1.02rem; }
-.ads-photos .photo__texte { display: none; }   /* sur une page payante, la légende courte suffit */
-
-@media (max-width: 980px) {
-  .ads-julien__grid { grid-template-columns: 1fr; gap: 30px; }
-  .ads-photos { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 560px) {
-  .ads-photos { grid-template-columns: 1fr; }
-  .ads-julien__sceau { left: 0; bottom: -10px; font-size: 1rem; padding: 10px 14px; }
-}
-
-/* ------------------------------------------------- avis et assurances */
-/* Les étoiles du site (#f5a623) tombent à 2,1:1 sur blanc : sous le seuil de
-   3:1 des éléments d'interface. On les assombrit sans leur faire perdre leur
-   or — la note reste lisible, y compris pour un œil âgé. */
-:root { --or: #b07400; }
-
-.ads-assur {
-  background: #fff; border-top: 4px solid var(--jaune);
-  border-bottom: 1px solid var(--bordure); padding: 34px 0;
-}
-.ads-assur .container {
-  display: grid; grid-template-columns: 1.25fr .75fr; gap: 36px; align-items: center;
-}
-.ads-assur h2 { font-size: 1.5rem; margin: 0 0 10px; }
-.ads-assur p { margin: 0; color: var(--gris); line-height: 1.65; }
-.ads-assur__logos {
-  display: flex; align-items: center; justify-content: flex-end;
-  flex-wrap: wrap; gap: 26px 34px;
-}
-
-@media (max-width: 860px) {
-  .ads-assur .container { grid-template-columns: 1fr; gap: 24px; text-align: center; }
-  .ads-assur__logos { justify-content: center; }
-}
-
-/* -------------------------------------------------------------------- FAQ */
-/* Le « + » du site est en ambre (--ambre) : sur la palette Ads il devient le
-   jaune d'action, comme tout ce qui invite à cliquer. */
-.faq summary::after { color: var(--jaune-f); }
-.faq details[open] { border-color: var(--bleu); }
-.faq details[open] summary { background: var(--bleu-pale-2); }
-.ads-faq__relance {
-  max-width: 880px; margin: 26px auto 0; text-align: center;
-  color: var(--gris); font-size: 1.04rem;
-}
-.ads-faq__relance a { font-weight: 700; }
-
-/* ---------------------------------------------------------------- étapes */
-/* .steps du site est une grille de QUATRE colonnes : le site a quatre étapes,
-   les pages Ads n'en ont que trois. Sans correction, la quatrième colonne
-   reste vide et le bloc paraît collé à gauche, le fil de liaison filant vers
-   le vide. On repasse donc à trois colonnes, et on recale le fil sur le
-   centre des pastilles extrêmes (1/6 et 5/6 de la largeur). */
-.steps--3 { grid-template-columns: repeat(3, 1fr); }
-.steps--3::before { left: 16.67%; right: 16.67%; background: var(--bordure-forte); }
-
-/* Progression de couleur vers l'action : la dernière étape — celle où l'on
-   arrive — porte le jaune, comme les boutons d'appel. */
-.steps--3 .step:nth-child(2) .step__pastille { background: var(--bleu-clair); }
-.steps--3 .step:nth-child(3) .step__pastille {
-  background: var(--jaune); color: var(--sur-jaune);
-}
-
-@media (max-width: 860px) {
-  .steps--3 { grid-template-columns: 1fr; gap: 28px; }
-  .steps--3::before { display: none; }
-}
-
-/* ------------------------------------------- communes : des liens visibles */
-/* Un lien qui ne se voit pas n'est pas cliqué. Le nom garde sa couleur — le
-   bleu nuit du titre — et reçoit un soulignement jaune : l'affordance est
-   lisible sans transformer le bloc en liste de liens bleus. */
-a.ads-ville__nom {
-  text-decoration: underline;
-  text-decoration-color: var(--jaune);
-  text-decoration-thickness: 2px;
-  text-underline-offset: 4px;
-}
-a.ads-ville__nom:hover, a.ads-ville__nom:focus-visible {
-  color: var(--bleu);
-  text-decoration-color: var(--bleu);
-}
-/* Toute la ligne réagit : sur mobile, viser un nom de commune au pouce est
-   plus facile quand la zone entière s'éclaire. */
-.ads-ville:hover { background: var(--jaune-pale); }
-.ads-ville { transition: background .15s ease; }
