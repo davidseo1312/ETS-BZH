@@ -2744,7 +2744,22 @@ def page_ads(dept, ville=None):
     <ol class="lp-etapes">{etapes}</ol>
 
     <h2 id="avis">Avis clients {au_lieu}</h2>
-    <div class="lp-avis__grille">{avis}</div>
+    <div class="lp-carr">
+      <div class="lp-carr__piste" id="avis-piste" tabindex="0" role="group"
+           aria-label="Avis clients — faites défiler horizontalement">{avis}</div>
+      <div class="lp-carr__nav">
+        <button class="lp-carr__b" type="button" data-avis="-1"
+                aria-controls="avis-piste" aria-label="Avis précédents">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none"
+               stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+            <path d="M15 5l-7 7 7 7"/></svg></button>
+        <button class="lp-carr__b" type="button" data-avis="1"
+                aria-controls="avis-piste" aria-label="Avis suivants">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none"
+               stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+            <path d="M9 5l7 7-7 7"/></svg></button>
+      </div>
+    </div>
 
     <div class="lp-julien">
       <img src="/assets/img/photos/{pf}" alt="{palt}" loading="lazy" decoding="async">
@@ -2815,6 +2830,40 @@ def page_ads(dept, ville=None):
 </div>
 
 <script src="/assets/js/main.js" defer></script>
+<script>
+/* Défilement manuel des avis. Le glisser et le balayage fonctionnent sans
+   script — c'est du débordement horizontal natif. Ce bloc n'ajoute que les
+   deux flèches, pour les visiteurs à la souris qui n'ont rien à glisser, et
+   il les désactive en bout de course plutôt que de les laisser inertes. */
+(function () {{
+  var piste = document.getElementById("avis-piste");
+  if (!piste) {{ return; }}
+  var fleches = document.querySelectorAll("[data-avis]");
+  var doux = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  Array.prototype.forEach.call(fleches, function (b) {{
+    b.addEventListener("click", function () {{
+      var carte = piste.firstElementChild;
+      var pas = carte ? carte.getBoundingClientRect().width + 18
+                      : piste.clientWidth * 0.8;
+      piste.scrollBy({{ left: pas * Number(b.getAttribute("data-avis")),
+                       behavior: doux ? "smooth" : "auto" }});
+    }});
+  }});
+
+  function etat() {{
+    var fin = piste.scrollWidth - piste.clientWidth - 2;
+    Array.prototype.forEach.call(fleches, function (b) {{
+      b.disabled = Number(b.getAttribute("data-avis")) < 0
+                   ? piste.scrollLeft <= 2
+                   : piste.scrollLeft >= fin;
+    }});
+  }}
+  piste.addEventListener("scroll", etat, {{ passive: true }});
+  window.addEventListener("resize", etat);
+  etat();
+}})();
+</script>
 </body>
 </html>""")
 

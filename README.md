@@ -397,8 +397,8 @@ modèle de fiche métier locale fourni par le client&nbsp;:
    bleu nuit, liste des interventions, formulaire de rappel, bloc assurances.
    Contenu&nbsp;: accroche, encadré de citation, photo, contexte local,
    **trois services numérotés** illustrés, « pourquoi nous choisir »,
-   les trois étapes, six avis, bloc « Demandez Julien », **FAQ en texte
-   courant** (dix questions), encadré tarifs.
+   les trois étapes, **six avis en piste horizontale**, bloc « Demandez
+   Julien », **FAQ en texte courant** (dix questions), encadré tarifs.
 5. **Zones d'intervention** pleine largeur&nbsp;: les douze communes avec leur
    code postal, en trois colonnes, chacune liée à sa page.
 6. **CTA final**, pied léger, et barre d'appel fixe en bas sur mobile.
@@ -406,6 +406,23 @@ modèle de fiche métier locale fourni par le client&nbsp;:
 Le menu de l'en-tête ne contient que des **ancres internes**&nbsp;: sur une
 page payante, un lien sortant est une fuite. Les seuls liens hors page sont
 les trois liens légaux du pied et les communes voisines.
+
+**Les avis défilent horizontalement**, à la main. Le glisser et le balayage
+sont natifs — c'est du débordement horizontal avec accrochage (`scroll-snap`),
+aucun script n'est nécessaire pour les faire fonctionner. Les deux flèches ne
+sont qu'un confort pour la souris, qui n'a rien à glisser&nbsp;; elles se
+désactivent en bout de course plutôt que de rester inertes, et respectent
+`prefers-reduced-motion`. La piste est focalisable au clavier et porte un nom
+accessible, sans quoi son contenu serait inatteignable autrement qu'à la
+souris.
+
+Trois cartes sont visibles sur grand écran, la troisième coupée&nbsp;: c'est
+elle qui annonce qu'il y a une suite. Sur mobile, une carte pleine largeur
+moins un filet, pour la même raison.
+
+Un piège à connaître&nbsp;: `.lp-main` est un élément de grille, donc
+`min-width: auto`. Sans `min-width: 0`, la colonne s'élargit pour contenir la
+piste au lieu de la laisser défiler, et c'est la page entière qui déborde.
 
 **Pas de carte interactive.** Le modèle en affiche une&nbsp;; une carte Google
 ou Leaflet exposerait les visiteurs à un service tiers, ce que tout le site
