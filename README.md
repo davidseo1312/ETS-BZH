@@ -326,8 +326,19 @@ d'autre&nbsp;: une par département, et une par commune citée.
 
 | Niveau | Nombre | URL |
 | --- | --- | --- |
-| Département | 4 | `/ads/electricite-cotes-d-armor-22/`, `…-finistere-29/`, `…-ille-et-vilaine-35/`, `…-morbihan-56/` |
-| Commune | 48 | `/ads/electricite-{commune}-{num}/` — par exemple `…-saint-brieuc-22/`, `…-le-relecq-kerhuon-29/` |
+| Département | 4 | `/electricite-urgence-{departement}-{num}-2/` |
+| Commune | 48 | `/electricite-urgence-{commune}-{num}/` |
+
+**Elles vivent à la racine, sans préfixe qui les désigne.** Une URL en
+`/ads/` annonce à qui la lit — visiteur, concurrent, régie — qu'elle est une
+page publicitaire. Elles reprennent donc le nommage des pages publiques.
+
+**Le suffixe `-2` ne concerne que les quatre pages départementales**, dont
+l'URL serait sinon identique à celle de la page métier publique du même
+département (`/electricite-urgence-cotes-d-armor-22/`). Les communes n'ont
+pas de page publique&nbsp;: leur URL est libre, et aucun suffixe ne vient
+l'alourdir. Contrôlé au build&nbsp;: les 52 URL sont uniques et aucune ne
+heurte une page publique.
 
 **Une seule fabrique pour les deux.** `page_ads(dept, ville=None)` produit la
 page départementale ou la page commune&nbsp;; la seconde reprend exactement la
@@ -355,10 +366,17 @@ Relecq-Kerhuon&nbsp;»&nbsp;; elle annonce «&nbsp;au Relecq-Kerhuon&nbsp;».
 - elles portent `<meta name="robots" content="noindex, nofollow">` et **aucune
   balise canonique**.
 
-`robots.txt` n'interdit volontairement rien. Un `Disallow: /ads/` empêcherait
-Googlebot de lire le `noindex`, et l'URL pourrait alors apparaître en résultat
-sans description — l'inverse de l'effet recherché. Le `noindex` seul fait le
-travail, et AdsBot garde l'accès dont la régie a besoin pour contrôler la page.
+`robots.txt` n'interdit volontairement rien, et il ne le pourrait plus par
+préfixe puisque ces pages vivent à la racine. De toute façon un `Disallow`
+empêcherait Googlebot de lire le `noindex`, et l'URL pourrait alors
+apparaître en résultat sans description — l'inverse de l'effet recherché. Le
+`noindex` seul fait le travail, et AdsBot garde l'accès dont la régie a
+besoin pour contrôler la page.
+
+**L'étanchéité est vérifiée fichier par fichier**, pas au doigt mouillé&nbsp;:
+les 52 pages portent toutes `noindex, nofollow`, aucune page publique ne
+pointe vers l'une d'elles, aucune n'est au sitemap, le numéro du site
+n'apparaît sur aucune page Ads et le numéro Ads sur aucune page publique.
 
 **Un numéro distinct.** Ces 52 pages portent le **06 20 06 01 96**, et lui seul —
 le numéro du site n'y figure nulle part. Tout appel sur ce numéro vient donc
@@ -1018,7 +1036,7 @@ dans les champs.
 - [ ] **Pages Ads et identité de l'annonceur** — les régies publicitaires
       exigent que l'annonceur soit identifiable sur la page de destination.
       Tant que les mentions légales ne portent ni nom, ni SIREN, ni adresse
-      (voir ci-dessus), une annonce renvoyant vers `/ads/…` risque le refus
+      (voir ci-dessus), une annonce renvoyant vers ces pages risque le refus
       à la validation. À régler avant de lancer les campagnes, pas après
 - [ ] **Essai réel du formulaire** — une fois en ligne, envoyez une demande et
       vérifiez qu'elle arrive bien dans la boîte `contact@etablissement-breizh.fr`

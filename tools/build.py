@@ -2431,9 +2431,21 @@ def de_ville(v):
 
 
 def url_ads(dept, ville=None):
-    """Page payante d'un département, ou de l'une de ses communes."""
-    cle = slug_ville(ville) if ville else dept["slug"]
-    return "/ads/electricite-%s-%s/" % (cle, dept["num"])
+    """Page payante d'un département, ou de l'une de ses communes.
+
+    Les pages payantes vivent à la racine, comme les pages publiques, et
+    reprennent leur nommage — « electricite-urgence-<zone>-<num> ». Elles
+    n'ont pas de préfixe qui les désigne&nbsp;: une URL en /ads/ annonce à
+    qui la lit qu'elle est une page publicitaire.
+
+    Le suffixe « -2 » ne concerne QUE les quatre pages départementales, dont
+    l'URL serait sinon identique à celle de la page métier publique du même
+    département. Les communes n'ont pas de page publique&nbsp;: leur URL est
+    libre, et aucun suffixe ne vient l'alourdir.
+    """
+    if ville:
+        return "/%s-%s-%s/" % (ACT["electricite"]["slug"], slug_ville(ville), dept["num"])
+    return "/%s-%s-%s-2/" % (ACT["electricite"]["slug"], dept["slug"], dept["num"])
 
 
 def head_ads(titre, description, dept):
