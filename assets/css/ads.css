@@ -355,3 +355,15 @@
   .ads-assur .container { grid-template-columns: 1fr; gap: 24px; text-align: center; }
   .ads-assur__logos { justify-content: center; }
 }
+
+/* -------------------------------------------------------------------- FAQ */
+/* Le « + » du site est en ambre (--ambre) : sur la palette Ads il devient le
+   jaune d'action, comme tout ce qui invite à cliquer. */
+.faq summary::after { color: var(--jaune-f); }
+.faq details[open] { border-color: var(--bleu); }
+.faq details[open] summary { background: var(--bleu-pale-2); }
+.ads-faq__relance {
+  max-width: 880px; margin: 26px auto 0; text-align: center;
+  color: var(--gris); font-size: 1.04rem;
+}
+.ads-faq__relance a { font-weight: 700; }

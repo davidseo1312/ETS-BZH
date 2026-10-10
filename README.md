@@ -368,7 +368,7 @@ payants se distinguent au premier coup d'œil dans la boîte de réception.
 9. **Avis clients** — ceux de la page métier Électricité, rattachés à trois
    communes du département, avec le bandeau de note (voir l'avertissement).
 10. **Engagements** — aucun prix, voir ci-dessous.
-11. FAQ de levée d'objection.
+11. **FAQ de levée d'objection** — dix questions, voir ci-dessous.
 12. CTA final, second formulaire.
 13. **Bandeau assurances**&nbsp;: RC professionnelle, garantie décennale et les
     trois logos (Artisan de France, CMA, MIC Insurance).
@@ -452,6 +452,39 @@ retire en supprimant l'appel à `bandeau_avis()` dans `page_ads`.
 **Étoiles.** Celles du site (`--or: #f5a623`) tombent à 2,03:1 sur blanc,
 sous le seuil de 3:1 des éléments d'interface. Les pages Ads les assombrissent
 à `#b07400` — 3,93:1, sans leur faire perdre leur or.
+
+### La FAQ
+
+C'est l'étape où se gagne ou se perd l'appel&nbsp;: un visiteur venu d'une
+annonce n'a aucune raison de faire confiance. Les dix questions suivent
+**l'ordre dans lequel l'objection se pose**&nbsp;: d'abord le délai, puis le
+prix, puis le risque, puis le passage à l'acte.
+
+| # | Objection levée |
+| --- | --- |
+| 1 | *Vous allez mettre trois jours* → créneau annoncé, priorités expliquées |
+| 2-3 | *Je vais me faire avoir sur le prix* → prix avant la route, déplacement facturé ou non |
+| 4 | *Personne ne vient le dimanche* → 24h/24, majoration annoncée |
+| 5 | *Et si ça se passe mal&nbsp;?* → RC pro, décennale, attestations sur demande |
+| 6 | *Vous ne venez pas chez moi* → département entier, communes rurales comprises |
+| 7 | *Qu'est-ce que je fais maintenant&nbsp;?* → consignes de sécurité réelles |
+| 8 | *Vous allez repartir sans rien faire* → mise en sécurité d'abord, devis et date |
+| 9 | *Je veux comparer* → devis gratuit, sans engagement |
+| 10 | *C'est pour les particuliers seulement* → bailleurs, syndics, commerces |
+
+Trois règles de rédaction&nbsp;: **aucun montant**&nbsp;; on répond vraiment,
+y compris quand la réponse n'arrange pas — «&nbsp;oui, le diagnostic est
+facturé s'il n'est suivi de rien&nbsp;» rassure davantage qu'un
+«&nbsp;c'est gratuit&nbsp;» que personne ne croit&nbsp;; et la question sur
+la commune porte le numéro du département de la page.
+
+**La première est ouverte par défaut**&nbsp;: un accordéon entièrement fermé
+se lit comme une page vide, surtout sur mobile. Une relance sous le bloc
+renvoie vers l'appel. Le «&nbsp;+&nbsp;» passe au jaune d'action, comme tout
+ce qui invite à cliquer.
+
+Pas de `FAQPage` en données structurées&nbsp;: ces pages sont en `noindex`, le
+balisage n'y servirait à rien.
 
 ### Assurances
 

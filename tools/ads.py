@@ -109,28 +109,97 @@ ENGAGEMENTS = [
      "Exploitable pour une assurance, un bailleur ou un syndic."),
 ]
 
+# FAQ : l'étape où se gagne ou se perd l'appel. Un visiteur venu d'une
+# annonce n'a aucune raison de faire confiance ; chaque question lève une
+# objection précise, dans l'ordre où elle se pose — d'abord le délai, puis le
+# prix, puis le risque, puis le passage à l'acte.
+#
+# Trois règles de rédaction :
+#   · aucun montant (voir ENGAGEMENTS) ;
+#   · on répond vraiment, y compris quand la réponse n'arrange pas — « oui,
+#     le diagnostic est facturé s'il n'est suivi de rien » rassure davantage
+#     qu'un « c'est gratuit » que personne ne croit ;
+#   · {nom} et {art} sont remplacés par le département de la page.
+#
+# La première est ouverte par défaut : sur mobile, un accordéon entièrement
+# fermé se lit comme une page vide.
 FAQ = [
-    ("Combien de temps avant votre arrivée&nbsp;?",
+    ("Sous combien de temps pouvez-vous être là&nbsp;?",
      "Nous annonçons un créneau réaliste au téléphone, en fonction de votre "
-     "commune et de l'heure. Nous préférons un délai tenu à une promesse "
-     "large&nbsp;: si nous ne pouvons pas venir vite, nous le disons tout de "
-     "suite."),
+     "commune et de l'heure qu'il est. Nous préférons un délai tenu à une "
+     "promesse large&nbsp;: si nous ne pouvons pas venir vite, nous le disons "
+     "tout de suite plutôt que de vous faire attendre pour rien. En urgence "
+     "avérée — odeur de brûlé, installation mouillée, logement sans courant "
+     "avec une personne âgée ou un nourrisson — vous passez en priorité."),
+
+    ("Combien ça va me coûter&nbsp;?",
+     "Le prix dépend de ce qu'il y a à faire, et personne ne peut le deviner "
+     "avant de savoir. Ce que nous garantissons, c'est que vous le connaîtrez "
+     "<strong>avant que nous prenions la route</strong>, et non sur le pas de "
+     "la porte. Décrivez-nous la situation au téléphone&nbsp;: nous vous "
+     "annonçons le tarif applicable, la majoration éventuelle, et vous "
+     "décidez à ce moment-là. Au-delà du dépannage, rien n'est engagé sans un "
+     "devis que vous avez validé."),
+
     ("Le déplacement est-il payant&nbsp;?",
-     "Le diagnostic est facturé s'il n'est suivi d'aucune intervention. Dès "
-     "que nous réparons, il est intégré. Le montant vous est annoncé avant "
-     "notre départ, pas à l'arrivée."),
-    ("Intervenez-vous la nuit et le week-end&nbsp;?",
-     "Oui, 24h/24 et 7j/7, y compris les jours fériés. La majoration "
-     "applicable vous est annoncée au téléphone avant que nous nous "
-     "déplacions."),
-    ("Vous intervenez pour les professionnels et les syndics&nbsp;?",
-     "Oui&nbsp;: commerces, bailleurs, agences de gestion et copropriétés. "
-     "Devis avant travaux et compte rendu écrit exploitable pour un dossier "
-     "d'assurance ou une assemblée générale."),
-    ("Que dois-je faire en attendant&nbsp;?",
-     "En cas d'odeur de brûlé ou de prise qui chauffe&nbsp;: coupez le "
-     "circuit concerné au tableau et n'y touchez plus. Sinon, ne réarmez pas "
-     "en boucle un disjoncteur qui retombe — il protège quelque chose."),
+     "Soyons clairs plutôt qu'agréables&nbsp;: le diagnostic est facturé s'il "
+     "n'est suivi d'aucune intervention. Dès que nous réparons, il est "
+     "intégré. Le montant vous est annoncé avant notre départ, jamais "
+     "découvert à l'arrivée. Et si le problème ne relève pas de nous — une "
+     "coupure sur le réseau public, par exemple — nous vous le disons au "
+     "téléphone et nous ne nous déplaçons pas."),
+
+    ("Intervenez-vous la nuit, le week-end et les jours fériés&nbsp;?",
+     "Oui, 24h/24 et 7j/7, toute l'année. Une installation électrique ne "
+     "tombe pas en panne aux heures ouvrables, et un logement sans courant un "
+     "dimanche soir n'attend pas le lundi. La majoration applicable à ces "
+     "créneaux vous est annoncée au téléphone, avant le déplacement."),
+
+    ("Êtes-vous assurés&nbsp;?",
+     "Oui&nbsp;: responsabilité civile professionnelle et garantie décennale "
+     "pour les travaux qui l'exigent. Vous pouvez demander les attestations "
+     "avant l'intervention, nous les transmettons sans discuter. C'est la "
+     "question qu'il faut poser à tout artisan qui se présente chez vous, et "
+     "un professionnel sérieux n'est jamais gêné d'y répondre."),
+
+    ("Intervenez-vous vraiment dans ma commune&nbsp;?",
+     "Nous couvrons l'intégralité du département{deptnum}, communes rurales "
+     "comprises — pas seulement les grandes villes. Le bloc plus haut détaille "
+     "douze communes, mais la liste n'est pas limitative. Appelez-nous&nbsp;: "
+     "nous vous annonçons le délai réel chez vous, qui n'est évidemment pas le "
+     "même partout."),
+
+    ("Que dois-je faire en attendant votre arrivée&nbsp;?",
+     "<strong>Odeur de brûlé, prise ou interrupteur qui chauffe&nbsp;:</strong> "
+     "coupez ce circuit au tableau et n'y touchez plus — c'est la seule "
+     "situation où il faut agir avant notre arrivée. "
+     "<strong>Disjoncteur qui retombe&nbsp;:</strong> ne le réarmez pas en "
+     "boucle, il protège quelque chose&nbsp;; débranchez plutôt les appareils "
+     "un par un. <strong>Installation mouillée&nbsp;:</strong> ne remettez "
+     "rien sous tension, même si tout semble sec. Et dans tous les cas, "
+     "n'ouvrez aucun capot plombé&nbsp;: la partie amont reste sous tension "
+     "disjoncteur abaissé."),
+
+    ("Et si vous ne pouvez pas tout réparer aujourd'hui&nbsp;?",
+     "Nous remettons d'abord l'installation en sécurité et nous rétablissons "
+     "ce qui peut l'être — il est rare qu'on reparte en laissant un logement "
+     "entièrement sans courant. S'il faut une pièce ou un second passage, nous "
+     "le disons sur place, avec un devis et une date. Nous ne facturons pas "
+     "une réparation inutile pour justifier le déplacement."),
+
+    ("Puis-je avoir un devis avant de m'engager&nbsp;?",
+     "Oui, gratuit et sans engagement. En urgence, nous mettons d'abord en "
+     "sécurité — cela ne se discute pas quand il y a un risque — puis nous "
+     "chiffrons la suite avant de l'engager. Pour un chantier programmé, le "
+     "devis est établi après un relevé sur place, poste par poste, pour que "
+     "vous puissiez le comparer."),
+
+    ("Vous intervenez pour les professionnels, les bailleurs et les syndics&nbsp;?",
+     "Oui&nbsp;: commerces, locaux professionnels, parc locatif et parties "
+     "communes de copropriété. Nous fournissons un devis avant travaux, une "
+     "facturation au gestionnaire quand c'est convenu, et un compte rendu "
+     "écrit avec photos — exploitable pour un dossier d'assurance, un locataire "
+     "ou une assemblée générale."),
 ]
 
 DEPTS = {

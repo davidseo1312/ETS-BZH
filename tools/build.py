@@ -2564,10 +2564,14 @@ def page_ads(dept):
         '<div class="ads-engagement"><h3>%s</h3><p>%s</p></div>' % (t, p)
         for t, p in ADS.ENGAGEMENTS)
 
+    # La première est ouverte : un accordéon entièrement fermé se lit comme
+    # une page vide, surtout sur mobile.
     faq = "".join(
-        '<details><summary>%s</summary>'
-        '<div class="faq__body"><p>%s</p></div></details>' % (q, r)
-        for q, r in ADS.FAQ)
+        '<details%s><summary>%s</summary>'
+        '<div class="faq__body"><p>%s</p></div></details>'
+        % (" open" if i == 0 else "", q,
+           r.replace("{deptnum}", "&nbsp;(%s)" % num))
+        for i, (q, r) in enumerate(ADS.FAQ))
 
     # Photos : celles de la page métier Électricité, sans leur description
     # longue (masquée en CSS) — sur une page payante, la légende courte suffit.
@@ -2711,9 +2715,16 @@ def page_ads(dept):
 
 <section class="section">
   <div class="container">
-    <span class="eyebrow">Questions fréquentes</span>
-    <h2>Avant d'appeler</h2>
+    <div class="section-head center">
+      <span class="eyebrow">Questions fréquentes</span>
+      <h2>Ce que les gens nous demandent avant d'appeler</h2>
+      <p class="lead">Délai, prix, assurance&nbsp;: les réponses franches, y
+        compris quand elles ne nous arrangent pas.</p>
+    </div>
     <div class="faq">{faq}</div>
+    <p class="ads-faq__relance">Votre question n'est pas là&nbsp;?
+      <a href="tel:{tel_lien}" data-cta="faq">Posez-la au {tel}</a> — un
+      électricien répond, et répondre ne vous engage à rien.</p>
   </div>
 </section>
 
