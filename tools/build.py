@@ -2682,7 +2682,8 @@ def page_ads(dept, ville=None):
       <a href="#zones">Zones</a>
       <a href="#faq">Questions</a>
     </nav>
-    <a class="lp-devis" href="#rappel">Devis en ligne</a>
+    <a class="lp-head__tel" href="tel:{tel_lien}" data-cta="entete">
+      {SVG['tel']}<span>{tel}</span></a>
   </div>
 </header>
 
@@ -2692,11 +2693,10 @@ def page_ads(dept, ville=None):
       {t['hero_eyebrow'].format(lieu=lieu)}</p>
     <h1>{t['hero_titre'].format(au_lieu=au_lieu)}</h1>
     <p class="lp-hero__txt">{t['hero_texte']}</p>
-    <div class="lp-hero__cta">
-      <a class="lp-hero__appel" href="tel:{tel_lien}" data-cta="hero">
-        {SVG['tel']}<span>{t['hero_bouton']} — {tel}</span></a>
-      <a class="lp-hero__sec" href="#rappel">{t['hero_second']} ›</a>
-    </div>
+    <a class="lp-hero__appel" href="tel:{tel_lien}" data-cta="hero">
+      {SVG['tel']}<span>{t['hero_bouton']} — {tel}</span></a>
+    <a class="lp-hero__sec" href="#rappel">{t['hero_second']} ›</a>
+    <p class="lp-hero__note">{t['hero_rassurance']}</p>
     <p class="lp-fil">Dépannage électrique <span>›</span> {nom} ({num})
       <span>›</span> <strong>Électricien {lieu}</strong></p>
   </div>

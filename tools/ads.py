@@ -63,19 +63,26 @@ TECHNICIEN = {
     "sceau": "De père en fils",
     # L'accroche du bandeau de titre. {lieu} et {tel} sont substitués.
     #
-    # Pas de délai chiffré : la FAQ promet « un créneau réaliste annoncé au
-    # téléphone, pas une promesse large ». Écrire « sur place sous 2 h » en
-    # tête de page contredirait la page elle-même, et engagerait l'entreprise
-    # sur chaque appel. « Rapidement » tient la promesse sans la chiffrer.
+    # ATTENTION — « sur place sous 2 h » est un délai ferme, répété sur 172
+    # pages et lu comme un engagement à chaque appel. Il a été demandé
+    # explicitement, sur le modèle d'une page concurrente. La première
+    # réponse de la FAQ a été réécrite pour ne pas le contredire. S'il n'est
+    # pas tenable partout — le Centre Bretagne n'est pas Quimper —, c'est ici
+    # qu'on le retire, et dans FAQ[0].
     "hero_eyebrow": "Électricien {lieu} · du lundi au samedi, 7h–22h",
-    "hero_titre": "Urgence électrique {au_lieu}&nbsp;? "
-                  "<strong>Julien se déplace rapidement</strong>, "
-                  "du lundi au samedi, de 7h à 22h.",
+    "hero_titre": "Urgence électricité {au_lieu}&nbsp;? "
+                  "<strong>Julien sur place sous 2&nbsp;h</strong>, "
+                  "du lundi au samedi.",
     "hero_texte": "Électricien de père en fils, Julien intervient vite&nbsp;: "
                   "panne de courant, disjoncteur qui saute, odeur de brûlé au "
                   "tableau. Le prix est annoncé avant les travaux, toujours.",
     "hero_bouton": "Appeler Julien",
     "hero_second": "ou être rappelé",
+    # La ligne qui suit le bouton : elle répond aux deux craintes qui
+    # retiennent un doigt au-dessus du numéro — tomber sur une plateforme,
+    # et payer l'appel.
+    "hero_rassurance": "Julien décroche lui-même, appel non surtaxé. "
+                       "Devis gratuit et sans engagement.",
 
     # Le rappel du bas de page. Il nomme l'électricien et la commune : à ce
     # stade le visiteur a tout lu, c'est la dernière occasion de lui dire
@@ -204,9 +211,11 @@ ENGAGEMENTS = [
 # fermé se lit comme une page vide.
 FAQ = [
     ("Sous combien de temps pouvez-vous être là&nbsp;?",
-     "Nous annonçons un créneau réaliste au téléphone, en fonction de votre "
-     "commune et de l'heure qu'il est. Nous préférons un délai tenu à une "
-     "promesse large&nbsp;: si nous ne pouvons pas venir vite, nous le disons "
+     "Nous visons <strong>une intervention sous deux heures</strong>, et le "
+     "créneau exact vous est confirmé au téléphone, en fonction de votre "
+     "adresse et de l'heure qu'il est&nbsp;: une commune de l'intérieur n'est "
+     "pas le centre-ville. Nous préférons un délai tenu à une promesse "
+     "large — si nous ne pouvons pas être là dans ce délai, nous le disons "
      "tout de suite plutôt que de vous faire attendre pour rien. En urgence "
      "avérée — odeur de brûlé, installation mouillée, logement sans courant "
      "avec une personne âgée ou un nourrisson — vous passez en priorité."),

@@ -390,10 +390,12 @@ payants se distinguent au premier coup d'œil dans la boîte de réception.
 modèle de fiche métier locale fourni par le client&nbsp;:
 
 1. **Barre de contact** bleu nuit&nbsp;: commune, e-mail, numéro d'urgence.
-2. **En-tête blanc collant**&nbsp;: logo, menu d'ancres, bouton « Devis en ligne ».
-3. **Bandeau de titre** sur photo&nbsp;: œil d'accroche, accroche nommant le
-   technicien, texte de rassurance, bouton « Appeler Julien » et « ou être
-   rappelé », puis fil d'Ariane (voir ci-dessous).
+2. **En-tête blanc collant**&nbsp;: mot-symbole, menu d'ancres, et le
+   **numéro en bouton bleu** — comme sur le modèle.
+3. **Bandeau de titre sur fond blanc**, tout centré&nbsp;: œil d'accroche,
+   titre nommant le technicien et le délai, texte, bouton « Appeler Julien »,
+   repli « ou être rappelé », mention de rassurance, puis fil d'Ariane
+   (voir ci-dessous).
 4. **Corps en deux colonnes.** Barre latérale collante&nbsp;: carte d'appel
    bleu nuit, liste des interventions, formulaire de rappel, bloc assurances.
    Contenu&nbsp;: accroche, encadré de citation, photo, contexte local,
@@ -586,26 +588,26 @@ appelants a soixante-dix ans passés, lit sur un téléphone, souvent mal
 éclairé, et n'a pas deux minutes à consacrer à une mise en page. Trois
 décisions en découlent.
 
-**Le bandeau est centré.** Texte, bouton d'appel et fil d'Ariane sont alignés
-sur l'axe de la page. L'œil n'a plus à chercher où commence chaque ligne&nbsp;:
-il descend tout droit de l'œil d'accroche au bouton. Le velours posé sur la
-photo est passé d'un dégradé latéral à un **dégradé vertical uniforme**
-(`rgba(14,55,88,.94)` → `.90`)&nbsp;: un texte centré occupe toute la largeur,
-un velours qui s'éclaircit sur un bord laisserait les fins de ligne sur le
-clair de la photo.
+**Le bandeau est blanc, et la photo en est partie.** Il a d'abord été une
+photo de technicien sous un voile bleu nuit presque opaque. Un titre posé
+sur une image, même voilée, se lit toujours moins bien que le même titre sur
+du blanc&nbsp;: le titre passe de **10,3:1** à **12,8:1**, et le texte
+d'accroche de 8,2:1 à 7,1:1 sur un fond qui ne varie plus d'un pixel à
+l'autre. Le technicien n'a pas disparu de la page — il est en photo quelques
+écrans plus bas, dans le bloc «&nbsp;Julien&nbsp;», et dans les trois
+services illustrés.
 
-**Le bleu presque noir a disparu.** Les fonds sombres étaient en `#0d2237`,
-à deux doigts du noir&nbsp;: très contrasté sur le papier, mais dur à l'œil et
-sans relief, tout se confond en une masse. Ils sont désormais en **`#14507d`**,
-un bleu franc&nbsp;: **8,49:1** avec le blanc (niveau AAA, le seuil AA étant
-à 4,5:1) et **5,32:1** avec le jaune, donc on gagne en douceur sans rien perdre
-en lisibilité.
+**Tout est centré** — œil d'accroche, titre, texte, bouton, mention de
+rassurance, fil d'Ariane. L'œil descend tout droit de la première ligne au
+bouton au lieu de chercher où commence chacune.
 
-**Le bleu ciel sert là où il est utile.** Un vrai bleu ciel (`#33a9dc`) sous du
-texte blanc tombe à **2,68:1**&nbsp;: inutilisable, et d'autant plus pour une
-vue fatiguée. Il est donc introduit en **fond clair** (`--ciel: #e7f3fb`) sous
-du texte foncé — la bande de chiffres clés —, où il donne la respiration
-demandée tout en tenant **9,53:1**.
+**Le bleu presque noir a disparu** des fonds sombres restants. Ils étaient en
+`#0d2237`, à deux doigts du noir&nbsp;: très contrasté sur le papier, mais
+dur à l'œil et sans relief. Ils sont en **`#14507d`**, un bleu franc&nbsp;:
+**8,49:1** avec le blanc (niveau AAA) et **5,32:1** avec le jaune. Un vrai
+bleu ciel (`#33a9dc`) sous du texte blanc tomberait à **2,68:1**&nbsp;: il
+sert donc en **fond clair** (`--ciel: #e7f3fb`) sous du texte foncé — la
+bande de chiffres —, où il tient **9,53:1**.
 
 ### Chiffres clés et garanties
 
@@ -628,32 +630,49 @@ paiement acceptés. Un commentaire les signale dans `tools/ads.py`.
 
 ### L'accroche du bandeau
 
-Reprise d'un modèle fourni par le client. Elle tient en quatre temps&nbsp;:
-œil d'accroche («&nbsp;Électricien Quimper · joignable 24h/24&nbsp;»), titre
-qui pose l'urgence et nomme le technicien, texte qui dit ce qu'il fait et que
-le prix est annoncé avant, puis le bouton d'appel et le repli «&nbsp;ou être
-rappelé&nbsp;».
+Reprise d'un modèle fourni par le client (une page de plomberie concurrente),
+structure comprise. Six temps, tous centrés&nbsp;:
 
-Le nom et la promesse passent en **jaune dans le titre**&nbsp;: c'est la seule
-chose que le visiteur doit retenir s'il ne lit qu'une ligne. Le reste du titre
-reste blanc. La commune figure dans le titre, pas seulement dans l'œil
-d'accroche&nbsp;: la régie mesure la correspondance entre le mot-clé de
-l'annonce et la page de destination.
+1. **œil d'accroche** — «&nbsp;Électricien Quimper · du lundi au samedi,
+   7h–22h&nbsp;», en bleu&nbsp;;
+2. **titre** — «&nbsp;Urgence électricité à Quimper&nbsp;?
+   **Julien sur place sous 2&nbsp;h**, du lundi au samedi.&nbsp;»&nbsp;;
+3. **texte** — ce qu'il fait, et que le prix est annoncé avant&nbsp;;
+4. **bouton d'appel** jaune, pleine largeur jusqu'à 520&nbsp;px&nbsp;;
+5. **repli** «&nbsp;ou être rappelé&nbsp;›&nbsp;», sous le bouton et non à
+   côté&nbsp;;
+6. **mention de rassurance** — «&nbsp;Julien décroche lui-même, appel non
+   surtaxé. Devis gratuit et sans engagement.&nbsp;» Elle lève les deux
+   dernières objections qui retiennent un doigt au-dessus d'un numéro
+   inconnu&nbsp;: tomber sur une plateforme, et payer l'appel.
 
-**Pas de délai chiffré**, contrairement au modèle qui annonce «&nbsp;sur place
-sous 2&nbsp;h&nbsp;». La FAQ de ces mêmes pages promet «&nbsp;un créneau
-réaliste annoncé au téléphone, pas une promesse large&nbsp;»&nbsp;: un chiffre
-en tête de page contredirait la page elle-même, et engagerait l'entreprise sur
-chaque appel. «&nbsp;Se déplace rapidement&nbsp;» tient la promesse sans la
-chiffrer. Si un délai ferme est souhaité, il se pose dans `hero_titre`
-(`TECHNICIEN`, `tools/ads.py`) — à condition qu'il soit tenable.
+**Le nom et la promesse passent en bleu dans le titre**, pas en jaune&nbsp;:
+sur fond clair, `#ffc400` tombe à 1,6:1. Le jaune reste au bouton, juste
+dessous, où il est le seul aplat de couleur de tout le bandeau — c'est ce qui
+le rend impossible à manquer. Même partage dans l'en-tête&nbsp;: le numéro y
+est en **bleu** et non en jaune, pour ne pas mettre deux boutons jaunes l'un
+au-dessus de l'autre.
 
-**Note sur la mesure de contraste.** Le harnais déclare `.lp-hero h1 strong`
-à 1,02:1&nbsp;: c'est un artefact. En masquant le `<strong>` pour photographier
-son fond, la capture récupère le texte blanc du `<h1>` voisin, sur la même
-ligne. Il faut masquer **tout le texte du `<h1>`**, pas seulement le
-`<strong>`&nbsp;: le jaune est alors à **6,47:1** sur le velours du bandeau
-(pire cas sur quatre pages et deux largeurs).
+La commune figure dans le titre, pas seulement dans l'œil d'accroche&nbsp;: la
+régie mesure la correspondance entre le mot-clé de l'annonce et la page de
+destination.
+
+⚠ **«&nbsp;Sur place sous 2&nbsp;h&nbsp;» est un engagement, pas une
+formule.** Il figure sur les 172 pages, se lit comme une promesse à chaque
+appel, et vaut pour Rostrenen comme pour Quimper. Il a été demandé
+explicitement, sur le modèle de la page concurrente. La première réponse de
+la FAQ a été réécrite pour ne pas le contredire&nbsp;: elle annonce
+l'objectif de deux heures, précise que le créneau exact est confirmé au
+téléphone selon l'adresse, et maintient que le délai est dit franchement
+quand il ne peut pas être tenu. S'il n'est pas tenable partout, deux endroits
+à changer&nbsp;: `hero_titre` dans `TECHNICIEN` et `FAQ[0]`, dans
+`tools/ads.py`.
+
+**Un artefact de mesure a disparu avec la photo.** Tant que le bandeau était
+sombre, le harnais déclarait `.lp-hero h1 strong` à 1,02:1&nbsp;: en masquant
+le `<strong>` pour photographier son fond, la capture récupérait le texte
+blanc du `<h1>` voisin, sur la même ligne. Sur fond blanc uni, la mesure est
+directe et juste&nbsp;: **6,58:1**.
 
 ### ⚠ « Julien, c'est lui qui décroche » et « de père en fils »
 
@@ -763,7 +782,7 @@ prix, puis le risque, puis le passage à l'acte.
 
 | # | Objection levée |
 | --- | --- |
-| 1 | *Vous allez mettre trois jours* → créneau annoncé, priorités expliquées |
+| 1 | *Vous allez mettre trois jours* → objectif deux heures, créneau confirmé à l'appel, priorités expliquées |
 | 2-3 | *Je vais me faire avoir sur le prix* → prix avant la route, déplacement facturé ou non |
 | 4 | *Vous êtes fermés quand j'ai besoin de vous* → lun.–sam. 7h–22h, pourquoi pas 24h/24, et le 18 en cas de danger |
 | 5 | *Et si ça se passe mal&nbsp;?* → RC pro, décennale, attestations sur demande |
