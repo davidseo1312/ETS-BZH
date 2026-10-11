@@ -400,9 +400,8 @@ modèle de fiche métier locale fourni par le client&nbsp;:
    bleu nuit, liste des interventions, formulaire de rappel, bloc assurances.
    Contenu&nbsp;: accroche, encadré de citation, photo, contexte local,
    **bloc « Julien, c'est lui qui décroche »**, **trois services numérotés**
-   illustrés, « pourquoi nous choisir »,
-   les trois étapes, **six avis en piste horizontale**, bloc « Demandez
-   Julien », **FAQ encadrée** (dix questions), encadré tarifs.
+   illustrés, les trois étapes, **six avis en piste horizontale**,
+   **FAQ encadrée** (cinq questions) et bouton d'appel.
 5. **Zones d'intervention** pleine largeur&nbsp;: les quarante-deux communes
    avec leur code postal, en trois colonnes (quatre au-delà de 1100&nbsp;px),
    chacune liée à sa propre page.
@@ -441,9 +440,10 @@ client avant mise en ligne — un code postal faux est une petite erreur qui
 coûte cher en crédibilité.
 
 **Pas de prix, malgré le modèle.** Le modèle affiche « à partir de 79&nbsp;€ ».
-L'encadré tarifs des pages ETS-BZH garde la place et la fonction, sans
-montant&nbsp;: le tarif se donne au téléphone, une fois la situation connue.
-Contrôlé au build&nbsp;: aucun caractère « € » dans les 172 pages.
+Ces pages n'avancent aucun montant&nbsp;: le tarif se donne au téléphone, une
+fois la situation connue, et la promesse — prix annoncé avant le déplacement —
+est portée par la liste des garanties et par la FAQ. Contrôlé au build&nbsp;:
+aucun caractère « € » dans les 172 pages.
 
 ### Horaires&nbsp;: du lundi au samedi, 7h–22h
 
@@ -759,12 +759,10 @@ CSS correspondantes à rétablir dans `ads.css` (`.lp-foot__liens`).
 
 **Aucun prix affiché.** Ces pages n'avancent aucun montant. Un chiffre posé
 sur une page payante est lu comme un engagement, et il se retourne contre
-l'entreprise dès que l'intervention se révèle plus lourde que prévu. Le bloc
-`ENGAGEMENTS` le remplace&nbsp;: il tient la promesse de transparence — c'est
-elle qui lève l'objection, pas le montant — en annonçant que le prix est
-donné avant le déplacement, que le devis est gratuit et que rien n'est engagé
-sans accord. Vérifié au build&nbsp;: aucune occurrence de montant dans les
-quatre pages.
+l'entreprise dès que l'intervention se révèle plus lourde que prévu. Ce sont
+`GARANTIES` et la FAQ qui portent la promesse à sa place&nbsp;: prix annoncé
+avant le déplacement, devis gratuit, rien d'engagé sans accord. C'est la
+transparence qui lève l'objection, pas le montant.
 
 **Photo de hero.** Le hero porte `photos/electricite-1.jpg` en fond, sous un
 voile bleu nuit en dégradé — presque opaque du côté du texte (.96), plus
@@ -818,45 +816,60 @@ Les pastilles suivent une progression vers l'action&nbsp;: bleu nuit, bleu
 intermédiaire, puis **jaune** pour la dernière — celle où l'on arrive —, dans
 la même couleur que les boutons d'appel.
 
-### La FAQ
+### La FAQ, ramenée à cinq questions
 
-C'est l'étape où se gagne ou se perd l'appel&nbsp;: un visiteur venu d'une
-annonce n'a aucune raison de faire confiance. Les dix questions suivent
-**l'ordre dans lequel l'objection se pose**&nbsp;: d'abord le délai, puis le
-prix, puis le risque, puis le passage à l'acte.
+C'est l'étape où se gagne ou se perd l'appel. Elle en comptait dix, pour
+770&nbsp;mots — **un tiers de la page à elle seule**. Un visiteur venu d'une
+annonce d'urgence ne lit pas une page, il la balaie en cherchant de quoi
+décrocher son téléphone&nbsp;: une FAQ qu'on fait défiler ne lève aucune
+objection, elle en ajoute une.
+
+Cinq questions, 181&nbsp;mots, une à deux phrases par réponse, dans l'ordre
+où l'objection se pose&nbsp;:
 
 | # | Objection levée |
 | --- | --- |
-| 1 | *Vous allez mettre trois jours* → objectif deux heures, créneau confirmé à l'appel, priorités expliquées |
-| 2-3 | *Je vais me faire avoir sur le prix* → prix avant la route, déplacement facturé ou non |
-| 4 | *Vous êtes fermés quand j'ai besoin de vous* → lun.–sam. 7h–22h, pourquoi pas 24h/24, et le 18 en cas de danger |
-| 5 | *Et si ça se passe mal&nbsp;?* → RC pro, décennale, attestations sur demande |
-| 6 | *Vous ne venez pas chez moi* → département entier, communes rurales comprises |
-| 7 | *Qu'est-ce que je fais maintenant&nbsp;?* → consignes de sécurité réelles |
-| 8 | *Vous allez repartir sans rien faire* → mise en sécurité d'abord, devis et date |
-| 9 | *Je veux comparer* → devis gratuit, sans engagement |
-| 10 | *C'est pour les particuliers seulement* → bailleurs, syndics, commerces |
+| 1 | *Vous allez mettre trois jours* → objectif deux heures, créneau confirmé à l'appel, priorités |
+| 2 | *Je vais me faire avoir sur le prix* → tarif avant la route, devis gratuit |
+| 3 | *Qu'est-ce que je fais maintenant&nbsp;?* → consignes de sécurité, et le 18 s'il y a le feu |
+| 4 | *Et si ça se passe mal&nbsp;?* → RC pro, décennale, attestations sur demande |
+| 5 | *Vous ne venez pas chez moi* → département entier, communes rurales comprises |
 
-Trois règles de rédaction&nbsp;: **aucun montant**&nbsp;; on répond vraiment,
-y compris quand la réponse n'arrange pas — «&nbsp;oui, le diagnostic est
-facturé s'il n'est suivi de rien&nbsp;» rassure davantage qu'un
-«&nbsp;c'est gratuit&nbsp;» que personne ne croit&nbsp;; et la question sur
-la commune porte le numéro du département de la page.
+Les cinq supprimées étaient soit redondantes — le déplacement payant et le
+devis sont désormais dans la réponse sur le prix —, soit trop en aval&nbsp;:
+«&nbsp;et si vous ne pouvez pas tout réparer aujourd'hui&nbsp;?&nbsp;» est
+une question qu'on se pose après avoir appelé, pas avant.
 
-**La FAQ est encadrée.** En texte courant, dix questions se confondaient
-avec le reste de la colonne&nbsp;: on les faisait défiler sans les voir. Le
-cadre en fait un bloc qu'on repère, et le filet jaune de 4&nbsp;px au-dessus
-le rattache aux autres encadrés de la page. Chaque question porte une
-pastille «&nbsp;?&nbsp;» jaune qui tient le rôle d'un marqueur de liste et
-donne le rythme, sans que chaque question ait besoin d'un fond propre.
+Deux règles de rédaction&nbsp;: **aucun montant**, et on répond vraiment, y
+compris pour dire d'appeler **le 18 plutôt que nous** quand il y a de la
+fumée. Pas de `FAQPage` en données structurées&nbsp;: ces pages sont en
+`noindex`.
 
-Le trait du cadre est en `--cadre` (`#6b97bd`), pas en `--bordure-forte`
-(`#bed2e0`)&nbsp;: ce dernier tient **1,56:1** sur blanc, ce qui sépare mais
-n'encadre pas. `--cadre` tient **3,09:1**, le seuil des éléments d'interface
-— un encadré qu'on ne distingue pas n'encadre rien.
+### La page tient en 1 200 mots
 
-Pas de `FAQPage` en données structurées&nbsp;: ces pages sont en `noindex`, le
-balisage n'y servirait à rien.
+Elle en faisait **2 273**. Sur une page achetée au clic, chaque paragraphe
+qu'on fait défiler est un visiteur qui s'éloigne du bouton. Quatre coupes,
+par ordre de rendement&nbsp;:
+
+| Retiré | Mots | Pourquoi |
+| --- | --- | --- |
+| Cinq questions de la FAQ | −589 | voir ci-dessus |
+| Bloc «&nbsp;Pourquoi choisir ETS-BZH&nbsp;?&nbsp;» | −168 | doublon de `GARANTIES`, affiché bien plus haut et en coches |
+| Encadré «&nbsp;Tarifs&nbsp;» | −64 | un titre «&nbsp;Tarifs&nbsp;» qui annonce qu'il n'y a pas de prix est un ralentisseur&nbsp;; la FAQ le dit en deux lignes |
+| Paragraphe «&nbsp;nous intervenons du lundi au samedi…&nbsp;» | −55 | déjà dans le bandeau, la bande de chiffres, les garanties et la carte d'appel |
+
+Le reste a été resserré plutôt que supprimé&nbsp;: contextes départementaux
+divisés par deux, bloc «&nbsp;Julien&nbsp;» de trois paragraphes à deux, six
+avis raccourcis de moitié, étapes et bloc zones réécrits court. Le titre
+«&nbsp;Votre électricien à X&nbsp;» a disparu&nbsp;: sur une page de commune
+il coiffait une seule phrase.
+
+**Ce qui n'a pas été touché**&nbsp;: les trois services illustrés et la liste
+des motifs d'appel. Ce sont eux qui font décrocher — le visiteur arrive avec
+un symptôme en tête et cherche le sien. La liste de la barre latérale est
+d'ailleurs devenue une **liste d'appels**&nbsp;: chaque motif est un lien
+`tel:`, titré «&nbsp;Appelez pour&nbsp;:&nbsp;», au lieu de renvoyer vers une
+ancre plus bas dans la page.
 
 ### Assurances
 

@@ -99,19 +99,14 @@ TECHNICIEN = {
                 "centre d'appels, ni formulaire à remplir&nbsp;: "
                 "<strong>vous avez Julien, l'électricien qui viendra</strong>.",
     "paras": [
-        "C'est la différence que personne ne voit avant d'appeler, et que "
-        "tout le monde constate ensuite&nbsp;: la personne au bout du fil est "
-        "celle qui montera dans le véhicule. Elle sait déjà ce qu'elle va "
-        "trouver, parce qu'elle vous a écouté.",
-        "Il vous demande ce qui se passe, ce que vous voyez au tableau, ce qui "
-        "fonctionne encore. En deux minutes, il sait s'il faut venir tout de "
-        "suite, si vous pouvez attendre demain, ou si le problème se règle au "
-        "téléphone — et dans ce dernier cas, il vous le dit.",
-        "<strong>Le métier s'est transmis de père en fils.</strong> On ne "
-        "travaille pas de la même façon quand on a appris sur les chantiers de "
-        "son père, dans les mêmes communes, auprès des mêmes clients. Un "
-        "devis clair avant d'intervenir, un prix annoncé avant de se "
-        "déplacer, et un travail qu'on assume parce qu'on recroisera les gens.",
+        "C'est la différence que personne ne voit avant d'appeler&nbsp;: la "
+        "personne au bout du fil est celle qui montera dans le véhicule. En "
+        "deux minutes, il sait s'il faut venir tout de suite, si ça peut "
+        "attendre demain, ou si ça se règle au téléphone — et dans ce "
+        "dernier cas, il vous le dit.",
+        "<strong>Le métier s'est transmis de père en fils.</strong> Mêmes "
+        "communes, mêmes clients&nbsp;: on assume son travail parce qu'on "
+        "recroisera les gens.",
     ],
 }
 
@@ -130,173 +125,92 @@ TECHNICIEN = {
 # trompeuse (art. L121-2, qui vise expressément les avis fictifs) et du motif
 # de refus en régie. À remplacer par de vrais avis vérifiés.
 AVIS_SUP = [
-    ("Prise qui chauffait et odeur de brûlé un vendredi soir. Technicien sur "
-     "place en moins de deux heures, circuit coupé et connexion refaite. Il a "
-     "pris le temps de vérifier le reste du tableau avant de repartir.",
+    ("Prise qui chauffait un vendredi soir. Sur place en moins de deux "
+     "heures, circuit coupé et connexion refaite.",
      "Nathalie P.", 5),
-    ("Après la tempête, plus rien ne fonctionnait au rez-de-chaussée. Contrôle "
-     "complet avant de remettre le courant, pièce par pièce. Rassurant de voir "
-     "quelqu'un qui ne se précipite pas.",
+    ("Après la tempête, plus rien au rez-de-chaussée. Contrôle complet "
+     "avant de remettre le courant, pièce par pièce.",
      "Hervé L.", 5),
-    ("Deux logements que je loue, intervention sur les deux. Travail sérieux "
-     "et compte rendu écrit à chaque fois, ce qui m'arrange pour mes dossiers. "
-     "Seul bémol&nbsp;: j'ai dû relancer pour recevoir la facture.",
+    ("Deux logements que je loue, compte rendu écrit à chaque passage. "
+     "Seul bémol&nbsp;: j'ai dû relancer pour la facture.",
      "Sylvie M.", 4),
 ]
 
-# Le premier avis de la page métier Électricité raconte une intervention
-# « un dimanche » : sur ces pages-ci, qui annoncent lundi-samedi, il se
-# contredirait tout seul. Il est donc retouché ici, et ici seulement — la
-# page publique garde le sien. (Contenu d'exemple dans les deux cas.)
+# Les trois avis repris de la page métier Électricité sont réécrits ici, et
+# ici seulement : raccourcis de moitié — sur une page de conversion, un
+# témoignage se lit d'un coup d'œil ou ne se lit pas — et le premier
+# racontait une intervention « un dimanche », qui contredirait les horaires
+# annoncés. La page publique garde les siens. (Contenu d'exemple partout.)
 AVIS_REECRITS = {
     "Panne totale un dimanche, électricien sur place en une heure. Défaut "
     "trouvé sur un circuit de la cuisine, remis en service le soir même. "
     "Très rassurant.":
-    "Panne totale un samedi matin, électricien sur place en une heure. Défaut "
-    "trouvé sur un circuit de la cuisine, remis en service dans la journée. "
-    "Très rassurant.",
+    "Panne totale un samedi matin, sur place en une heure. Défaut trouvé, "
+    "courant rétabli dans la journée.",
+
+    "Tableau électrique d'origine à remplacer dans une maison de 1975. "
+    "Travail impeccable, circuits repérés et étiquetés, explications "
+    "claires. Rien à redire.":
+    "Tableau de 1975 remplacé. Circuits repérés et étiquetés, explications "
+    "claires. Rien à redire.",
+
+    "Borne de recharge installée à la maison. Devis clair, délai tenu, "
+    "finition soignée. Une équipe sérieuse que je recommande sans hésiter.":
+    "Borne de recharge posée à la maison. Devis clair, délai tenu, finition "
+    "soignée.",
 }
 
 ETAPES = [
     ("Vous appelez, Julien décroche",
-     "Pas un standard, pas un centre d'appels&nbsp;: l'électricien lui-même. "
-     "Il vous demande ce qui se passe et ce que vous voyez."),
-    ("On vous annonce un délai et un prix",
-     "Avant de raccrocher. Pas de déplacement surprise, pas de tarif "
-     "découvert sur le pas de la porte."),
-    ("On intervient et on sécurise",
-     "Mise en sécurité immédiate, puis réparation. Vous validez le devis "
-     "avant tout travail qui dépasse le dépannage."),
+     "Il vous demande ce qui se passe. Deux minutes suffisent."),
+    ("Délai et prix annoncés",
+     "Avant de raccrocher. Aucune surprise à l'arrivée."),
+    ("On sécurise, puis on répare",
+     "Mise en sécurité immédiate&nbsp;; votre accord avant tout travail "
+     "qui dépasse le dépannage."),
 ]
 
-# Aucun prix n'est affiché sur ces pages : le tarif se donne au téléphone,
-# une fois la situation connue. Un chiffre posé sur une page payante est lu
-# comme un engagement, et il se retourne contre nous dès que l'intervention
-# est plus lourde que prévu. Ce bloc le remplace : il tient la promesse de
-# transparence — ce qui convertit — sans avancer de montant.
-ENGAGEMENTS = [
-    ("Le prix avant le déplacement",
-     "Vous connaissez le tarif applicable avant que nous prenions la route. "
-     "Rien ne se découvre sur le pas de la porte."),
-    ("Devis gratuit et sans engagement",
-     "Le devis ne vous coûte rien et ne vous oblige à rien. Vous pouvez dire "
-     "non après l'avoir lu."),
-    ("Aucun travail sans votre accord",
-     "Au-delà du dépannage, rien n'est engagé tant que vous n'avez pas "
-     "validé. Pas de supplément décidé sans vous."),
-    ("La majoration annoncée, jamais subie",
-     "Soirée, samedi&nbsp;: la majoration éventuelle vous est dite au "
-     "téléphone, pas découverte sur la facture."),
-    ("Si on ne peut rien faire, on le dit",
-     "Nous ne facturons pas une réparation inutile. Quand le problème relève "
-     "d'un autre métier ou du réseau public, nous vous l'indiquons."),
-    ("Un compte rendu écrit",
-     "Ce qui a été constaté, ce qui a été fait, ce qui reste à faire. "
-     "Exploitable pour une assurance, un bailleur ou un syndic."),
-]
+# Le bloc « Pourquoi choisir ETS-BZH ? » a été retiré de la page : ses six
+# promesses répétaient celles de GARANTIES, affichées bien plus haut et en
+# liste de coches. Sur une page de conversion, un argument lu deux fois ne
+# convainc pas deux fois — il allonge.
 
-# FAQ : l'étape où se gagne ou se perd l'appel. Un visiteur venu d'une
-# annonce n'a aucune raison de faire confiance ; chaque question lève une
-# objection précise, dans l'ordre où elle se pose — d'abord le délai, puis le
-# prix, puis le risque, puis le passage à l'acte.
+# FAQ : cinq questions, pas dix. Un visiteur venu d'une annonce d'urgence ne
+# lit pas une page, il la balaie en cherchant de quoi décrocher son
+# téléphone. Chaque réponse tient en une ou deux phrases et lève une
+# objection précise, dans l'ordre où elle se pose : quand, combien, que
+# faire tout de suite, êtes-vous couverts, venez-vous chez moi.
 #
-# Trois règles de rédaction :
-#   · aucun montant (voir ENGAGEMENTS) ;
-#   · on répond vraiment, y compris quand la réponse n'arrange pas — « oui,
-#     le diagnostic est facturé s'il n'est suivi de rien » rassure davantage
-#     qu'un « c'est gratuit » que personne ne croit ;
-#   · {nom} et {art} sont remplacés par le département de la page.
-#
-# La première est ouverte par défaut : sur mobile, un accordéon entièrement
-# fermé se lit comme une page vide.
+# Deux règles : aucun montant, et on répond vraiment — y compris pour dire
+# d'appeler le 18 plutôt que nous. {deptnum} est remplacé par le numéro du
+# département de la page.
 FAQ = [
-    ("Sous combien de temps pouvez-vous être là&nbsp;?",
-     "Nous visons <strong>une intervention sous deux heures</strong>, et le "
-     "créneau exact vous est confirmé au téléphone, en fonction de votre "
-     "adresse et de l'heure qu'il est&nbsp;: une commune de l'intérieur n'est "
-     "pas le centre-ville. Nous préférons un délai tenu à une promesse "
-     "large — si nous ne pouvons pas être là dans ce délai, nous le disons "
-     "tout de suite plutôt que de vous faire attendre pour rien. En urgence "
-     "avérée — odeur de brûlé, installation mouillée, logement sans courant "
-     "avec une personne âgée ou un nourrisson — vous passez en priorité."),
+    ("Vous arrivez quand&nbsp;?",
+     "Objectif&nbsp;: <strong>sur place sous deux heures</strong>. Le créneau "
+     "exact vous est confirmé au téléphone, selon votre adresse et l'heure. "
+     "Odeur de brûlé, installation mouillée, logement sans courant avec une "
+     "personne âgée ou un nourrisson&nbsp;: vous passez en priorité."),
 
     ("Combien ça va me coûter&nbsp;?",
-     "Le prix dépend de ce qu'il y a à faire, et personne ne peut le deviner "
-     "avant de savoir. Ce que nous garantissons, c'est que vous le connaîtrez "
-     "<strong>avant que nous prenions la route</strong>, et non sur le pas de "
-     "la porte. Décrivez-nous la situation au téléphone&nbsp;: nous vous "
-     "annonçons le tarif applicable, la majoration éventuelle, et vous "
-     "décidez à ce moment-là. Au-delà du dépannage, rien n'est engagé sans un "
-     "devis que vous avez validé."),
+     "Vous connaissez le tarif <strong>avant que nous prenions la "
+     "route</strong>, jamais sur le pas de la porte. Devis gratuit, et rien "
+     "n'est engagé sans votre accord."),
 
-    ("Le déplacement est-il payant&nbsp;?",
-     "Soyons clairs plutôt qu'agréables&nbsp;: le diagnostic est facturé s'il "
-     "n'est suivi d'aucune intervention. Dès que nous réparons, il est "
-     "intégré. Le montant vous est annoncé avant notre départ, jamais "
-     "découvert à l'arrivée. Et si le problème ne relève pas de nous — une "
-     "coupure sur le réseau public, par exemple — nous vous le disons au "
-     "téléphone et nous ne nous déplaçons pas."),
-
-    ("Quels sont vos horaires&nbsp;? Intervenez-vous le soir et le samedi&nbsp;?",
-     "Nous intervenons <strong>du lundi au samedi, de 7h à 22h</strong>, "
-     "samedi compris et jusqu'à 22h en semaine. C'est une amplitude large, "
-     "faite pour les pannes qui arrivent après le travail ou le week-end, "
-     "mais ce n'est pas du 24h/24&nbsp;: nous préférons annoncer des horaires "
-     "que nous tenons plutôt qu'une astreinte permanente que personne "
-     "n'assure vraiment. En dehors de ces heures, laissez un message ou "
-     "remplissez le formulaire&nbsp;: vous êtes rappelé à la première heure. "
-     "La majoration applicable aux soirées et au samedi vous est annoncée au "
-     "téléphone, avant le déplacement. <strong>Si le danger est "
-     "immédiat</strong> — fumée, départ de feu, personne en contact avec "
-     "l'installation —, c'est le 18 ou le 112 qu'il faut appeler, pas un "
-     "électricien."),
+    ("Que faire en attendant&nbsp;?",
+     "<strong>Odeur de brûlé, prise qui chauffe&nbsp;:</strong> coupez ce "
+     "circuit au tableau et n'y touchez plus. <strong>Disjoncteur qui "
+     "retombe&nbsp;:</strong> ne le réarmez pas en boucle, débranchez les "
+     "appareils un par un. <strong>Installation mouillée&nbsp;:</strong> ne "
+     "remettez rien sous tension. <strong>Fumée ou départ de feu&nbsp;:</strong> "
+     "appelez le 18, pas un électricien."),
 
     ("Êtes-vous assurés&nbsp;?",
-     "Oui&nbsp;: responsabilité civile professionnelle et garantie décennale "
-     "pour les travaux qui l'exigent. Vous pouvez demander les attestations "
-     "avant l'intervention, nous les transmettons sans discuter. C'est la "
-     "question qu'il faut poser à tout artisan qui se présente chez vous, et "
-     "un professionnel sérieux n'est jamais gêné d'y répondre."),
+     "Responsabilité civile professionnelle et garantie décennale. "
+     "Attestations transmises sur simple demande, avant l'intervention."),
 
-    ("Intervenez-vous vraiment dans ma commune&nbsp;?",
-     "Nous couvrons l'intégralité du département{deptnum}, communes rurales "
-     "comprises — pas seulement les grandes villes. Le bloc plus haut détaille "
-     "une quarantaine de communes, mais la liste n'est pas limitative. "
-     "Appelez-nous&nbsp;: "
-     "nous vous annonçons le délai réel chez vous, qui n'est évidemment pas le "
-     "même partout."),
-
-    ("Que dois-je faire en attendant votre arrivée&nbsp;?",
-     "<strong>Odeur de brûlé, prise ou interrupteur qui chauffe&nbsp;:</strong> "
-     "coupez ce circuit au tableau et n'y touchez plus — c'est la seule "
-     "situation où il faut agir avant notre arrivée. "
-     "<strong>Disjoncteur qui retombe&nbsp;:</strong> ne le réarmez pas en "
-     "boucle, il protège quelque chose&nbsp;; débranchez plutôt les appareils "
-     "un par un. <strong>Installation mouillée&nbsp;:</strong> ne remettez "
-     "rien sous tension, même si tout semble sec. Et dans tous les cas, "
-     "n'ouvrez aucun capot plombé&nbsp;: la partie amont reste sous tension "
-     "disjoncteur abaissé."),
-
-    ("Et si vous ne pouvez pas tout réparer aujourd'hui&nbsp;?",
-     "Nous remettons d'abord l'installation en sécurité et nous rétablissons "
-     "ce qui peut l'être — il est rare qu'on reparte en laissant un logement "
-     "entièrement sans courant. S'il faut une pièce ou un second passage, nous "
-     "le disons sur place, avec un devis et une date. Nous ne facturons pas "
-     "une réparation inutile pour justifier le déplacement."),
-
-    ("Puis-je avoir un devis avant de m'engager&nbsp;?",
-     "Oui, gratuit et sans engagement. En urgence, nous mettons d'abord en "
-     "sécurité — cela ne se discute pas quand il y a un risque — puis nous "
-     "chiffrons la suite avant de l'engager. Pour un chantier programmé, le "
-     "devis est établi après un relevé sur place, poste par poste, pour que "
-     "vous puissiez le comparer."),
-
-    ("Vous intervenez pour les professionnels, les bailleurs et les syndics&nbsp;?",
-     "Oui&nbsp;: commerces, locaux professionnels, parc locatif et parties "
-     "communes de copropriété. Nous fournissons un devis avant travaux, une "
-     "facturation au gestionnaire quand c'est convenu, et un compte rendu "
-     "écrit avec photos — exploitable pour un dossier d'assurance, un locataire "
-     "ou une assemblée générale."),
+    ("Vous venez dans ma commune&nbsp;?",
+     "Tout le département{deptnum}, communes rurales comprises. "
+     "Appelez&nbsp;: on vous dit le délai réel chez vous en trente secondes."),
 ]
 
 # Les garanties, en tête de page. Chaque ligne lève une objection précise et
@@ -384,13 +298,7 @@ SERVICES = [
 DEPTS = {
  "22": {
   "contexte":
-    "Les Côtes-d'Armor cumulent deux parcs très différents&nbsp;: les "
-    "agglomérations de Saint-Brieuc et Lannion, où nous intervenons surtout "
-    "sur des tableaux saturés et des circuits surchargés, et un arrière-pays "
-    "rural où les installations d'origine — tableaux à fusibles, absence de "
-    "différentiel 30&nbsp;mA, terre défaillante — sont encore nombreuses. "
-    "S'y ajoute l'exposition de la côte&nbsp;: après chaque coup de vent, les "
-    "appels de coupure et de surtension arrivent par vagues.",
+    "Deux parcs très différents&nbsp;: les agglomérations de Saint-Brieuc et Lannion, où les tableaux saturent, et un arrière-pays où les installations d'origine sont encore nombreuses. Après chaque coup de vent, les appels de coupure arrivent par vagues.",
   "villes": [
     ("Saint-Brieuc", "Intervention rapide sur toute l'agglomération, du matin à la soirée."),
     ("Lannion", "Secteur couvert six jours sur sept, zone technologique comprise."),
@@ -408,13 +316,7 @@ DEPTS = {
  },
  "29": {
   "contexte":
-    "Le Finistère est le département où nous recevons le plus d'appels liés "
-    "à la météo&nbsp;: surtensions après orage, installations mouillées après "
-    "une tempête, coupures en série sur la côte. L'autre moitié de notre "
-    "activité tient au bâti&nbsp;: les centres anciens de Brest, Quimper et "
-    "Morlaix comptent beaucoup d'installations posées par strates "
-    "successives, sans repérage et souvent sans terre sur une partie des "
-    "circuits.",
+    "C'est le département où la météo fait le plus d'appels&nbsp;: surtensions après orage, installations mouillées, coupures en série sur la côte. Le reste vient du bâti ancien de Brest, Quimper et Morlaix, posé par strates et souvent sans terre.",
   "villes": [
     ("Brest", "Couverture de toute la métropole, du lundi au samedi."),
     ("Quimper", "Centre ancien et périphérie&nbsp;: interventions quotidiennes."),
@@ -432,13 +334,7 @@ DEPTS = {
  },
  "35": {
   "contexte":
-    "L'Ille-et-Vilaine est le département du collectif et du locatif. Une "
-    "grande partie de nos appels vient d'appartements, de petites surfaces "
-    "louées et de parties communes&nbsp;: cages d'escalier éteintes, "
-    "différentiels qui ne tiennent plus en cave, tableaux de palier sans "
-    "repérage. Nous travaillons autant pour des particuliers que pour des "
-    "bailleurs, des agences de gestion et des syndics, avec un compte rendu "
-    "écrit à chaque passage.",
+    'Le département du collectif et du locatif&nbsp;: appartements, petites surfaces louées, parties communes, tableaux de palier sans repérage. Autant de particuliers que de bailleurs et de syndics, avec un compte rendu écrit à chaque passage.',
   "villes": [
     ("Rennes", "Le plus gros volume d'interventions&nbsp;: toute la ville, six jours sur sept."),
     ("Saint-Malo", "Bâti ancien et meublés&nbsp;: circuits sans terre et parc locatif."),
@@ -456,13 +352,7 @@ DEPTS = {
  },
  "56": {
   "contexte":
-    "Dans le Morbihan, deux réalités se superposent. Sur le littoral — "
-    "Quiberon, Rhuys, Belle-Île, Guidel — l'air marin dégrade tout ce qui est "
-    "extérieur&nbsp;: coffrets, hublots, commandes de portail, boîtes de "
-    "dérivation. Les différentiels finissent par ne plus tenir, souvent au "
-    "retour d'une absence. À l'intérieur, autour de Pontivy et Locminé, ce "
-    "sont les installations rurales anciennes et les manques de puissance qui "
-    "dominent.",
+    "Sur le littoral — Quiberon, Rhuys, Guidel — l'air marin dégrade tout ce qui est extérieur, et les différentiels finissent par ne plus tenir. À l'intérieur, autour de Pontivy, ce sont les installations rurales anciennes et les manques de puissance.",
   "villes": [
     ("Vannes", "Couverture de toute l'agglomération, du lundi au samedi."),
     ("Lorient", "Zone urbaine dense&nbsp;: colonnes anciennes et parties communes."),

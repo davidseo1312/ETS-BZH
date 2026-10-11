@@ -2585,8 +2585,11 @@ def page_ads(dept, ville=None):
     coche = picto("check", 17)
 
     # ---- barre latérale : ce qu'on traite, l'appel, le rappel, l'assurance
-    side_srv = "".join('<li>%s<a href="#services">%s</a></li>' % (coche, t)
-                       for t, _ in ADS.URGENCES)
+    # Chaque motif appelle directement : le visiteur arrive avec un symptôme
+    # en tête, c'est lui qui doit déclencher l'appel, pas un menu d'ancres.
+    side_srv = "".join(
+        '<li>%s<a href="tel:%s" data-cta="motif">%s</a></li>' % (coche, tel_lien, t)
+        for t, _ in ADS.URGENCES)
     logos = "".join(
         '<img class="confiance__logo" src="/assets/img/%s" alt="%s" '
         'style="--h:%dpx;--dy:%s" width="%d" height="%d" loading="lazy">'
@@ -2606,10 +2609,6 @@ def page_ads(dept, ville=None):
          loading="lazy" decoding="async">
   </div>
 </div>"""
-
-    pourquoi = "".join(
-        "<li>%s<span><strong>%s.</strong> %s</span></li>" % (coche, t, p)
-        for t, p in ADS.ENGAGEMENTS)
 
     etapes = "".join(
         '<li><span class="lp-etape__n">%d</span><span><strong>%s.</strong> %s</span></li>'
@@ -2727,7 +2726,7 @@ def page_ads(dept, ville=None):
     </div>
 
     <div class="lp-card">
-      <h2>Nos interventions {au_lieu}</h2>
+      <h2>Appelez pour&nbsp;:</h2>
       <ul class="lp-side__srv">{side_srv}</ul>
     </div>
 
@@ -2749,8 +2748,7 @@ def page_ads(dept, ville=None):
     <blockquote class="lp-cite">
       <p><strong>Besoin d'un électricien {au_lieu}&nbsp;?</strong> Appelez le
         <a href="tel:{tel_lien}" data-cta="citation">{tel}</a>&nbsp;:
-        <strong>c'est Julien, l'électricien, qui décroche</strong> — pas un
-        standard. Diagnostic au téléphone, puis intervention.</p>
+        <strong>c'est Julien qui décroche</strong>, pas un standard.</p>
     </blockquote>
 
     <figure class="lp-img">
@@ -2759,13 +2757,7 @@ def page_ads(dept, ville=None):
            loading="lazy" decoding="async">
     </figure>
 
-    <h2>Votre électricien {au_lieu}</h2>
     <p>{contexte}</p>
-    <p>Nous intervenons <strong>du lundi au samedi, de 7h à 22h</strong>&nbsp;:
-      les soirées de semaine et le samedi sont couverts, parce que c'est
-      justement là que les pannes se découvrent. Le délai et le tarif vous
-      sont annoncés au téléphone, <strong>avant tout déplacement</strong>&nbsp;:
-      rien ne se découvre sur le pas de la porte.</p>
 
     <div class="lp-julien">
       <div class="lp-julien__photo">
@@ -2787,11 +2779,6 @@ def page_ads(dept, ville=None):
 
     <h2 id="services">Nos services d'électricité {au_lieu}</h2>
     {services}
-
-    <h2>Pourquoi choisir ETS-BZH&nbsp;?</h2>
-    <ul class="lp-check lp-check--2">{pourquoi}</ul>
-    <div class="lp-cta">{tel_btn % "apres-pourquoi"}
-      <span>Julien décroche, vous parlez directement à l'électricien.</span></div>
 
     <h2>Comment ça se passe</h2>
     <ol class="lp-etapes">{etapes}</ol>
@@ -2817,16 +2804,7 @@ def page_ads(dept, ville=None):
     <h2 id="faq">FAQ — Électricien {lieu}</h2>
     <div class="lp-faq">{faq}</div>
 
-    <h2>Tarifs électricien {au_lieu}</h2>
-    <div class="lp-tarif">
-      <p><strong>Nous n'affichons pas de prix sur cette page.</strong> Un tarif
-        juste se donne une fois la situation connue, pas avant. Décrivez-nous
-        le problème au téléphone&nbsp;: nous vous annonçons le montant
-        applicable et la majoration éventuelle <strong>avant de prendre la
-        route</strong>. Le devis est gratuit, sans engagement, et rien n'est
-        engagé sans votre accord.</p>
-      <div class="lp-cta">{tel_btn % "tarifs"}</div>
-    </div>
+    <div class="lp-cta lp-cta--centre">{tel_btn % "apres-faq"}</div>
   </div>
 </main>
 
@@ -2838,9 +2816,8 @@ def page_ads(dept, ville=None):
       notamment&nbsp;:</p>
     <ul class="lp-zones__liste">{zones}</ul>
     <p class="lp-zones__pied">Votre commune n'est pas citée&nbsp;? Elle est
-      couverte. Le délai est toujours annoncé au téléphone avant le
-      déplacement&nbsp;: <a href="tel:{tel_lien}" data-cta="zones">appelez le
-      {tel}</a> pour connaître le nôtre chez vous.</p>
+      couverte&nbsp;: <a href="tel:{tel_lien}" data-cta="zones">appelez le
+      {tel}</a>.</p>
   </div>
 </section>
 
