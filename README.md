@@ -511,42 +511,49 @@ justifie, il faut étoffer les notes locales commune par commune&nbsp;; c'est
 le seul endroit où du contenu réellement différent peut entrer sans
 inventer.
 
-### Le blason, propre aux pages Ads
+### Le logo
 
-Ces pages ne portent plus l'emblème rond du site mais le **blason fourni par
-le client**&nbsp;: écu breton — hermines et bandes — traversé d'un éclair,
-couronne crénelée, couronne de laurier, banderole «&nbsp;ETS-BZH&nbsp;» et
-mention «&nbsp;Électricité générale&nbsp;». Le site public garde le sien, et
-`grep -rl "logo-ads\|favicon-ads"` ne renvoie que les 172 pages payantes.
+Le mot-symbole **ETS-BZH**, dont l'éclair doré tient lieu de Z, avec
+«&nbsp;Électricité générale&nbsp;» en seconde ligne. Il remplace partout
+l'ancien emblème rond — **sur le site public comme sur les 172 pages
+payantes**.
 
-Ses couleurs sont celles de ces pages&nbsp;: marine `#0f2a48`, or `#e3a72e`,
-crème `#f5efe8`. C'est ce qui permet de le poser sans l'encadrer de blanc —
-il n'a pas l'air rapporté.
+Ses couleurs sont déjà celles du site&nbsp;: marine `#0f2a48`, or `#e3a72e`,
+gris `#5b6979`. Rien à réaccorder.
 
-**Trois fichiers dérivés d'une seule image**, pour trois usages qui n'ont pas
-les mêmes contraintes (`assets/img/`)&nbsp;:
+**Quatre fichiers dérivés d'une seule image** (`assets/img/`)&nbsp;:
 
 | Fichier | Contenu | Emploi |
 | --- | --- | --- |
-| `logo-ads-embleme.png` | couronne + écu, **sans la banderole** | en-tête collant, 52&nbsp;px de haut |
-| `logo-ads.png` | le blason complet | carte d'appel de la barre latérale, 160&nbsp;px |
-| `favicon-ads.png` | l'écu seul, recadré carré | onglet du navigateur et icône iOS |
+| `logo-mot.png` | «&nbsp;ETS-BZH&nbsp;» seul | en-têtes du site (34&nbsp;px) et des pages Ads (31&nbsp;px) |
+| `logo-complet-blanc.png` | version inversée, avec la seconde ligne | carte d'appel des pages Ads, sur fond bleu |
+| `favicon-ets.png` | l'éclair doré sur carré marine | onglet et icône iOS, partout |
+| `logo.jpg` | le mot-symbole centré sur blanc, 1200×630 | `og:image` et JSON-LD |
 
-La banderole est retirée de l'emblème d'en-tête&nbsp;: le nom
-«&nbsp;ETS-BZH&nbsp;» est écrit en toutes lettres juste à côté, et à
-52&nbsp;px de haut la banderole ne serait de toute façon qu'une tache.
+**La version inversée n'est pas une astuce de rendu**&nbsp;: le fichier est
+régénéré pixel par pixel — le marine passe au blanc, le gris de la seconde
+ligne à `#c6d8e5`, l'éclair ne bouge pas. Sur le bleu de la carte d'appel,
+cela donne **8,49:1** pour le nom et **5,80:1** pour la seconde ligne. C'est
+ce qui permet de supprimer la plaque claire que portait l'ancien emblème&nbsp;:
+le logo se pose directement sur le fond, sans interrompre la carte juste
+avant le numéro.
 
-**Le bandeau ivoire de la carte d'appel.** Le blason est marine sur fond
-transparent&nbsp;; posé à même le bleu `--nuit` de la carte, il s'y noierait
-(`#0f2a48` contre `#14507d`&nbsp;: 1,71:1). Un bandeau `--ivoire` pleine
-largeur lui rend le fond clair pour lequel il a été dessiné — c'est d'ailleurs
-la crème de l'écu qu'on retrouve — et un filet jaune le raccroche au reste.
-Les marges négatives le font aller d'un bord à l'autre de la carte&nbsp;:
-centré avec du bleu autour, il flotterait.
+**Le favicon est l'éclair, pas le nom.** Un mot-symbole de rapport 6:1 ne se
+recadre pas en carré&nbsp;: à 32&nbsp;px, «&nbsp;ETS-BZH&nbsp;» serait une
+tache grise. L'éclair seul, doré sur marine, reste lisible et reconnaissable.
 
-**L'onglet aussi.** `favicon-ads.png` et `theme-color: #14507d` ne valent que
-pour ces pages&nbsp;: l'onglet montre l'écu, et la barre du navigateur sur
-téléphone prend le bleu de la barre de contact.
+**La baseline a quitté l'en-tête du site.** Le mot-symbole fait 208&nbsp;px
+de large à lui seul&nbsp;; avec la baseline en `nowrap` à côté, le verrou
+passait à 450&nbsp;px et chevauchait la navigation — c'est ce que la capture
+de contrôle a montré. Elle n'apparaissait de toute façon qu'au-delà de
+1540&nbsp;px, et la page annonce ses quatre métiers dès son titre.
+
+⚠ **Le logo dit «&nbsp;Électricité générale&nbsp;», le site vend quatre
+métiers** (plomberie, dégorgement, électricité, canalisations). Sur les pages
+payantes, qui ne parlent que d'électricité, la seconde ligne tombe juste. Sur
+le site public, elle n'est affichée nulle part — ni dans l'en-tête, qui ne
+porte que le mot-symbole, ni sur la carte de partage. Si une déclinaison
+«&nbsp;plomberie&nbsp;» du logo existe, c'est elle qu'il faudrait employer là.
 
 ### Palette propre aux pages Ads
 
@@ -806,29 +813,30 @@ chargée après `style.css` dont elle réutilise la palette et les composants.
 
 ## Logo
 
-Le logo officiel fourni par le client est utilisé **tel quel** — aucune
-reconstruction.
+Le mot-symbole **ETS-BZH** fourni par le client est utilisé **tel quel** —
+aucune reconstruction. Il remplace l'ancien emblème rond (trident et vague)
+sur l'ensemble du site et des pages payantes.
 
 | Fichier | Provenance | Usage |
 | --- | --- | --- |
-| `assets/img/logo-original.jpg` | Fichier source intact (1407 × 768) | Archive de référence, non chargé par les pages |
-| `assets/img/logo.jpg` | Source rognée de ses marges blanches et redimensionnée en 680 px | Image de partage (`og:image`) et `LocalBusiness` |
-| `assets/img/logo-emblem.png` | Disque découpé dans la source, fond rendu transparent | En-tête (haut à gauche) et icône Apple |
-| `assets/img/favicon.png` | Même emblème en 96 px | Favicon |
+| `assets/img/logo-mot.png` | «&nbsp;ETS-BZH&nbsp;» rogné de la source, fond transparent | En-tête de toutes les pages |
+| `assets/img/logo-complet-blanc.png` | Même source avec la seconde ligne, recolorée pour fond sombre | Carte d'appel des pages Ads |
+| `assets/img/favicon-ets.png` | L'éclair seul, doré sur carré marine | Favicon et icône iOS |
+| `assets/img/logo.jpg` | Mot-symbole centré sur blanc, 1200×630 | Image de partage (`og:image`) et JSON-LD |
+| `assets/img/logo-original.jpg` | Ancien logo, fichier source intact | Archive, non chargé par les pages |
+| `assets/img/logo-emblem.png`, `favicon.png` | Anciennes déclinaisons rondes | Plus référencées&nbsp;; conservées au cas où |
 
-Les déclinaisons sont produites par découpe, détourage circulaire et
-redimensionnement du fichier source : les pixels proviennent tous de l'original.
-Total servi aux visiteurs : 59 Ko.
+Les pixels proviennent tous de l'original. La seule transformation qui ne soit
+pas un rognage est la **version inversée**, régénérée pixel par pixel&nbsp;:
+le marine passe au blanc, le gris de la seconde ligne à `#c6d8e5`, l'éclair
+doré ne bouge pas.
 
-Le rognage ignore un liseré d'artefacts d'export présent sur le bord droit du
-fichier source (dernière colonne de pixels), qui décentrait le logo. Le contenu
-est désormais centré à 0,5 px près, et la plaque du pied de page est centrée
-exactement dans sa colonne à toutes les largeurs.
+Le détail de chaque emploi, les contrastes mesurés et la raison du favicon en
+éclair sont dans «&nbsp;Le logo&nbsp;», à la section des pages Ads.
 
-Le logo apparaît dans l'en-tête de chaque page, en haut à gauche : l'emblème
-est associé au nom « ETS-BZH » en texte HTML plutôt qu'à l'image complète, car à
-78 px de hauteur de barre le bandeau du logo descendrait sous 10 px et
-deviendrait illisible. Le pied de page ne reprend pas le logo.
+L'en-tête ne porte plus que le mot-symbole&nbsp;: le nom n'est plus répété en
+texte HTML à côté, puisque l'image l'écrit. L'attribut `alt` le reprend, avec
+les quatre métiers. Le pied de page ne reprend pas le logo.
 
 ### Arrière-plan des en-têtes
 

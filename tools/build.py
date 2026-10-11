@@ -181,8 +181,8 @@ def head(titre, description, canonical, extra_json=None, mots_cles="", extra_met
   <meta property="og:image:height" content="460">
   <meta property="og:image:alt" content="Logo ETS-BZH">
   <meta name="twitter:card" content="summary">{extra_meta}
-  <link rel="icon" href="/assets/img/favicon.png" type="image/png">
-  <link rel="apple-touch-icon" href="/assets/img/logo-emblem.png">
+  <link rel="icon" href="/assets/img/favicon-ets.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/img/favicon-ets.png">
   <link rel="preload" href="/assets/fonts/barlow-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="{CSS}">
@@ -230,12 +230,8 @@ def header(courant=""):
 <header class="header">
   <div class="container header__inner">
     <a class="logo" href="/">
-      <img class="logo__mark" src="/assets/img/logo-emblem.png" width="52" height="52"
-           alt="Logo ETS-BZH, plomberie, dégorgement, électricité et canalisations en Bretagne">
-      <span class="logo__txt">
-        <span class="logo__name">ETS-BZH</span>
-        <span class="logo__tag">{SITE['baseline_courte']}</span>
-      </span>
+      <img class="logo__mark" src="/assets/img/logo-mot.png" width="208" height="34"
+           alt="ETS-BZH, plomberie, dégorgement, électricité et canalisations en Bretagne">
     </a>
 
     <nav class="nav" id="nav-principal" aria-label="Navigation principale">
@@ -2462,8 +2458,8 @@ def head_ads(titre, description, dept):
   <meta name="robots" content="noindex, nofollow">
   <meta name="theme-color" content="#14507d">
   <meta name="format-detection" content="telephone=yes">
-  <link rel="icon" href="/assets/img/favicon-ads.png" type="image/png">
-  <link rel="apple-touch-icon" href="/assets/img/favicon-ads.png">
+  <link rel="icon" href="/assets/img/favicon-ets.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/img/favicon-ets.png">
   <link rel="preload" href="/assets/fonts/barlow-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="{CSS}">
@@ -2677,8 +2673,9 @@ def page_ads(dept, ville=None):
 <header class="lp-head">
   <div class="container lp-head__in">
     <a class="lp-logo" href="#haut">
-      <img src="/assets/img/logo-ads-embleme.png" alt="" width="34" height="52">
-      <span>ETS-BZH<small>Électricien · {situe}</small></span></a>
+      <img src="/assets/img/logo-mot.png"
+           alt="ETS-BZH, électricité générale" width="190" height="31">
+      <small>Électricien · {situe}</small></a>
     <nav class="lp-nav" aria-label="Sections de la page">
       <a href="#services">Nos services</a>
       <a href="#avis">Avis</a>
@@ -2720,10 +2717,8 @@ def page_ads(dept, ville=None):
 
   <aside class="lp-side">
     <div class="lp-card lp-urg">
-      <div class="lp-urg__blason">
-        <img src="/assets/img/logo-ads.png"
-             alt="ETS-BZH — électricité générale" width="125" height="160">
-      </div>
+      <img class="lp-urg__logo" src="/assets/img/logo-complet-blanc.png"
+           alt="ETS-BZH — électricité générale" width="212" height="53">
       <p class="lp-urg__t">URGENCE {au_lieu}&nbsp;?</p>
       <p class="lp-urg__s">Julien vous répond en personne</p>
       {tel_btn % "side"}

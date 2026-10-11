@@ -81,14 +81,14 @@ body { background: #fff; }
 .lp-head__in {
   display: flex; align-items: center; gap: 18px; min-height: 76px; padding: 10px 0;
 }
-.lp-logo { display: flex; align-items: center; gap: 11px; text-decoration: none;
-           color: var(--nuit); }
-.lp-logo img { display: block; width: auto; height: 52px; }
-.lp-logo span { font-family: "Barlow Condensed", "Barlow", sans-serif;
-                font-size: 1.5rem; font-weight: 700; line-height: 1; letter-spacing: .02em; }
+/* Le mot-symbole écrit déjà le nom : la commune se range dessous, en
+   second temps, plutôt qu'à côté d'un « ETS-BZH » qui ferait doublon. */
+.lp-logo { display: flex; flex-direction: column; align-items: flex-start; gap: 5px;
+           text-decoration: none; color: var(--nuit); }
+.lp-logo img { display: block; width: auto; height: 31px; }
 .lp-logo small { display: block; font-family: "Barlow", sans-serif;
                  font-size: .76rem; font-weight: 600; letter-spacing: .05em;
-                 text-transform: uppercase; color: var(--gris); margin-top: 4px; }
+                 text-transform: uppercase; color: var(--gris); }
 .lp-nav { margin-left: auto; display: flex; gap: 24px; }
 .lp-nav a { color: var(--nuit); text-decoration: none; font-weight: 700; font-size: 1rem; }
 .lp-nav a:hover { color: var(--bleu); text-decoration: underline;
@@ -222,16 +222,12 @@ body { background: #fff; }
 .lp-side__srv li:hover { background: var(--jaune-pale); border-color: var(--jaune); }
 
 .lp-urg { background: var(--nuit); border-color: var(--nuit); text-align: center;
-          padding: 0 22px 24px; }
-/* Le blason est marine sur fond transparent : posé à même le bleu de la
-   carte, il s'y noierait. Le bandeau ivoire lui rend le fond clair pour
-   lequel il a été dessiné, et fait plaque — c'est d'ailleurs la crème de
-   l'écu lui-même qu'on retrouve. Marges négatives : il va d'un bord à
-   l'autre de la carte, sinon il flotte. */
-.lp-urg__blason { background: var(--ivoire); margin: 0 -22px 18px;
-                  padding: 14px 12px 12px;
-                  border-bottom: 3px solid var(--jaune); }
-.lp-urg__blason img { display: block; margin: 0 auto; height: auto; }
+          padding: 24px 22px; }
+/* Version inversée du mot-symbole : blanc et or sur le bleu de la carte.
+   Plus de plaque claire — le logo se pose directement sur le fond, ce qui
+   évite d'interrompre la carte juste avant le numéro. */
+.lp-urg__logo { display: block; width: min(212px, 100%); height: auto;
+                margin: 0 auto 16px; }
 /* .lp-card p (0,2,0) l'emporterait sur .lp-urg__t (0,1,0) : les trois lignes
    de la carte passeraient en gris sur fond bleu nuit. On scope sur la carte. */
 .lp-card.lp-urg .lp-urg__t {
@@ -241,6 +237,8 @@ body { background: #fff; }
 }
 .lp-card.lp-urg .lp-urg__s { color: var(--jaune); font-weight: 600;
                              font-size: .95rem; margin: 0 0 16px; }
+.lp-card.lp-urg .lp-urg__t { border-top: 2px solid rgba(255,255,255,.22);
+                             padding-top: 16px; }
 .lp-card.lp-urg .lp-urg__d { color: #c6d8e5; font-size: .86rem; margin: 14px 0 0; }
 .lp-urg__dev { display: block; margin-top: 10px; padding: 12px; min-height: 46px;
                border: 2px solid rgba(255,255,255,.65); color: #fff;
@@ -544,7 +542,7 @@ body { background: #fff; }
 @media (max-width: 520px) {
   .lp-head__in { min-height: 64px; gap: 10px; }
   .lp-logo small { display: none; }
-  .lp-logo img { height: 42px; }
+  .lp-logo img { height: 27px; }
   .lp-devis { padding: 11px 16px; font-size: .95rem; }
   .lp-top__in { font-size: .86rem; gap: 4px 14px; }
   .lp-tel { font-size: 1.4rem; }
