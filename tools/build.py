@@ -2847,9 +2847,8 @@ def page_ads(dept, ville=None):
 
 <section class="lp-final">
   <div class="container">
-    <h2>Un électricien peut partir maintenant</h2>
-    <p>Décrivez la situation à Julien en deux minutes. Créneau et tarif
-      annoncés avant de raccrocher.</p>
+    <h2>{t['final_titre'].format(au_lieu=au_lieu)}</h2>
+    <p>{t['final_texte']}</p>
     <div class="lp-cta lp-cta--centre">{tel_btn % "final"}
       <a class="lp-devis lp-devis--grand" href="#rappel">Être rappelé</a></div>
   </div>

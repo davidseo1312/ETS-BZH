@@ -404,7 +404,8 @@ modèle de fiche métier locale fourni par le client&nbsp;:
 5. **Zones d'intervention** pleine largeur&nbsp;: les quarante-deux communes
    avec leur code postal, en trois colonnes (quatre au-delà de 1100&nbsp;px),
    chacune liée à sa propre page.
-6. **CTA final**, pied léger, et barre d'appel fixe en bas sur mobile.
+6. **CTA final** — « Julien peut vous dépanner en urgence {au_lieu} », nommant l'électricien et la commune —, pied léger, et barre d'appel
+   fixe en bas sur mobile.
 
 Le menu de l'en-tête ne contient que des **ancres internes**&nbsp;: sur une
 page payante, un lien sortant est une fuite. Les seuls liens hors page sont

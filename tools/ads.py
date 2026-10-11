@@ -77,6 +77,15 @@ TECHNICIEN = {
     "hero_bouton": "Appeler Julien",
     "hero_second": "ou être rappelé",
 
+    # Le rappel du bas de page. Il nomme l'électricien et la commune : à ce
+    # stade le visiteur a tout lu, c'est la dernière occasion de lui dire
+    # qu'il appelle quelqu'un, pas une plateforme. Pas de « maintenant » —
+    # les horaires sont lundi-samedi, 7h-22h.
+    "final_titre": "Julien peut vous dépanner en urgence {au_lieu}",
+    "final_texte": "Décrivez-lui la situation en deux minutes&nbsp;: il vous "
+                   "annonce le créneau et le tarif avant que vous "
+                   "raccrochiez.",
+
     "titre": "Julien, c'est lui qui décroche",
     "badge": "Votre électricien",
     "accroche": "Quand vous appelez le {tel}, vous n'avez ni standard, ni "
