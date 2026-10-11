@@ -2087,7 +2087,7 @@ def page_cgu():
 
       <h2>Article 1 — Objet</h2>
       <p>Les présentes conditions générales d'utilisation (CGU) régissent l'accès et
-        l'utilisation du site ets-bzh.fr, édité par ETS-BZH. Toute consultation du site implique
+        l'utilisation du site etablissement-breizh.fr, édité par ETS-BZH. Toute consultation du site implique
         l'acceptation pleine et entière des présentes CGU.</p>
 
       <h2>Article 2 — Accès au site</h2>

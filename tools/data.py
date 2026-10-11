@@ -9,7 +9,7 @@ SITE = {
     "tel": "02 20 06 00 75",
     "tel_lien": "+33220060075",
     "email": "contact@etablissement-breizh.fr",
-    "url": "https://www.ets-bzh.fr",
+    "url": "https://www.etablissement-breizh.fr",
     # Point d'arrivée des formulaires. Tant qu'il est vide, les demandes
     # basculent sur un « mailto: » que le visiteur doit envoyer lui-même —
     # autant dire qu'elles sont perdues. Le script formulaire.php, à la racine

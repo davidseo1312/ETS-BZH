@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.ets-bzh.fr/sitemap.xml
+Sitemap: https://www.etablissement-breizh.fr/sitemap.xml

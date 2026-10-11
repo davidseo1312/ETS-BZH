@@ -1248,8 +1248,10 @@ dans les champs.
       vérifiez qu'elle arrive bien dans la boîte `contact@etablissement-breizh.fr`
       (voir « Réception des formulaires »). Tant que cet essai n'est pas fait,
       considérez que les demandes se perdent
-- [ ] **Domaine** — `SITE["url"]` vaut encore `https://www.ets-bzh.fr` alors que
-      l'e-mail est passé à `@etablissement-breizh.fr`. Si le site doit être publié
-      sur `etablissement-breizh.fr`, changez aussi cette valeur dans
-      `tools/data.py` : elle alimente les URLs canoniques, le sitemap et le
-      JSON-LD
+- [ ] **Sous-domaine `www`** — `SITE["url"]` vaut
+      `https://www.etablissement-breizh.fr`. Le `www.` est repris de la
+      configuration précédente&nbsp;: si le site est servi sur le domaine nu
+      (`etablissement-breizh.fr`), il faut retirer le préfixe dans
+      `tools/data.py`, sinon chaque URL canonique désigne une adresse qui
+      redirige. Dans les deux cas, une redirection permanente d'une forme vers
+      l'autre est indispensable
