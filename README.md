@@ -573,10 +573,28 @@ Le partage des rôles est strict, et c'est lui qui fait la lisibilité&nbsp;:
 | --- | --- |
 | **Bleu** `#14507d` / `#10395c` | structure et sérieux&nbsp;: en-têtes, bandeaux, titres, texte, bouton de formulaire |
 | **Bleu ciel** `#e7f3fb` | fonds de section clairs qui portent du texte foncé&nbsp;: chiffres clés, respirations |
-| **Jaune** `#ffc400` | l'action, et elle seule&nbsp;: boutons d'appel, œils d'accroche, chiffres clés, sceau |
+| **Vert** `#1f7a4d` | **l'action, et elle seule**&nbsp;: tous les boutons d'appel, le bouton «&nbsp;Vérifier&nbsp;», la barre d'appel mobile |
+| **Jaune** `#ffc400` | l'accent, en traits fins&nbsp;: éclair du logo, filets de titre, pastilles «&nbsp;?&nbsp;», sceau, étiquettes |
 
-Tout ce qui est jaune se clique ou désigne ce qu'il faut cliquer. Du jaune
-partout ne ferait plus rien ressortir.
+Une couleur, un rôle&nbsp;: le vert se clique, le bleu structure, le jaune
+souligne. Du jaune partout ne faisait plus rien ressortir.
+
+**Pourquoi l'action a quitté le jaune.** Depuis que le bandeau est blanc, un
+bouton `#ffc400` posé dessus a un **pourtour à 1,60:1**&nbsp;: sa forme même
+se devine à peine, alors que le seuil des éléments d'interface est 3:1. Le
+texte à l'intérieur était lisible, le bouton ne l'était pas. Le vert tient
+**5,32:1** pour le texte blanc **et** pour son pourtour sur blanc — et c'est
+déjà celui des coches de garantie&nbsp;: une seule couleur dit «&nbsp;ça
+marche&nbsp;» et «&nbsp;cliquez ici&nbsp;».
+
+**Sur fond sombre, un liseré blanc.** Le vert et le bleu nuit se tiennent à
+1,60:1&nbsp;: dans la carte d'appel, le bloc Julien et le dernier appel, le
+bouton se fondrait. Le liseré lui rend son pourtour (8,49:1) sans changer sa
+couleur, donc sans casser la règle.
+
+**Les numéros de service et d'étape** allaient bleu → bleu clair → jaune&nbsp;:
+la progression changeait de teinte en route. Troisième marche en
+`--bleu-pas-3` (#2b76ac, 4,90:1), la série se lit comme une série.
 
 **Le jaune ne reçoit jamais de texte blanc**&nbsp;: `#ffc400` sous du blanc
 tombe à 1,9:1, illisible. Il porte toujours le bleu nuit (9,8:1), d'où la
@@ -636,6 +654,46 @@ Le script s'exécute avant `main.js` (il est en ligne, `main.js` est
 latérale, la rétrécir le redescend — vérifié dans les deux sens sans
 rechargement. Sans JavaScript il reste dans la colonne, ce qui ne coûte
 rien&nbsp;: sans JavaScript il ne s'envoie pas non plus.
+
+### Douze communes affichées, quarante-deux couvertes
+
+Le bloc «&nbsp;Zones d'intervention&nbsp;» en listait quarante-deux. Sur une
+page de conversion, une liste de quarante-deux noms se fait défiler sans se
+lire&nbsp;: douze suffisent à prouver la couverture, et la phrase sous la
+liste dit que les autres le sont aussi.
+
+**Les trente autres gardent leur page.** Ce sont des destinations
+d'annonces&nbsp;: elles existent, elles sont servies, et le widget
+«&nbsp;intervient-il chez vous&nbsp;?&nbsp;» y mène toujours. Seul
+l'affichage se limite à douze — c'est `VEDETTES` dans `tools/ads.py`, une
+liste de noms par département, à changer sans toucher au reste.
+
+**Classement par population** (INSEE, populations municipales). Quelques
+communes se tiennent à quelques centaines d'habitants&nbsp;: Guingamp,
+Paimpol et Redon sortent de peu, Langueux, Pordic et Binic-Étables entrent
+de peu. Si vous préférez des communes à fort volume de recherche plutôt que
+les plus peuplées, c'est la même liste qu'on modifie.
+
+### Les nouvelles photos
+
+Les cinq photos de la page viennent de la série fournie par le client&nbsp;;
+elles remplacent celles qu'elle empruntait à la fiche métier Électricité.
+Deux d'entre elles montrent la **veste au logo ETS-BZH**, ce qui n'était le
+cas d'aucune des anciennes — elles sont placées là où l'identification
+compte&nbsp;: la mesure au multimètre pour le bloc «&nbsp;Julien&nbsp;», la
+borne de recharge pour le service «&nbsp;Installation&nbsp;».
+
+| Emplacement | Photo |
+| --- | --- |
+| Bandeau (pleine largeur) | `ets-bzh-technicien.jpg` — devant le véhicule marqué |
+| Figure d'ouverture | `ets-bzh-boitier.jpg` — boîte de dérivation sur échelle |
+| Service 1, dépannage | `ets-bzh-prise.jpg` |
+| Service 2, tableau | `ets-bzh-tableau.jpg` |
+| Service 3, installation | `ets-bzh-borne.jpg` — veste marquée |
+| Bloc «&nbsp;Julien&nbsp;» | `ets-bzh-mesure.jpg` — veste marquée |
+
+Elles sont déclarées dans `PHOTOS` et `SERVICES` (`tools/ads.py`)&nbsp;: le
+site public garde les siennes, vérifié au build.
 
 ### La photo, et le widget « intervient-il chez vous&nbsp;? »
 

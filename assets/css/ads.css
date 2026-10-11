@@ -54,7 +54,18 @@
      le seuil des éléments d'interface. */
   --cadre: #6b97bd;
 
-  --or: #b07400;          /* étoiles : 3,9:1 sur blanc, au-dessus du seuil */
+  --or: #b07400;
+
+  /* L'ACTION. Elle était jaune ; le jaune reste pour les accents fins.
+     Un bouton #ffc400 posé sur le blanc du bandeau a un pourtour à 1,60:1 :
+     sa forme même se devine à peine, alors que le seuil des éléments
+     d'interface est 3:1. Ce vert tient 5,32:1 pour le texte blanc ET pour
+     son pourtour sur blanc, et c'est déjà celui des coches : une seule
+     couleur dit « ça marche » et « cliquez ici ». */
+  --action: #1f7a4d;
+  --action-f: #19613d;
+  --action-pale: #eaf6ef;
+  --bleu-pas-3: #2b76ac;          /* étoiles : 3,9:1 sur blanc, au-dessus du seuil */
   --ombre: 0 2px 14px rgba(20, 80, 125, .11);
 }
 
@@ -147,14 +158,14 @@ body { background: #fff; }
 }
 .lp-hero__appel {
   display: inline-flex; align-items: center; justify-content: center; gap: 12px;
-  background: var(--jaune); color: var(--sur-jaune); text-decoration: none;
+  background: var(--action); color: #fff; text-decoration: none;
   font-family: "Barlow Condensed", "Barlow", sans-serif;
   font-size: 1.6rem; font-weight: 700; letter-spacing: .02em;
   padding: 16px 34px; min-height: 70px; width: min(520px, 100%);
-  box-shadow: 0 12px 30px rgba(232, 174, 0, .32);
+  box-shadow: 0 12px 30px rgba(31, 122, 77, .30);
 }
 .lp-hero__appel:hover, .lp-hero__appel:focus-visible {
-  background: var(--jaune-f); color: var(--sur-jaune);
+  background: var(--action-f); color: #fff;
 }
 .lp-hero__appel svg { width: 24px; height: 24px; flex: none; }
 .lp-hero__sec {
@@ -201,11 +212,11 @@ body { background: #fff; }
                                   outline-offset: 2px; border-color: var(--bleu-clair); }
 .lp-verif__f button {
   min-height: 54px; padding: 13px 28px; border: none; cursor: pointer;
-  background: var(--jaune); color: var(--sur-jaune);
+  background: var(--action); color: #fff;
   font-family: "Barlow Condensed", "Barlow", sans-serif;
   font-size: 1.22rem; font-weight: 700; letter-spacing: .02em;
 }
-.lp-verif__f button:hover { background: var(--jaune-f); }
+.lp-verif__f button:hover { background: var(--action-f); }
 /* Vide, le paragraphe de réponse ne doit pas réserver de hauteur : la
    section bougerait au chargement. */
 .lp-verif__r:empty { display: none; }
@@ -280,7 +291,7 @@ body { background: #fff; }
 .lp-side__srv svg { color: var(--bleu); margin-top: 3px; }
 .lp-side__srv a { color: var(--nuit); text-decoration: none; font-weight: 600;
                   font-size: .98rem; }
-.lp-side__srv li:hover { background: var(--jaune-pale); border-color: var(--jaune); }
+.lp-side__srv li:hover { background: var(--action-pale); border-color: var(--action); }
 
 .lp-urg { background: var(--nuit); border-color: var(--nuit); text-align: center;
           padding: 24px 22px; }
@@ -308,12 +319,19 @@ body { background: #fff; }
 
 .lp-tel {
   display: flex; align-items: center; justify-content: center; gap: 10px;
-  background: var(--jaune); color: var(--sur-jaune); text-decoration: none;
+  background: var(--action); color: #fff; text-decoration: none;
   font-family: "Barlow Condensed", "Barlow", sans-serif;
   font-size: 1.62rem; font-weight: 700; letter-spacing: .02em;
   padding: 13px 22px; min-height: 60px;
 }
-.lp-tel:hover, .lp-tel:focus-visible { background: var(--jaune-f); color: var(--sur-jaune); }
+/* Sur un fond sombre — la carte d'appel, le bloc Julien, le dernier appel —
+   le vert d'action et le bleu nuit se tiennent à 1,60:1 : le bouton se
+   fondrait dans la carte. Le liseré blanc lui rend son pourtour (8,49:1)
+   sans changer sa couleur, donc sans casser la règle « vert = action ». */
+.lp-urg .lp-tel, .lp-julien .lp-tel, .lp-final .lp-tel {
+  border: 2px solid rgba(255, 255, 255, .9);
+}
+.lp-tel:hover, .lp-tel:focus-visible { background: var(--action-f); color: #fff; }
 .lp-tel svg { width: 22px; height: 22px; flex: none; }
 
 .lp-card--form { padding: 0; border: none; }
@@ -366,7 +384,11 @@ body { background: #fff; }
              color: #fff; font-family: "Barlow Condensed", "Barlow", sans-serif;
              font-size: 1.3rem; font-weight: 700; }
 .lp-srv:nth-of-type(2) .lp-srv__n { background: var(--bleu-clair); }
-.lp-srv:nth-of-type(3) .lp-srv__n { background: var(--jaune); color: var(--sur-jaune); }
+/* Troisième marche du dégradé. --bleu-ciel (#2f7fb8) tiendrait 4,33:1 :
+   assez pour un gros caractère gras (seuil 3:1), mais la pastille passe à
+   1 rem sous 860 px et retombe alors sous le seuil du texte courant.
+   --bleu-pas-3 tient 4,90:1 aux deux tailles. */
+.lp-srv:nth-of-type(3) .lp-srv__n { background: var(--bleu-pas-3); }
 .lp-srv__corps { display: grid; grid-template-columns: 1fr 230px; gap: 24px;
                  align-items: start; }
 .lp-srv__corps img { width: 100%; height: auto; display: block;
@@ -382,11 +404,16 @@ body { background: #fff; }
                font-family: "Barlow Condensed", "Barlow", sans-serif;
                font-size: 1.3rem; font-weight: 700; }
 .lp-etapes li:nth-child(2) .lp-etape__n { background: var(--bleu-clair); }
-.lp-etapes li:nth-child(3) .lp-etape__n { background: var(--jaune); color: var(--sur-jaune); }
+.lp-etapes li:nth-child(3) .lp-etape__n { background: var(--bleu-pas-3); }
 
 .lp-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px;
           margin: 22px 0 10px; }
-.lp-cta span { color: var(--gris); font-size: 1rem; }
+/* CINQUIÈME fois la même collision. « .lp-cta span » visait la légende
+   posée à côté du bouton — mais le numéro, dans le bouton, est lui aussi
+   dans un <span> : il passait en gris. Défaut antérieur au vert (gris sur
+   jaune tenait 3,0:1) que le fond vert a rendu criant. Le « > » limite la
+   règle à l'enfant direct. */
+.lp-cta > span { color: var(--gris); font-size: 1rem; }
 .lp-cta--centre { justify-content: center; }
 
 /* -------------------------------------------------------------- avis */
@@ -566,7 +593,7 @@ body { background: #fff; }
              min-height: 62px; text-decoration: none; font-weight: 700;
              font-family: "Barlow Condensed", "Barlow", sans-serif;
              font-size: 1.3rem; letter-spacing: .02em; }
-.ads-mob__tel { background: var(--jaune); color: var(--sur-jaune); }
+.ads-mob__tel { background: var(--action); color: #fff; }
 .ads-mob__form { background: #fff; color: var(--bleu); border-top: 1px solid var(--bordure); }
 .ads-mob svg { width: 20px; height: 20px; flex: none; }
 

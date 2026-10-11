@@ -2654,14 +2654,16 @@ def page_ads(dept, ville=None):
         % (q, r.replace("{deptnum}", "&nbsp;(%s)" % num))
         for q, r in ADS.FAQ)
 
-    # ---- zones d'intervention : toutes les communes, code postal à l'appui
+    # ---- zones d'intervention : les douze plus peuplées, code postal à
+    # l'appui. Les quarante-deux gardent leur page et restent accessibles par
+    # le widget ; c'est l'affichage qui se limite à douze.
     # Nom et code postal tiennent dans UNE cellule de la grille : séparés, le
     # code postal retombe à la ligne suivante.
     zones = "".join(
         '<li>%s<span><a href="%s">%s</a> '
         '<span class="lp-cp">(%s)</span></span></li>'
         % (coche, url_ads(dept, v), v, ADS.CP.get(v, num))
-        for v, _ in d["villes"])
+        for v in ADS.VEDETTES[num])
 
     garanties = "".join(
         '<li>%s<span><strong>%s</strong> %s</span></li>'
@@ -2678,7 +2680,8 @@ def page_ads(dept, ville=None):
 
     t = ADS.TECHNICIEN
     paras = "".join("<p>%s</p>" % x.format(tel=tel) for x in t["paras"])
-    pf, palt, _, _ = elec["photo_equipe"]
+    photo_ouv, photo_ouv_alt = ADS.PHOTOS["ouverture"]
+    pf, palt = ADS.PHOTOS["julien"]
 
     return (
         head_ads(titre, desc, dept) + f"""
@@ -2796,16 +2799,16 @@ def page_ads(dept, ville=None):
     </blockquote>
 
     <figure class="lp-img">
-      <img src="/assets/img/photos/{elec['photos'][0][0]}"
-           alt="Électricien ETS-BZH sur un tableau électrique {au_lieu}"
-           loading="lazy" decoding="async">
+      <img src="/assets/img/photos/{photo_ouv}" alt="{photo_ouv_alt} {au_lieu}"
+           width="1100" height="733" loading="lazy" decoding="async">
     </figure>
 
     <p>{contexte}</p>
 
     <div class="lp-julien">
       <div class="lp-julien__photo">
-        <img src="/assets/img/photos/{pf}" alt="{palt}" loading="lazy" decoding="async">
+        <img src="/assets/img/photos/{pf}" alt="{palt}"
+             width="1100" height="733" loading="lazy" decoding="async">
         <span class="lp-sceau">{t['sceau']}</span>
       </div>
       <div class="lp-julien__txt">
@@ -2860,8 +2863,8 @@ def page_ads(dept, ville=None):
       notamment&nbsp;:</p>
     <ul class="lp-zones__liste">{zones}</ul>
     <p class="lp-zones__pied">Votre commune n'est pas citée&nbsp;? Elle est
-      couverte&nbsp;: <a href="tel:{tel_lien}" data-cta="zones">appelez le
-      {tel}</a>.</p>
+      couverte quand même&nbsp;: <a href="tel:{tel_lien}" data-cta="zones">appelez
+      le {tel}</a>, ou vérifiez-la plus haut.</p>
   </div>
 </section>
 

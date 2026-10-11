@@ -209,8 +209,9 @@ FAQ = [
      "Attestations transmises sur simple demande, avant l'intervention."),
 
     ("Vous venez dans ma commune&nbsp;?",
-     "Tout le département{deptnum}, communes rurales comprises. "
-     "Appelez&nbsp;: on vous dit le délai réel chez vous en trente secondes."),
+     "Tout le département{deptnum}, communes rurales comprises — la liste "
+     "plus haut n'en cite que les douze principales. Vérifiez la vôtre en "
+     "haut de page, ou appelez&nbsp;: on vous répond en trente secondes."),
 ]
 
 # Les garanties, en tête de page. Chaque ligne lève une objection précise et
@@ -277,18 +278,28 @@ CP = {
 
 # Les trois familles d'intervention, numérotées comme sur une fiche métier.
 # (titre, photo, [points])
+# Les photos propres aux pages payantes. Elles remplacent celles que la page
+# empruntait à la fiche métier Électricité : sur deux d'entre elles la veste
+# porte le logo ETS-BZH, ce qui n'était le cas d'aucune des anciennes.
+PHOTOS = {
+    "ouverture": ("ets-bzh-boitier.jpg",
+                  "Électricien ETS-BZH reprenant une boîte de dérivation"),
+    "julien": ("ets-bzh-mesure.jpg",
+               "Julien, électricien ETS-BZH, mesure sur un tableau"),
+}
+
 SERVICES = [
-    ("Dépannage et recherche de panne", "electricite-3.jpg", [
+    ("Dépannage et recherche de panne", "ets-bzh-prise.jpg", [
         "Panne totale ou partielle, localisée circuit par circuit.",
         "Disjoncteur qui saute&nbsp;: on trouve le défaut, on ne le contourne pas.",
         "Remise en service dès le premier passage chaque fois que c'est possible.",
     ]),
-    ("Mise en sécurité et tableau électrique", "electricite-1.jpg", [
+    ("Mise en sécurité et tableau électrique", "ets-bzh-tableau.jpg", [
         "Odeur de brûlé, prise qui chauffe&nbsp;: coupure et reprise de la connexion.",
         "Remplacement de tableau, pose d'un différentiel 30&nbsp;mA.",
         "Contrôle de la prise de terre et mesure d'isolement.",
     ]),
-    ("Installation et mise aux normes", "electricite-2.jpg", [
+    ("Installation et mise aux normes", "ets-bzh-borne.jpg", [
         "Création de circuits dédiés&nbsp;: cuisine, chauffe-eau, forte puissance.",
         "Reprise d'installation ancienne, repérage et étiquetage des circuits.",
         "Remise en service après dégât des eaux, orage ou tempête.",
@@ -639,3 +650,30 @@ COMMUNES_SUP = {
 for _num, _liste in COMMUNES_SUP.items():
     DEPTS[_num]["villes"] += [(_v, _n) for _v, _cp, _n in _liste]
     CP.update({_v: _cp for _v, _cp, _n in _liste})
+
+
+# ---------------------------------------------------------------------------
+# Les douze communes affichées dans le bloc « Zones d'intervention ».
+#
+# Les quarante-deux de COMMUNES_SUP + DEPTS gardent chacune leur page — ce
+# sont des destinations d'annonces, et le widget « intervient-il chez vous ? »
+# y mène toujours. Mais une liste de quarante-deux noms, sur une page de
+# conversion, se fait défiler sans se lire. Douze suffisent à prouver la
+# couverture ; la phrase sous la liste dit que les autres le sont aussi.
+#
+# Classement par population (INSEE, populations municipales). À revoir si les
+# chiffres bougent : quelques communes se tiennent à quelques centaines
+# d'habitants près — Guingamp, Paimpol et Redon sortent de peu.
+VEDETTES = {
+ "22": ["Saint-Brieuc", "Lannion", "Lamballe-Armor", "Dinan", "Plérin",
+        "Ploufragan", "Loudéac", "Trégueux", "Langueux", "Pordic",
+        "Binic-Étables-sur-Mer", "Perros-Guirec"],
+ "29": ["Brest", "Quimper", "Concarneau", "Landerneau", "Morlaix",
+        "Guipavas", "Douarnenez", "Plougastel-Daoulas", "Quimperlé",
+        "Le Relecq-Kerhuon", "Plouzané", "Fouesnant"],
+ "35": ["Rennes", "Saint-Malo", "Fougères", "Bruz", "Vitré",
+        "Cesson-Sévigné", "Saint-Jacques-de-la-Lande", "Betton", "Pacé",
+        "Chantepie", "Dinard", "Saint-Grégoire"],
+ "56": ["Lorient", "Vannes", "Lanester", "Ploemeur", "Hennebont", "Pontivy",
+        "Auray", "Guidel", "Saint-Avé", "Ploërmel", "Séné", "Quéven"],
+}
