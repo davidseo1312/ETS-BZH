@@ -573,7 +573,7 @@ Le partage des rôles est strict, et c'est lui qui fait la lisibilité&nbsp;:
 | --- | --- |
 | **Bleu** `#14507d` / `#10395c` | structure et sérieux&nbsp;: en-têtes, bandeaux, titres, texte, bouton de formulaire |
 | **Bleu ciel** `#e7f3fb` | fonds de section clairs qui portent du texte foncé&nbsp;: chiffres clés, respirations |
-| **Vert** `#1f7a4d` | **l'action, et elle seule**&nbsp;: tous les boutons d'appel, le bouton «&nbsp;Vérifier&nbsp;», la barre d'appel mobile |
+| **Vert** `#1f7a4d` | **l'action, et elle seule**&nbsp;: le numéro de l'en-tête collant, tous les boutons d'appel, le bouton «&nbsp;Vérifier&nbsp;», la barre d'appel mobile |
 | **Jaune** `#ffc400` | l'accent, en traits fins&nbsp;: éclair du logo, filets de titre, pastilles «&nbsp;?&nbsp;», sceau, étiquettes |
 
 Une couleur, un rôle&nbsp;: le vert se clique, le bleu structure, le jaune
@@ -591,6 +591,12 @@ marche&nbsp;» et «&nbsp;cliquez ici&nbsp;».
 1,60:1&nbsp;: dans la carte d'appel, le bloc Julien et le dernier appel, le
 bouton se fondrait. Le liseré lui rend son pourtour (8,49:1) sans changer sa
 couleur, donc sans casser la règle.
+
+**Le numéro de l'en-tête est vert lui aussi.** Il était bleu, rangé avec la
+structure — or c'est le bouton qu'on cherche quand on arrive en urgence, et
+l'en-tête est collant, donc il est là à tout moment. Une seule couleur pour
+appeler, du haut de la page au bas&nbsp;: 5,32:1 pour le texte comme pour le
+pourtour, sur le blanc de l'en-tête.
 
 **Les numéros de service et d'étape** allaient bleu → bleu clair → jaune&nbsp;:
 la progression changeait de teinte en route. Troisième marche en
@@ -779,9 +785,8 @@ structure comprise. Six temps, tous centrés&nbsp;:
 **Le nom et la promesse passent en bleu dans le titre**, pas en jaune&nbsp;:
 sur fond clair, `#ffc400` tombe à 1,6:1. Le jaune reste au bouton, juste
 dessous, où il est le seul aplat de couleur de tout le bandeau — c'est ce qui
-le rend impossible à manquer. Même partage dans l'en-tête&nbsp;: le numéro y
-est en **bleu** et non en jaune, pour ne pas mettre deux boutons jaunes l'un
-au-dessus de l'autre.
+le rend impossible à manquer. Même règle dans l'en-tête&nbsp;: le numéro y
+est en **vert**, comme tous les autres boutons d'appel de la page.
 
 La commune figure dans le titre, pas seulement dans l'œil d'accroche&nbsp;: la
 régie mesure la correspondance entre le mot-clé de l'annonce et la page de

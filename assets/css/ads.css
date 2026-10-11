@@ -117,17 +117,18 @@ body { background: #fff; }
 }
 .lp-devis:hover, .lp-devis:focus-visible { background: var(--jaune-f); color: var(--sur-jaune); }
 
-/* Le numéro dans l'en-tête, en bleu : le jaune reste au bouton d'appel du
-   bandeau, juste dessous. Deux boutons jaunes empilés ne hiérarchisent plus
-   rien — le modèle fait la même distinction (marque en haut, action dessous). */
+/* Le numéro de l'en-tête prend lui aussi la couleur d'action : une seule
+   couleur pour appeler, du haut de la page au bas. Le bleu le rangeait avec
+   la structure — or c'est le bouton qu'on cherche quand on arrive en
+   urgence, et il est collant, donc présent à tout moment. */
 .lp-head__tel {
   display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-  background: var(--nuit); color: #fff; text-decoration: none;
+  background: var(--action); color: #fff; text-decoration: none;
   font-family: "Barlow Condensed", "Barlow", sans-serif;
   font-size: 1.42rem; font-weight: 700; letter-spacing: .02em;
   padding: 11px 22px; min-height: 52px; white-space: nowrap;
 }
-.lp-head__tel:hover, .lp-head__tel:focus-visible { background: var(--bleu-hover); color: #fff; }
+.lp-head__tel:hover, .lp-head__tel:focus-visible { background: var(--action-f); color: #fff; }
 .lp-head__tel svg { width: 21px; height: 21px; flex: none; }
 
 /* ---------------------------------------------------- bandeau de titre */
