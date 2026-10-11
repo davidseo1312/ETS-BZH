@@ -1248,10 +1248,9 @@ dans les champs.
       vérifiez qu'elle arrive bien dans la boîte `contact@etablissement-breizh.fr`
       (voir « Réception des formulaires »). Tant que cet essai n'est pas fait,
       considérez que les demandes se perdent
-- [ ] **Sous-domaine `www`** — `SITE["url"]` vaut
-      `https://www.etablissement-breizh.fr`. Le `www.` est repris de la
-      configuration précédente&nbsp;: si le site est servi sur le domaine nu
-      (`etablissement-breizh.fr`), il faut retirer le préfixe dans
-      `tools/data.py`, sinon chaque URL canonique désigne une adresse qui
-      redirige. Dans les deux cas, une redirection permanente d'une forme vers
-      l'autre est indispensable
+- [ ] **Redirection `www` → domaine nu** — `SITE["url"]` vaut
+      `https://etablissement-breizh.fr`, sans `www.`&nbsp;: c'est la forme
+      canonique du site. Il reste à configurer chez l'hébergeur une
+      redirection permanente (301) de `www.etablissement-breizh.fr` vers
+      `etablissement-breizh.fr`, faute de quoi les deux formes répondent et
+      se font concurrence
