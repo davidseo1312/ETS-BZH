@@ -2460,9 +2460,10 @@ def head_ads(titre, description, dept):
   <title>{titre}</title>
   <meta name="description" content="{description}">
   <meta name="robots" content="noindex, nofollow">
-  <meta name="theme-color" content="#16303f">
+  <meta name="theme-color" content="#14507d">
   <meta name="format-detection" content="telephone=yes">
-  <link rel="icon" href="/assets/img/favicon.png" type="image/png">
+  <link rel="icon" href="/assets/img/favicon-ads.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/img/favicon-ads.png">
   <link rel="preload" href="/assets/fonts/barlow-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="{CSS}">
@@ -2676,7 +2677,7 @@ def page_ads(dept, ville=None):
 <header class="lp-head">
   <div class="container lp-head__in">
     <a class="lp-logo" href="#haut">
-      <img src="/assets/img/logo-emblem.png" alt="" width="46" height="46">
+      <img src="/assets/img/logo-ads-embleme.png" alt="" width="34" height="52">
       <span>ETS-BZH<small>Électricien · {situe}</small></span></a>
     <nav class="lp-nav" aria-label="Sections de la page">
       <a href="#services">Nos services</a>
@@ -2719,7 +2720,10 @@ def page_ads(dept, ville=None):
 
   <aside class="lp-side">
     <div class="lp-card lp-urg">
-      <img src="/assets/img/logo-emblem.png" alt="" width="54" height="54">
+      <div class="lp-urg__blason">
+        <img src="/assets/img/logo-ads.png"
+             alt="ETS-BZH — électricité générale" width="125" height="160">
+      </div>
       <p class="lp-urg__t">URGENCE {au_lieu}&nbsp;?</p>
       <p class="lp-urg__s">Julien vous répond en personne</p>
       {tel_btn % "side"}

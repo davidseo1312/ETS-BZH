@@ -83,7 +83,7 @@ body { background: #fff; }
 }
 .lp-logo { display: flex; align-items: center; gap: 11px; text-decoration: none;
            color: var(--nuit); }
-.lp-logo img { display: block; }
+.lp-logo img { display: block; width: auto; height: 52px; }
 .lp-logo span { font-family: "Barlow Condensed", "Barlow", sans-serif;
                 font-size: 1.5rem; font-weight: 700; line-height: 1; letter-spacing: .02em; }
 .lp-logo small { display: block; font-family: "Barlow", sans-serif;
@@ -222,8 +222,16 @@ body { background: #fff; }
 .lp-side__srv li:hover { background: var(--jaune-pale); border-color: var(--jaune); }
 
 .lp-urg { background: var(--nuit); border-color: var(--nuit); text-align: center;
-          padding: 26px 22px 24px; }
-.lp-urg img { margin: 0 auto 12px; display: block; }
+          padding: 0 22px 24px; }
+/* Le blason est marine sur fond transparent : posé à même le bleu de la
+   carte, il s'y noierait. Le bandeau ivoire lui rend le fond clair pour
+   lequel il a été dessiné, et fait plaque — c'est d'ailleurs la crème de
+   l'écu lui-même qu'on retrouve. Marges négatives : il va d'un bord à
+   l'autre de la carte, sinon il flotte. */
+.lp-urg__blason { background: var(--ivoire); margin: 0 -22px 18px;
+                  padding: 14px 12px 12px;
+                  border-bottom: 3px solid var(--jaune); }
+.lp-urg__blason img { display: block; margin: 0 auto; height: auto; }
 /* .lp-card p (0,2,0) l'emporterait sur .lp-urg__t (0,1,0) : les trois lignes
    de la carte passeraient en gris sur fond bleu nuit. On scope sur la carte. */
 .lp-card.lp-urg .lp-urg__t {
@@ -536,6 +544,7 @@ body { background: #fff; }
 @media (max-width: 520px) {
   .lp-head__in { min-height: 64px; gap: 10px; }
   .lp-logo small { display: none; }
+  .lp-logo img { height: 42px; }
   .lp-devis { padding: 11px 16px; font-size: .95rem; }
   .lp-top__in { font-size: .86rem; gap: 4px 14px; }
   .lp-tel { font-size: 1.4rem; }

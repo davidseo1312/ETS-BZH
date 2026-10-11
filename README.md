@@ -511,6 +511,43 @@ justifie, il faut étoffer les notes locales commune par commune&nbsp;; c'est
 le seul endroit où du contenu réellement différent peut entrer sans
 inventer.
 
+### Le blason, propre aux pages Ads
+
+Ces pages ne portent plus l'emblème rond du site mais le **blason fourni par
+le client**&nbsp;: écu breton — hermines et bandes — traversé d'un éclair,
+couronne crénelée, couronne de laurier, banderole «&nbsp;ETS-BZH&nbsp;» et
+mention «&nbsp;Électricité générale&nbsp;». Le site public garde le sien, et
+`grep -rl "logo-ads\|favicon-ads"` ne renvoie que les 172 pages payantes.
+
+Ses couleurs sont celles de ces pages&nbsp;: marine `#0f2a48`, or `#e3a72e`,
+crème `#f5efe8`. C'est ce qui permet de le poser sans l'encadrer de blanc —
+il n'a pas l'air rapporté.
+
+**Trois fichiers dérivés d'une seule image**, pour trois usages qui n'ont pas
+les mêmes contraintes (`assets/img/`)&nbsp;:
+
+| Fichier | Contenu | Emploi |
+| --- | --- | --- |
+| `logo-ads-embleme.png` | couronne + écu, **sans la banderole** | en-tête collant, 52&nbsp;px de haut |
+| `logo-ads.png` | le blason complet | carte d'appel de la barre latérale, 160&nbsp;px |
+| `favicon-ads.png` | l'écu seul, recadré carré | onglet du navigateur et icône iOS |
+
+La banderole est retirée de l'emblème d'en-tête&nbsp;: le nom
+«&nbsp;ETS-BZH&nbsp;» est écrit en toutes lettres juste à côté, et à
+52&nbsp;px de haut la banderole ne serait de toute façon qu'une tache.
+
+**Le bandeau ivoire de la carte d'appel.** Le blason est marine sur fond
+transparent&nbsp;; posé à même le bleu `--nuit` de la carte, il s'y noierait
+(`#0f2a48` contre `#14507d`&nbsp;: 1,71:1). Un bandeau `--ivoire` pleine
+largeur lui rend le fond clair pour lequel il a été dessiné — c'est d'ailleurs
+la crème de l'écu qu'on retrouve — et un filet jaune le raccroche au reste.
+Les marges négatives le font aller d'un bord à l'autre de la carte&nbsp;:
+centré avec du bleu autour, il flotterait.
+
+**L'onglet aussi.** `favicon-ads.png` et `theme-color: #14507d` ne valent que
+pour ces pages&nbsp;: l'onglet montre l'écu, et la barre du navigateur sur
+téléphone prend le bleu de la barre de contact.
+
 ### Palette propre aux pages Ads
 
 Ces quatre pages ne portent **ni le bleu ni l'orange du site**&nbsp;: elles
