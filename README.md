@@ -612,6 +612,31 @@ bleu ciel (`#33a9dc`) sous du texte blanc tomberait à **2,68:1**&nbsp;: il
 sert donc en **fond clair** (`--ciel: #e7f3fb`) sous du texte foncé — la
 bande de chiffres —, où il tient **9,53:1**.
 
+### Le formulaire descend en bas de page sur téléphone
+
+Sous 1040&nbsp;px, la page passe en une colonne et la barre latérale se
+place **au-dessus** du contenu&nbsp;: le formulaire s'intercalait entre le
+bandeau et le premier paragraphe, exactement là où le visiteur cherche à
+lire, pas à remplir. Il est désormais placé **après le dernier appel, juste
+avant le pied**.
+
+**Pourquoi un déplacement de nœud et non un `order` CSS.** `order` ne peut
+réordonner que des frères&nbsp;: au mieux il aurait amené le formulaire à la
+fin de la colonne, donc **avant** les quarante-deux communes et le dernier
+appel. Le mettre vraiment en bas demande de changer de parent.
+
+**Pourquoi pas un second formulaire.** Deux exemplaires, c'est deux fois les
+mêmes `id` — et l'ancre `#rappel`, visée par le repli du bandeau et par la
+barre d'appel fixe, ne peut en désigner qu'un. Un seul nœud déplacé garde
+ses identifiants et son ancre.
+
+Le script s'exécute avant `main.js` (il est en ligne, `main.js` est
+`defer`), et de toute façon un nœud déplacé conserve ses écouteurs. Il écoute
+`matchMedia` : élargir la fenêtre ramène le formulaire dans la barre
+latérale, la rétrécir le redescend — vérifié dans les deux sens sans
+rechargement. Sans JavaScript il reste dans la colonne, ce qui ne coûte
+rien&nbsp;: sans JavaScript il ne s'envoie pas non plus.
+
 ### La photo, et le widget « intervient-il chez vous&nbsp;? »
 
 Repris du modèle, dans son ordre&nbsp;: le titre, **puis** la photo, **puis**

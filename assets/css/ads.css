@@ -317,6 +317,9 @@ body { background: #fff; }
 .lp-tel svg { width: 22px; height: 22px; flex: none; }
 
 .lp-card--form { padding: 0; border: none; }
+/* Le formulaire descendu en bas de page sur téléphone n'est plus dans la
+   colonne : il lui faut ses propres marges, et le pied doit le suivre. */
+.lp-card--bas { margin: 0 16px 10px; }
 .lp-card--form .form-card { box-shadow: var(--ombre); }
 /* QUATRIÈME occurrence de la même collision : « .lp-card p » (0,1,1) et
    « .form-card__head p » (0,1,1) ont la même spécificité, et ads.css est

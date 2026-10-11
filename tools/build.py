@@ -2931,6 +2931,43 @@ def page_ads(dept, ville=None):
   etat();
 }})();
 
+/* Sur téléphone, le formulaire descend en bas de page.
+
+   La barre latérale est au-dessus du contenu une fois la page en une seule
+   colonne : le formulaire s'intercalait donc entre le bandeau et le premier
+   paragraphe, juste là où le visiteur cherche à lire, pas à remplir. Un
+   simple « order » ne suffit pas — il le déplacerait au mieux à la fin de
+   la colonne, avant les zones d'intervention et le dernier appel.
+
+   On déplace donc le nœud lui-même, après le bloc final. Pas de second
+   formulaire : les identifiants restent uniques et l'ancre #rappel continue
+   de pointer au bon endroit. Le déplacement précède main.js, et de toute
+   façon un nœud déplacé garde ses écouteurs. Sans JavaScript, le formulaire
+   reste dans la colonne — il ne s'envoie pas non plus, donc rien n'est perdu.
+*/
+(function () {{
+  var carte = document.querySelector(".lp-card--form");
+  var final = document.querySelector(".lp-final");
+  if (!carte || !final) {{ return; }}
+  var cote = carte.parentNode, apres = carte.nextSibling;
+  var mq = window.matchMedia("(max-width: 1040px)");
+
+  function place() {{
+    if (mq.matches) {{
+      if (carte.parentNode !== final.parentNode) {{
+        final.parentNode.insertBefore(carte, final.nextSibling);
+      }}
+      carte.classList.add("lp-card--bas");
+    }} else {{
+      if (carte.parentNode !== cote) {{ cote.insertBefore(carte, apres); }}
+      carte.classList.remove("lp-card--bas");
+    }}
+  }}
+  place();
+  if (mq.addEventListener) {{ mq.addEventListener("change", place); }}
+  else if (mq.addListener) {{ mq.addListener(place); }}
+}})();
+
 /* « Julien intervient-il chez vous ? » — l'index des 168 communes est
    embarqué : ces pages s'interdisent toute requête tierce, et le visiteur
    qui tape son code postal hésite déjà, il ne faut pas le faire attendre.
