@@ -13,7 +13,7 @@
   <link rel="preload" href="/assets/fonts/barlow-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/css/style.css?v=444847f0">
-  <link rel="stylesheet" href="/assets/css/ads.css?v=b5bb57a9">
+  <link rel="stylesheet" href="/assets/css/ads.css?v=ef16d4ea">
 </head>
 <body>
 <a class="sr-only" href="#contenu">Aller au contenu principal</a>
@@ -58,8 +58,30 @@
   </div>
 </section>
 
+<div class="container lp-photo">
+  <img src="/assets/img/photos/ets-bzh-technicien.jpg"
+       srcset="/assets/img/photos/ets-bzh-technicien-mobile.jpg 760w,
+               /assets/img/photos/ets-bzh-technicien.jpg 1280w"
+       sizes="(max-width: 1120px) 100vw, 1040px"
+       alt="Julien, électricien ETS-BZH, devant son véhicule d'intervention"
+       width="1280" height="853" fetchpriority="high" decoding="async">
+</div>
+
 <section class="lp-chiffres" aria-label="ETS-BZH en bref">
   <div class="container lp-chiffres__grille"><div class="lp-chiffre"><span class="lp-chiffre__n">7h–22h</span><span class="lp-chiffre__l">du lundi au samedi</span></div><div class="lp-chiffre"><span class="lp-chiffre__n">4,8/5</span><span class="lp-chiffre__l">moyenne des avis publiés ici</span></div><div class="lp-chiffre"><span class="lp-chiffre__n">Père en fils</span><span class="lp-chiffre__l">artisan électricien</span></div><div class="lp-chiffre"><span class="lp-chiffre__n">Prix annoncé</span><span class="lp-chiffre__l">avant les travaux</span></div></div>
+</section>
+
+<section class="lp-verif">
+  <div class="container lp-verif__in">
+    <p class="lp-verif__t" id="verif-t">Julien intervient-il chez vous&nbsp;?</p>
+    <form class="lp-verif__f" id="verif-f" novalidate aria-labelledby="verif-t">
+      <label class="sr-only" for="verif-q">Votre code postal ou votre commune</label>
+      <input id="verif-q" type="text" autocomplete="postal-code"
+             placeholder="Ex. 35830 ou Betton">
+      <button type="submit">Vérifier</button>
+    </form>
+    <p class="lp-verif__r" id="verif-r" role="status" aria-live="polite"></p>
+  </div>
 </section>
 
 <section class="lp-garanties">
@@ -300,6 +322,94 @@
   piste.addEventListener("scroll", etat, { passive: true });
   window.addEventListener("resize", etat);
   etat();
+})();
+
+/* « Julien intervient-il chez vous ? » — l'index des 168 communes est
+   embarqué : ces pages s'interdisent toute requête tierce, et le visiteur
+   qui tape son code postal hésite déjà, il ne faut pas le faire attendre.
+   La réponse est toujours « oui » dans les quatre départements couverts :
+   le widget sert à le lui confirmer et à lui tendre le bouton d'appel. */
+(function () {
+  var f = document.getElementById("verif-f");
+  if (!f) { return; }
+  var champ = document.getElementById("verif-q");
+  var sortie = document.getElementById("verif-r");
+  var communes = [["saintbrieuc","22000","/electricite-urgence-saint-brieuc-22/","Saint-Brieuc"],["lannion","22300","/electricite-urgence-lannion-22/","Lannion"],["dinan","22100","/electricite-urgence-dinan-22/","Dinan"],["guingamp","22200","/electricite-urgence-guingamp-22/","Guingamp"],["lamballearmor","22400","/electricite-urgence-lamballe-armor-22/","Lamballe-Armor"],["plerin","22190","/electricite-urgence-plerin-22/","Plérin"],["ploufragan","22440","/electricite-urgence-ploufragan-22/","Ploufragan"],["paimpol","22500","/electricite-urgence-paimpol-22/","Paimpol"],["tregueux","22950","/electricite-urgence-tregueux-22/","Trégueux"],["loudeac","22600","/electricite-urgence-loudeac-22/","Loudéac"],["perrosguirec","22700","/electricite-urgence-perros-guirec-22/","Perros-Guirec"],["saintquayportrieux","22410","/electricite-urgence-saint-quay-portrieux-22/","Saint-Quay-Portrieux"],["langueux","22360","/electricite-urgence-langueux-22/","Langueux"],["pordic","22590","/electricite-urgence-pordic-22/","Pordic"],["hillion","22120","/electricite-urgence-hillion-22/","Hillion"],["yffiniac","22120","/electricite-urgence-yffiniac-22/","Yffiniac"],["pledran","22960","/electricite-urgence-pledran-22/","Plédran"],["quintin","22800","/electricite-urgence-quintin-22/","Quintin"],["binicetablessurmer","22520","/electricite-urgence-binic-etables-sur-mer-22/","Binic-Étables-sur-Mer"],["pleneufvalandre","22370","/electricite-urgence-pleneuf-val-andre-22/","Pléneuf-Val-André"],["erquy","22430","/electricite-urgence-erquy-22/","Erquy"],["saintcastleguildo","22380","/electricite-urgence-saint-cast-le-guildo-22/","Saint-Cast-le-Guildo"],["matignon","22550","/electricite-urgence-matignon-22/","Matignon"],["plancoet","22130","/electricite-urgence-plancoet-22/","Plancoët"],["jugonleslacs","22270","/electricite-urgence-jugon-les-lacs-22/","Jugon-les-Lacs"],["plouha","22580","/electricite-urgence-plouha-22/","Plouha"],["treguier","22220","/electricite-urgence-treguier-22/","Tréguier"],["lezardrieux","22740","/electricite-urgence-lezardrieux-22/","Lézardrieux"],["pleubian","22610","/electricite-urgence-pleubian-22/","Pleubian"],["louannec","22700","/electricite-urgence-louannec-22/","Louannec"],["pleumeurbodou","22560","/electricite-urgence-pleumeur-bodou-22/","Pleumeur-Bodou"],["trebeurden","22560","/electricite-urgence-trebeurden-22/","Trébeurden"],["tregastel","22730","/electricite-urgence-tregastel-22/","Trégastel"],["plestinlesgreves","22310","/electricite-urgence-plestin-les-greves-22/","Plestin-les-Grèves"],["plouaret","22420","/electricite-urgence-plouaret-22/","Plouaret"],["begard","22140","/electricite-urgence-begard-22/","Bégard"],["belleisleenterre","22810","/electricite-urgence-belle-isle-en-terre-22/","Belle-Isle-en-Terre"],["callac","22160","/electricite-urgence-callac-22/","Callac"],["rostrenen","22110","/electricite-urgence-rostrenen-22/","Rostrenen"],["guerledan","22530","/electricite-urgence-guerledan-22/","Guerlédan"],["merdrignac","22230","/electricite-urgence-merdrignac-22/","Merdrignac"],["broons","22250","/electricite-urgence-broons-22/","Broons"],["brest","29200","/electricite-urgence-brest-29/","Brest"],["quimper","29000","/electricite-urgence-quimper-29/","Quimper"],["concarneau","29900","/electricite-urgence-concarneau-29/","Concarneau"],["morlaix","29600","/electricite-urgence-morlaix-29/","Morlaix"],["douarnenez","29100","/electricite-urgence-douarnenez-29/","Douarnenez"],["landerneau","29800","/electricite-urgence-landerneau-29/","Landerneau"],["quimperle","29300","/electricite-urgence-quimperle-29/","Quimperlé"],["plougasteldaoulas","29470","/electricite-urgence-plougastel-daoulas-29/","Plougastel-Daoulas"],["guipavas","29490","/electricite-urgence-guipavas-29/","Guipavas"],["lerelecqkerhuon","29480","/electricite-urgence-le-relecq-kerhuon-29/","Le Relecq-Kerhuon"],["crozon","29160","/electricite-urgence-crozon-29/","Crozon"],["carhaixplouguer","29270","/electricite-urgence-carhaix-plouguer-29/","Carhaix-Plouguer"],["plouzane","29280","/electricite-urgence-plouzane-29/","Plouzané"],["saintrenan","29290","/electricite-urgence-saint-renan-29/","Saint-Renan"],["gouesnou","29850","/electricite-urgence-gouesnou-29/","Gouesnou"],["bohars","29820","/electricite-urgence-bohars-29/","Bohars"],["plabennec","29860","/electricite-urgence-plabennec-29/","Plabennec"],["lesneven","29260","/electricite-urgence-lesneven-29/","Lesneven"],["lannilis","29870","/electricite-urgence-lannilis-29/","Lannilis"],["plouguerneau","29880","/electricite-urgence-plouguerneau-29/","Plouguerneau"],["ploudalmezeau","29830","/electricite-urgence-ploudalmezeau-29/","Ploudalmézeau"],["landivisiau","29400","/electricite-urgence-landivisiau-29/","Landivisiau"],["saintpoldeleon","29250","/electricite-urgence-saint-pol-de-leon-29/","Saint-Pol-de-Léon"],["roscoff","29680","/electricite-urgence-roscoff-29/","Roscoff"],["plouescat","29430","/electricite-urgence-plouescat-29/","Plouescat"],["plouigneau","29610","/electricite-urgence-plouigneau-29/","Plouigneau"],["chateaulin","29150","/electricite-urgence-chateaulin-29/","Châteaulin"],["pleyben","29190","/electricite-urgence-pleyben-29/","Pleyben"],["lefaou","29590","/electricite-urgence-le-faou-29/","Le Faou"],["daoulas","29460","/electricite-urgence-daoulas-29/","Daoulas"],["pontlabbe","29120","/electricite-urgence-pont-l-abbe-29/","Pont-l'Abbé"],["penmarch","29760","/electricite-urgence-penmarch-29/","Penmarch"],["loctudy","29750","/electricite-urgence-loctudy-29/","Loctudy"],["ploneourlanvern","29720","/electricite-urgence-ploneour-lanvern-29/","Plonéour-Lanvern"],["audierne","29770","/electricite-urgence-audierne-29/","Audierne"],["fouesnant","29170","/electricite-urgence-fouesnant-29/","Fouesnant"],["benodet","29950","/electricite-urgence-benodet-29/","Bénodet"],["pluguffan","29700","/electricite-urgence-pluguffan-29/","Pluguffan"],["erguegaberic","29500","/electricite-urgence-ergue-gaberic-29/","Ergué-Gabéric"],["briec","29510","/electricite-urgence-briec-29/","Briec"],["rosporden","29140","/electricite-urgence-rosporden-29/","Rosporden"],["moelansurmer","29350","/electricite-urgence-moelan-sur-mer-29/","Moëlan-sur-Mer"],["rennes","35000","/electricite-urgence-rennes-35/","Rennes"],["saintmalo","35400","/electricite-urgence-saint-malo-35/","Saint-Malo"],["fougeres","35300","/electricite-urgence-fougeres-35/","Fougères"],["vitre","35500","/electricite-urgence-vitre-35/","Vitré"],["cessonsevigne","35510","/electricite-urgence-cesson-sevigne-35/","Cesson-Sévigné"],["bruz","35170","/electricite-urgence-bruz-35/","Bruz"],["redon","35600","/electricite-urgence-redon-35/","Redon"],["dinard","35800","/electricite-urgence-dinard-35/","Dinard"],["betton","35830","/electricite-urgence-betton-35/","Betton"],["chantepie","35135","/electricite-urgence-chantepie-35/","Chantepie"],["saintgregoire","35760","/electricite-urgence-saint-gregoire-35/","Saint-Grégoire"],["saintjacquesdelalande","35136","/electricite-urgence-saint-jacques-de-la-lande-35/","Saint-Jacques-de-la-Lande"],["pace","35740","/electricite-urgence-pace-35/","Pacé"],["thorignefouillard","35235","/electricite-urgence-thorigne-fouillard-35/","Thorigné-Fouillard"],["chartresdebretagne","35131","/electricite-urgence-chartres-de-bretagne-35/","Chartres-de-Bretagne"],["noyalchatillonsurseiche","35230","/electricite-urgence-noyal-chatillon-sur-seiche-35/","Noyal-Châtillon-sur-Seiche"],["vernsurseiche","35770","/electricite-urgence-vern-sur-seiche-35/","Vern-sur-Seiche"],["acigne","35690","/electricite-urgence-acigne-35/","Acigné"],["lerheu","35650","/electricite-urgence-le-rheu-35/","Le Rheu"],["mordelles","35310","/electricite-urgence-mordelles-35/","Mordelles"],["montgermont","35760","/electricite-urgence-montgermont-35/","Montgermont"],["melesse","35520","/electricite-urgence-melesse-35/","Melesse"],["liffre","35340","/electricite-urgence-liffre-35/","Liffré"],["saintaubindaubigne","35250","/electricite-urgence-saint-aubin-d-aubigne-35/","Saint-Aubin-d'Aubigné"],["chateaugiron","35410","/electricite-urgence-chateaugiron-35/","Châteaugiron"],["pontpean","35131","/electricite-urgence-pont-pean-35/","Pont-Péan"],["laille","35890","/electricite-urgence-laille-35/","Laillé"],["guichen","35580","/electricite-urgence-guichen-35/","Guichen"],["brealsousmontfort","35310","/electricite-urgence-breal-sous-montfort-35/","Bréal-sous-Montfort"],["montfortsurmeu","35160","/electricite-urgence-montfort-sur-meu-35/","Montfort-sur-Meu"],["montaubandebretagne","35360","/electricite-urgence-montauban-de-bretagne-35/","Montauban-de-Bretagne"],["combourg","35270","/electricite-urgence-combourg-35/","Combourg"],["doldebretagne","35120","/electricite-urgence-dol-de-bretagne-35/","Dol-de-Bretagne"],["cancale","35260","/electricite-urgence-cancale-35/","Cancale"],["saintmeloirdesondes","35350","/electricite-urgence-saint-meloir-des-ondes-35/","Saint-Méloir-des-Ondes"],["pleurtuit","35730","/electricite-urgence-pleurtuit-35/","Pleurtuit"],["saintbriacsurmer","35800","/electricite-urgence-saint-briac-sur-mer-35/","Saint-Briac-sur-Mer"],["tinteniac","35190","/electricite-urgence-tinteniac-35/","Tinténiac"],["hedebazouges","35630","/electricite-urgence-hede-bazouges-35/","Hédé-Bazouges"],["argentreduplessis","35370","/electricite-urgence-argentre-du-plessis-35/","Argentré-du-Plessis"],["laguerchedebretagne","35130","/electricite-urgence-la-guerche-de-bretagne-35/","La Guerche-de-Bretagne"],["janze","35150","/electricite-urgence-janze-35/","Janzé"],["vannes","56000","/electricite-urgence-vannes-56/","Vannes"],["lorient","56100","/electricite-urgence-lorient-56/","Lorient"],["lanester","56600","/electricite-urgence-lanester-56/","Lanester"],["pontivy","56300","/electricite-urgence-pontivy-56/","Pontivy"],["ploemeur","56270","/electricite-urgence-ploemeur-56/","Ploemeur"],["hennebont","56700","/electricite-urgence-hennebont-56/","Hennebont"],["auray","56400","/electricite-urgence-auray-56/","Auray"],["guidel","56520","/electricite-urgence-guidel-56/","Guidel"],["quiberon","56170","/electricite-urgence-quiberon-56/","Quiberon"],["sene","56860","/electricite-urgence-sene-56/","Séné"],["saintave","56890","/electricite-urgence-saint-ave-56/","Saint-Avé"],["sarzeau","56370","/electricite-urgence-sarzeau-56/","Sarzeau"],["caudan","56850","/electricite-urgence-caudan-56/","Caudan"],["queven","56530","/electricite-urgence-queven-56/","Quéven"],["larmorplage","56260","/electricite-urgence-larmor-plage-56/","Larmor-Plage"],["portlouis","56290","/electricite-urgence-port-louis-56/","Port-Louis"],["riantec","56670","/electricite-urgence-riantec-56/","Riantec"],["ploermel","56800","/electricite-urgence-ploermel-56/","Ploërmel"],["plouay","56240","/electricite-urgence-plouay-56/","Plouay"],["inzinzaclochrist","56650","/electricite-urgence-inzinzac-lochrist-56/","Inzinzac-Lochrist"],["languidic","56440","/electricite-urgence-languidic-56/","Languidic"],["pluvigner","56330","/electricite-urgence-pluvigner-56/","Pluvigner"],["brech","56400","/electricite-urgence-brec-h-56/","Brec'h"],["pluneret","56400","/electricite-urgence-pluneret-56/","Pluneret"],["crach","56950","/electricite-urgence-crac-h-56/","Crac'h"],["carnac","56340","/electricite-urgence-carnac-56/","Carnac"],["latrinitesurmer","56470","/electricite-urgence-la-trinite-sur-mer-56/","La Trinité-sur-Mer"],["plouharnel","56340","/electricite-urgence-plouharnel-56/","Plouharnel"],["erdeven","56410","/electricite-urgence-erdeven-56/","Erdeven"],["belz","56550","/electricite-urgence-belz-56/","Belz"],["etel","56410","/electricite-urgence-etel-56/","Étel"],["baden","56870","/electricite-urgence-baden-56/","Baden"],["lebono","56400","/electricite-urgence-le-bono-56/","Le Bono"],["arradon","56610","/electricite-urgence-arradon-56/","Arradon"],["ploeren","56880","/electricite-urgence-ploeren-56/","Ploeren"],["theixnoyalo","56450","/electricite-urgence-theix-noyalo-56/","Theix-Noyalo"],["surzur","56450","/electricite-urgence-surzur-56/","Surzur"],["saintgildasderhuys","56730","/electricite-urgence-saint-gildas-de-rhuys-56/","Saint-Gildas-de-Rhuys"],["arzon","56640","/electricite-urgence-arzon-56/","Arzon"],["elven","56250","/electricite-urgence-elven-56/","Elven"],["questembert","56230","/electricite-urgence-questembert-56/","Questembert"],["muzillac","56190","/electricite-urgence-muzillac-56/","Muzillac"]];
+  var depts = {"22": "les Côtes-d'Armor", "29": "le Finistère",
+                "35": "l'Ille-et-Vilaine", "56": "le Morbihan"};
+  var tel = "06 20 06 01 96", telLien = "+33620060196";
+
+  function net(v) {
+    return v.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "")
+            .replace(/[^a-z0-9]/g, "");
+  }
+  function bouton() {
+    return ' <a class="lp-verif__tel" href="tel:' + telLien +
+           '" data-cta="verif-zone">Appeler ' + tel + '</a>';
+  }
+  function oui(html) {
+    sortie.className = "lp-verif__r lp-verif__r--oui";
+    sortie.innerHTML = html + bouton();
+  }
+
+  f.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var brut = champ.value.trim();
+    if (!brut) {
+      sortie.className = "lp-verif__r lp-verif__r--non";
+      sortie.textContent = "Indiquez votre code postal ou votre commune.";
+      return;
+    }
+    var q = net(brut), i, c;
+
+    /* Beaucoup de gens tapent les deux chiffres du département. */
+    if (/^[0-9]{2}$/.test(brut)) {
+      if (depts[brut]) {
+        oui("<strong>Oui.</strong> Nous couvrons " + depts[brut] +
+            ", communes rurales comprises.");
+      } else {
+        sortie.className = "lp-verif__r lp-verif__r--non";
+        sortie.innerHTML = "Nous intervenons en Côtes-d'Armor, Finistère, " +
+          "Ille-et-Vilaine et Morbihan." + bouton();
+      }
+      return;
+    }
+
+    if (/^[0-9]{5}$/.test(brut)) {
+      for (i = 0; i < communes.length; i++) {
+        if (communes[i][1] === brut) { c = communes[i]; break; }
+      }
+      if (!c) {
+        var d = depts[brut.slice(0, 2)];
+        if (d) {
+          oui("<strong>Oui.</strong> Nous couvrons " + d +
+              ", communes rurales comprises.");
+        } else {
+          sortie.className = "lp-verif__r lp-verif__r--non";
+          sortie.innerHTML = "Nous intervenons en Côtes-d'Armor, Finistère, " +
+            "Ille-et-Vilaine et Morbihan. Un doute ?" + bouton();
+        }
+        return;
+      }
+    } else {
+      for (i = 0; i < communes.length; i++) {
+        if (communes[i][0] === q || communes[i][0].indexOf(q) === 0) {
+          c = communes[i]; break;
+        }
+      }
+      if (!c) {
+        sortie.className = "lp-verif__r lp-verif__r--non";
+        sortie.innerHTML = "Commune non trouvée dans la liste, ce qui ne veut " +
+          "pas dire qu'elle n'est pas couverte." + bouton();
+        return;
+      }
+    }
+
+    var ici = location.pathname.replace(/\/+$/, "") === c[2].replace(/\/+$/, "");
+    oui("<strong>Oui, Julien intervient à " + c[3] + " (" + c[1] + ").</strong>" +
+        (ici ? "" : ' <a class="lp-verif__lien" href="' + c[2] + '">Voir la page ' +
+                    c[3] + "</a>."));
+  });
 })();
 </script>
 </body>

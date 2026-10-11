@@ -171,6 +171,55 @@ body { background: #fff; }
 .lp-fil span { color: var(--bleu-clair); margin: 0 6px; }
 .lp-fil strong { color: var(--sur-jaune); }
 
+/* ------------------------------------ photo du technicien, sous le titre */
+/* Elle est sortie du fond du bandeau pour venir en dessous, en pleine
+   largeur : le titre se lit sur du blanc, et le visage arrive juste après,
+   là où le visiteur se demande qui va sonner chez lui. */
+.lp-photo { margin: 0 auto 10px; max-width: 1040px; }
+.lp-photo img { display: block; width: 100%; height: auto;
+                box-shadow: 0 18px 44px rgba(15, 42, 72, .18); }
+
+/* ------------------------------- « Julien intervient-il chez vous ? » */
+.lp-verif { background: #fff; padding: 30px 0 34px; }
+.lp-verif__in { max-width: 680px; text-align: center; }
+.lp-verif__t { font-family: "Barlow Condensed", "Barlow", sans-serif;
+              font-size: 1.5rem; font-weight: 700; color: var(--sur-jaune);
+              margin: 0 0 14px; }
+.lp-verif__f { display: flex; gap: 10px; justify-content: center;
+              flex-wrap: wrap; }
+.lp-verif__f input {
+  flex: 1 1 280px; min-width: 0; max-width: 360px; min-height: 54px;
+  padding: 13px 16px; font-family: inherit; font-size: 1.08rem;
+  color: var(--sur-jaune); background: #fff;
+  /* Le pourtour d'un champ est un élément d'interface : il lui faut 3:1.
+     --bordure-forte n'en tient que 1,56 — le champ se devinait au
+     placeholder, pas au cadre. */
+  border: 2px solid var(--cadre);
+}
+.lp-verif__f input::placeholder { color: var(--gris-clair); opacity: 1; }
+.lp-verif__f input:focus-visible { outline: 3px solid var(--bleu-clair);
+                                  outline-offset: 2px; border-color: var(--bleu-clair); }
+.lp-verif__f button {
+  min-height: 54px; padding: 13px 28px; border: none; cursor: pointer;
+  background: var(--jaune); color: var(--sur-jaune);
+  font-family: "Barlow Condensed", "Barlow", sans-serif;
+  font-size: 1.22rem; font-weight: 700; letter-spacing: .02em;
+}
+.lp-verif__f button:hover { background: var(--jaune-f); }
+/* Vide, le paragraphe de réponse ne doit pas réserver de hauteur : la
+   section bougerait au chargement. */
+.lp-verif__r:empty { display: none; }
+.lp-verif__r { margin: 16px 0 0; font-size: 1.05rem; color: var(--gris); }
+.lp-verif__r--oui { color: var(--sur-jaune); }
+.lp-verif__r--oui strong { color: var(--succes); }
+.lp-verif__lien { color: var(--bleu-clair); font-weight: 700; }
+.lp-verif__tel {
+  display: inline-flex; align-items: center; min-height: 48px;
+  margin-left: 8px; padding: 10px 20px; background: var(--nuit); color: #fff;
+  text-decoration: none; font-weight: 700; white-space: nowrap;
+}
+.lp-verif__tel:hover { background: var(--bleu-hover); color: #fff; }
+
 /* --------------------------------------------- les quatre chiffres */
 /* Fond bleu ciel et texte foncé : c'est dans ce sens que le bleu ciel sert
    une vue fatiguée. L'inverse — blanc sur bleu ciel — serait illisible. */
@@ -547,7 +596,12 @@ body { background: #fff; }
   .lp-hero__appel { width: 100%; font-size: 1.35rem; padding: 14px 20px; }
   .lp-hero__cta { gap: 12px; }
   .lp-hero__txt { font-size: 1.05rem; }
-  .lp-hero { padding: 44px 0 40px; }
+  .lp-hero { padding: 44px 0 36px; }
+  .lp-photo { margin-bottom: 4px; }
+  .lp-verif { padding: 24px 0 28px; }
+  .lp-verif__t { font-size: 1.3rem; }
+  .lp-verif__f input, .lp-verif__f button { flex: 1 1 100%; max-width: none; }
+  .lp-verif__tel { margin: 10px 0 0; width: 100%; justify-content: center; }
   .lp-side { grid-template-columns: 1fr; }
   .lp-top__mail { display: none; }
   .lp-zones__liste { columns: 1; }

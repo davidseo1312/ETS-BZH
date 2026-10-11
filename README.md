@@ -396,6 +396,8 @@ modèle de fiche métier locale fourni par le client&nbsp;:
    titre nommant le technicien et le délai, texte, bouton « Appeler Julien »,
    repli « ou être rappelé », mention de rassurance, puis fil d'Ariane
    (voir ci-dessous).
+3 bis. **Photo du technicien** pleine largeur, **bande des quatre chiffres**,
+   puis le **widget « Julien intervient-il chez vous ? »** (voir plus bas).
 4. **Corps en deux colonnes.** Barre latérale collante&nbsp;: carte d'appel
    bleu nuit, liste des interventions, formulaire de rappel, bloc assurances.
    Contenu&nbsp;: accroche, encadré de citation, photo, contexte local,
@@ -609,6 +611,50 @@ dur à l'œil et sans relief. Ils sont en **`#14507d`**, un bleu franc&nbsp;:
 bleu ciel (`#33a9dc`) sous du texte blanc tomberait à **2,68:1**&nbsp;: il
 sert donc en **fond clair** (`--ciel: #e7f3fb`) sous du texte foncé — la
 bande de chiffres —, où il tient **9,53:1**.
+
+### La photo, et le widget « intervient-il chez vous&nbsp;? »
+
+Repris du modèle, dans son ordre&nbsp;: le titre, **puis** la photo, **puis**
+les chiffres, **puis** le widget.
+
+**La photo est sous le bandeau, pas derrière.** Elle y était au début, en
+fond voilé&nbsp;; elle en est sortie parce qu'un titre sur image se lit
+toujours moins bien (10,3:1 contre 12,8:1 sur blanc). Elle arrive maintenant
+juste après le bouton d'appel, à l'endroit exact où le visiteur se demande
+qui va sonner chez lui. Deux tailles servies en `srcset` — 760&nbsp;px sur
+téléphone, 1280 au-delà — et `fetchpriority="high"`, puisqu'elle est la plus
+grosse image du premier écran.
+
+**Le widget répond à la seule question qui reste.** Un visiteur venu d'une
+annonce départementale ne sait pas si sa commune est couverte. Il tape son
+code postal ou son nom de commune, et la réponse tombe avec le bouton
+d'appel dessous — c'est tout l'objet du widget&nbsp;: transformer un doute
+en appel, pas collecter une donnée.
+
+Il accepte quatre formes&nbsp;: le code postal (`29000`), le numéro de
+département (`29`), le nom de commune avec ou sans accent, casse et
+apostrophe (`plouzané`, `SAINT-MALO`, `crach`), et les noms à article
+(`le rheu`). Les réponses&nbsp;:
+
+| Saisie | Réponse |
+| --- | --- |
+| Commune ou CP connu | «&nbsp;Oui, Julien intervient à Lannion (22300)&nbsp;» + lien vers sa page + bouton d'appel |
+| CP ou n° d'un des quatre départements | «&nbsp;Oui. Nous couvrons les Côtes-d'Armor, communes rurales comprises.&nbsp;» |
+| Hors des quatre départements | la liste des départements couverts, et le bouton quand même |
+| Rien trouvé | «&nbsp;ce qui ne veut pas dire qu'elle n'est pas couverte&nbsp;» + bouton |
+
+**L'index des 168 communes est embarqué dans la page** (`index_communes()`,
+environ 6&nbsp;Ko), pas appelé à distance&nbsp;: ces pages s'interdisent
+toute requête tierce, et le visiteur qui tape son code postal hésite déjà —
+il ne faut pas le faire attendre. La page reste à 59&nbsp;Ko.
+
+**La classe s'appelle `.lp-verif`, pas `.lp-zone`.** Une lettre la séparait
+de `.lp-zones`, le bloc des communes en bas de page. Sur un projet qui a déjà
+connu quatre collisions de sélecteurs, c'est une erreur en attente.
+
+Le pourtour du champ est en `--cadre` (3,09:1) et non en `--bordure-forte`
+(1,56:1)&nbsp;: le bord d'un champ de saisie est un élément d'interface, il
+lui faut 3:1. Sans cela, le champ se devinait au placeholder, pas au cadre.
 
 ### Chiffres clés et garanties
 

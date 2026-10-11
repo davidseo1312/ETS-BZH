@@ -2543,6 +2543,23 @@ def bloc_assurances_ads():
 </section>"""
 
 
+def index_communes():
+    """[slug_de_recherche, code postal, URL, nom] pour les 168 communes.
+
+    Sert au widget « Julien intervient-il chez vous ? ». Il est embarqué dans
+    chaque page plutôt qu'appelé à distance : ces pages s'interdisent toute
+    requête tierce, et 6 Ko de JSON coûtent moins qu'un aller-retour réseau
+    au moment précis où le visiteur hésite.
+    """
+    out = []
+    for num, d in ADS.DEPTS.items():
+        dp = DEPT[num]
+        for v, _ in d["villes"]:
+            out.append([slug_ville(v).replace("-", ""), ADS.CP.get(v, num),
+                        url_ads(dp, v), v])
+    return out
+
+
 def page_ads(dept, ville=None):
     """Page payante d'un département, ou de l'une de ses communes.
 
@@ -2654,6 +2671,11 @@ def page_ads(dept, ville=None):
         '<span class="lp-chiffre__l">%s</span></div>' % (n, l)
         for n, l in ADS.CHIFFRES)
 
+    cp_exemple = ADS.CP.get(ville) if ville else dept["num"] + "000"
+    prefecture = ville or dept["prefecture"]
+    communes_json = json.dumps(index_communes(), ensure_ascii=False, separators=(",", ":"))
+    tel_json, tel_lien_json = json.dumps(tel), json.dumps(tel_lien)
+
     t = ADS.TECHNICIEN
     paras = "".join("<p>%s</p>" % x.format(tel=tel) for x in t["paras"])
     pf, palt, _, _ = elec["photo_equipe"]
@@ -2701,8 +2723,30 @@ def page_ads(dept, ville=None):
   </div>
 </section>
 
+<div class="container lp-photo">
+  <img src="/assets/img/photos/ets-bzh-technicien.jpg"
+       srcset="/assets/img/photos/ets-bzh-technicien-mobile.jpg 760w,
+               /assets/img/photos/ets-bzh-technicien.jpg 1280w"
+       sizes="(max-width: 1120px) 100vw, 1040px"
+       alt="Julien, électricien ETS-BZH, devant son véhicule d'intervention"
+       width="1280" height="853" fetchpriority="high" decoding="async">
+</div>
+
 <section class="lp-chiffres" aria-label="ETS-BZH en bref">
   <div class="container lp-chiffres__grille">{chiffres}</div>
+</section>
+
+<section class="lp-verif">
+  <div class="container lp-verif__in">
+    <p class="lp-verif__t" id="verif-t">Julien intervient-il chez vous&nbsp;?</p>
+    <form class="lp-verif__f" id="verif-f" novalidate aria-labelledby="verif-t">
+      <label class="sr-only" for="verif-q">Votre code postal ou votre commune</label>
+      <input id="verif-q" type="text" autocomplete="postal-code"
+             placeholder="Ex. {cp_exemple} ou {prefecture}">
+      <button type="submit">Vérifier</button>
+    </form>
+    <p class="lp-verif__r" id="verif-r" role="status" aria-live="polite"></p>
+  </div>
 </section>
 
 <section class="lp-garanties">
@@ -2885,6 +2929,94 @@ def page_ads(dept, ville=None):
   piste.addEventListener("scroll", etat, {{ passive: true }});
   window.addEventListener("resize", etat);
   etat();
+}})();
+
+/* « Julien intervient-il chez vous ? » — l'index des 168 communes est
+   embarqué : ces pages s'interdisent toute requête tierce, et le visiteur
+   qui tape son code postal hésite déjà, il ne faut pas le faire attendre.
+   La réponse est toujours « oui » dans les quatre départements couverts :
+   le widget sert à le lui confirmer et à lui tendre le bouton d'appel. */
+(function () {{
+  var f = document.getElementById("verif-f");
+  if (!f) {{ return; }}
+  var champ = document.getElementById("verif-q");
+  var sortie = document.getElementById("verif-r");
+  var communes = {communes_json};
+  var depts = {{"22": "les Côtes-d'Armor", "29": "le Finistère",
+                "35": "l'Ille-et-Vilaine", "56": "le Morbihan"}};
+  var tel = {tel_json}, telLien = {tel_lien_json};
+
+  function net(v) {{
+    return v.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "")
+            .replace(/[^a-z0-9]/g, "");
+  }}
+  function bouton() {{
+    return ' <a class="lp-verif__tel" href="tel:' + telLien +
+           '" data-cta="verif-zone">Appeler ' + tel + '</a>';
+  }}
+  function oui(html) {{
+    sortie.className = "lp-verif__r lp-verif__r--oui";
+    sortie.innerHTML = html + bouton();
+  }}
+
+  f.addEventListener("submit", function (e) {{
+    e.preventDefault();
+    var brut = champ.value.trim();
+    if (!brut) {{
+      sortie.className = "lp-verif__r lp-verif__r--non";
+      sortie.textContent = "Indiquez votre code postal ou votre commune.";
+      return;
+    }}
+    var q = net(brut), i, c;
+
+    /* Beaucoup de gens tapent les deux chiffres du département. */
+    if (/^[0-9]{{2}}$/.test(brut)) {{
+      if (depts[brut]) {{
+        oui("<strong>Oui.</strong> Nous couvrons " + depts[brut] +
+            ", communes rurales comprises.");
+      }} else {{
+        sortie.className = "lp-verif__r lp-verif__r--non";
+        sortie.innerHTML = "Nous intervenons en Côtes-d'Armor, Finistère, " +
+          "Ille-et-Vilaine et Morbihan." + bouton();
+      }}
+      return;
+    }}
+
+    if (/^[0-9]{{5}}$/.test(brut)) {{
+      for (i = 0; i < communes.length; i++) {{
+        if (communes[i][1] === brut) {{ c = communes[i]; break; }}
+      }}
+      if (!c) {{
+        var d = depts[brut.slice(0, 2)];
+        if (d) {{
+          oui("<strong>Oui.</strong> Nous couvrons " + d +
+              ", communes rurales comprises.");
+        }} else {{
+          sortie.className = "lp-verif__r lp-verif__r--non";
+          sortie.innerHTML = "Nous intervenons en Côtes-d'Armor, Finistère, " +
+            "Ille-et-Vilaine et Morbihan. Un doute ?" + bouton();
+        }}
+        return;
+      }}
+    }} else {{
+      for (i = 0; i < communes.length; i++) {{
+        if (communes[i][0] === q || communes[i][0].indexOf(q) === 0) {{
+          c = communes[i]; break;
+        }}
+      }}
+      if (!c) {{
+        sortie.className = "lp-verif__r lp-verif__r--non";
+        sortie.innerHTML = "Commune non trouvée dans la liste, ce qui ne veut " +
+          "pas dire qu'elle n'est pas couverte." + bouton();
+        return;
+      }}
+    }}
+
+    var ici = location.pathname.replace(/\/+$/, "") === c[2].replace(/\/+$/, "");
+    oui("<strong>Oui, Julien intervient à " + c[3] + " (" + c[1] + ").</strong>" +
+        (ici ? "" : ' <a class="lp-verif__lien" href="' + c[2] + '">Voir la page ' +
+                    c[3] + "</a>."));
+  }});
 }})();
 </script>
 </body>
