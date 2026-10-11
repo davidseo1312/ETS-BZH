@@ -2564,7 +2564,11 @@ def page_ads(dept, ville=None):
     elec = ACT["electricite"]
 
     notes = dict(d["villes"])
-    autres = [v for v, _ in d["villes"] if v != ville]
+    toutes = [v for v, _ in d["villes"]]
+    autres = [v for v in toutes if v != ville]
+    if ville:
+        r = toutes.index(ville) % len(autres)
+        autres = autres[r:] + autres[:r]
 
     if ville:
         lieu, au_lieu = ville, a_ville(ville)
@@ -2574,10 +2578,10 @@ def page_ads(dept, ville=None):
         contexte = d["contexte"]
     situe = "%s (%s)" % (lieu, num)
 
-    titre = "Électricien %s — dépannage 24h/24 — %s" % (lieu, tel)
+    titre = "Électricien %s — dépannage lun.–sam. 7h–22h — %s" % (lieu, tel)
     desc = ("Électricien d'urgence %s : panne, disjoncteur, odeur de brûlé. "
-            "Intervention 24h/24 et 7j/7, délai annoncé avant déplacement. %s."
-            % (au_lieu, tel))
+            "Intervention %s, délai annoncé avant déplacement. %s."
+            % (au_lieu, ADS.HORAIRES, tel))
 
     tel_btn = (f'<a class="lp-tel" href="tel:{tel_lien}" data-cta="%s">'
                f'{SVG["tel"]}<span>{tel}</span></a>')
@@ -2617,7 +2621,8 @@ def page_ads(dept, ville=None):
     # ---- avis
     villes_avis = ([ville] + autres[:5] if ville
                    else [dept["villes"][i] for i in (0, 1, 3, 5, 2, 7)])
-    tous_avis = list(elec["avis"]) + list(ADS.AVIS_SUP)
+    tous_avis = [(ADS.AVIS_REECRITS.get(t, t), nm, nt) for t, nm, nt in elec["avis"]]
+    tous_avis += list(ADS.AVIS_SUP)
     etoile_vide = ('<svg viewBox="0 0 24 24" width="15" height="15" fill="none" '
                    'stroke="currentColor" stroke-width="1.7" aria-hidden="true">'
                    '<path d="M12 3.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8-5.3-2.8-5.3 2.8 '
@@ -2719,7 +2724,7 @@ def page_ads(dept, ville=None):
       <p class="lp-urg__s">Julien vous répond en personne</p>
       {tel_btn % "side"}
       <a class="lp-urg__dev" href="#rappel">Être rappelé</a>
-      <p class="lp-urg__d">24h/24 · 7j/7 · jours fériés compris</p>
+      <p class="lp-urg__d">{ADS.HORAIRES_COURT} · soirées comprises</p>
     </div>
 
     <div class="lp-card">
@@ -2741,7 +2746,7 @@ def page_ads(dept, ville=None):
   </aside>
 
   <div class="lp-main">
-    <h2>Électricien {lieu} — dépannage rapide 24h/24</h2>
+    <h2>Électricien {lieu} — dépannage rapide, du lundi au samedi</h2>
     <blockquote class="lp-cite">
       <p><strong>Besoin d'un électricien {au_lieu}&nbsp;?</strong> Appelez le
         <a href="tel:{tel_lien}" data-cta="citation">{tel}</a>&nbsp;:
@@ -2757,10 +2762,11 @@ def page_ads(dept, ville=None):
 
     <h2>Votre électricien {au_lieu}</h2>
     <p>{contexte}</p>
-    <p>Nous intervenons <strong>24h/24 et 7j/7</strong>, y compris les
-      dimanches et les jours fériés. Le délai et le tarif vous sont annoncés au
-      téléphone, <strong>avant tout déplacement</strong>&nbsp;: rien ne se
-      découvre sur le pas de la porte.</p>
+    <p>Nous intervenons <strong>du lundi au samedi, de 7h à 22h</strong>&nbsp;:
+      les soirées de semaine et le samedi sont couverts, parce que c'est
+      justement là que les pannes se découvrent. Le délai et le tarif vous
+      sont annoncés au téléphone, <strong>avant tout déplacement</strong>&nbsp;:
+      rien ne se découvre sur le pas de la porte.</p>
 
     <div class="lp-julien">
       <div class="lp-julien__photo">
@@ -2852,7 +2858,7 @@ def page_ads(dept, ville=None):
 <footer class="lp-foot">
   <div class="container">
     <p><strong>ETS-BZH</strong> — dépannage électrique d'urgence {au_lieu} ({num}),
-      24h/24 et 7j/7. Téléphone&nbsp;: <a href="tel:{tel_lien}">{tel}</a> —
+      {ADS.HORAIRES}. Téléphone&nbsp;: <a href="tel:{tel_lien}">{tel}</a> —
       e-mail&nbsp;: <a href="mailto:{EMAIL}">{EMAIL}</a></p>
     <p class="lp-foot__liens">
       <a href="/mentions-legales/">Mentions légales</a>

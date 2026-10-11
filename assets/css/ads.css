@@ -49,6 +49,10 @@
   --ivoire: #fffbf0;
   --bordure: #dde7ef;
   --bordure-forte: #bed2e0;
+  /* Le trait d'un encadré doit se voir sans lunettes : --bordure-forte
+     (1,56:1 sur blanc) sépare, il n'encadre pas. --cadre tient 3,09:1,
+     le seuil des éléments d'interface. */
+  --cadre: #6b97bd;
 
   --or: #b07400;          /* étoiles : 3,9:1 sur blanc, au-dessus du seuil */
   --ombre: 0 2px 14px rgba(20, 80, 125, .11);
@@ -404,11 +408,28 @@ body { background: #fff; }
 .lp-julien__pied .lp-tel { flex: 1 1 240px; }
 
 /* --------------------------------------------------------------- FAQ */
-.lp-faq { margin-bottom: 10px; }
-.lp-q { padding: 16px 0; border-top: 1px solid var(--bordure); }
-.lp-q:first-child { border-top: none; padding-top: 0; }
-.lp-q h3 { font-size: 1.08rem; margin: 0 0 7px; }
-.lp-q p { margin: 0; font-size: 1rem; }
+/* La FAQ est encadrée : dix questions en texte courant se confondaient avec
+   le reste de la page. Le cadre en fait un bloc qu'on repère en faisant
+   défiler, et le filet jaune du haut le rattache aux autres encadrés. */
+.lp-faq { margin-bottom: 10px; background: #fff;
+          border: 1px solid var(--cadre); border-top: 4px solid var(--jaune);
+          padding: 6px 26px 10px; }
+.lp-q { padding: 18px 0; border-top: 1px solid var(--bordure); }
+.lp-q:first-child { border-top: none; }
+.lp-q h3 { font-size: 1.08rem; margin: 0 0 7px; color: var(--nuit);
+           display: grid; grid-template-columns: 26px 1fr; gap: 8px;
+           align-items: start; }
+/* La puce « ? » tient le rôle d'un marqueur de liste : elle donne le rythme
+   sans que chaque question ait besoin d'un fond propre. */
+.lp-q h3::before { content: "?"; font-size: .95rem; line-height: 20px;
+                   text-align: center; background: var(--jaune);
+                   color: var(--sur-jaune); font-weight: 800;
+                   width: 20px; height: 20px; margin-top: 3px; }
+.lp-q p { margin: 0 0 0 34px; font-size: 1rem; }
+@media (max-width: 560px) {
+  .lp-faq { padding: 4px 16px 8px; }
+  .lp-q p { margin-left: 0; }
+}
 
 /* ------------------------------------------------------------ tarifs */
 .lp-tarif { background: var(--bleu-pale-2); border: 1px solid var(--bordure);
@@ -426,6 +447,9 @@ body { background: #fff; }
 .lp-zones > .container > p { color: var(--gris); margin: 0 0 22px; }
 .lp-zones__liste { list-style: none; margin: 0; padding: 0;
                    columns: 3; column-gap: 32px; }
+/* Quarante-deux communes : au-delà de 1100 px, une quatrième colonne évite
+   une liste de quatorze lignes de haut. */
+@media (min-width: 1100px) { .lp-zones__liste { columns: 4; column-gap: 26px; } }
 .lp-zones__liste li { display: grid; grid-template-columns: 22px 1fr; gap: 9px;
                       align-items: baseline; padding: 8px 0;
                       break-inside: avoid; }

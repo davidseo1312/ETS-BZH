@@ -11,6 +11,13 @@ Tout ce qui est propre à un département — contexte, communes, délais — vi
 ici. La mise en page est dans build.py (page_ads).
 """
 
+# Horaires réels de la ligne Ads. Ils remplacent le « 24h/24 · 7j/7 » qui
+# figurait partout : une amplitude qu'on ne tient pas est une promesse qui se
+# retourne au premier appel du dimanche. Une seule source, substituée dans
+# tous les blocs ({horaires} / {horaires_court}).
+HORAIRES = "du lundi au samedi, de 7h à 22h"
+HORAIRES_COURT = "Lun.–sam. · 7h–22h"
+
 ADS_TEL = "06 20 06 01 96"
 ADS_TEL_LIEN = "+33620060196"
 
@@ -60,10 +67,10 @@ TECHNICIEN = {
     # téléphone, pas une promesse large ». Écrire « sur place sous 2 h » en
     # tête de page contredirait la page elle-même, et engagerait l'entreprise
     # sur chaque appel. « Rapidement » tient la promesse sans la chiffrer.
-    "hero_eyebrow": "Électricien {lieu} · joignable 24h/24",
+    "hero_eyebrow": "Électricien {lieu} · du lundi au samedi, 7h–22h",
     "hero_titre": "Urgence électrique {au_lieu}&nbsp;? "
                   "<strong>Julien se déplace rapidement</strong>, "
-                  "7j/7 et jours fériés.",
+                  "du lundi au samedi, de 7h à 22h.",
     "hero_texte": "Électricien de père en fils, Julien intervient vite&nbsp;: "
                   "panne de courant, disjoncteur qui saute, odeur de brûlé au "
                   "tableau. Le prix est annoncé avant les travaux, toujours.",
@@ -121,6 +128,19 @@ AVIS_SUP = [
      "Sylvie M.", 4),
 ]
 
+# Le premier avis de la page métier Électricité raconte une intervention
+# « un dimanche » : sur ces pages-ci, qui annoncent lundi-samedi, il se
+# contredirait tout seul. Il est donc retouché ici, et ici seulement — la
+# page publique garde le sien. (Contenu d'exemple dans les deux cas.)
+AVIS_REECRITS = {
+    "Panne totale un dimanche, électricien sur place en une heure. Défaut "
+    "trouvé sur un circuit de la cuisine, remis en service le soir même. "
+    "Très rassurant.":
+    "Panne totale un samedi matin, électricien sur place en une heure. Défaut "
+    "trouvé sur un circuit de la cuisine, remis en service dans la journée. "
+    "Très rassurant.",
+}
+
 ETAPES = [
     ("Vous appelez, Julien décroche",
      "Pas un standard, pas un centre d'appels&nbsp;: l'électricien lui-même. "
@@ -149,8 +169,8 @@ ENGAGEMENTS = [
      "Au-delà du dépannage, rien n'est engagé tant que vous n'avez pas "
      "validé. Pas de supplément décidé sans vous."),
     ("La majoration annoncée, jamais subie",
-     "Nuit, dimanche, jour férié&nbsp;: la majoration éventuelle vous est dite "
-     "au téléphone, pas découverte sur la facture."),
+     "Soirée, samedi&nbsp;: la majoration éventuelle vous est dite au "
+     "téléphone, pas découverte sur la facture."),
     ("Si on ne peut rien faire, on le dit",
      "Nous ne facturons pas une réparation inutile. Quand le problème relève "
      "d'un autre métier ou du réseau public, nous vous l'indiquons."),
@@ -199,11 +219,19 @@ FAQ = [
      "coupure sur le réseau public, par exemple — nous vous le disons au "
      "téléphone et nous ne nous déplaçons pas."),
 
-    ("Intervenez-vous la nuit, le week-end et les jours fériés&nbsp;?",
-     "Oui, 24h/24 et 7j/7, toute l'année. Une installation électrique ne "
-     "tombe pas en panne aux heures ouvrables, et un logement sans courant un "
-     "dimanche soir n'attend pas le lundi. La majoration applicable à ces "
-     "créneaux vous est annoncée au téléphone, avant le déplacement."),
+    ("Quels sont vos horaires&nbsp;? Intervenez-vous le soir et le samedi&nbsp;?",
+     "Nous intervenons <strong>du lundi au samedi, de 7h à 22h</strong>, "
+     "samedi compris et jusqu'à 22h en semaine. C'est une amplitude large, "
+     "faite pour les pannes qui arrivent après le travail ou le week-end, "
+     "mais ce n'est pas du 24h/24&nbsp;: nous préférons annoncer des horaires "
+     "que nous tenons plutôt qu'une astreinte permanente que personne "
+     "n'assure vraiment. En dehors de ces heures, laissez un message ou "
+     "remplissez le formulaire&nbsp;: vous êtes rappelé à la première heure. "
+     "La majoration applicable aux soirées et au samedi vous est annoncée au "
+     "téléphone, avant le déplacement. <strong>Si le danger est "
+     "immédiat</strong> — fumée, départ de feu, personne en contact avec "
+     "l'installation —, c'est le 18 ou le 112 qu'il faut appeler, pas un "
+     "électricien."),
 
     ("Êtes-vous assurés&nbsp;?",
      "Oui&nbsp;: responsabilité civile professionnelle et garantie décennale "
@@ -215,7 +243,8 @@ FAQ = [
     ("Intervenez-vous vraiment dans ma commune&nbsp;?",
      "Nous couvrons l'intégralité du département{deptnum}, communes rurales "
      "comprises — pas seulement les grandes villes. Le bloc plus haut détaille "
-     "douze communes, mais la liste n'est pas limitative. Appelez-nous&nbsp;: "
+     "une quarantaine de communes, mais la liste n'est pas limitative. "
+     "Appelez-nous&nbsp;: "
      "nous vous annonçons le délai réel chez vous, qui n'est évidemment pas le "
      "même partout."),
 
@@ -262,8 +291,8 @@ FAQ = [
 GARANTIES = [
     ("C'est lui qui décroche",
      "quand vous appelez le {tel}. Pas de standard, pas de centre d'appels."),
-    ("Intervention rapide",
-     "24h/24 et 7j/7, week-ends et jours fériés compris."),
+    ("Du lundi au samedi, 7h–22h",
+     "soirées et samedi compris. Le créneau vous est annoncé à l'appel."),
     ("Prix annoncé avant les travaux.",
      "Rien n'est engagé sans votre accord."),
     ("Assuré en décennale",
@@ -280,7 +309,7 @@ GARANTIES = [
 # présenté comme « moyenne des avis publiés ici » et non attribué à une
 # plateforme tierce, ce qui serait invérifiable.
 CHIFFRES = [
-    ("24h/24", "joignable, 7j/7"),
+    ("7h–22h", "du lundi au samedi"),
     ("4,8/5", "moyenne des avis publiés ici"),
     ("Père en fils", "artisan électricien"),
     ("Prix annoncé", "avant les travaux"),
@@ -345,8 +374,8 @@ DEPTS = {
     "S'y ajoute l'exposition de la côte&nbsp;: après chaque coup de vent, les "
     "appels de coupure et de surtension arrivent par vagues.",
   "villes": [
-    ("Saint-Brieuc", "Intervention rapide sur toute l'agglomération, de nuit comme de jour."),
-    ("Lannion", "Secteur couvert en continu, y compris la zone technologique."),
+    ("Saint-Brieuc", "Intervention rapide sur toute l'agglomération, du matin à la soirée."),
+    ("Lannion", "Secteur couvert six jours sur sept, zone technologique comprise."),
     ("Dinan", "Bâti ancien&nbsp;: circuits sans terre et tableaux d'origine, fréquents."),
     ("Guingamp", "Logements de centre-ville et parc locatif, interventions courantes."),
     ("Lamballe-Armor", "Pavillonnaire et commerces, dépannage sous quelques heures."),
@@ -369,7 +398,7 @@ DEPTS = {
     "successives, sans repérage et souvent sans terre sur une partie des "
     "circuits.",
   "villes": [
-    ("Brest", "Couverture continue sur toute la métropole, de jour comme de nuit."),
+    ("Brest", "Couverture de toute la métropole, du lundi au samedi."),
     ("Quimper", "Centre ancien et périphérie&nbsp;: interventions quotidiennes."),
     ("Concarneau", "Littoral&nbsp;: coffrets corrodés et circuits extérieurs défaillants."),
     ("Morlaix", "Maisons hautes de centre-ville, installations anciennes par strates."),
@@ -378,7 +407,7 @@ DEPTS = {
     ("Quimperlé", "Secteur couvert en journée et en soirée, délai annoncé à l'appel."),
     ("Plougastel-Daoulas", "Habitat dispersé&nbsp;: liaisons enterrées vers dépendances."),
     ("Guipavas", "Proche Brest&nbsp;: l'un de nos délais les plus courts du département."),
-    ("Le Relecq-Kerhuon", "Résidentiel dense, interventions rapides en semaine comme le week-end."),
+    ("Le Relecq-Kerhuon", "Résidentiel dense, interventions rapides en semaine comme le samedi."),
     ("Crozon", "Presqu'île&nbsp;: résidences secondaires et remises en service saisonnières."),
     ("Carhaix-Plouguer", "Centre Bretagne&nbsp;: installations rurales et puissance insuffisante."),
   ],
@@ -393,11 +422,11 @@ DEPTS = {
     "bailleurs, des agences de gestion et des syndics, avec un compte rendu "
     "écrit à chaque passage.",
   "villes": [
-    ("Rennes", "Le plus gros volume d'interventions&nbsp;: couverture 24h/24 sur toute la ville."),
+    ("Rennes", "Le plus gros volume d'interventions&nbsp;: toute la ville, six jours sur sept."),
     ("Saint-Malo", "Bâti ancien et meublés&nbsp;: circuits sans terre et parc locatif."),
     ("Fougères", "Centre ancien&nbsp;: colonnes montantes vétustes et tableaux à fusibles."),
     ("Vitré", "Résidences et parkings couverts&nbsp;: éclairage de sécurité et parties communes."),
-    ("Cesson-Sévigné", "Résidences récentes, interventions rapides en semaine et le week-end."),
+    ("Cesson-Sévigné", "Résidences récentes, interventions rapides en semaine et le samedi."),
     ("Bruz", "Colocations et logements étudiants&nbsp;: circuits surchargés, disjonctions."),
     ("Redon", "Rez-de-chaussée humides&nbsp;: liaison équipotentielle et terre à reprendre."),
     ("Dinard", "Bord de mer&nbsp;: corrosion des coffrets et des commandes extérieures."),
@@ -417,7 +446,7 @@ DEPTS = {
     "sont les installations rurales anciennes et les manques de puissance qui "
     "dominent.",
   "villes": [
-    ("Vannes", "Couverture continue sur l'agglomération, de jour comme de nuit."),
+    ("Vannes", "Couverture de toute l'agglomération, du lundi au samedi."),
     ("Lorient", "Zone urbaine dense&nbsp;: colonnes anciennes et parties communes."),
     ("Lanester", "Proche estuaire&nbsp;: corrosion des appareillages extérieurs."),
     ("Pontivy", "Centre Bretagne&nbsp;: installations rurales et tableaux d'origine."),
@@ -432,3 +461,273 @@ DEPTS = {
   ],
  },
 }
+
+
+# ---------------------------------------------------------------------------
+# Trente communes de plus par département — quarante-deux en tout.
+#
+# Elles sont déclarées ici, et non dans les listes ci-dessus, pour garder
+# lisible le noyau des douze communes principales : ce sont elles qui portent
+# les avis clients et qui sont citées dans la FAQ. Les trente autres étendent
+# la couverture et reçoivent chacune leur propre page, au même titre.
+#
+# La note locale sert deux fois : ligne du bloc « Zones d'intervention » sur
+# la page départementale, et paragraphe d'accroche de la page de la commune.
+# Elle doit donc dire quelque chose du parc local — sur quarante-deux lignes
+# qui se suivent, un remplissage se voit tout de suite.
+#
+# Codes postaux : à faire vérifier par le client, comme ceux du dessus.
+COMMUNES_SUP = {
+ "22": [
+  ('Langueux', '22360',
+   'Zone commerciale et lotissements récents&nbsp;: ajouts de circuits et tableaux saturés.'),
+  ('Pordic', '22590',
+   'Bourg étendu vers la côte&nbsp;: liaisons enterrées et coffrets de jardin.'),
+  ('Hillion', '22120',
+   'Baie exposée&nbsp;: humidité saline dans les boîtes de dérivation extérieures.'),
+  ('Yffiniac', '22120',
+   "Fond de baie&nbsp;: défauts d'isolement après les grandes marées et les orages."),
+  ('Plédran', '22960',
+   "Pavillonnaire des années 1980, tableaux d'origine arrivés en fin de vie."),
+  ('Quintin', '22800',
+   'Petite cité de caractère&nbsp;: bâti ancien, circuits repris sans repérage.'),
+  ('Binic-Étables-sur-Mer', '22520',
+   'Port et maisons de bord de mer&nbsp;: prises extérieures et éclairage de terrasse.'),
+  ('Pléneuf-Val-André', '22370',
+   'Forte saisonnalité&nbsp;: remises en service de printemps et différentiels fatigués.'),
+  ('Erquy', '22430',
+   'Station balnéaire&nbsp;: coffrets de camping-car, douches extérieures, hublots corrodés.'),
+  ('Saint-Cast-le-Guildo', '22380',
+   "Résidences fermées l'hiver&nbsp;: pannes découvertes à la réouverture."),
+  ('Matignon', '22550',
+   'Bourg rural du Penthièvre&nbsp;: tableaux à fusibles encore en service.'),
+  ('Plancoët', '22130',
+   'Habitat de vallée&nbsp;: terre insuffisante et liaison équipotentielle absente.'),
+  ('Jugon-les-Lacs', '22270',
+   'Maisons anciennes en pierre&nbsp;: pas de terre sur une partie des prises.'),
+  ('Plouha', '22580',
+   'Falaises et vent&nbsp;: antennes, paratonnerres et surtensions après orage.'),
+  ('Tréguier', '22220',
+   'Centre historique protégé&nbsp;: passage de câbles contraint, gaines à reprendre.'),
+  ('Lézardrieux', '22740',
+   'Estuaire du Trieux&nbsp;: coffrets de port et corrosion rapide.'),
+  ('Pleubian', '22610',
+   "Presqu'île Sauvage&nbsp;: habitat dispersé et alimentations de dépendances."),
+  ('Louannec', '22700',
+   'Proche Perros-Guirec&nbsp;: locations saisonnières et compteurs sollicités.'),
+  ('Pleumeur-Bodou', '22560',
+   'Pavillonnaire et gîtes&nbsp;: ajout de circuits et bornes de recharge.'),
+  ('Trébeurden', '22560',
+   'Côte de granit rose&nbsp;: éclairage extérieur et commandes de portail.'),
+  ('Trégastel', '22730',
+   'Résidences de front de mer&nbsp;: embruns dans les appareillages extérieurs.'),
+  ('Plestin-les-Grèves', '22310',
+   'Grèves exposées&nbsp;: reprises après inondation, remise sous tension prudente.'),
+  ('Plouaret', '22420',
+   'Intérieur du Trégor&nbsp;: installations rurales et puissance souvent juste.'),
+  ('Bégard', '22140',
+   'Habitat ancien et exploitations&nbsp;: armoires de bâtiment agricole.'),
+  ('Belle-Isle-en-Terre', '22810',
+   'Vallées encaissées&nbsp;: alimentations longues et chutes de tension.'),
+  ('Callac', '22160',
+   "Centre Bretagne&nbsp;: logements chauffés à l'électrique, circuits surchargés."),
+  ('Rostrenen', '22110',
+   "Bourg rural&nbsp;: tableaux d'origine, différentiel 30&nbsp;mA souvent absent."),
+  ('Guerlédan', '22530',
+   'Autour du lac&nbsp;: gîtes, dépendances et coffrets extérieurs.'),
+  ('Merdrignac', '22230',
+   'Habitat spacieux et dépendances&nbsp;: puissance mal répartie.'),
+  ('Broons', '22250',
+   'Carrefour routier&nbsp;: commerces et locaux professionnels à mettre aux normes.'),
+ ],
+ "29": [
+  ('Plouzané', '29280',
+   'Plateau du Léon&nbsp;: lotissements des années 1970, tableaux à remplacer.'),
+  ('Saint-Renan', '29290',
+   'Bourg en expansion&nbsp;: extensions de maison et circuits ajoutés sans repérage.'),
+  ('Gouesnou', '29850',
+   "Proche zone d'activité&nbsp;: locaux professionnels et éclairage de parking."),
+  ('Bohars', '29820',
+   'Résidentiel calme&nbsp;: installations des années 1980 et prises sans terre.'),
+  ('Plabennec', '29860',
+   'Pavillonnaire et exploitations&nbsp;: armoires de hangar et manque de puissance.'),
+  ('Lesneven', '29260',
+   'Centre-bourg ancien&nbsp;: colonnes montantes et parties communes vétustes.'),
+  ('Lannilis', '29870',
+   'Pays des Abers&nbsp;: habitat dispersé, liaisons enterrées vers dépendances.'),
+  ('Plouguerneau', '29880',
+   'Côte très exposée&nbsp;: corrosion des coffrets et pannes après tempête.'),
+  ('Ploudalmézeau', '29830',
+   "Pays d'Iroise&nbsp;: résidences secondaires et remises en service saisonnières."),
+  ('Landivisiau', '29400',
+   'Bourg agricole&nbsp;: forte puissance, armoires et moteurs triphasés.'),
+  ('Saint-Pol-de-Léon', '29250',
+   "Bâti ancien en pierre&nbsp;: humidité des murs et défauts d'isolement."),
+  ('Roscoff', '29680',
+   'Port et hôtellerie&nbsp;: embruns permanents sur les appareillages extérieurs.'),
+  ('Plouescat', '29430',
+   'Front de mer&nbsp;: différentiels qui sautent après les coups de vent.'),
+  ('Plouigneau', '29610',
+   'Pays de Morlaix&nbsp;: habitat rural et tableaux à fusibles encore en place.'),
+  ('Châteaulin', '29150',
+   "Vallée de l'Aulne&nbsp;: rez-de-chaussée humides et terre à reprendre."),
+  ('Pleyben', '29190',
+   'Bourg rural&nbsp;: chauffage électrique ancien et circuits surchargés.'),
+  ('Le Faou', '29590',
+   'Fond de rade&nbsp;: maisons anciennes et installations posées par strates.'),
+  ('Daoulas', '29460',
+   'Habitat ancien de bourg&nbsp;: pas de terre sur une partie des prises.'),
+  ("Pont-l'Abbé", '29120',
+   'Pays bigouden&nbsp;: parc locatif et petites surfaces à remettre aux normes.'),
+  ('Penmarch', '29760',
+   'Pointe exposée&nbsp;: sel et vent, boîtiers extérieurs à remplacer souvent.'),
+  ('Loctudy', '29750',
+   "Port de plaisance&nbsp;: coffrets de quai et résidences fermées l'hiver."),
+  ('Plonéour-Lanvern', '29720',
+   'Bourg bigouden&nbsp;: maisons des années 1970 et puissance insuffisante.'),
+  ('Audierne', '29770',
+   'Cap Sizun&nbsp;: habitat ancien en bord de mer, corrosion et humidité.'),
+  ('Fouesnant', '29170',
+   'Forte saisonnalité&nbsp;: campings, locations et compteurs très sollicités.'),
+  ('Bénodet', '29950',
+   'Station balnéaire&nbsp;: éclairage extérieur, piscines et locaux techniques.'),
+  ('Pluguffan', '29700',
+   "Proche Quimper&nbsp;: l'un de nos délais les plus courts en Cornouaille."),
+  ('Ergué-Gabéric', '29500',
+   'Périphérie de Quimper&nbsp;: pavillonnaire étendu et bornes de recharge.'),
+  ('Briec', '29510',
+   'Bourg et campagne&nbsp;: longues alimentations et chutes de tension.'),
+  ('Rosporden', '29140',
+   'Étangs et habitat ancien&nbsp;: liaison équipotentielle et terre défaillantes.'),
+  ('Moëlan-sur-Mer', '29350',
+   'Littoral du pays de Quimperlé&nbsp;: rias, mouillages, installations extérieures.'),
+ ],
+ "35": [
+  ('Pacé', '35740',
+   'Commune en forte croissance&nbsp;: logements neufs et ajouts de circuits.'),
+  ('Thorigné-Fouillard', '35235',
+   'Résidentiel récent&nbsp;: différentiels fatigués et bornes de recharge.'),
+  ('Chartres-de-Bretagne', '35131',
+   'Industriel et résidentiel mêlés&nbsp;: locaux pro et parties communes.'),
+  ('Noyal-Châtillon-sur-Seiche', '35230',
+   'Lotissements successifs&nbsp;: tableaux sous-dimensionnés à reprendre.'),
+  ('Vern-sur-Seiche', '35770',
+   'Habitat pavillonnaire&nbsp;: extensions, vérandas et circuits extérieurs.'),
+  ('Acigné', '35690',
+   'Bourg résidentiel&nbsp;: installations des années 1980 en fin de vie.'),
+  ('Le Rheu', '35650',
+   'Collectifs et maisons mitoyennes&nbsp;: colonnes et tableaux de palier.'),
+  ('Mordelles', '35310',
+   'Centre ancien et lotissements&nbsp;: deux parcs, deux types de pannes.'),
+  ('Montgermont', '35760',
+   'Proche Rennes&nbsp;: délai court, interventions en journée et en soirée.'),
+  ('Melesse', '35520',
+   'Nord de Rennes&nbsp;: habitat récent parfois sous garantie, constat écrit systématique.'),
+  ('Liffré', '35340',
+   "Bourg forestier&nbsp;: chauffage électrique et circuits surchargés l'hiver."),
+  ("Saint-Aubin-d'Aubigné", '35250',
+   'Rural périurbain&nbsp;: dépendances alimentées en souterrain.'),
+  ('Châteaugiron', '35410',
+   'Cité médiévale&nbsp;: bâti protégé, passage de câbles contraint.'),
+  ('Pont-Péan', '35131',
+   'Ancien site minier&nbsp;: sols humides et prise de terre à vérifier.'),
+  ('Laillé', '35890',
+   'Habitat dispersé&nbsp;: longues alimentations et chutes de tension.'),
+  ('Guichen', '35580',
+   'Vallée de la Vilaine&nbsp;: rez-de-chaussée inondables, reprise après dégât des eaux.'),
+  ('Bréal-sous-Montfort', '35310',
+   'Bourg en extension&nbsp;: lotissements récents et puissance à revoir.'),
+  ('Montfort-sur-Meu', '35160',
+   'Centre ancien&nbsp;: installations par strates et repérage absent.'),
+  ('Montauban-de-Bretagne', '35360',
+   'Axe routier&nbsp;: commerces, locaux professionnels et enseignes.'),
+  ('Combourg', '35270',
+   'Bâti ancien en pierre&nbsp;: pas de terre sur une partie des circuits.'),
+  ('Dol-de-Bretagne', '35120',
+   "Pays des marais&nbsp;: humidité permanente et défauts d'isolement récurrents."),
+  ('Cancale', '35260',
+   'Port ostréicole&nbsp;: locaux professionnels et appareillages exposés au sel.'),
+  ('Saint-Méloir-des-Ondes', '35350',
+   'Campagne littorale&nbsp;: exploitations et armoires de hangar.'),
+  ('Pleurtuit', '35730',
+   'Proche Dinard&nbsp;: résidences secondaires et remises en service.'),
+  ('Saint-Briac-sur-Mer', '35800',
+   'Front de mer&nbsp;: corrosion des coffrets et commandes de portail.'),
+  ('Tinténiac', '35190',
+   "Canal d'Ille-et-Rance&nbsp;: habitat ancien et dépendances humides."),
+  ('Hédé-Bazouges', '35630',
+   "Petit bourg de caractère&nbsp;: tableaux d'origine encore en service."),
+  ('Argentré-du-Plessis', '35370',
+   'Pays de Vitré&nbsp;: pavillonnaire et extensions à alimenter.'),
+  ('La Guerche-de-Bretagne', '35130',
+   'Bourg-centre rural&nbsp;: tableaux à fusibles et terre insuffisante.'),
+  ('Janzé', '35150',
+   'Habitat et artisanat mêlés&nbsp;: ateliers, triphasé et mises aux normes.'),
+ ],
+ "56": [
+  ('Caudan', '56850',
+   "Zone d'activité et résidentiel&nbsp;: locaux professionnels et éclairage extérieur."),
+  ('Quéven', '56530',
+   'Pavillonnaire étendu&nbsp;: tableaux des années 1980 à remplacer.'),
+  ('Larmor-Plage', '56260',
+   'Front de mer&nbsp;: sel et vent sur les coffrets et les hublots.'),
+  ('Port-Louis', '56290',
+   'Citadelle et bâti ancien&nbsp;: circuits sans terre dans les murs épais.'),
+  ('Riantec', '56670',
+   "Petite mer de Gâvres&nbsp;: humidité et défauts d'isolement."),
+  ('Ploërmel', '56800',
+   'Est du département&nbsp;: bourg-centre, commerces et parc locatif.'),
+  ('Plouay', '56240',
+   'Intérieur du pays&nbsp;: installations rurales et puissance souvent juste.'),
+  ('Inzinzac-Lochrist', '56650',
+   'Vallée du Blavet&nbsp;: habitat ancien et dépendances à alimenter.'),
+  ('Languidic', '56440',
+   'Commune très étendue&nbsp;: longues alimentations et chutes de tension.'),
+  ('Pluvigner', '56330',
+   'Bourg en croissance&nbsp;: logements neufs et bornes de recharge.'),
+  ("Brec'h", '56400',
+   'Habitat dispersé&nbsp;: liaisons enterrées vers garages et ateliers.'),
+  ('Pluneret', '56400',
+   'Proche Auray&nbsp;: délai court, interventions en journée et en soirée.'),
+  ("Crac'h", '56950',
+   "Rivière d'Auray&nbsp;: coffrets de ponton et appareillages exposés."),
+  ('Carnac', '56340',
+   'Très forte saisonnalité&nbsp;: locations, campings et compteurs sollicités.'),
+  ('La Trinité-sur-Mer', '56470',
+   'Port de plaisance&nbsp;: bornes de quai et corrosion permanente.'),
+  ('Plouharnel', '56340',
+   'Dunes et vent&nbsp;: sel dans les boîtes de dérivation extérieures.'),
+  ('Erdeven', '56410',
+   'Résidences secondaires&nbsp;: pannes découvertes à la réouverture.'),
+  ('Belz', '56550',
+   "Ria d'Étel&nbsp;: humidité et différentiels qui ne tiennent plus."),
+  ('Étel', '56410',
+   'Port et bâti serré&nbsp;: installations par strates, repérage absent.'),
+  ('Baden', '56870',
+   "Golfe du Morbihan&nbsp;: maisons de bord d'eau et éclairage de jardin."),
+  ('Le Bono', '56400',
+   'Fond de ria&nbsp;: prise de terre à reprendre et liaison équipotentielle.'),
+  ('Arradon', '56610',
+   'Bord du golfe&nbsp;: résidences spacieuses, circuits dédiés et forte puissance.'),
+  ('Ploeren', '56880',
+   'Périphérie de Vannes&nbsp;: pavillonnaire récent et ajouts de circuits.'),
+  ('Theix-Noyalo', '56450',
+   'Commune étendue&nbsp;: dépendances et alimentations souterraines.'),
+  ('Surzur', '56450',
+   'Entre golfe et Rhuys&nbsp;: habitat récent et portails automatisés.'),
+  ('Saint-Gildas-de-Rhuys', '56730',
+   "Presqu'île exposée&nbsp;: corrosion rapide de tout ce qui est extérieur."),
+  ('Arzon', '56640',
+   'Port-Navalo&nbsp;: forte saisonnalité et remises en service de printemps.'),
+  ('Elven', '56250',
+   'Bourg rural&nbsp;: tableaux à fusibles encore en service.'),
+  ('Questembert', '56230',
+   'Centre ancien&nbsp;: colonnes montantes et parties communes.'),
+  ('Muzillac', '56190',
+   'Proche littoral&nbsp;: résidences secondaires et installations extérieures.'),
+ ],
+}
+
+for _num, _liste in COMMUNES_SUP.items():
+    DEPTS[_num]["villes"] += [(_v, _n) for _v, _cp, _n in _liste]
+    CP.update({_v: _cp for _v, _cp, _n in _liste})

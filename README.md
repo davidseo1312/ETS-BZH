@@ -378,7 +378,7 @@ les 52 pages portent toutes `noindex, nofollow`, aucune page publique ne
 pointe vers l'une d'elles, aucune n'est au sitemap, le numéro du site
 n'apparaît sur aucune page Ads et le numéro Ads sur aucune page publique.
 
-**Un numéro distinct.** Ces 52 pages portent le **06 20 06 01 96**, et lui seul —
+**Un numéro distinct.** Ces 172 pages portent le **06 20 06 01 96**, et lui seul —
 le numéro du site n'y figure nulle part. Tout appel sur ce numéro vient donc
 d'une annonce, sans dépendre du suivi d'appel de la régie. Le formulaire
 transmet en plus un champ masqué `source` (« ADS Électricité Saint-Brieuc
@@ -400,9 +400,10 @@ modèle de fiche métier locale fourni par le client&nbsp;:
    **bloc « Julien, c'est lui qui décroche »**, **trois services numérotés**
    illustrés, « pourquoi nous choisir »,
    les trois étapes, **six avis en piste horizontale**, bloc « Demandez
-   Julien », **FAQ en texte courant** (dix questions), encadré tarifs.
-5. **Zones d'intervention** pleine largeur&nbsp;: les douze communes avec leur
-   code postal, en trois colonnes, chacune liée à sa page.
+   Julien », **FAQ encadrée** (dix questions), encadré tarifs.
+5. **Zones d'intervention** pleine largeur&nbsp;: les quarante-deux communes
+   avec leur code postal, en trois colonnes (quatre au-delà de 1100&nbsp;px),
+   chacune liée à sa propre page.
 6. **CTA final**, pied léger, et barre d'appel fixe en bas sur mobile.
 
 Le menu de l'en-tête ne contient que des **ancres internes**&nbsp;: sur une
@@ -438,7 +439,76 @@ coûte cher en crédibilité.
 **Pas de prix, malgré le modèle.** Le modèle affiche « à partir de 79&nbsp;€ ».
 L'encadré tarifs des pages ETS-BZH garde la place et la fonction, sans
 montant&nbsp;: le tarif se donne au téléphone, une fois la situation connue.
-Contrôlé au build&nbsp;: aucun caractère « € » dans les 52 pages.
+Contrôlé au build&nbsp;: aucun caractère « € » dans les 172 pages.
+
+### Horaires&nbsp;: du lundi au samedi, 7h–22h
+
+Ces pages annonçaient « 24h/24 · 7j/7 · jours fériés compris ». Elles
+annoncent maintenant **du lundi au samedi, de 7h à 22h**, ce qui correspond à
+l'activité réelle. Une amplitude qu'on ne tient pas ne coûte rien tant que
+personne n'appelle&nbsp;; elle coûte un client, un avis et parfois une
+réclamation au premier dimanche matin.
+
+Une seule source&nbsp;: `HORAIRES` et `HORAIRES_COURT` dans `tools/ads.py`.
+Onze emplacements en dépendaient — titre de l'onglet, méta-description, œil
+d'accroche, titre du bandeau, bande de chiffres, liste des garanties, carte
+d'appel, intertitre du corps, paragraphe de présentation, FAQ, pied de page.
+Contrôlé au build&nbsp;: plus aucun « 7j/7 », « jours fériés » ni « dimanche »
+dans les 172 pages, et le seul « 24h/24 » restant est celui de la FAQ, qui
+dit précisément que ce n'en est pas.
+
+**La FAQ assume le choix** plutôt que de le taire&nbsp;: « ce n'est pas du
+24h/24&nbsp;: nous préférons annoncer des horaires que nous tenons plutôt
+qu'une astreinte permanente que personne n'assure vraiment ». Un visiteur
+venu d'une annonce compare&nbsp;; mieux vaut qu'il lise la raison chez nous
+que la déception ailleurs. La même réponse renvoie au **18 ou au 112** en cas
+de danger immédiat — c'est la seule réponse responsable, et elle ne coûte
+aucun appel&nbsp;: personne n'appelle un électricien quand il y a le feu.
+
+**Deux conséquences ailleurs dans la page.** Le premier avis repris de la
+page métier racontait une intervention « un dimanche »&nbsp;: il est retouché
+pour ces pages, et pour elles seules (`AVIS_REECRITS`, `tools/ads.py`). Les
+notes de communes qui promettaient « de nuit comme de jour » ou « 24h/24 »
+sont réécrites.
+
+⚠ **Le site public, lui, annonce toujours 24h/24 et 7j/7.** Ce n'est pas un
+oubli&nbsp;: les deux réseaux sont séparés, avec deux numéros distincts, et
+le changement n'a été demandé que pour les pages payantes. Si l'astreinte
+permanente n'existe pas non plus pour la ligne publique, il faut aligner
+`tools/build.py` et `tools/data.py` — une vingtaine d'emplacements.
+
+### Quarante-deux communes par département
+
+Chaque département affiche **42 communes** au lieu de douze, et chacune a
+**sa propre page** à l'adresse `/electricite-urgence-<commune>-<num>/`&nbsp;:
+172 pages Ads en tout (4 départementales + 168 communales).
+
+Les douze premières restent déclarées dans `DEPTS`&nbsp;: ce sont elles qui
+portent les avis clients et que cite la FAQ. Les trente suivantes sont dans
+`COMMUNES_SUP` (`tools/ads.py`), avec code postal et note locale, et sont
+ajoutées aux listes au chargement du module. Deux fichiers, une seule
+structure en sortie.
+
+**La note locale sert deux fois**&nbsp;: ligne du bloc « Zones d'intervention »
+sur la page départementale, et paragraphe d'accroche de la page de la
+commune. Elle dit donc quelque chose du parc local — presqu'île exposée,
+bourg rural à tableaux à fusibles, lotissement des années 1980 — plutôt que
+de meubler. Sur quarante-deux lignes qui se suivent, le remplissage se voit.
+
+**Les avis tournent.** Les quarante-deux pages d'un même département
+citaient les six mêmes communes sous leurs témoignages. La liste pivote
+désormais selon le rang de la commune&nbsp;: chaque page attribue ses avis à
+des voisines différentes.
+
+⚠ **Ces pages restent des pages de gabarit.** Mesuré sur le texte rendu,
+deux pages communales du même département se ressemblent à **98&nbsp;%**&nbsp;:
+seuls changent le nom, le code postal, la note locale et l'attribution des
+avis. Ce n'est pas un problème de référencement — elles sont en `noindex` et
+hors sitemap —, mais la régie peut considérer un réseau de 168 pages quasi
+identiques comme une destination de faible valeur. Si le volume d'achat le
+justifie, il faut étoffer les notes locales commune par commune&nbsp;; c'est
+le seul endroit où du contenu réellement différent peut entrer sans
+inventer.
 
 ### Palette propre aux pages Ads
 
@@ -650,7 +720,7 @@ prix, puis le risque, puis le passage à l'acte.
 | --- | --- |
 | 1 | *Vous allez mettre trois jours* → créneau annoncé, priorités expliquées |
 | 2-3 | *Je vais me faire avoir sur le prix* → prix avant la route, déplacement facturé ou non |
-| 4 | *Personne ne vient le dimanche* → 24h/24, majoration annoncée |
+| 4 | *Vous êtes fermés quand j'ai besoin de vous* → lun.–sam. 7h–22h, pourquoi pas 24h/24, et le 18 en cas de danger |
 | 5 | *Et si ça se passe mal&nbsp;?* → RC pro, décennale, attestations sur demande |
 | 6 | *Vous ne venez pas chez moi* → département entier, communes rurales comprises |
 | 7 | *Qu'est-ce que je fais maintenant&nbsp;?* → consignes de sécurité réelles |
@@ -664,10 +734,17 @@ facturé s'il n'est suivi de rien&nbsp;» rassure davantage qu'un
 «&nbsp;c'est gratuit&nbsp;» que personne ne croit&nbsp;; et la question sur
 la commune porte le numéro du département de la page.
 
-**La première est ouverte par défaut**&nbsp;: un accordéon entièrement fermé
-se lit comme une page vide, surtout sur mobile. Une relance sous le bloc
-renvoie vers l'appel. Le «&nbsp;+&nbsp;» passe au jaune d'action, comme tout
-ce qui invite à cliquer.
+**La FAQ est encadrée.** En texte courant, dix questions se confondaient
+avec le reste de la colonne&nbsp;: on les faisait défiler sans les voir. Le
+cadre en fait un bloc qu'on repère, et le filet jaune de 4&nbsp;px au-dessus
+le rattache aux autres encadrés de la page. Chaque question porte une
+pastille «&nbsp;?&nbsp;» jaune qui tient le rôle d'un marqueur de liste et
+donne le rythme, sans que chaque question ait besoin d'un fond propre.
+
+Le trait du cadre est en `--cadre` (`#6b97bd`), pas en `--bordure-forte`
+(`#bed2e0`)&nbsp;: ce dernier tient **1,56:1** sur blanc, ce qui sépare mais
+n'encadre pas. `--cadre` tient **3,09:1**, le seuil des éléments d'interface
+— un encadré qu'on ne distingue pas n'encadre rien.
 
 Pas de `FAQPage` en données structurées&nbsp;: ces pages sont en `noindex`, le
 balisage n'y servirait à rien.
