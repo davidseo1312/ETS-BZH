@@ -269,6 +269,18 @@ body { background: #fff; }
 
 .lp-card--form { padding: 0; border: none; }
 .lp-card--form .form-card { box-shadow: var(--ombre); }
+/* QUATRIÈME occurrence de la même collision : « .lp-card p » (0,1,1) et
+   « .form-card__head p » (0,1,1) ont la même spécificité, et ads.css est
+   chargée après style.css — c'est donc la règle des pages Ads qui gagnait.
+   Le sous-titre du formulaire passait en gris sur le bandeau bleu : 1,8:1,
+   invisible. On reprend la main en scopant sur la carte. */
+.lp-card .form-card__head p { color: #fff; }
+/* Le bandeau du formulaire virait au cyan #0d7cad, seul reste de la palette
+   du site public sur ces pages — et son extrémité claire ne tenait que
+   4,66:1 sous du blanc. Repris dans les bleus des pages Ads : 8,49 à 6,58:1. */
+.lp-card .form-card__head {
+  background: linear-gradient(115deg, var(--nuit) 0%, var(--bleu-clair) 100%);
+}
 .lp-assur__logos { display: flex; flex-wrap: wrap; align-items: center;
                    gap: 16px 20px; margin-top: 16px; }
 
@@ -493,8 +505,6 @@ body { background: #fff; }
 .lp-foot { background: var(--bleu-pale-2); border-top: 1px solid var(--bordure);
            padding: 26px 0 34px; font-size: .95rem; color: var(--gris); }
 .lp-foot a { color: var(--bleu); }
-.lp-foot__liens { margin: 10px 0 0; }
-.lp-foot__liens a { margin-right: 18px; }
 
 /* ----------------------------------- barre d'appel mobile (le pouce) */
 .ads-mob { position: fixed; left: 0; right: 0; bottom: 0; z-index: 70;

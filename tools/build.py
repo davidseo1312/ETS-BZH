@@ -2858,10 +2858,14 @@ def page_ads(dept, ville=None):
     <p><strong>ETS-BZH</strong> — dépannage électrique d'urgence {au_lieu} ({num}),
       {ADS.HORAIRES}. Téléphone&nbsp;: <a href="tel:{tel_lien}">{tel}</a> —
       e-mail&nbsp;: <a href="mailto:{EMAIL}">{EMAIL}</a></p>
-    <p class="lp-foot__liens">
-      <a href="/mentions-legales/">Mentions légales</a>
-      <a href="/politique-de-confidentialite/">Politique de confidentialité</a>
-      <a href="/cgu/">CGU</a></p>
+    <!-- Les trois liens légaux (mentions légales, politique de
+         confidentialité, CGU) ont été retirés du pied sur demande du client :
+         sur une page payante, tout lien sortant est une fuite.
+         ⚠ Les mentions légales sont obligatoires (LCEN art. 6-III) et la
+         page collecte des données personnelles. Le seul lien conservé est
+         celui de la case de consentement du formulaire : sans lui, le
+         consentement n'est pas éclairé (RGPD art. 7 et 13) et la régie peut
+         refuser la destination. Pour tout remettre, rétablir ce bloc. -->
   </div>
 </footer>
 

@@ -411,7 +411,8 @@ modèle de fiche métier locale fourni par le client&nbsp;:
 
 Le menu de l'en-tête ne contient que des **ancres internes**&nbsp;: sur une
 page payante, un lien sortant est une fuite. Les seuls liens hors page sont
-les trois liens légaux du pied et les communes voisines.
+les communes voisines et celui de la case de consentement du formulaire
+(voir «&nbsp;⚠ Liens légaux retirés&nbsp;» plus bas).
 
 **Les avis défilent horizontalement**, à la main. Le glisser et le balayage
 sont natifs — c'est du débordement horizontal avec accrochage (`scroll-snap`),
@@ -709,8 +710,52 @@ Deux retraits possibles sans défaire la page&nbsp;:
   et `["accroche"]`, puis dans `ETAPES[0]` et les trois reprises de
   `page_ads`. Un `grep -rn "Julien" tools/` les liste toutes.
 
-Aucune navigation, aucun lien vers le site hormis les trois liens légaux du
-pied&nbsp;: sur une page payante, chaque lien sortant est une fuite.
+Aucune navigation, aucun lien vers le site hormis celui de la case de
+consentement&nbsp;: sur une page payante, chaque lien sortant est une fuite.
+
+### Le sous-titre du formulaire, et la collision qui revient
+
+Le sous-titre du formulaire de rappel — «&nbsp;Deux champs. Nous vous
+rappelons pour fixer un créneau.&nbsp;» — s'affichait en **gris sur le
+bandeau bleu**&nbsp;: 1,8:1, illisible, alors que `style.css` le déclare
+bien en blanc.
+
+C'est la **quatrième occurrence de la même collision** dans ce projet.
+`.form-card__head p` et `.lp-card p` ont exactement la même spécificité
+(0,1,1), et `ads.css` est chargée après `style.css`&nbsp;: à égalité, c'est
+la dernière déclarée qui gagne. La règle générique des cartes Ads venait
+donc repeindre le texte d'un composant imbriqué. Corrigé en scopant sur la
+carte — `.lp-card .form-card__head p` (0,2,1).
+
+**Règle à retenir pour la suite**&nbsp;: dans `ads.css`, toute règle qui vise
+un élément nu (`p`, `h2`, `a`) sous une classe de conteneur atteindra aussi
+les composants imbriqués dans ce conteneur. Les trois précédentes
+concernaient `.lp-urg__t`, `.lp-urg__s` et les étapes.
+
+Le bandeau du formulaire a changé de dégradé au passage&nbsp;: il finissait
+sur le cyan `#0d7cad` du site public — seul reste de cette palette sur les
+pages Ads, et 4,66:1 seulement sous du blanc. Il va maintenant de `--nuit` à
+`--bleu-clair`&nbsp;: **8,49 à 6,58:1**, mesuré 6,88:1 sur les pixels rendus.
+
+### ⚠ Liens légaux retirés
+
+Les trois liens du pied — mentions légales, politique de confidentialité,
+CGU — ont été **retirés des 172 pages payantes** à la demande du client, pour
+la raison qui précède. Le site public les conserve.
+
+**Un seul a été gardé**&nbsp;: celui de la case de consentement du
+formulaire. Il n'est pas décoratif. La page collecte un numéro de téléphone
+et une commune&nbsp;; sans l'information correspondante au moment de la
+collecte, le consentement n'est pas éclairé (RGPD art. 7 et 13), et la régie
+peut refuser la destination — ce qui coûterait bien plus cher que le clic
+qu'on cherche à retenir.
+
+**Ce qui reste exposé.** Les mentions légales sont obligatoires pour tout
+site accessible au public (LCEN art. 6-III). Depuis une page payante, un
+visiteur n'a désormais aucun chemin vers elles. Le risque est assumé par le
+client, pas réglé. Pour revenir en arrière&nbsp;: le bloc est commenté à son
+emplacement exact dans `page_ads` (`tools/build.py`), avec les deux règles
+CSS correspondantes à rétablir dans `ads.css` (`.lp-foot__liens`).
 
 **Aucun prix affiché.** Ces pages n'avancent aucun montant. Un chiffre posé
 sur une page payante est lu comme un engagement, et il se retourne contre
