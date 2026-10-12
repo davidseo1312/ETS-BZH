@@ -378,7 +378,7 @@ les 52 pages portent toutes `noindex, nofollow`, aucune page publique ne
 pointe vers l'une d'elles, aucune n'est au sitemap, le numéro du site
 n'apparaît sur aucune page Ads et le numéro Ads sur aucune page publique.
 
-**Un numéro distinct.** Ces 172 pages portent le **06 20 06 01 96**, et lui seul —
+**Un numéro distinct.** Ces 172 pages portent le **02 20 06 01 96**, et lui seul —
 le numéro du site n'y figure nulle part. Tout appel sur ce numéro vient donc
 d'une annonce, sans dépendre du suivi d'appel de la régie. Le formulaire
 transmet en plus un champ masqué `source` (« ADS Électricité Saint-Brieuc

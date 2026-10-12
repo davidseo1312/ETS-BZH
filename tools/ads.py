@@ -18,8 +18,8 @@ ici. La mise en page est dans build.py (page_ads).
 HORAIRES = "du lundi au samedi, de 7h à 22h"
 HORAIRES_COURT = "Lun.–sam. · 7h–22h"
 
-ADS_TEL = "06 20 06 01 96"
-ADS_TEL_LIEN = "+33620060196"
+ADS_TEL = "02 20 06 01 96"
+ADS_TEL_LIEN = "+33220060196"
 
 # Six motifs d'appel, communs aux quatre pages : ce sont des descriptions de
 # prestation, pas du contenu local. La différenciation entre pages se fait par
